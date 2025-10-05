@@ -99,8 +99,8 @@ header {
 .nav-menu ul li a {
   text-decoration: none;
   color: var(--text);
-  font-size: clamp(2rem, 10vw, 3.5rem); 
-  font-weight: 300; 
+  font-size: clamp(1rem, 8vw, 2rem); 
+  font-weight: 500; 
   line-height: 1.5; 
   text-transform: lowercase;
   transition: color 0.3s;
@@ -403,8 +403,13 @@ footer {
 /*                   Portfolio                      */
 /* ============================================== */
 
+.hero-portfolio {
+  font-size: clamp(2.5rem, 8vw, 4rem); 
+  font-weight: bold;
+  max-width: 1280px;
+  color: var(--hover);
+}
 .filter-container {
-  text-align: center;
   margin: 2rem 0;
 }
 
