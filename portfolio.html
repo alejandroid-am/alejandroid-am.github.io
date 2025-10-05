@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Portfolio — Alejandro A.M.</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body class="min-h-full flex flex-col">
 
@@ -43,8 +44,37 @@
   <main class="flex-grow">
     <section class="hero">
       <div class="container">
-        <h1 class="hero-title">Work in progress</h1>
-        <p>This portfolio section will be available soon.</p>
+        <h1 class="hero-title hero-secondary">Portfolio</h1>
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="identity">Visual Identity</button>
+          <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+          <button class="filter-btn" data-filter="illustration">Illustration</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <a href="project-1.html" class="portfolio-item" data-category="identity">
+            <img src="https://via.placeholder.com/500x400" alt="Project Name 1">
+            <div class="overlay">
+              <h3>Project Name 1</h3>
+              <p>Visual Identity</p>
+            </div>
+          </a>
+          <a href="project-2.html" class="portfolio-item" data-category="ux-ui">
+            <img src="https://via.placeholder.com/500x400" alt="Project Name 2">
+            <div class="overlay">
+              <h3>Project Name 2</h3>
+              <p>UX/UI</p>
+            </div>
+          </a>
+          <a href="project-3.html" class="portfolio-item" data-category="illustration">
+            <img src="https://via.placeholder.com/500x400" alt="Project Name 3">
+            <div class="overlay">
+              <h3>Project Name 3</h3>
+              <p>Illustration</p>
+            </div>
+          </a>
+          </div>
       </div>
     </section>
   </main>
@@ -59,6 +89,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/button-menu.js"></script>
 </body>
 </html>
