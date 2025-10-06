@@ -1,6 +1,3 @@
-// Portfolio filter
-// js/portfolio.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll(".filter-btn");
   const portfolioItems = document.querySelectorAll(".portfolio-item");
@@ -15,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Filtrar los elementos del portfolio
       portfolioItems.forEach(item => {
-        if (filter === "all" || item.dataset.category === filter) {
+        // CAMBIO CLAVE: Usamos .includes() en lugar de ===
+        // Esto comprueba si la lista de categorías del item contiene la categoría del filtro.
+        if (filter === "all" || item.dataset.category.includes(filter)) {
           item.style.display = "block";
         } else {
           item.style.display = "none";

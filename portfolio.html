@@ -1,95 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Portfolio — Alejandro A.M.</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-</head>
-<body class="min-h-full flex flex-col">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio — Alejandro A.M.</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.ico"
+    />
+  </head>
+  <body class="min-h-full flex flex-col">
+    <header>
+      <div class="container header-content">
+        <a href="index.html" class="logo">alejandro a.m.</a>
 
-  <header>
-    <div class="container header-content">
-      <a href="index.html" class="logo">alejandro a.m.</a>
-      
-      <nav id="desktop-menu" class="desktop-nav">
-        <ul>
-          <li><a href="about.html">about</a></li>
-          <li><a href="portfolio.html">portfolio</a></li>
-          <li><a href="contact.html">contact</a></li>
-        </ul>
-      </nav>
-      
-      <button id="menu-btn" class="menu-btn">
-        <svg id="icon-menu" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="icon-close" class="icon hidden-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-      
-      <nav id="menu" class="nav-menu">
-        <ul>
-          <li><a href="about.html">about</a></li>
-          <li><a href="portfolio.html">portfolio</a></li>
-          <li><a href="contact.html">contact</a></li>
-        </ul>
-      </nav>
-      
-    </div>
-  </header>
+        <nav id="desktop-menu" class="desktop-nav">
+          <ul>
+            <li><a href="about.html">about</a></li>
+            <li><a href="portfolio.html">portfolio</a></li>
+            <li><a href="contact.html">contact</a></li>
+          </ul>
+        </nav>
 
-  <main class="flex-grow">
-    <section class="hero">
-      <div class="container">
-        <h1 class="hero-title hero-portfolio">Portfolio</h1>
-        <div class="filter-container">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="identity">Visual Identity</button>
-          <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
-          <button class="filter-btn" data-filter="illustration">Illustration</button>
-        </div>
+        <button id="menu-btn" class="menu-btn">
+          <svg
+            id="icon-menu"
+            class="icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            id="icon-close"
+            class="icon hidden-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
 
-        <div class="portfolio-grid">
-          <a href="projects/project1.html" class="portfolio-item" data-category="identity">
-            <img src="https://placecats.com/500/400" alt="Project Name 1">
-            <div class="overlay">
-              <h3>Project Name 1</h3>
-              <p>Visual Identity</p>
-            </div>
-          </a>
-          <a href="project-2.html" class="portfolio-item" data-category="ux-ui">
-            <img src="https://placecats.com/500/400" alt="Project Name 2">
-            <div class="overlay">
-              <h3>Project Name 2</h3>
-              <p>UX/UI</p>
-            </div>
-          </a>
-          <a href="project-3.html" class="portfolio-item" data-category="illustration">
-            <img src="https://placecats.com/500/400" alt="Project Name 3">
-            <div class="overlay">
-              <h3>Project Name 3</h3>
-              <p>Illustration</p>
-            </div>
-          </a>
+        <nav id="menu" class="nav-menu">
+          <ul>
+            <li><a href="about.html">about</a></li>
+            <li><a href="portfolio.html">portfolio</a></li>
+            <li><a href="contact.html">contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero-title hero-portfolio">Portfolio</h1>
+          <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="identity">
+              Visual Identity
+            </button>
+            <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+            <button class="filter-btn" data-filter="illustration">
+              Illustration
+            </button>
           </div>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container footer-container">
-      <div>
-        <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a>
-        <a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank">LinkedIn</a>
-      </div>
-      <a href="assets/img/CV/CV-Alejandro-Amaro-Mendoza.pdf">Resume / CV</a>
-    </div>
-  </footer>
+          <div class="portfolio-grid">
+            <a
+              href="#"
+              class="portfolio-item"
+              data-category="identity ux-ui"
+            >
+              <img
+                src="assets/img/bedizen-view.png"
+                alt="BEDiZEN logotype and branding"
+              />
+              <div class="overlay">
+                <h3>BEDiZEN</h3>
+                <p>Visual Identity - UX/UI</p>
+                <p class="project-description">
+                  Una frase concisa que resume el objetivo de este proyecto.
+                </p>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="portfolio-item"
+              data-category="ux-ui identity"
+            >
+              <img
+                src="assets/img/spin_view.png"
+                alt="phone in the ground with Spin Apps UI"
+              />
+              <div class="overlay">
+                <h3>Spin App</h3>
+                <p>UX/UI - Visual Identity</p>
+                <p class="project-description">
+                  Una frase concisa que resume el objetivo de este proyecto.
+                </p>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="portfolio-item"
+              data-category="illustration"
+            >
+              <img
+                src="assets/img/spinny_view.png"
+                alt="phone in the ground with Spin Apps UI"
+              />
+              <div class="overlay">
+                <h3>Spin Mascot</h3>
+                <p>Illustration</p>
+                <p class="project-description">
+                  Una frase concisa que resume el objetivo de este proyecto.
+                </p>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="portfolio-item"
+              data-category="ux-ui identity"
+            >
+              <img
+                src="assets/img/workpics-view.png"
+                alt="phone showin th workpics logo app"
+              />
+              <div class="overlay">
+                <h3>WorkPics</h3>
+                <p>UX/UI - Visual Identity</p>
+                <p class="project-description">
+                  Una frase concisa que resume el objetivo de este proyecto.
+                </p>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="portfolio-item"
+              data-category="illustration"
+            >
+              <img
+                src="assets/img/cineville_view.png"
+                alt="phone showin th workpics logo app"
+              />
+              <div class="overlay">
+                <h3>Cinéville</h3>
+                <p>Illustration</p>
+                <p class="project-description">
+                  Una frase concisa que resume el objetivo de este proyecto.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <script src="js/filter.js"></script>
-  <script src="js/button-menu.js"></script>
-</body>
+    <footer>
+      <div class="container footer-container">
+        <div>
+          <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a>
+          <a
+            href="https://www.linkedin.com/in/alejandro-a-mendoza/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+        <a href="assets/img/CV/CV-Alejandro-Amaro-Mendoza.pdf">Resume / CV</a>
+      </div>
+    </footer>
+
+    <script src="js/filter.js"></script>
+    <script src="js/button-menu.js"></script>
+  </body>
 </html>
