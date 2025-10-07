@@ -1,6 +1,6 @@
 /*
 =================================================================
-  Homepage Word Carousel
+  Homepage Word Interaction
 -----------------------------------------------------------------
   * Handles the interactive word-swapping feature on the homepage.
 =================================================================
