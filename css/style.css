@@ -1,14 +1,24 @@
+/*
+=================================================================
+  1. Global Styles & Variables
+-----------------------------------------------------------------
+  * Base styles, variables, and global container.
+=================================================================
+*/
 :root {
   --bg: #111111;
   --text: #FAFAFA;
   --hover: #FFEE00;
 }
 
-/* ===== Global ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll; /* Prevents layout shift when scrollbar appears */
 }
 
 body {
@@ -21,18 +31,35 @@ body {
   flex-direction: column;
 }
 
-/* ===== Container ===== */
 .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* ===== Header ===== */
+main {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  align-items: flex-start; /* Default alignment for content */
+}
+
+/* Specific alignment for homepage hero */
+.home-page main {
+  align-items: center;
+}
+
+/*
+=================================================================
+  2. Header & Navigation
+-----------------------------------------------------------------
+  * Logo, desktop navigation, and mobile menu styles.
+=================================================================
+*/
 header {
-  padding: 1.5rem 0; 
+  padding: 1.5rem 0;
   position: relative;
-  z-index: 100;
+ /* z-index: 100;*/
 }
 
 .header-content {
@@ -47,15 +74,36 @@ header {
   color: var(--text);
 }
 
-.hidden-icon {
-    display: none;
+/* --- Desktop Navigation --- */
+.desktop-nav {
+  display: none; /* Hidden on mobile */
 }
 
+.desktop-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+  color: var(--hover);
+}
+
+/* --- Mobile Menu --- */
 .menu-btn {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 150;
+  z-index: 150; /* Above the overlay */
 }
 
 .icon {
@@ -64,79 +112,106 @@ header {
   color: var(--text);
 }
 
-.desktop-nav {
+.hidden-icon {
   display: none;
 }
 
-/* ===== Nav menu (Overlay Fullscreen) ===== */
 .nav-menu {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 100vw; 
+  width: 100vw;
   background-color: var(--bg);
   display: flex;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   transform: translateX(100%);
   transition: transform 0.4s ease-in-out;
   z-index: 50;
-}
-
-.nav-menu ul {
-  list-style: none;
-  display: block; 
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu ul li {
-  margin: 1.5rem 0; 
-}
-
-.nav-menu ul li a {
-  text-decoration: none;
-  color: var(--text);
-  font-size: clamp(1rem, 8vw, 2rem); 
-  font-weight: 500; 
-  line-height: 1.5; 
-  text-transform: lowercase;
-  transition: color 0.3s;
-}
-
-.nav-menu ul li a:hover {
-  color: var(--hover);
 }
 
 .nav-menu.open {
   transform: translateX(0);
 }
 
-/* ===== Hero ===== */
-main {
-  flex-grow: 1; 
-  display: flex;
-  align-items: center;
-  width: 100%;
+.nav-menu ul {
+  list-style: none;
+  text-align: center;
 }
 
+.nav-menu li {
+  margin: 1.5rem 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: clamp(1rem, 8vw, 2rem);
+  font-weight: 500;
+  text-transform: lowercase;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--hover);
+}
+
+
+/*
+=================================================================
+  3. Footer
+-----------------------------------------------------------------
+*/
+footer {
+  padding: 1.5rem 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.footer-container a {
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s;
+}
+
+.footer-container a:hover {
+  color: var(--hover);
+}
+
+.footer-container div a:first-child {
+  margin-right: 1.5rem;
+}
+
+/*
+=================================================================
+  4. Page Styles
+-----------------------------------------------------------------
+  * Specific styles for Homepage, About, Portfolio, etc.
+=================================================================
+*/
+
+/* --- 4.1 Homepage --- */
 .hero {
   width: 100%;
-  padding: 2rem 1.5rem 4rem 1.5rem; 
-  text-align: left;
+  padding: 2rem 1.5rem 4rem 1.5rem;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 5rem); 
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: bold;
-  line-height: 1.1; 
+  line-height: 1.1;
   max-width: 1280px;
   margin: 0 auto;
 }
 
-/* MOBILE STYLES */
 .line-wrapper {
   font-size: clamp(2.8rem, 9vw, 5.5rem);
   line-height: 1.2;
@@ -155,12 +230,10 @@ main {
   color: var(--hover);
   font-weight: bold;
   min-width: 220px;
-  cursor: pointer; /* Add pointer to show it's interactive */
+  cursor: pointer;
 }
 
 .carousel ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -175,240 +248,108 @@ main {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: none; /* Fast transition for "solid" effect */
+  transition: none; /* Solid effect */
 }
 
 .carousel li.is-visible {
   opacity: 1;
 }
 
-/* ===== Footer ===== */
-footer {
-  padding: 1.5rem 0;
-}
-
-.footer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    text-align: center;
-    gap: 0.5rem; 
-}
-
-.footer-container a {
-  text-decoration: none;
-  color: var(--text);
-  transition: color 0.3s;
-}
-
-.footer-container div a:first-child {
-    margin-right: 1.5rem;
-}
-
-/* ===== DESKTOP STYLES ===== */
-@media (min-width: 768px) {
-  .menu-btn {
-    display: none;
-  }
-  
-  .desktop-nav {
-    display: block;
-  }
-  
-  .desktop-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  }
-
-  .desktop-nav ul li a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 1rem; 
-    font-weight: 500;
-    text-transform: lowercase;
-    transition: color 0.3s;
-  }
-
-  .desktop-nav ul li a:hover {
-    color: var(--hover);
-  }
-
-  .nav-menu {
-    transform: translateX(100%) !important; 
-    pointer-events: none; 
-  }
-  
-  .hero-title {
-    font-size: clamp(6rem, 12vw, 10rem);
-  }
-  
-  .line-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem; /* Aumentado para más espacio */
-    font-size: clamp(4rem, 7vw, 5.5rem); /* Aumentado para texto más grande */
-    margin-bottom: 0;
-  }
-
-  .static-text {
-    display: inline;
-  }
-
- .carousel {
-    min-width: 300px; 
-    height: 6rem; /* Aumentado para contener el nuevo tamaño de texto */
-  }
-
-  .carousel li {
-    white-space: nowrap; 
-  }
-
-  .footer-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    gap: 0;
-  }
-
-  .footer-container a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 1rem; 
-    transition: color 0.3s;
-  }
-  .footer-container a:hover {
-    color: var(--hover);
-  }
-
-  .footer-container div {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-  }
-
-  .footer-container div a:first-child {
-      margin-right: 2rem; 
-  }
-}
-/* =================================== */
-/*            Error 404                */
-/* =================================== */
-
-.hero-secondary {
-  font-size: clamp(2.5rem, 8vw, 4rem); 
-  font-weight: bold;
-  max-width: 1280px;
-  color: var(--hover);
-  margin-top: -10rem;
-}
-
-/* =================================== */
-/* Styles for the new "About Me" section */
-/* =================================== */
+/* --- 4.2 About Page --- */
 .hero-about {
-  font-size: clamp(2.5rem, 8vw, 4rem); 
-  font-weight: bold;
-  max-width: 1280px;
   color: var(--hover);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: bold;
 }
+
 .about-content {
   margin-top: 1rem;
 }
+
 .intro-text {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   margin-bottom: 2rem;
 }
-/*  fun facts */
+
 .fun-facts {
-  font-size: 2rem; 
-  margin-top: 3rem; 
-  margin-bottom: 1.5rem; 
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
   color: var(--hover);
 }
+
 .fun-facts-grid {
   display: grid;
-  grid-template-columns: 1fr; /* A single column on mobile devices */
-  gap: 2rem; /* Space between grid items */
+  grid-template-columns: 1fr;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-/* Title for each fact item */
 .fact-item h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: var(--hover); 
-}
-
-/* =================================== */
-/* Desktop Styles for the "About Me" section */
-/* =================================== */
-@media (min-width: 768px) {
-  /* The grid switches to two columns on larger screens */
-  .fun-facts-grid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-/* ============================================== */
-/*                   Contact                      */
-/* ============================================== */
-    .contact-form {
-      max-width: 600px;
-      padding: 2rem;
-    }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid var(--text);
-      background-color: var(--bg);
-      color: var(--text);
-    }
-    .form-group textarea {
-      min-height: 150px;
-    }
-    .submit-btn {
-      display: inline-block;
-      padding: 0.75rem 2rem;
-      border: 1px solid var(--hover);
-      background-color: transparent;
-      color: var(--hover);
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      cursor: pointer;
-      transition: none;
-    }
-    .submit-btn:hover {
-      background-color: var(--hover);
-      color: var(--bg);
-    }
-    .hero-form {
-      margin-top: 0;
-    }
-
-
-/* ============================================== */
-/*                   Portfolio                      */
-/* ============================================== */
-
-.hero-portfolio {
-  font-size: clamp(2.5rem, 8vw, 4rem); 
-  font-weight: bold;
-  max-width: 1280px;
   color: var(--hover);
 }
+
+/* --- 4.3 Contact Page --- */
+.hero-form {
+  margin-top: 0;
+}
+
+.contact-form {
+  max-width: 600px;
+  padding: 2rem 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--text);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.form-group textarea {
+  min-height: 150px;
+}
+
+.submit-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--hover);
+  background-color: transparent;
+  color: var(--hover);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: var(--hover);
+  color: var(--bg);
+}
+
+
+/* --- 4.4 Portfolio Page --- */
+.hero-portfolio {
+  color: var(--hover);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: bold;
+}
+
 .filter-container {
   margin: 2rem 0;
 }
@@ -418,9 +359,9 @@ footer {
   border: 1px solid var(--text);
   color: var(--text);
   padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   cursor: pointer;
-  transition: none;
+  transition: all 0.3s;
   font-family: 'Poppins', sans-serif;
   text-transform: lowercase;
   font-weight: 500;
@@ -459,8 +400,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Fondo negro con 90% de opacidad para un look sólido */
-  background-color: rgba(17, 17, 17, 0.9); 
+  background-color: var(--bg);
   color: var(--text);
   display: flex;
   flex-direction: column;
@@ -469,7 +409,7 @@ footer {
   text-align: center;
   padding: 1rem;
   opacity: 0;
-  transition: none; /* EFECTO SÓLIDO: sin transición */
+  transition: opacity 0.4s;
 }
 
 .portfolio-item:hover .overlay {
@@ -477,7 +417,7 @@ footer {
 }
 
 .portfolio-item:hover img {
-  transform: scale(1.1); /* Mantenemos el ligero zoom para dinamismo */
+  transform: scale(1.1);
 }
 
 .portfolio-item h3 {
@@ -488,12 +428,369 @@ footer {
 }
 
 .portfolio-item p {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin: 0;
+  padding: 0 1rem;
 }
 
-.portfolio-item .project-description {
+
+/* --- 4.5 Case Study Page --- */
+.case-study-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  width: 100%;
+}
+
+.breadcrumbs {
   font-size: 0.9rem;
-  font-weight: 300; /* Texto más ligero */
+  margin-bottom: 2rem;
+  color: #a0a0a0;
+}
+.breadcrumbs a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.breadcrumbs a:hover {
+  color: var(--hover);
+}
+.breadcrumbs span {
+  font-weight: 500;
+  color: var(--hover);
+}
+
+.project-header {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: bold;
+    color: var(--hover);
+    margin-bottom: 0.5rem;
+}
+
+.project-subtitle {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.project-details {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  justify-content: flex-start;
+  gap: 2rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #c0c0c0;
+}
+.project-details strong {
+  color: var(--text);
+}
+
+.project-hero-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 4rem;
+}
+
+.case-study-content section {
+  margin-bottom: 4rem;
+}
+
+.case-study-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--hover);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--hover);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.case-study-content h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.case-study-content p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/*
+=================================================================
+  5. Components
+-----------------------------------------------------------------
+  * Reusable components like galleries and modals.
+=================================================================
+*/
+
+/* --- 5.1 Before & After Gallery --- */
+.before-after-gallery {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.before-after-gallery figure {
   margin: 0;
-  padding: 0 1rem; /* Evita que el texto llegue a los bordes */
+}
+
+.before-after-gallery img {
+  width: 100%;
+  display: block;
+}
+
+.before-after-gallery figcaption {
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  background-color: #1a1a1a;
+  text-align: center;
+}
+
+/* --- 5.2 Document Carousel --- */
+.document-carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid #333;
+}
+
+.document-carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    width: 100%;
+    flex-shrink: 0;
+    display: none; /* Hide slides by default */
+}
+
+.carousel-slide.active-slide {
+    display: block; /* Show active slide */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(17, 17, 17, 0.7);
+    color: var(--text);
+    border: 1px solid var(--text);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: var(--hover);
+    color: var(--bg);
+    border-color: var(--hover);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.prev-btn { left: 1rem; }
+.next-btn { right: 1rem; }
+
+.carousel-counter {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(17, 17, 17, 0.7);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* --- 5.3 Bento Gallery --- */
+.bento-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bento-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- 5.4 Lightbox (Image Viewer) --- */
+.bento-gallery a {
+  display: block;
+  cursor: pointer;
+  height: 100%;
+}
+
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 85%;
+  max-height: 75vh;
+  animation: zoom 0.6s;
+}
+
+.lightbox-caption {
+  margin: 1rem auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  animation: zoom 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.9)}
+  to {transform: scale(1)}
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: var(--hover);
+  text-decoration: none;
+}
+
+.lightbox-prev, .lightbox-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+.lightbox-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.lightbox-prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+  background-color: var(--hover);
+  color: var(--bg);
+}
+
+
+/*
+=================================================================
+  6. Desktop & Tablet Styles (Media Queries)
+-----------------------------------------------------------------
+*/
+@media (min-width: 768px) {
+
+  /* --- Header & Nav --- */
+  .menu-btn {
+    display: none;
+  }
+  .desktop-nav {
+    display: block;
+  }
+  .nav-menu {
+    transform: translateX(100%) !important;
+    pointer-events: none;
+  }
+
+  /* --- Footer --- */
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-container div a:first-child {
+      margin-right: 2rem;
+  }
+
+  /* --- Homepage --- */
+  .hero-title {
+    font-size: clamp(6rem, 12vw, 10rem);
+  }
+  .line-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: clamp(4rem, 7vw, 5.5rem);
+    margin-bottom: 0;
+  }
+  .static-text {
+    display: inline;
+  }
+  .carousel {
+    min-width: 300px;
+    height: 6rem;
+  }
+  .carousel li {
+    white-space: nowrap;
+  }
+
+  /* --- About Page --- */
+  .fun-facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --- Components --- */
+  .before-after-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bento-gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .bento-item[style*="grid-column"] {
+    grid-column: span 2 !important;
+  }
+  .bento-item[style*="grid-row"] {
+    grid-row: span 2 !important;
+  }
 }

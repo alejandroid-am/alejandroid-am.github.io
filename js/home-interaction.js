@@ -1,62 +1,51 @@
-// js/home.js
+/*
+=================================================================
+  Homepage Word Carousel
+-----------------------------------------------------------------
+  * Handles the interactive word-swapping feature on the homepage.
+=================================================================
+*/
 document.addEventListener("DOMContentLoaded", () => {
-  /* ---------------------------
-     CAROUSEL (palabras coherentes)
-     --------------------------- */
   const transformo = document.querySelector("#carousel-transformo");
   const en = document.querySelector("#carousel-en");
   const para = document.querySelector("#carousel-para");
 
+  // Exit if carousels aren't on the page
   if (!transformo || !en || !para) {
-    return; // Si no están los carruseles, no se ejecuta el resto.
+    return;
   }
 
-  const requireBothMatches = false;
+  // Predefined valid word combinations
   const combos = [
     { design: "interfaces", made: "enhance usability", driven: "curiosity" },
     { design: "interfaces", made: "simplify journeys", driven: "creativity" },
     { design: "interfaces", made: "build trust", driven: "empathy" },
     { design: "visuals", made: "elevate brands", driven: "storytelling" },
-    { design: "visuals", made: "elevate brands", driven: "creativity" },
-    { design: "visuals", made: "build trust", driven: "creativity" },
-    { design: "visuals", made: "build trust", driven: "empathy" },
-    { design: "experiences", made: "simplify journeys", driven: "curiosity" },
     { design: "experiences", made: "simplify journeys", driven: "empathy" },
-    { design: "experiences", made: "enhance usability", driven: "storytelling" },
-    { design: "experiences", made: "build trust", driven: "creativity" },
-    { design: "identities", made: "elevate brands", driven: "creativity" },
-    { design: "identities", made: "elevate brands", driven: "storytelling" },
-    { design: "identities", made: "build trust", driven: "storytelling" },
-    { design: "identities", made: "build trust", driven: "empathy" }
+    { design: "identities", made: "elevate brands", driven: "creativity" }
+    // Add more combos as needed
   ];
 
-  function getActive(el) {
+  // Helper to get the current active word in a carousel
+  const getActive = (el) => {
     const node = el.querySelector("li.is-visible");
     return node ? node.textContent.trim() : null;
-  }
+  };
 
-  function setActive(el, value) {
-    const lis = Array.from(el.querySelectorAll("li"));
-    let found = false;
-    lis.forEach(li => {
-      if (li.textContent.trim() === value) {
-        li.classList.add("is-visible");
-        found = true;
-      } else {
-        li.classList.remove("is-visible");
-      }
+  // Helper to set a new active word in a carousel
+  const setActive = (el, value) => {
+    Array.from(el.querySelectorAll("li")).forEach(li => {
+      li.classList.toggle("is-visible", li.textContent.trim() === value);
     });
-    if (!found && lis.length) {
-      lis[0].classList.add("is-visible");
-    }
-  }
+  };
 
-  function changeWord(carouselId) {
+  const changeWord = (carouselId) => {
     const activeDesign = getActive(transformo);
     const activeMade = getActive(en);
     const activeDriven = getActive(para);
     const pool = [];
 
+    // Find valid new words based on the other two active words
     combos.forEach(c => {
       let score = 0;
       if (carouselId === "carousel-transformo") {
@@ -78,28 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (pool.length === 0) return;
 
-    if (requireBothMatches) {
-      const strict = pool.filter(p => p.score === 2);
-      if (strict.length > 0) {
-        const uniqueStrict = [...new Set(strict.map(p => p.value))];
-        const newWord = uniqueStrict[Math.floor(Math.random() * uniqueStrict.length)];
-        setActive(document.querySelector(`#${carouselId}`), newWord);
-      }
-      return;
-    }
-
+    // Pick a random word from the best possible matches
     const maxScore = Math.max(...pool.map(p => p.score));
-    const top = pool.filter(p => p.score === maxScore).map(p => p.value);
-    const uniqueTop = [...new Set(top)];
-    const newWord = uniqueTop[Math.floor(Math.random() * uniqueTop.length)];
+    const topChoices = [...new Set(pool.filter(p => p.score === maxScore).map(p => p.value))];
+    const newWord = topChoices[Math.floor(Math.random() * topChoices.length)];
+
     setActive(document.querySelector(`#${carouselId}`), newWord);
-  }
+  };
 
-  const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  const eventType = isMobile ? "click" : "mouseenter";
+  const eventType = "ontouchstart" in window ? "click" : "mouseenter";
 
-  [["carousel-transformo", transformo], ["carousel-en", en], ["carousel-para", para]]
-    .forEach(([id, el]) => {
-      if (el) el.addEventListener(eventType, () => changeWord(id));
-    });
+  [
+    ["carousel-transformo", transformo],
+    ["carousel-en", en],
+    ["carousel-para", para]
+  ].forEach(([id, el]) => {
+    if (el) el.addEventListener(eventType, () => changeWord(id));
+  });
 });
