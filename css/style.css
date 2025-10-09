@@ -261,6 +261,48 @@ footer {
   font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: bold;
 }
+.about-header-container {
+  display: flex;
+  flex-direction: column; /* Apilado en móvil por defecto */
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-header-container .hero-about {
+  text-align: center; /* Centra el "Hello, again." en móvil */
+}
+
+.about-image-container img {
+  width: 100%;
+  max-width: 180px; /* Tamaño del círculo */
+  height: 180px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* En pantallas más grandes, lo ponemos lado a lado */
+@media (min-width: 768px) {
+  .about-header-container {
+    display: flex; /* Aseguramos que sea flex */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem; /* Añadimos un espacio mínimo entre título y foto */
+    margin-bottom: 3rem;
+  }
+
+  .about-header-container .hero-about {
+    text-align: left;
+    white-space: nowrap; /* La clave: Prohíbe que el texto se divida */
+    flex-shrink: 0;      /* Evita que el contenedor del título se encoja */
+  }
+
+  .about-image-container img {
+    margin: 0;
+    flex-shrink: 1; /* Permite que la foto se encoja si es necesario */
+  }
+}
 
 .about-content {
   margin-top: 1rem;
@@ -907,8 +949,8 @@ button,
 
 /* 3. Hover style */
 .custom-cursor.hover {
-  width: 30px;  /* turns bigger */
-  height: 30px;
+  width: 50px;  /* turns bigger */
+  height: 50px;
   /* Opcional: podrías cambiarle el fondo si no te gusta el efecto de inversión aquí */
    /*background-color: var(--hover); */
 }
@@ -944,4 +986,36 @@ button,
   .lightbox-close {
     cursor: auto !important; 
   }
+}
+/*
+=================================================================
+  10. Back to Top Button
+-----------------------------------------------------------------
+*/
+.back-to-top-btn {
+  position: fixed;   /* fixed on the screen */
+  bottom: 20px;      /* 20px from down */
+  right: 20px;        /* 20px desde la izquierda */
+  display: none;     /* Oculto por defecto, JS lo mostrará */
+  
+  width: 50px;
+  height: 50px;
+  background-color: var(--hover);
+  color: var(--bg);
+  
+  text-decoration: none;
+  border-radius: 50%; /* Lo hace circular */
+  text-align: center;
+  
+  font-size: 32px;
+  line-height: 48px; /* Centra el ">" verticalmente */
+  font-weight: 900;
+  
+  transform: rotate(-90deg); /* Apunta el ">" hacia arriba */
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 500;
+}
+
+.back-to-top-btn:hover {
+  transform: rotate(-90deg) scale(1.1); /* Efecto de zoom al pasar el ratón */
 }
