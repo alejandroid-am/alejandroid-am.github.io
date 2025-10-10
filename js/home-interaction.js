@@ -3,6 +3,7 @@
   Homepage Word Interaction
 -----------------------------------------------------------------
   * Handles the interactive word-swapping feature on the homepage.
+  * Now uses data-keys to be translation-proof.
 =================================================================
 */
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,12 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const en = document.querySelector("#carousel-en");
   const para = document.querySelector("#carousel-para");
 
-  // Exit if carousels aren't on the page
   if (!transformo || !en || !para) {
     return;
   }
 
-  // Predefined valid word combinations
   const combos = [
     { design: "interfaces", made: "enhance usability", driven: "curiosity" },
     { design: "interfaces", made: "simplify journeys", driven: "creativity" },
@@ -23,19 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
     { design: "visuals", made: "elevate brands", driven: "storytelling" },
     { design: "experiences", made: "simplify journeys", driven: "empathy" },
     { design: "identities", made: "elevate brands", driven: "creativity" }
-    // Add more combos as needed
   ];
 
-  // Helper to get the current active word in a carousel
+  // UPDATED FUNCTION: Now reads the data-key attribute
   const getActive = (el) => {
     const node = el.querySelector("li.is-visible");
-    return node ? node.textContent.trim() : null;
+    return node ? node.dataset.key : null;
   };
 
-  // Helper to set a new active word in a carousel
+  // UPDATED FUNCTION: Now matches against the data-key attribute
   const setActive = (el, value) => {
     Array.from(el.querySelectorAll("li")).forEach(li => {
-      li.classList.toggle("is-visible", li.textContent.trim() === value);
+      li.classList.toggle("is-visible", li.dataset.key === value);
     });
   };
 
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeDriven = getActive(para);
     const pool = [];
 
-    // Find valid new words based on the other two active words
     combos.forEach(c => {
       let score = 0;
       if (carouselId === "carousel-transformo") {
@@ -67,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (pool.length === 0) return;
 
-    // Pick a random word from the best possible matches
     const maxScore = Math.max(...pool.map(p => p.score));
     const topChoices = [...new Set(pool.filter(p => p.score === maxScore).map(p => p.value))];
     const newWord = topChoices[Math.floor(Math.random() * topChoices.length)];
