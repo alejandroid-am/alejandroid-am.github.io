@@ -1071,3 +1071,71 @@ button,
 .back-to-top-btn:hover {
   transform: rotate(-90deg) scale(1.1); /* Efecto de zoom al pasar el ratón */
 }
+
+/*
+=================================================================
+  9. WorkPics Color Palette Styles
+-----------------------------------------------------------------
+*/
+.color-palette-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+
+  border-radius: 8px;
+}
+
+.color-palette-title {
+  text-align: center;
+  color: var(--text); /* Use existing text color variable */
+  margin-bottom: 1.5rem;
+}
+
+.color-palette-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.color-item {
+  flex-basis: 100px; /* Base width for each item */
+}
+
+.color-block {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 0.5rem auto; /* Center block, add bottom margin */
+  border-radius: 4px;
+}
+
+/* Specific background colors */
+.color-block-white {
+  background-color: #F5F5F5;
+  border: 1px solid #555; /* Add border for visibility against light backgrounds */
+}
+
+.color-block-blue {
+  background-color: #4300FF;
+}
+
+.color-block-green {
+  background-color: #08CB00;
+}
+
+.color-block-orange {
+  background-color: #FF6600;
+}
+
+.color-hex {
+  font-size: 0.9rem;
+  color: #ccc; /* Lighter text color for hex codes */
+  margin: 0;
+}
+
+.color-desc {
+  font-size: 0.8rem;
+  color: #aaa; /* Even lighter text color for descriptions */
+  margin: 0;
+}
