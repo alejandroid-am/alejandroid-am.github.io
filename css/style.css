@@ -1144,20 +1144,42 @@ button,
   10. Bedizen Comparison version development
 -----------------------------------------------------------------
 */
-/*  V1 vs V2 */
+/* --- Estilos para la comparación de versiones (Bedizen) --- */
+
 .version-comparison {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
 
+@media (min-width: 768px) {
+  .version-comparison {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .version-card {
-  background: rgba(255, 255, 255, 0.05); 
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #1d1d1d; 
+  border: 1px solid #222222;
   padding: 1.5rem;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.version-desc {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+.version-desc .submit-btn {
+  margin-top: auto; 
+  align-self: flex-start;
+  display: inline-block;
+
 }
 
 .version-header {
@@ -1167,54 +1189,27 @@ button,
   margin-bottom: 1rem;
 }
 
-.version-header h4 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
 .badge {
-  font-size: 0.7rem;
+  background-color: #eee;
+  color: var(--bg);
   padding: 4px 8px;
-  border-radius: 20px;
-  background: #eee;
-  color: #333;
+  border-radius: 4px;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
   font-weight: bold;
 }
 
 .badge.new {
-  background: #ff4d4d; 
+  background-color: #ff4d4d; 
   color: white;
 }
 
 .project-img-shadow {
   width: 100%;
-  height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   margin-bottom: 1.5rem;
-  display: block;
 }
-
-.version-desc h5 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
-  color: #888; /* Ajustar según tu tema */
-}
-
-.version-desc ul {
-  padding-left: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.version-desc li {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-
 /* Responsive for mobile */
 @media (max-width: 768px) {
   .version-comparison {
