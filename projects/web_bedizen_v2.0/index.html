@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/projects/web_bedizen_v2.0/dist/output.css" rel="stylesheet">
-    <link href="/projects/web_bedizen_v2.0/assets/css/output.css" rel="stylesheet">
+    <link href="/assets/css/output.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -15,130 +14,141 @@
 <body class="pt-2 lg:pt-5 pb-15 lg:pb-0">
     <!---------------- HEADER ---------------->
     <header class="relative container mx-auto  lg:px-2 lg:py-6">
+        <!-------------------MOBILE NAV BAR-------------------->
         <nav class="lg:hidden fixed bottom-0 right-0 left-0 font-medium ">
             <div>
                 <ul class="grid grid-cols-4 bottom-0 right-0  bg-secondary ">
-                    <li class="p-2 bg-white hover:bg-primary hover:text-secondary">
-                            <a href="#">
+                    <li class="group p-2 border border-gray-400 border-t-0 border-l-0 bg-white hover:bg-primary">
+                            <a href="#" class="block w-full h-full">
                                 <div class="flex justify-center" >
-                                    <img class="size-8" src="assets/icons/bedizen_icone_classique_nr.svg" alt="BEDiZEN Logo">
+                                    <img class="size-8 brightness-100 invert-0 group-hover:brightness-0 group-hover:invert" src="assets/icons/bedizen_icone_classique_nr.svg" alt="BEDiZEN Logo">
                                 </div>
                             </a>
                         </li>
-                    <li class="p-2 hover:bg-primary hover:text-secondary border-t border-gray-400">
-                            <a href="a-propos-de-nous.html">
+                    <li class=" group p-2 hover:bg-primary hover:text-secondary border-t border-gray-400">
+                            <a href="a-propos-de-nous.html" class="block w-full h-full ">
                                 <div class="flex justify-center" >
-                                    <img class="size-8" src="/assets/icons/icon_about_us_1.svg" alt="">
+                                    <img class="size-8 brightness-100 invert-0 group-hover:brightness-0 group-hover:invert" src="/assets/icons/icon_about_us_1.svg" alt="">
                                 </div>
                             </a>
                         </li>
-                        <li class="p-2   hover:bg-primary hover:text-secondary border-t border-gray-400">
-                            <a href="a-propos-de-nous.html">
+                        <li class="group p-2 hover:bg-primary hover:text-secondary border-t border-gray-400">
+                            <a href="a-propos-de-nous.html" class="block w-full h-full">
                                 <div class="flex justify-center" >
-                                    <img class="size-8" src="/assets/icons/icon_services.svg" alt="">
+                                    <img class="size-8 brightness-100 invert-0 group-hover:brightness-0 group-hover:invert" src="/assets/icons/icon_services.svg" alt="">
                                 </div>
                             </a>
                         </li>
-                        <li class="p-2   hover:bg-primary hover:text-secondary border-t border-gray-400">
-                            <a href="a-propos-de-nous.html">
+                        <li class="group p-2 hover:bg-primary hover:text-secondary border-t border-gray-400">
+                            <a href="a-propos-de-nous.html" class="block w-full h-full">
                                 <div class="flex justify-center" >
-                                    <img class="size-8" src="/assets/icons/icon_contact.svg" alt="">
+                                    <img class="size-8 brightness-100 invert-0 group-hover:brightness-0 group-hover:invert" src="/assets/icons/icon_contact.svg" alt="">
                                 </div>
                             </a>
                         </li>
                 </ul>
             </div>
         </nav>
+            <!-------------------DESKTOP NAV BAR-------------------->
         <nav class="hidden lg:block fixed lg:fixed lg:top-0 right-0 left-0">
-            <div class="bg-white">
+            <div class="bg-secondary">
                 <ul class="font-medium grid lg:grid-cols-4">
-                    <li class="p-2 border border-gray-400 lg:border-b-0 hover:bg-primary hover:text-secondary">
-                        <a href="#">
+                    <li class="p-2 border border-gray-400 lg:text-primary font-bold bg-white lg:border-b-0 hover:bg-primary hover:text-secondary">
+                        <a href="#" class="block w-full h-full ">
                             <div class="ml-2">Home</div>
                             <!--<div><img src="assets/icons/logotype_black.svg" alt="BEDiZEN Logo"></div>-->
                         </a>
                     </li>
-                    <li class="p-2 border border-gray-400 bg-secondary hover:bg-primary hover:text-secondary">
-                        <a href="a-propos-de-nous.html">
+                    <li class="p-2 border border-l-0 lg:text-gray-600 border-gray-400 hover:bg-primary hover:text-secondary">
+                        <a href="a-propos-de-nous.html" class="block w-full h-full ">
                             <div class="ml-2" >A propos de nous</div>
                         </a>
                     </li>
-                    <li class="p-2 border border-gray-400 bg-secondary hover:bg-primary hover:text-secondary">
-                        <a href="a-propos-de-nous.html">
+                    <li class="p-2 border border-l-0 lg:text-gray-600 border-gray-400 hover:bg-primary hover:text-secondary">
+                        <a href="#" class="block w-full h-full">
                             <div class="ml-2" >Nos Services</div>
                         </a>
                     </li>
-                    <li class="p-2 border border-gray-400 bg-secondary hover:bg-primary hover:text-secondary">
-                        <a href="a-propos-de-nous.html">
+                    <li class="p-2 border border-l-0 lg:text-gray-600 border-gray-400 hover:bg-primary hover:text-secondary">
+                        <a href="contact.html" class="block w-full h-full ">
                             <div class="ml-2" >Contact</div>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
-        <!---------------- HERO ---------------->
-        <img src="assets/icons/logotype_black.svg" alt="BEDiZEN Logo">
-        <h1 class="m-4 text-2xl font-extrabold lg:text-5xl lg:font-extrabold lg:col-start-0 text-center col-span-2 lg:col-span-4 ">Plus que de la technologie,<br> nous créons des <span class="text-accent">expériences.</span></h1>
     </header>
+    <!---------------- HERO ---------------->
+    <!-- using tailwinds -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <img class="lg:col-span-4" src="assets/icons/logotype_black.svg" alt="BEDiZEN Logo">
+        <h1 class="lg:col-span-4 text-3xl md:text-4xl lg:text-5xl font-extrabold text-center py-6">Plus que de la technologie,<br> nous créons des <span class="text-accent">expériences.</span></h1>
+    </div>
 
     <!---------------- INTRODUCTION ---------------->
-    <main class="px-2 py-4">
-        <section class="introduction">
-            <h2 class="text-xl font-bold text-center"><span class="text-accent" >Au-delà</span> du digital</h2>
-            <p>Chez BEDiZEN, nous redéfinissons l’interaction entre les marques et leurs clients. Grâce à la <span
+    <main class="px-0 py-0 lg:px-0 lg:py-0">
+        <section class="introduction grid grid-cols-1 lg:grid-cols-4 gap-0 mb-0">
+            <h2 class="lg:col-span-4 text-3xl lg:text-4xl font-bold text-center p-6 "><span class="text-accent" >Au-delà</span> du digital</h2>
+            <p class="text-xl leading-relaxed text-justify p-6 lg:col-start-2 lg:col-span-2 ">Chez BEDiZEN, nous redéfinissons l'interaction entre les marques et leurs clients. Grâce à la <span
                     class="text-accent">Réalité Augmentée</span>, aux <span class="text-accent">modèles 3D</span> interactifs
                 et
                 aux expériences immersives, nous transformons votre catalogue en un univers vivant, accessible partout,
                 à
                 tout moment.</p>
-            <ul>
-                <li>
-                    <p><span class="text-accentt">Permettez</span> à vos clients de tester vos produits en temps réel.</p>
+            <ul class="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-0">
+                <li class="col-span-1 p-6 border border-gray-400 border-l-0 flex items-center justify-center text-center hover:bg-primary hover:text-secondary ">
+                    <p><span class="text-accent font-semibold">Permettez</span> à vos clients de tester vos produits en temps réel.</p>
                 </li>
-                <li>
-                    <p><span class="text-accent">Engagez</span> votre audience avec du contenu interactif.</p>
+                <li class="col-span-1 p-6 border border-gray-400  border-l-0 flex items-center justify-center text-center hover:bg-primary hover:text-secondary ">
+                    <p><span class="text-accent font-semibold">Engagez</span> votre audience avec du contenu interactif.</p>
                 </li>
-                <li>
-                    <p><span class="text-accent">Mettez</span> en scène vos produits comme jamais auparavant.</p>
+                <li class="col-span-1 p-6 border border-gray-400  border-l-0 flex items-center justify-center text-center hover:bg-primary hover:text-secondary ">
+                    <p><span class="text-accent font-semibold">Mettez</span> en scène vos produits comme jamais auparavant.</p>
+                </li>
+                <li class="col-span-1 p-6 border border-gray-400  border-l-0 flex items-center justify-center text-center hover:bg-primary hover:text-secondary ">
+                    <p><span class="text-accent font-semibold">Transformez</span> l'expérience d'achat en une aventure immersive.</p>
                 </li>
             </ul>
         </section>
         <!---------------- SERVICES ---------------->
-        <section >
-            <h2 class="text-2xl font-bold text-center">Nos services</h2>
-            <ul>
-                <li>
-                    <h3 class="text-xl font-bold">Web <span class="text-accent">AR</span> pour e-commerce</h3>
-                    <video src="assets/videos/Web-ar.mp4" autoplay loop muted playsinline width="400" height="400" poster="assets/videos/filters-ar-poster.jpg"></video>
-                    <div>
-                        <p>Proposez des expériences de Réalité Augmentée pour projeter vos produits directement chez vos
-                            clients. En un clic, la caméra du smartphone ou de la tablette de votre utilisateur s’active
-                            pour lui permettre de visualiser vos produits dans son environnement !</p>
-                            <a class="btn" href="#">Découvrir la Web AR</a>
+        <section class="mt-3">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center p-6">Nos services</h2>
+            <ul class="grid grid-cols-1 lg:grid-cols-4 gap-0">
+                <li class="lg:col-span-4 bg-white overflow-hidden border border-gray-400">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 p-0">
+                        <div class="flex items-center justify-center border-r border-gray-400">
+                            <video src="assets/videos/Web-ar.mp4" autoplay loop muted playsinline class="w-full h-auto" poster="assets/videos/filters-ar-poster.jpg"></video>
+                        </div>
+                        <div class="flex flex-col justify-center p-6">
+                            <h3 class="text-2xl lg:text-3xl font-bold mb-4">Web <span class="text-accent">AR</span> pour e-commerce</h3>
+                            <p class="text-gray-700 mb-6">Proposez des expériences de Réalité Augmentée pour projeter vos produits directement chez vos clients. En un clic, la caméra du smartphone ou de la tablette de votre utilisateur s'active pour lui permettre de visualiser vos produits dans son environnement !</p>
+                            <a class="btn underline self-start font-bold text-accent text-xl" href="#">Découvrir la Web AR > </a>
+                        </div>
                     </div>
                 </li>
-                <li id="3d-model">
-                    <h3 class="text-xl font-bold">Numérisation <span class="text-accent">3D</span> de produits</h3>
-                    <video src="assets/videos/lunettes-coeur-rouge.mp4" autoplay loop muted playsinline width="400" height="400" poster="assets/videos/filters-ar-poster.jpg"></video>
-                    <div>
-                        <p>Transformez votre catalogue en modèles 3D interactifs, prêts pour des expériences immersives.
-                            Essayage virtuel, filtres pour réseaux sociaux... Offrez à vos clients une nouvelle façon de
-                            découvrir vos produits, sous tous les angles et directement depuis leur navigateur.</p>
-                            <a class="btn" href="#">Découvrir la Numérisation 3D</a>
+                <li id="3d-model" class="lg:col-span-4 bg-white overflow-hidden border border-gray-400 border-t-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 p-0">
+                        <div class="flex items-center justify-center border-r border-gray-400">
+                            <video src="assets/videos/lunettes-coeur-rouge.mp4" autoplay loop muted playsinline class="w-full h-auto" poster="assets/videos/filters-ar-poster.jpg"></video>
+                        </div>
+                        <div class="flex flex-col justify-center p-6">
+                            <h3 class="text-2xl lg:text-3xl font-bold mb-4">Numérisation <span class="text-accent">3D</span> de produits</h3>
+                            <p class="text-gray-700 mb-6">Transformez votre catalogue en modèles 3D interactifs, prêts pour des expériences immersives. Essayage virtuel, filtres pour réseaux sociaux... Offrez à vos clients une nouvelle façon de découvrir vos produits, sous tous les angles et directement depuis leur navigateur.</p>
+                            <a class="btn underline self-start font-bold text-accent text-xl" href="#">Découvrir la Numérisation 3D ></a>
+                        </div>
                     </div>
                 </li>
-                <li>
-                    <h3 class="text-xl font-bold">Filtres <span class="text-accent">AR</span> pour les Réseaux Sociaux</h3>
-                    <video src="assets/videos/filtre-sm.mp4" autoplay loop muted playsinline width="400" height="400" poster="assets/videos/filters-ar-poster.jpg"></video>
-                    <div>
-                        <p>Gagnez en notoriété en adaptant l’expérience Web ARsur vos réseaux sociaux – Instagram;
-                            TikTok; Snapchat, et atteignez un maximum de reach. Adapter votre expérience en Réalité
-                            Augmentée sur les ré
-                            seaux sociaux est la garantie de créer des campagnes au potentiel
-                            toujours plus virales.</p>
-                        <a class="btn" href="#">Découvrir les Filtres AR</a>
+                <li class="lg:col-span-4 bg-white overflow-hidden border border-gray-400 border-t-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 p-0">
+                        <div class="flex items-center justify-center border-r border-gray-400">
+                            <video src="assets/videos/filtre-sm.mp4" autoplay loop muted playsinline class="w-full h-auto" poster="assets/videos/filters-ar-poster.jpg"></video>
+                        </div>
+                        <div class="flex flex-col justify-center p-6">
+                            <h3 class="text-2xl lg:text-3xl font-bold mb-4">Filtres <span class="text-accent">AR</span> pour les Réseaux Sociaux</h3>
+                            <p class="text-gray-700 mb-6">Gagnez en notoriété en adaptant l'expérience Web AR sur vos réseaux sociaux – Instagram, TikTok, Snapchat, et atteignez un maximum de reach. Adapter votre expérience en Réalité Augmentée sur les réseaux sociaux est la garantie de créer des campagnes au potentiel toujours plus virales.</p>
+                            <a class="btn underline self-start font-bold text-accent text-xl" href="#">Découvrir les Filtres AR ></a>
+                        </div>
                     </div>
-                    
                 </li>
             </ul>
 
@@ -146,30 +156,32 @@
 
     </main>
     <!---------------- FOOTER ---------------->
-    <footer class="bg-primary text-secondary right-0 left-0">
-        <div class="footer-content">
+    <footer class="bg-primary text-secondary right-0 left-0 mt-0">
+        <div class="footer-content grid grid-cols-1 lg:grid-cols-4 gap-0">
 
-            <ul class="footer-links">
-                <li><a href="#services">Terms & Conditions</a></li>
-                <li><a href="#about">Données Personnelles</a></li>
-                <li><a href="#contact">Mentions Légales</a></li>
+            <ul class="footer-links border border-gray-400 p-6 space-y-2">
+                <li><a href="#services" class="hover:text-accent transition-colors">Terms & Conditions</a></li>
+                <li><a href="#about" class="hover:text-accent transition-colors">Données Personnelles</a></li>
+                <li><a href="#contact" class="hover:text-accent transition-colors">Mentions Légales</a></li>
             </ul>
-            <ul class="footer-links">
-                <li><a href="#services">Support Clients</a></li>
-                <li><a href="#about">Contact</a></li>
-                <li><a href="#contact">FAQ</a></li>
+            <ul class="footer-links border border-gray-400 border-l-0 p-6 space-y-2">
+                <li><a href="#services" class="hover:text-accent transition-colors">Support Clients</a></li>
+                <li><a href="#about" class="hover:text-accent transition-colors">Contact</a></li>
+                <li><a href="#contact" class="hover:text-accent transition-colors">FAQ</a></li>
             </ul>
-            <div class="logo">
-                <a class="bedizen-logo" href="/"><img class="w-60" src="assets/icons/logotype_white.svg" alt="BEDiZEN Logo"></a>
-                <div class="social-media">
-                    <a class="linkedin-logo" href="/"><img class="w-10" src="assets/img/InBug-White.webp" alt="Linkedin Logo"></a>
-                    <a class="twitter-logo" href="/"><img class="w-10" src="assets/img/logo-white.webp" alt="X (Twitter) Logo"></a>
+            <div class="logo lg:col-span-2 flex flex-col items-center justify-center border border-gray-400 border-l-0 p-6">
+                <a class="bedizen-logo mb-4" href="/"><img class="w-40 lg:w-60" src="assets/icons/logotype_white.svg" alt="BEDiZEN Logo"></a>
+                <div class="social-media flex gap-4">
+                    <a class="linkedin-logo hover:opacity-80 transition-opacity" href="/"><img class="w-10" src="assets/img/InBug-White.webp" alt="Linkedin Logo"></a>
+                    <a class="twitter-logo hover:opacity-80 transition-opacity" href="/"><img class="w-10" src="assets/img/logo-white.webp" alt="X (Twitter) Logo"></a>
                 </div>
             </div>
         </div>
-        <p>&copy; 2025 BEDiZEN. Tous les droits réservés.</p>
+        <div class="border-t border-gray-400 px-6 py-6 text-center">
+            <p>&copy; 2025 BEDiZEN. Tous les droits réservés.</p>
+        </div>
     </footer>
-    <a class="fixed right-2 bottom-20 lg:bottom-3"  href="#"><img class="w-10 lg:w-20" src="assets/icons/up_button.svg" alt="Button pour remonter" ></a>
+    <a class="fixed right-3 bottom-20 lg:bottom-5"  href="#"><img class="w-10 lg:w-10" src="assets/icons/up_button.svg" alt="Button pour remonter" ></a>
 </body>
 
 </html>
