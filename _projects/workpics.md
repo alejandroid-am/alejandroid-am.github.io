@@ -4,13 +4,13 @@ title: WorkPics App
 description: A UI/UX concept for a mobile app designed to simplify photo and geolocation logging for physical jobs.
 role: Product Designer & Visual Identity
 tools: Figma, Illustrator, Paper & Pencil
+cover_image: /assets/img/workpics-view.webp
 year: 2025
 permalink: /projects/workpics/
-cover_image: /assets/img/workpics_view.webp
 ---
 
 ## The Problem: Inefficient Field Documentation
-Logging the progress of physical work (construction, cleaning, maintenance) often involves error-prone manual processes: taking photos, noting locations, and sharing them via Whatsapp or SMS. This consumes valuable field staff time and leads to inconsistencies.
+Logging the progress of physical work (construction, cleaning, maintenance) often involves error-prone manual processes: taking photos, noting locations, and sharing them via Whatsapp, email or even SMS. This consumes valuable field staff time and leads to inconsistencies.
 
 WorkPics originated from the need for an extremely simple tool: **Open -> Shoot -> Done**. The goal was to minimize friction and cognitive load.
 
