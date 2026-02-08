@@ -47,32 +47,6 @@ title: Home
     </div>
   </h1>
 </section>
-<section id="portfolio" class="container projects-section">
-  <div class="section-header">
-    <h2>Selected Works</h2>
-    <p class="section-subtitle">A mix of product design, code & 3D experiments.</p>
-  </div>
 
-  <div class="projects-grid">
-    {% for project in site.projects %}
-      <a href="{{ project.url }}" class="project-card">
-        <div class="card-image-wrapper">
-          <img src="{{ project.cover_image }}" alt="Portada de {{ project.title }}" loading="lazy">
-          <div class="card-overlay">
-            <span>View Case Study →</span>
-          </div>
-        </div>
-        <div class="card-info">
-          <div class="card-header-row">
-            <h3>{{ project.title }}</h3>
-            <span class="year-badge">{{ project.year }}</span>
-          </div>
-          <p>{{ project.description }}</p>
-          <span class="role-tag">{{ project.role }}</span>
-        </div>
-      </a>
-    {% endfor %}
-    </div>
-</section>
 
   <script src="/assets/js/home-interaction.js"></script>
