@@ -206,12 +206,12 @@ footer {
   margin-right: 0 !important;
 }
 
-#copyright {
-  display: flex;
+footer #copyright {
+  display: flex; 
   justify-content: center;
-  font-size: 12px;
-  font-weight: 300;
-  text-align: center;
+  font-size: 12px !important; 
+  font-weight: 300 !important; 
+  text-align: center !important;
   color: #a0a0a0;
 }
 /*
