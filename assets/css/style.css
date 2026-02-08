@@ -887,6 +887,112 @@ footer #copyright {
   z-index: 1; 
 }
 
+
+/*
+#############################################################################
+   ------------------------ PROJECTS GRID SYSTEM ---------------------------
+#############################################################################
+*/
+
+.projects-section {
+    padding: 100px 20px;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+/* 2 columns in PC, 1 in mobile */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 60px 40px; /* vertical and horizontal gap */
+}
+
+/* card */
+.project-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    group: hover; /* animations */
+}
+
+/* zoom hover */
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4/3; /* standard format */
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 24px;
+    background: #f0f0f0; /* placeholder color */
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-card:hover .card-image-wrapper img {
+    transform: scale(1.05); /* Zoom in sutil */
+}
+
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.card-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.year-badge {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    color: #888;
+}
+
+.role-tag {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* responsive  */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; 
+    }
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
 /*
 =================================================================
   6. Desktop & Tablet Styles (Media Queries)
