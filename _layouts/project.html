@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="case-study-container">
+    <nav class="breadcrumbs">
+        <a href="/">Home</a> &gt; <span style="opacity:0.5">{{ page.title }}</span>
+    </nav>
+
+    <header class="project-header">
+        <h1 class="project-title">{{ page.title }}</h1>
+        <p class="project-subtitle">{{ page.description }}</p>
+        
+        <div class="project-details">
+            <div><strong>Role:</strong> {{ page.role }}</div>
+            <div><strong>Tools:</strong> {{ page.tools }}</div>
+            <div><strong>Year:</strong> {{ page.year }}</div>
+        </div>
+    </header>
+
+    <article class="case-study-content">
+        {{ content }}
+    </article>
+</div>

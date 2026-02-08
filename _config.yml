@@ -1,0 +1,8 @@
+title: Alejandro Amaro Portfolio
+description: Creative & Product Designer 
+baseurl: "" 
+url: "https://alejandro-is.me"
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
