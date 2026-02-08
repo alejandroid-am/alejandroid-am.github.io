@@ -917,11 +917,11 @@ footer #copyright {
 }
 
 /* card */
-.project-card {
+.project-card:hover {
     text-decoration: none;
     color: inherit;
     display: block;
-    group: hover; /* animations */
+    transition: transform 0.3s ease-in-out;
 }
 
 /* zoom hover */
