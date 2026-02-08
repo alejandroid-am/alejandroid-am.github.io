@@ -6,6 +6,7 @@ role: Product Designer & Visual Identity
 tools: Figma, Illustrator, Paper & Pencil
 year: 2025
 permalink: /projects/workpics/
+cover_image: /assets/img/workpics_view.webp
 ---
 
 ## The Problem: Inefficient Field Documentation
