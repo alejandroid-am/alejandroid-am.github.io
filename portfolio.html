@@ -2,91 +2,52 @@
 layout: default
 title: Portfolio
 ---
-
-<section class="hero-portfolio-section">
-  <div class="container">
-    <h1 class="hero-title hero-portfolio">Portfolio</h1>
-    
-    <div class="filter-container">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="identity">Visual Identity</button>
-      <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
-      <button class="filter-btn" data-filter="illustration">Illustration</button>
-    </div>
-
-    <div class="portfolio-grid">
-      
-      <a href="/projects/bedizen/" class="portfolio-item" data-category="identity ux-ui">
-        <img src="/assets/img/bedizen-view.webp" alt="BEDiZEN logotype and branding" loading="lazy" />
-        <div class="overlay">
-          <h3>BEDiZEN</h3>
-          <p>Augmented reality service for e-commerce. Brand creation, interface, and UX design.</p>
+   <section class="hero">
+      <div class="container">
+        <h1 class="hero-title hero-portfolio">Portfolio</h1>
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="identity">Visual Identity</button>
+          <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+          <button class="filter-btn" data-filter="illustration">Illustration</button>
         </div>
-      </a>
 
-      <a href="/projects/cineville/" class="portfolio-item" data-category="illustration">
-        <img src="/assets/img/cineville_view.webp" alt="Cineville film festival poster" loading="lazy" />
-        <div class="overlay">
-          <h3>Cinéville</h3>
-          <p>International film festival. Poster design and visual concept.</p>
+        <div class="portfolio-grid">
+          <a href="projects/bedizen.html" class="portfolio-item" data-category="identity ux-ui">
+            <img src="assets/img/bedizen-view.webp" alt="BEDiZEN logotype and branding" />
+            <div class="overlay">
+              <h3>BEDiZEN</h3>
+              <p>Augmented reality service for e-commerce. Brand creation, interface, and UX design.</p>
+            </div>
+          </a>
+          <a href="/projects/cineville.html" class="portfolio-item" data-category="illustration">
+            <img src="assets/img/cineville_view.webp" alt="Cineville film festival poster" />
+            <div class="overlay">
+              <h3>Cinéville</h3>
+              <p>International film festival. Poster design and visual concept.</p>
+            </div>
+          </a>
+          <a href="/projects/spin_app.html" class="portfolio-item" data-category="ux-ui identity">
+            <img src="assets/img/spin_view.webp" alt="phone in the ground with Spin Apps UI" />
+            <div class="overlay">
+              <h3>Spin App</h3>
+              <p>A top-up gamefied mobile app. UI/UX design and logo redesign.</p>
+            </div>
+          </a>
+          <a href="/projects/workpics_app.html" class="portfolio-item" data-category="ux-ui identity">
+            <img src="assets/img/workpics-view.webp" alt="phone showing the workpics logo app" />
+            <div class="overlay">
+              <h3>WorkPics</h3>
+              <p>Work progress photo app with cloud sync. UI design and visual identity.</p>
+            </div>
+          </a>
+          <a href="/projects/others.html" class="portfolio-item" data-category="illustration">
+            <img src="assets/img/others-view.webp" alt="phone in the ground with Spin Apps UI" />
+            <div class="overlay">
+              <h3>Other works</h3>
+              <p>Want to see more?</p>
+            </div>
+          </a>
         </div>
-      </a>
-
-      <a href="/projects/spin/" class="portfolio-item" data-category="ux-ui identity">
-        <img src="/assets/img/spin_view.webp" alt="Spin App UI" loading="lazy" />
-        <div class="overlay">
-          <h3>Spin App</h3>
-          <p>A top-up gamified mobile app. UI/UX design and logo redesign.</p>
-        </div>
-      </a>
-
-      <a href="/projects/workpics/" class="portfolio-item" data-category="ux-ui identity">
-        <img src="/assets/img/workpics-view.webp" alt="Workpics app interface" loading="lazy" />
-        <div class="overlay">
-          <h3>WorkPics</h3>
-          <p>Work progress photo app with cloud sync. UI design and visual identity.</p>
-        </div>
-      </a>
-
-      <a href="/projects/others.html" class="portfolio-item" data-category="illustration">
-        <img src="/assets/img/others-view.webp" alt="Other illustrations" loading="lazy" />
-        <div class="overlay">
-          <h3>Other works</h3>
-          <p>Want to see more?</p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('.portfolio-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1. Quitar clase active de todos los botones y ponerla al clickeado
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // 2. Mostrar/Ocultar items
-      items.forEach(item => {
-        const categories = item.getAttribute('data-category');
-        
-        if (filterValue === 'all' || categories.includes(filterValue)) {
-          item.style.display = 'block';
-          // Pequeña animación de entrada
-          setTimeout(() => item.style.opacity = '1', 50);
-        } else {
-          item.style.display = 'none';
-          item.style.opacity = '0';
-        }
-      });
-    });
-  });
-});
-</script>
+      </div>
+    </section>

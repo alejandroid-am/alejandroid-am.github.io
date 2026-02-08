@@ -27,7 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     </head>
-<body class="min-h-full flex flex-col home-page">
+<body class="{{ page.title | downcase | slugify }}-page min-h-full flex flex-col home-page">
 <div class="custom-cursor"></div>
   <header>
     <div class="container header-content">
