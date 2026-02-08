@@ -207,6 +207,8 @@ footer {
 }
 
 #copyright {
+  display: flex;
+  justify-content: center;
   font-size: 12px;
   font-weight: 300;
   text-align: center;
