@@ -470,16 +470,16 @@ footer #copyright {
 
 /* --- 4.4 Portfolio Page --- */
 
-/* CORRECCIÓN: El main del portfolio debe ser bloque normal, no flex centrado */
+
 .portfolio-page main {
   display: block;
   width: 100%;
 }
 
-/* Título Grande y alineado a la izquierda */
+
 .hero-portfolio {
   color: var(--hover);
-  font-size: clamp(3rem, 10vw, 6rem); /* Más grande */
+  font-size: clamp(3rem, 10vw, 6rem); 
   font-weight: bold;
   text-align: left;
   margin-bottom: 1rem;
@@ -489,7 +489,7 @@ footer #copyright {
   margin: 2rem 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Alineado a la izquierda */
+  justify-content: flex-start; 
   gap: 1rem;
 }
 
@@ -503,7 +503,7 @@ footer #copyright {
   font-family: 'Poppins', sans-serif;
   text-transform: lowercase;
   font-weight: 500;
-  border-radius: 0; /* CORRECCIÓN: Sin bordes redondos */
+  border-radius: 0; 
 }
 
 .filter-btn:hover,
@@ -516,7 +516,7 @@ footer #copyright {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px; /* Menos espacio, más compacto */
+  gap: 20px; 
   margin-top: 3rem;
 }
 
@@ -525,7 +525,7 @@ footer #copyright {
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 4/3;
-  border-radius: 0; /* CORRECCIÓN: Sin bordes redondos */
+  border-radius: 0; 
 }
 
 .portfolio-item img {
@@ -541,7 +541,7 @@ footer #copyright {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 17, 17, 0.9); /* Fondo un poco transparente */
+  background-color: rgba(17, 17, 17, 0.9); 
   color: var(--text);
   display: flex;
   flex-direction: column;

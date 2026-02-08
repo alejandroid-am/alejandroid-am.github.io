@@ -13,36 +13,18 @@ title: Portfolio
         </div>
 
         <div class="portfolio-grid">
-          <a href="projects/bedizen.html" class="portfolio-item" data-category="identity ux-ui">
-            <img src="assets/img/bedizen-view.webp" alt="BEDiZEN logotype and branding" />
-            <div class="overlay">
-              <h3>BEDiZEN</h3>
-              <p>Augmented reality service for e-commerce. Brand creation, interface, and UX design.</p>
-            </div>
-          </a>
-          <a href="/projects/cineville.html" class="portfolio-item" data-category="illustration">
-            <img src="assets/img/cineville_view.webp" alt="Cineville film festival poster" />
-            <div class="overlay">
-              <h3>Cinéville</h3>
-              <p>International film festival. Poster design and visual concept.</p>
-            </div>
-          </a>
-          <a href="/projects/spin_app.html" class="portfolio-item" data-category="ux-ui identity">
-            <img src="assets/img/spin_view.webp" alt="phone in the ground with Spin Apps UI" />
-            <div class="overlay">
-              <h3>Spin App</h3>
-              <p>A top-up gamefied mobile app. UI/UX design and logo redesign.</p>
-            </div>
-          </a>
-          <a href="/projects/workpics_app.html" class="portfolio-item" data-category="ux-ui identity">
-            <img src="assets/img/workpics-view.webp" alt="phone showing the workpics logo app" />
-            <div class="overlay">
-              <h3>WorkPics</h3>
-              <p>Work progress photo app with cloud sync. UI design and visual identity.</p>
-            </div>
-          </a>
+          {% for project in site.projects %}
+            <a href="{{ project.url }}" class="portfolio-item" data-category="{{ project.categories }}">
+              <img src="{{ project.cover_image }}" alt="Portada de {{ project.title }}" loading="lazy" />
+              <div class="overlay">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+              </div>
+            </a>
+          {% endfor %}
+          
           <a href="/projects/others.html" class="portfolio-item" data-category="illustration">
-            <img src="assets/img/others-view.webp" alt="phone in the ground with Spin Apps UI" />
+            <img src="/assets/img/others-view.webp" alt="Other illustrations" loading="lazy" />
             <div class="overlay">
               <h3>Other works</h3>
               <p>Want to see more?</p>
