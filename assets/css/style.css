@@ -205,6 +205,13 @@ footer {
 .cv-links a:first-child {
   margin-right: 0 !important;
 }
+
+#copyright {
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  color: #a0a0a0;
+}
 /*
 =================================================================
   4. Page Styles
