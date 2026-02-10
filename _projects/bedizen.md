@@ -122,67 +122,97 @@ cover_image: /assets/img/bedizen-view.webp
     </section>
 
     <section>
-        <h2>Project Documentation</h2>
-        <p>The following document presents the complete style and brand guidelines developed from the ground up for BEDiZEN</p>
+    <h2>Project Documentation</h2>
+    <p>The following document presents the complete style and brand guidelines developed from the ground up for BEDiZEN</p>
+    
+    <div class="document-carousel-container">
+        <button class="carousel-btn prev-btn">&lt;</button> 
         
-        <div class="document-carousel-container">
-            <div class="document-carousel">
-                <img src="/assets/img/BEDiZEN/page1.webp" alt="Document page 1" class="carousel-slide active-slide">
-                <img src="/assets/img/BEDiZEN/page2.webp" alt="Document page 2" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page3.webp" alt="Document page 3" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page4.webp" alt="Document page 4" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page5.webp" alt="Document page 5" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page6.webp" alt="Document page 6" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page7.webp" alt="Document page 7" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page8.webp" alt="Document page 8" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page9.webp" alt="Document page 9" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page10.webp" alt="Document page 10" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page11.webp" alt="Document page 11" class="carousel-slide">
-                <img src="/assets/img/BEDiZEN/page31.webp" alt="Document page 31" class="carousel-slide">
-            </div>
-            <button class="carousel-btn prev-btn">&lt;</button>
-            <button class="carousel-btn next-btn">&gt;</button>
-            <div class="carousel-counter">1 / 34</div>
+        <div class="document-carousel">
+            <img src="/assets/img/BEDiZEN/page1.webp" alt="Cover Page" class="carousel-slide active-slide">
+            <img src="/assets/img/BEDiZEN/page2.webp" alt="Index" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page3.webp" alt="Page 3" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page4.webp" alt="Page 3" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page5.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page6.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page7.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page8.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page9.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page10.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page11.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page12.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page13.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page14.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page15.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page16.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page17.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page18.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page19.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page20.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page21.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page22.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page23.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page24.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page25.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page26.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page27.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page28.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page29.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page30.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page31.webp" alt="Back Cover" class="carousel-slide">
+            <img src="/assets/img/BEDiZEN/page32.webp" alt="Back Cover" class="carousel-slide">
         </div>
-    </section>
     
-    <section>
-      <h2>Project Gallery</h2>
-      <p>A selection of mockups showing the BEDiZEN brand in different real-world contexts.</p>
-    </section>
+        <button class="carousel-btn next-btn">&gt;</button>
+        
+        <div class="carousel-counter">1 / 34</div>
+    </div>
+</section>
     
-    <section class="bento-gallery">
-      <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
-        <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/BEDiZEN/flyer.jpg" alt="BEDiZEN flyer design">
-        </a>
-      </div>
-      <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
-        <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/BEDiZEN/carte-visite-mockup.jpg" alt="Mockup of business cards with the BEDiZEN logo">
-        </a>
-      </div>
-      <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
-        <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/BEDiZEN/mockup-cap-bedizen-4.webp" alt="Logo icon in cap.">
-        </a>
-      </div>
-      <div class="bento-item">
-        <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/BEDiZEN/bedizen_mockup_3.webp" alt="BEDiZEN logo on mobile interface.">
-        </a>
-      </div>
-      <div class="bento-item">
-        <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/BEDiZEN/bedizen_mockup_1.webp" alt="BEDiZEN logo in Meta Quest headset">
-        </a>
-      </div>
-      <div class="bento-item" style="grid-column: span 2;">
-        <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/BEDiZEN/bedizen_mockup_2.webp" alt="BEDiZEN logo on building facade.">
-        </a>
-      </div>
-    </section>
+    <<section>
+  <h2>Project Gallery</h2>
+  <p>A selection of mockups showing the BEDiZEN brand in different real-world contexts.</p>
+</section>
+
+<section class="bento-gallery">
+  
+  <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
+    <a href="javascript:void(0)" class="zoom-trigger">
+      <img src="/assets/img/BEDiZEN/flyer.jpg" alt="BEDiZEN flyer design" data-caption="Flyer promocional para eventos">
+    </a>
+  </div>
+
+  <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
+    <a href="javascript:void(0)" class="zoom-trigger">
+      <img src="/assets/img/BEDiZEN/carte-visite-mockup.jpg" alt="Business Cards" data-caption="Tarjetas de visita">
+    </a>
+  </div>
+
+  <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
+    <a href="javascript:void(0)" class="zoom-trigger">
+      <img src="/assets/img/BEDiZEN/mockup-cap-bedizen-4.webp" alt="Logo icon in cap" data-caption="Merchandising corporativo">
+    </a>
+  </div>
+
+  <div class="bento-item">
+    <a href="javascript:void(0)" class="zoom-trigger">
+      <img src="/assets/img/BEDiZEN/bedizen_mockup_3.webp" alt="Mobile interface" data-caption="Interfaz móvil">
+    </a>
+  </div>
+
+  <div class="bento-item">
+    <a href="javascript:void(0)" class="zoom-trigger">
+      <img src="/assets/img/BEDiZEN/bedizen_mockup_1.webp" alt="Meta Quest headset" data-caption="Soporte para gafas VR">
+    </a>
+  </div>
+
+  <div class="bento-item" style="grid-column: span 2;">
+    <a href="javascript:void(0)" class="zoom-trigger">
+      <img src="/assets/img/BEDiZEN/bedizen_mockup_2.webp" alt="Building facade" data-caption="Branding exterior">
+    </a>
+  </div>
+
+</section>
 
     <h3>To Be Continued...</h3>
     <p>
