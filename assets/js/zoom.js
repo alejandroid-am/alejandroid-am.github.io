@@ -106,14 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    //B. Images from the Bento Gallery (and other galleries)
-    // We are looking for links that have the class 'zoom-trigger' or images within .bento-gallery
+    // B. Imágenes de la Galería Bento (y otras galerías)
     const galleryLinks = document.querySelectorAll('.bento-gallery .zoom-trigger img');
     if (galleryLinks.length > 0) {
         galleryLinks.forEach((img, index) => {
-            img.style.cursor = "zoom-in"; // Asegurar cursor
+            // ELIMINADA LA LÍNEA QUE FORZABA LA LUPA
             img.addEventListener('click', (e) => {
-                e.preventDefault(); // Evitar que el link navegue
+                e.preventDefault(); 
                 openLightbox(index, Array.from(galleryLinks));
             });
         });
