@@ -113,12 +113,12 @@ cover_image: /assets/img/spin_view.webp
       <h2>Project Gallery</h2>
       <p>A look at the final screens and the promo video created for the launch.</p>
       
-      <!--
+    
       <div class="video-hero-container" style="margin: 40px 0; border-radius: 12px; overflow: hidden;">
           <video autoplay loop muted playsinline class="fullscreen-video" style="width: 100%; display: block;">
           <source src="/assets/img/Spin_app/spin_video.mp4" type="video/mp4">
             </video> 
-            -->
+   
       </div>
     </section>
     
