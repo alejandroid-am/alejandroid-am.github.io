@@ -125,10 +125,10 @@ cover_image: /assets/img/bedizen-view.webp
     <h2>Project Documentation</h2>
     <p>The following document presents the complete style and brand guidelines developed from the ground up for BEDiZEN</p>
     
-    <div class="document-carousel-container">
-        <button class="carousel-btn prev-btn">&lt;</button> 
-        
-        <div class="document-carousel">
+<div class="document-carousel-container">
+    <button class="carousel-btn prev-btn">&lt;</button> 
+    
+    <div class="document-carousel">
             <img src="/assets/img/BEDiZEN/page1.webp" alt="Cover Page" class="carousel-slide active-slide">
             <img src="/assets/img/BEDiZEN/page2.webp" alt="Index" class="carousel-slide">
             <img src="/assets/img/BEDiZEN/page3.webp" alt="Page 3" class="carousel-slide">
@@ -163,10 +163,9 @@ cover_image: /assets/img/bedizen-view.webp
             <img src="/assets/img/BEDiZEN/page32.webp" alt="Back Cover" class="carousel-slide">
         </div>
     
-        <button class="carousel-btn next-btn">&gt;</button>
-        
-        <div class="carousel-counter">1 / 34</div>
-    </div>
+<button class="carousel-btn next-btn">&gt;</button>
+    <div class="carousel-counter">1 / 34</div>
+</div>
 </section>
     
     <section>
