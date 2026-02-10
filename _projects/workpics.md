@@ -26,7 +26,7 @@ cover_image: /assets/img/workpics-view.webp
     </div>
   </header>
 
-  <img src="/assets/img/Workpics/workpics_bag.webp" alt="WorkPics branding on site" class="project-hero-image" style="width: 100%; border-radius: 12px; margin: 40px 0;">
+  <img src="/assets/img/Workpics/workpicks_ui_mockups.webp" alt="WorkPics user interface" class="project-hero-image" style="width: 100%; border-radius: 12px; margin: 40px 0;">
 
   <article class="case-study-content">
     
