@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.alejandro-is.me/</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/about.html</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/portfolio.html</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/contact.html</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/assets/img/CV/CV_AlejandroAM_EN.pdf</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/assets/img/CV/CV_AlejandroAM_FR.pdf</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/projects/bedizen/</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/projects/cineville/</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/projects/spin_app/</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/projects/workpics/</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.alejandro-is.me/projects/zz_others/</loc>
+  <lastmod>2026-02-10T14:53:46+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
