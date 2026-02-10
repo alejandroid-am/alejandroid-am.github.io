@@ -26,7 +26,7 @@ cover_image: /assets/img/cineville_view.webp
     </div>
   </header>
 
-  <img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="The final poster design for Cinéville" class="project-hero-poster" style="width: 100%; border-radius: 12px; margin: 40px 0; max-height: 80vh; object-fit: contain;">
+  <img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="The final poster design for Cinéville" class="project-hero-poster" >
 
   <article class="case-study-content">
     
