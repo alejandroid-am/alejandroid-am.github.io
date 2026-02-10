@@ -1,74 +1,40 @@
 ---
 layout: project
-title: WorkPics App
-description: A UI/UX concept for a mobile app designed to simplify photo and geolocation logging for physical jobs.
-role: Product Designer & Visual Identity
-tools: Figma, Illustrator, Paper & Pencil
-cover_image: /assets/img/workpics-view.webp
+title: WorkPics
+description: Radical simplification of field reporting for construction teams.
+role: Product Designer
+tools: Figma, Illustrator, User Research
 year: 2025
-permalink: /projects/workpics/
+categories: ux-ui identity
+cover_image: /assets/img/workpics-view.webp
 ---
 
-## The Problem: Inefficient Field Documentation
-Logging the progress of physical work (construction, cleaning, maintenance) often involves error-prone manual processes: taking photos, noting locations, and sharing them via Whatsapp, email or even SMS. This consumes valuable field staff time and leads to inconsistencies.
+## The Context & The Pain
+Construction sites are chaotic. The site manager was receiving a decentralized mess of information: photos sent via WhatsApp, emails with vague subjects, and loose text messages. 
 
-WorkPics originated from the need for an extremely simple tool: **Open -> Shoot -> Done**. The goal was to minimize friction and cognitive load.
+Tracking the progress of a specific site became a nightmare of digging through chat logs. It took too much time and effort to simply answer the question: *"Is the job done?"*
 
-## My Process: Radical Simplification
+## The Insight: "Dirty Hands" UX
+During the research phase, I realized a crucial constraint: **The end-users are not tech-savvy.** Construction workers have dirty hands, wear gloves, and work under bright sunlight. They don't have the patience to navigate complex menus. The app needed to be invisible. The flow had to be linear and instantaneous.
 
-### 1 — Zoning and Minimal Flow
-The process began on paper, defining the most direct user flow possible. The philosophy was: fewer clicks, more automation. 
+## The Solution: Open > Shoot > Done
+I designed an interface based on **radical simplification**.
 
-<div class="before-after-gallery color-palette-container">
-  <figure style="flex: 1; min-width: 250px;">
-    <img src="/assets/img/Workpics/sketch_ui_workpics.webp" alt="Sketch of UI zoning">
-    <figcaption>Sketch of the first version of the zoning</figcaption>
-  </figure>
-  <div style="flex: 1; min-width: 250px;">
-    <h3>Key layouts included:</h3>
-    <ul>
-      <li><strong>Login screen:</strong> User identification.</li>
-      <li><strong>Camera interface:</strong> Standard patterns for easy adoption.</li>
-      <li><strong>Settings:</strong> Language, reminders, help.</li>
-    </ul>
-  </div>
-</div>
+1.  **Zero Data Entry:** We removed the need to type. Location, time, and date are automatically captured by the backend (developed by the dev team).
+2.  **High Contrast UI:** I created a "High Brightness Mode" UI with massive buttons and strong contrast to ensure visibility under direct sunlight.
+3.  **The Flow:** The user opens the app, the camera is already active, they take the shot, and it syncs. That's it.
 
-### 2 — Prototyping in Figma
-Translated zoning into low-fidelity wireframes. Focused on a prominent camera button and clean interface.
-
-<a href="YOUR_FIGMA_LINK_HERE" target="_blank" class="submit-btn" style="margin-top: 1rem; display: inline-block;">Try Figma Prototype</a>
-
-### 3 — Visual Identity
-Developed a mini Brand Style Guide aiming for high contrast (outdoor usage) and clarity.
-
-<div class="color-palette-container">
-  <h3 class="color-palette-title">Color Palette</h3>
-  <div class="color-palette-grid">
-    <div class="color-item">
-      <div class="color-block" style="background-color: #F5F5F5;"></div>
-      <p class="color-hex">#F5F5F5</p>
-      <p class="color-desc">Clarity</p>
+<div class="carousel-container">
+    <div class="carousel-track-container">
+        <ul class="carousel-track">
+            <li class="carousel-slide current-slide"><img src="/assets/img/Workpics/workpics1.webp" alt="Workpics Login"></li>
+            <li class="carousel-slide"><img src="/assets/img/Workpics/workpics2.webp" alt="Camera Interface"></li>
+            <li class="carousel-slide"><img src="/assets/img/Workpics/workpicks_ui_mockups.webp" alt="Gallery View"></li>
+        </ul>
     </div>
-    <div class="color-item">
-      <div class="color-block" style="background-color: #4300FF;"></div>
-      <p class="color-hex">#4300FF</p>
-      <p class="color-desc">Trust</p>
-    </div>
-     </div>
 </div>
 
-## Project Gallery
-A collection of UI mockups and branding.
+### Visual Identity
+To support the product, I developed a mini brand style guide. I chose a palette of 4 high-visibility colors inspired by safety gear and proposed 3 logo variations that convey stability and speed.
 
-<div class="bento-gallery">
-  <div class="bento-item" style="grid-column: span 2;">
-    <img src="/assets/img/Workpics/workpicks_ui_mockups.webp" alt="Camera view UI">
-  </div>
-  <div class="bento-item">
-    <img src="/assets/img/Workpics/14.webp" alt="Logo proposal 1">
-  </div>
-   <div class="bento-item">
-    <img src="/assets/img/Workpics/27.webp" alt="Logo proposal 2">
-  </div>
-</div>
+![Brand Style Guide](/assets/img/Workpics/workpics_cap_black.webp)
