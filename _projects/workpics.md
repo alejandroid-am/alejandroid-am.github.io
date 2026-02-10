@@ -26,7 +26,7 @@ cover_image: /assets/img/workpics-view.webp
     </div>
   </header>
 
-  <img src="/assets/img/Workpics/workpicks_ui_mockups.webp" alt="WorkPics branding on site" class="project-hero-image" style="width: 100%; border-radius: 12px; margin: 40px 0;">
+  <img src="/assets/img/Workpics/workpics_bag.webp" alt="WorkPics branding on site" class="project-hero-image" style="width: 100%; border-radius: 12px; margin: 40px 0;">
 
   <article class="case-study-content">
     
@@ -99,39 +99,44 @@ cover_image: /assets/img/workpics-view.webp
         </div>
       </section>
 
-      <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
-        <div class="bento-item">
+      <div class="bento-gallery" style="grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0;">
+        
+        <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
           <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
                 <img src="/assets/img/Workpics/workpics1.webp" alt="First Logo Proposal" data-caption="Concept 1: The Shutter">
             </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">Proposal A</figcaption>
+            <figcaption style="text-align:center; color:#888; margin-top:10px; font-weight:600;">Proposal A</figcaption>
           </figure>
         </div>
-        <div class="bento-item">
+
+        <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
           <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
                 <img src="/assets/img/Workpics/workpics2.webp" alt="Second Logo Proposal" data-caption="Concept 2: The Cloud Sync">
             </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">Proposal B</figcaption>
+            <figcaption style="text-align:center; color:#888; margin-top:10px; font-weight:600;">Proposal B</figcaption>
           </figure>
         </div>
-        <div class="bento-item">
+
+        <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
           <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
                 <img src="/assets/img/Workpics/5.webp" alt="Logo Construction 1" data-caption="Deconstruction: W + P + Check">
             </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">Geometry A</figcaption>
+            <figcaption style="text-align:center; color:#888; margin-top:10px;">Geometry / Composition</figcaption>
           </figure>
         </div>
-        <div class="bento-item">
+
+        <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
           <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
                 <img src="/assets/img/Workpics/19.webp" alt="Logo Construction 2" data-caption="Deconstruction: Negative Space">
             </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">Geometry B</figcaption>
+            <figcaption style="text-align:center; color:#888; margin-top:10px;">Geometry / Composition</figcaption>
           </figure>
         </div>
+
       </div>
     </section>
   
