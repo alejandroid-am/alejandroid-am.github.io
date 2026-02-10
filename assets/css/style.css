@@ -1248,23 +1248,25 @@ button,
    1. CARRUSEL DE DOCUMENTOS (FIX DEFINITIVO)
    ========================================= */
 .document-carousel-container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important; /* Centrado horizontal */
-    gap: 30px !important; /* Más espacio para separar botones de la imagen */
-    margin: 60px auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Espacio entre botones e imagen */
+    margin: 60px auto;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
+    position: relative;
 }
 
 /* El marco de las imágenes */
 .document-carousel {
     width: 100%;
-    background: transparent !important; /* FUERZA FONDO TRANSPARENTE */
-    box-shadow: none !important; /* QUITA SOMBRAS SI LAS HAY */
-    border: none !important; /* QUITA BORDES BLANCOS */
+    max-width: 900px; /* Controla el ancho de la imagen */
+    background: transparent;
+    border: none;
     position: relative;
-    cursor: pointer !important; /* FUERZA CURSOR DE MANO (burbuja) */
+    /* IMPORTANTE: Oculta el cursor del sistema para que solo se vea tu bolita */
+    cursor: none !important; 
 }
 
 .carousel-slide {
@@ -1272,18 +1274,20 @@ button,
     height: auto;
     display: none;
     object-fit: contain;
+    border-radius: 8px; /* Opcional: bordes suaves */
 }
 
 .carousel-slide.active-slide {
     display: block;
+    /* Animación suave de aparición */
+    animation: fadeIn 0.5s ease;
 }
 
 /* Los botones laterales */
 .carousel-btn {
-    position: static !important; /* IMPORTANTE: Evita que floten encima de la imagen */
-    background: transparent !important;
-    border: 2px solid rgba(255, 255, 255, 0.2) !important; /* Borde sutil visible */
-    color: #fff !important; /* Color blanco */
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1291,17 +1295,21 @@ button,
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: border-color 0.3s, color 0.3s; /* Solo transicion de color */
-    transform: none !important; /* ANULA CUALQUIER ANIMACIÓN DE MOVIMIENTO */
-    margin: 0 !important; /* Quita márgenes extraños */
+    
+    /* IMPORTANTE: Cursor none para que uses tu bolita */
+    cursor: none !important; 
+    
+    /* Evita que se aplasten */
+    flex-shrink: 0; 
+    transition: border-color 0.3s, color 0.3s; /* Solo color */
 }
 
+/* Estado Hover: Solo cambia color, NO se mueve */
 .carousel-btn:hover {
-    background: transparent !important; /* Mantiene fondo transparente */
-    border-color: var(--hover) !important; /* Borde amarillo */
-    color: var(--hover) !important; /* Icono amarillo */
-    transform: none !important; /* ASEGURA QUE NO SE MUEVA */
+    background: transparent;
+    border-color: var(--hover); /* Amarillo */
+    color: var(--hover);
+    transform: none !important; /* Bloquea cualquier movimiento */
 }
 
 /* Contador */
@@ -1314,19 +1322,104 @@ button,
     color: #666;
 }
 
-/* Fix para Galería Bento (Cursor) */
-.bento-gallery img, 
-.zoom-trigger {
-    cursor: pointer !important; /* FUERZA CURSOR DE MANO TAMBIÉN AQUÍ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Responsive: En móvil los botones se ponen debajo para no aplastar la imagen */
+/* =========================================
+   2. GALERÍA BENTO (FIX CURSOR)
+   ========================================= */
+/* Ocultamos el cursor del sistema en las imágenes para ver solo tu bolita */
+.bento-gallery .zoom-trigger, 
+.bento-gallery img {
+    cursor: none !important;
+}
+
+/* =========================================
+   3. LIGHTBOX (PANTALLA COMPLETA)
+   ========================================= */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.98);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* En el lightbox también ocultamos el cursor normal */
+    cursor: none !important; 
+}
+
+.lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    /* Sombra para resaltar la imagen */
+    box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+}
+
+/* Flechas del Lightbox */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 30px;
+    color: white;
+    font-size: 3rem;
+    z-index: 10001;
+    cursor: none !important; /* Tu bolita manda */
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: var(--hover);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 3rem;
+    line-height: 1;
+    cursor: none !important;
+    z-index: 10001;
+}
+
+.lightbox-close:hover { color: var(--hover); }
+
+.lightbox-caption {
+    margin-top: 20px;
+    color: #aaa;
+    font-family: monospace;
+}
+
+/* Responsive Móvil */
 @media (max-width: 768px) {
     .document-carousel-container {
         flex-wrap: wrap;
+        gap: 10px;
     }
-    .document-carousel { order: 1; }
-    .carousel-counter { order: 2; width: 100%; text-align: center; position: static; margin: 10px 0;}
-    .prev-btn { order: 3; }
-    .next-btn { order: 4; }
+    .document-carousel { order: 1; width: 100%; }
+    .carousel-counter { order: 2; width: 100%; text-align: center; margin-bottom: 10px;}
+    
+    /* En móvil los botones van abajo */
+    .prev-btn { order: 3; margin-right: auto; }
+    .next-btn { order: 4; margin-left: auto; }
+    
+    .carousel-btn { width: 50px; height: 50px; font-size: 1.5rem; }
 }
