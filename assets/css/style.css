@@ -1245,181 +1245,88 @@ button,
 }
 
 /* =========================================
-   1. CARRUSEL DE DOCUMENTOS (CORREGIDO)
+   1. CARRUSEL DE DOCUMENTOS (FIX DEFINITIVO)
    ========================================= */
 .document-carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* 4. CENTRADO HORIZONTAL */
-    gap: 20px;
-    position: relative;
-    margin: 60px auto; /* Margen arriba/abajo y centrado auto */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* Centrado horizontal */
+    gap: 30px !important; /* Más espacio para separar botones de la imagen */
+    margin: 60px auto !important;
     width: 100%;
-    max-width: 1000px; /* Un poco más ancho para que respire */
+    max-width: 1100px;
 }
 
-/* El contenedor de las imágenes */
+/* El marco de las imágenes */
 .document-carousel {
     width: 100%;
-    /* 1. LATERALES BLANCOS FUERA: Fondo transparente */
-    background: transparent; 
-    border-radius: 8px;
-    /* 3. CURSOR: Cambiado de zoom-in a pointer para quitar la lupa */
-    cursor: pointer; 
+    background: transparent !important; /* FUERZA FONDO TRANSPARENTE */
+    box-shadow: none !important; /* QUITA SOMBRAS SI LAS HAY */
+    border: none !important; /* QUITA BORDES BLANCOS */
     position: relative;
-    overflow: hidden;
-    /* Eliminamos box-shadow si molesta, o lo dejamos sutil */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    cursor: pointer !important; /* FUERZA CURSOR DE MANO (burbuja) */
 }
 
 .carousel-slide {
     width: 100%;
-    height: auto; /* Altura automática para ajustar al contenido */
+    height: auto;
     display: none;
     object-fit: contain;
 }
 
 .carousel-slide.active-slide {
     display: block;
-    animation: fadeEffect 0.5s;
 }
 
 /* Los botones laterales */
 .carousel-btn {
-    background: transparent;
-    /* 1. BOTONES VISIBLES: Forzamos color blanco o claro para que se vean sobre fondo oscuro */
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    color: #fff;
-    width: 50px;
-    height: 50px;
+    position: static !important; /* IMPORTANTE: Evita que floten encima de la imagen */
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important; /* Borde sutil visible */
+    color: #fff !important; /* Color blanco */
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s; /* Solo transicion de color */
+    transform: none !important; /* ANULA CUALQUIER ANIMACIÓN DE MOVIMIENTO */
+    margin: 0 !important; /* Quita márgenes extraños */
 }
 
-/* 2. ANIMACIÓN: Solo cambio de color (Amarillo), sin movimiento */
 .carousel-btn:hover {
-    background: var(--hover); /* Tu amarillo */
-    border-color: var(--hover);
-    color: var(--bg); /* Texto oscuro */
-    transform: none; /* QUITA EL EFECTO DE BAJAR/AGRANDAR */
+    background: transparent !important; /* Mantiene fondo transparente */
+    border-color: var(--hover) !important; /* Borde amarillo */
+    color: var(--hover) !important; /* Icono amarillo */
+    transform: none !important; /* ASEGURA QUE NO SE MUEVA */
 }
 
+/* Contador */
 .carousel-counter {
     position: absolute;
-    bottom: -30px;
+    bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.9rem;
+    font-family: monospace;
     color: #666;
-    font-family: monospace;
 }
 
-@keyframes fadeEffect {
-    from {opacity: .4}
-    to {opacity: 1}
+/* Fix para Galería Bento (Cursor) */
+.bento-gallery img, 
+.zoom-trigger {
+    cursor: pointer !important; /* FUERZA CURSOR DE MANO TAMBIÉN AQUÍ */
 }
 
-/* =========================================
-   2. GALERÍA BENTO (CORRECCIÓN CURSOR)
-   ========================================= */
-/* 3. CURSOR: Forzar pointer también aquí para quitar lupa */
-.bento-gallery .zoom-trigger, 
-.bento-gallery img {
-    cursor: pointer !important;
-}
-
-/* =========================================
-   3. LIGHTBOX (PANTALLA COMPLETA)
-   ========================================= */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 10000; /* Z-index muy alto para estar encima de todo */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 10, 10, 0.95); /* Fondo casi negro */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.lightbox.active {
-    display: flex;
-    animation: fadeIn 0.3s;
-}
-
-.lightbox-content {
-    max-width: 90vw;
-    max-height: 80vh;
-    object-fit: contain;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
-}
-
-.lightbox-prev,
-.lightbox-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); /* Centrado vertical perfecto */
-    padding: 20px;
-    color: white;
-    font-size: 3rem;
-    user-select: none;
-    transition: color 0.3s;
-    z-index: 10001;
-}
-
-.lightbox-prev { left: 30px; }
-.lightbox-next { right: 30px; }
-
-.lightbox-prev:hover,
-.lightbox-next:hover {
-    color: var(--hover);
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    color: #fff;
-    font-size: 3rem;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 10001;
-}
-
-.lightbox-close:hover { color: var(--hover); }
-
-.lightbox-caption {
-    margin-top: 20px;
-    color: #aaa;
-    font-family: monospace;
-}
-
-/* Responsive para móvil */
+/* Responsive: En móvil los botones se ponen debajo para no aplastar la imagen */
 @media (max-width: 768px) {
     .document-carousel-container {
         flex-wrap: wrap;
-        gap: 10px;
     }
-    .document-carousel {
-        order: 1;
-    }
-    .carousel-btn {
-        order: 2; /* Botones abajo en móvil */
-        margin-top: 10px;
-    }
-    .lightbox-prev, .lightbox-next {
-        font-size: 2rem;
-        padding: 10px;
-    }
+    .document-carousel { order: 1; }
+    .carousel-counter { order: 2; width: 100%; text-align: center; position: static; margin: 10px 0;}
+    .prev-btn { order: 3; }
+    .next-btn { order: 4; }
 }
