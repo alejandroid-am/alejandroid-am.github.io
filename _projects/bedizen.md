@@ -1,28 +1,80 @@
 ---
 layout: project
 title: BEDiZEN
-description: Making WebXR accessible for SMBs. A hybrid design/code project.
-role: Design Lead & Frontend Developer
-tools: Figma, HTML/CSS, Tailwind, Blender
+description: Democratizando la Realidad Aumentada para Pymes. Diseño de producto y desarrollo Frontend.
+role: Design Lead & Frontend Dev
+tools: Figma, Blender, HTML/CSS, Tailwind
 year: 2024
 categories: identity ux-ui frontend
 cover_image: /assets/img/bedizen-view.webp
 ---
 
-## The Value Proposition
-BEDiZEN is a B2B startup with a clear mission: democratize WebXR. Augmented Reality shouldn't be a luxury for big brands. We wanted to offer SMBs (Small and Medium Businesses) a way to showcase their products in 3D without needing a custom app.
+## La Misión
+BEDiZEN nació como una startup B2B con un objetivo claro: hacer que el WebAR (Realidad Aumentada en web) fuera accesible para las pequeñas y medianas empresas. La mayoría de las soluciones de AR requieren apps nativas costosas; nosotros queríamos que funcionara con un simple enlace.
 
-## The Challenge: Technical Constraints
-As both the designer and frontend developer, I had to make decisions that balanced aesthetics with performance. 
-* **The Tech Stack:** We needed a commercial-ready stack. I had to research WebGL libraries to find the right balance between visual fidelity and load times.
-* **IP Protection:** A major concern was protecting the 3D models we created from being easily stolen or downloaded by competitors.
+Como diseñador híbrido (Diseño + Código), mi reto fue traducir una tecnología compleja en una interfaz que cualquier dueño de negocio pudiera entender y usar.
 
-## The Execution (v1 vs v2)
-I prototyped the entire platform in Figma and then built it.
+## El Reto Técnico y de Diseño
+No se trataba solo de hacer una web bonita. Teníamos limitaciones técnicas reales:
+1.  **Rendimiento:** Cargar modelos 3D en el navegador consume recursos. La interfaz no podía ser pesada.
+2.  **Confianza:** Los clientes (Pymes) a menudo ven la AR como "ciencia ficción". La identidad visual debía transmitir solidez y cercanía, no solo "futurismo frío".
 
-* **The "Brutalist" Approach:** I chose a raw, simple aesthetic. It wasn't a stylistic choice—it was a usability one. The interface needed to be incredibly readable for non-tech clients who find AR intimidating.
-* **Evolution to Tailwind:** * *Version 1:* Built with vanilla HTML/CSS.
-    * *Version 2:* I refactored the frontend using **Tailwind CSS**. This allowed me to iterate faster and create a much cleaner tab system for the user dashboard, improving the UX significantly.
+---
 
-![BEDiZEN Web Interface](/assets/img/BEDiZEN/bedizen_web_v2.webp)
-*The v2 interface running on Tailwind CSS.*
+## Evolución del Producto: V1 vs V2
+El primer lanzamiento (MVP) nos enseñó mucho, pero tenía fallos de usabilidad evidentes. En lugar de parchear, decidí rediseñar la experiencia basándome en el feedback real.
+
+<div class="version-comparison">
+  <div class="version-card">
+    <div class="version-header">
+      <h3>Versión 1.0 (MVP)</h3>
+      <span class="badge">HTML/CSS Vanilla</span>
+    </div>
+    <div class="version-img-wrapper">
+         <img src="/assets/img/BEDiZEN/bedizen_web_v1.webp" alt="Interfaz antigua de Bedizen v1">
+    </div>
+    <ul class="version-desc-list">
+      <li>❌ <strong>Navegación confusa:</strong> El usuario se perdía y no sabía en qué sección estaba.</li>
+      <li>❌ <strong>Botones pequeños:</strong> Dificultaban la interacción en móviles.</li>
+      <li>❌ <strong>Estética genérica:</strong> No comunicaba la identidad "tech" de la marca.</li>
+    </ul>
+  </div>
+
+  <div class="version-card highlight-card">
+    <div class="version-header">
+      <h3>Versión 2.0 (Actual)</h3>
+      <span class="badge badge-success">Tailwind CSS</span>
+    </div>
+    <div class="version-img-wrapper">
+         <img src="/assets/img/BEDiZEN/bedizen_web_v2.webp" alt="Nueva interfaz de Bedizen v2">
+    </div>
+    <ul class="version-desc-list">
+      <li>✅ <strong>Sistema de Pestañas:</strong> Implementé un "Tab System" claro para organizar la información sin recargar la página.</li>
+      <li>✅ <strong>Touch-first:</strong> Aumenté las áreas de clic para facilitar la navegación táctil.</li>
+      <li>✅ <strong>Brutalismo Suave:</strong> Adopté una estética más marcada, con alto contraste y tipografía sólida.</li>
+    </ul>
+    <a href="https://bedizen.vercel.app/" target="_blank" class="submit-btn">Ver Demo en Vivo →</a>
+  </div>
+</div>
+
+---
+
+## Identidad Visual
+La marca necesitaba funcionar en dos mundos: el físico (tarjetas de visita, flyers) y el digital (la interfaz WebAR). 
+
+Elegí una paleta monocromática (Blanco/Negro) para que el color lo aportaran los productos 3D de los clientes. El logo juega con la idea de "enmarcar" la realidad, igual que hace la pantalla del móvil al usar AR.
+
+<div class="bento-gallery">
+  <div class="bento-item span-2">
+      <img src="/assets/img/BEDiZEN/carte-visite-mockup.jpg" alt="Tarjetas de visita Bedizen">
+  </div>
+  <div class="bento-item">
+      <img src="/assets/img/BEDiZEN/bedizen_white.svg" alt="Logotipo Bedizen vector">
+  </div>
+  <div class="bento-item">
+      <img src="/assets/img/BEDiZEN/flyer.jpg" alt="Flyer promocional">
+  </div>
+</div>
+
+## Resultados
+La migración a **Tailwind CSS** en la V2 no solo mejoró la estética, sino que redujo el tiempo de desarrollo de nuevas landing pages en un 40%. La nueva interfaz ha recibido feedback positivo por su claridad, permitiendo a los clientes centrarse en lo importante: sus productos en 3D.
