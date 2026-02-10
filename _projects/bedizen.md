@@ -1,80 +1,227 @@
 ---
-layout: project
+layout: default
 title: BEDiZEN
-description: Democratizando la Realidad Aumentada para Pymes. Diseño de producto y desarrollo Frontend.
-role: Design Lead & Frontend Dev
-tools: Figma, Blender, HTML/CSS, Tailwind
+description: A brand identity and UI concept for a startup making augmented reality accessible.
+role: UX/UI Designer, Fullstack
 year: 2024
 categories: identity ux-ui frontend
 cover_image: /assets/img/bedizen-view.webp
 ---
 
-## La Misión
-BEDiZEN nació como una startup B2B con un objetivo claro: hacer que el WebAR (Realidad Aumentada en web) fuera accesible para las pequeñas y medianas empresas. La mayoría de las soluciones de AR requieren apps nativas costosas; nosotros queríamos que funcionara con un simple enlace.
+<div class="case-study-container" style="padding-top: 40px;">
 
-Como diseñador híbrido (Diseño + Código), mi reto fue traducir una tecnología compleja en una interfaz que cualquier dueño de negocio pudiera entender y usar.
+  <nav class="breadcrumbs">
+    <a href="/">Home</a> &gt;
+    <a href="/portfolio.html">Portfolio</a> &gt;
+    <span>BEDiZEN</span>
+  </nav>
 
-## El Reto Técnico y de Diseño
-No se trataba solo de hacer una web bonita. Teníamos limitaciones técnicas reales:
-1.  **Rendimiento:** Cargar modelos 3D en el navegador consume recursos. La interfaz no podía ser pesada.
-2.  **Confianza:** Los clientes (Pymes) a menudo ven la AR como "ciencia ficción". La identidad visual debía transmitir solidez y cercanía, no solo "futurismo frío".
-
----
-
-## Evolución del Producto: V1 vs V2
-El primer lanzamiento (MVP) nos enseñó mucho, pero tenía fallos de usabilidad evidentes. En lugar de parchear, decidí rediseñar la experiencia basándome en el feedback real.
-
-<div class="version-comparison">
-  <div class="version-card">
-    <div class="version-header">
-      <h3>Versión 1.0 (MVP)</h3>
-      <span class="badge">HTML/CSS Vanilla</span>
+  <header class="project-header">
+    <h1 class="project-title">BEDiZEN</h1>
+    <p class="project-subtitle">This project is developed as part of my professional certification as a Web UX/UI Designer. 
+      <br>
+      A brand identity and UI concept for a startup making augmented reality accessible to small e-commerce businesses.</p>
+    <div class="project-details">
+      <div><strong>Role:</strong> UX/UI Designer, Fullstack, Branding</div>
+      <div><strong>Tools:</strong> Figma, Illustrator, HTML/CSS</div>
+      <div><strong>Year:</strong> 2024-Present</div>
     </div>
-    <div class="version-img-wrapper">
-         <img src="/assets/img/BEDiZEN/bedizen_web_v1.webp" alt="Interfaz antigua de Bedizen v1">
-    </div>
-    <ul class="version-desc-list">
-      <li>❌ <strong>Navegación confusa:</strong> El usuario se perdía y no sabía en qué sección estaba.</li>
-      <li>❌ <strong>Botones pequeños:</strong> Dificultaban la interacción en móviles.</li>
-      <li>❌ <strong>Estética genérica:</strong> No comunicaba la identidad "tech" de la marca.</li>
-    </ul>
-  </div>
+  </header>
 
-  <div class="version-card highlight-card">
-    <div class="version-header">
-      <h3>Versión 2.0 (Actual)</h3>
-      <span class="badge badge-success">Tailwind CSS</span>
-    </div>
-    <div class="version-img-wrapper">
-         <img src="/assets/img/BEDiZEN/bedizen_web_v2.webp" alt="Nueva interfaz de Bedizen v2">
-    </div>
-    <ul class="version-desc-list">
-      <li>✅ <strong>Sistema de Pestañas:</strong> Implementé un "Tab System" claro para organizar la información sin recargar la página.</li>
-      <li>✅ <strong>Touch-first:</strong> Aumenté las áreas de clic para facilitar la navegación táctil.</li>
-      <li>✅ <strong>Brutalismo Suave:</strong> Adopté una estética más marcada, con alto contraste y tipografía sólida.</li>
-    </ul>
-    <a href="https://bedizen.vercel.app/" target="_blank" class="submit-btn">Ver Demo en Vivo →</a>
-  </div>
+  <img src="/assets/img/BEDiZEN/bedizen_white.svg" alt="BEDiZEN Logo" class="project-hero-image" style="width: 100%; max-width: 300px; margin: 40px auto; display: block;">
+
+  <article class="case-study-content">
+    
+    <section>
+      <h2>The Problem: Bridging the Tech Gap</h2>
+      <p>Small and medium-sized e-commerce businesses often lack the resources to compete with larger retailers offering immersive shopping experiences like virtual try-ons. This creates a significant disadvantage in customer engagement and conversion.</p>
+      <p>The challenge was to design a brand and a user interface for BEDiZEN, a conceptual startup whose mission is to make Web Augmented Reality (WebAR) accessible, affordable, and easy to implement for these smaller businesses.</p>
+    </section>
+
+    <section>
+      <h2>My Process: Building a Brand from Scratch</h2>
+      
+      <h3>1 — Identity & Visual Strategy</h3>
+      <p>The goal was to create a brand that felt both technologically advanced and human-centered. Create a legible and accessible identity for the general public, not pretty, but functional.  So this process included:</p>
+      <ul>
+        <li><strong>Market Research:</strong> Analyzed how existing AR services communicate innovation to identify a unique position for BEDiZEN: modern, minimal, and focused on the experience.</li>
+        <li><strong>Logo Design:</strong> The logo, built from a customized geometric font, conveys stability and movement. The red dot on the "i" acts as a spark of creativity.</li>
+        <li><strong>Color Palette:</strong> A palette of dark gray, white, and accent red creates a feeling of elegance and energy, ensuring high contrast and accessibility.</li>
+      </ul>
+    
+
+      <h3>2 — UI Prototyping & User Flow</h3>
+        <p>Using Figma, I designed the Zoning, Low-fi Wireframes, and later a functional prototype focused on clarity. The user flow was structured to guide potential clients through BEDiZEN’s core services (WebAR, 3D modeling) and lead them to a clear call to action, demystifying the technology along the way. 
+          <br><br> A first version of this prototype was developed into a simple static website to showcase the brand in a real web context. Feel free to check it out (responsive version coming soon):
+        </p>
+                  
+        <div class="version-comparison">
+          
+          <div class="version-card">
+            <div class="version-header">
+              <h4>Version 1.0: The MVP</h4>
+              <span class="badge">Initial Concept</span>
+            </div>
+            <img src="/assets/img/BEDiZEN/bedizen_web_v1.webp" alt="Bedizen Website Version 1 Interface" class="project-img-shadow">
+            
+            <div class="version-desc">
+              <h5>Design Decisions:</h5>
+              <p>The initial focus was purely on "Clean Aesthetics." I prioritized large whitespace and minimal navigation.</p>
+              <h5>Usability Issues Found:</h5>
+              <ul>
+                <li>Users struggled to identify clickable buttons.</li>
+                <li>Difficulty understanding current location within the site.</li>
+              </ul>
+              
+              <a href="/projects/web_bedizen/index.html" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="submit-btn" 
+                style="display: inline-block;">
+                Check prototype v1.0 &rarr;
+              </a> 
+            </div>
+          </div>
+
+          <div class="version-card">
+            <div class="version-header">
+              <h4>Version 2.0: Enhanced UX</h4>
+              <span class="badge new">Version in Progress</span>
+            </div>
+            <img src="/assets/img/BEDiZEN/bedizen_web_v2.webp" alt="Bedizen Website Version 2 Interface" class="project-img-shadow">
+            
+            <div class="version-desc">
+              <h5>The Updates:</h5>
+              <p>Based on testing feedback, I implemented a clearer navigation system and <strong>rebuilt the UI using Tailwind CSS</strong> to ensure a modern, scalable architecture.</p>
+              
+              <h5>Why this works better:</h5>
+              <ul>
+                <li><strong>Responsiveness:</strong> Tailwind's utility-first approach ensures a seamless experience across all device sizes (Mobile-First).</li>
+                <li><strong>Clarity:</strong> The new active states make it easy for users to identify their current location.</li>
+              </ul>
+              <a href="/projects/web_bedizen_v2.0/index2.html" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="submit-btn" 
+                style="display: inline-block;">
+                Check prototype v2.0 (Coming Soon) &rarr;
+              </a>
+            </div>
+          </div>
+
+        </div>
+    </section>
+    
+    <section>
+      <h2>Impact & Key Takeaways</h2>
+      <ul>
+        <li><strong>Clear Value Proposition:</strong> The final brand identity successfully communicates BEDiZEN’s mission to be an innovative yet accessible partner for small businesses.</li>
+        <li><strong>Intuitive User Experience:</strong> The UI prototype focuses on a frictionless journey for non-technical users, making a complex service feel understandable and approachable.</li>
+        <li><strong>Key Learning:</strong> This project was a deep dive into building a brand from the ground up. The main takeaway was the importance of translating a complex technological vision into a simple, coherent, and compelling visual story.</li>
+      </ul>
+    </section>
+
+    <section>
+        <h2>Project Documentation</h2>
+        <p>The following document presents the complete style and brand guidelines developed from the ground up for BEDiZEN</p>
+        
+        <div class="document-carousel-container">
+            <div class="document-carousel">
+                <img src="/assets/img/BEDiZEN/page1.webp" alt="Document page 1" class="carousel-slide active-slide">
+                <img src="/assets/img/BEDiZEN/page2.webp" alt="Document page 2" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page3.webp" alt="Document page 3" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page4.webp" alt="Document page 4" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page5.webp" alt="Document page 5" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page6.webp" alt="Document page 6" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page7.webp" alt="Document page 7" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page8.webp" alt="Document page 8" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page9.webp" alt="Document page 9" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page10.webp" alt="Document page 10" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page11.webp" alt="Document page 11" class="carousel-slide">
+                <img src="/assets/img/BEDiZEN/page31.webp" alt="Document page 31" class="carousel-slide">
+            </div>
+            <button class="carousel-btn prev-btn">&lt;</button>
+            <button class="carousel-btn next-btn">&gt;</button>
+            <div class="carousel-counter">1 / 34</div>
+        </div>
+    </section>
+    
+    <section>
+      <h2>Project Gallery</h2>
+      <p>A selection of mockups showing the BEDiZEN brand in different real-world contexts.</p>
+    </section>
+    
+    <section class="bento-gallery">
+      <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
+        <a href="javascript:void(0)" class="zoom-trigger">
+          <img src="/assets/img/BEDiZEN/flyer.jpg" alt="BEDiZEN flyer design">
+        </a>
+      </div>
+      <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
+        <a href="javascript:void(0)" class="zoom-trigger">
+          <img src="/assets/img/BEDiZEN/carte-visite-mockup.jpg" alt="Mockup of business cards with the BEDiZEN logo">
+        </a>
+      </div>
+      <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
+        <a href="javascript:void(0)" class="zoom-trigger">
+          <img src="/assets/img/BEDiZEN/mockup-cap-bedizen-4.webp" alt="Logo icon in cap.">
+        </a>
+      </div>
+      <div class="bento-item">
+        <a href="javascript:void(0)" class="zoom-trigger">
+          <img src="/assets/img/BEDiZEN/bedizen_mockup_3.webp" alt="BEDiZEN logo on mobile interface.">
+        </a>
+      </div>
+      <div class="bento-item">
+        <a href="javascript:void(0)" class="zoom-trigger">
+          <img src="/assets/img/BEDiZEN/bedizen_mockup_1.webp" alt="BEDiZEN logo in Meta Quest headset">
+        </a>
+      </div>
+      <div class="bento-item" style="grid-column: span 2;">
+        <a href="javascript:void(0)" class="zoom-trigger">
+          <img src="/assets/img/BEDiZEN/bedizen_mockup_2.webp" alt="BEDiZEN logo on building facade.">
+        </a>
+      </div>
+    </section>
+
+    <h3>To Be Continued...</h3>
+    <p>
+      BEDiZEN is still growing as long my formation continue. The upcoming phase will bring the integration with Wordpress, the back-end development and maybe a prototype, to merge design, technology, and human experience — beyond digital zenith.
+    </p>
+    
+  </article>
 </div>
 
----
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.document-carousel');
+    if (!track) return;
+    
+    const slides = Array.from(track.children);
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const counter = document.querySelector('.carousel-counter');
+    let currentIndex = 0;
 
-## Identidad Visual
-La marca necesitaba funcionar en dos mundos: el físico (tarjetas de visita, flyers) y el digital (la interfaz WebAR). 
+    function updateSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active-slide', i === index);
+            slide.style.display = i === index ? 'block' : 'none'; // Simple toggle
+        });
+        counter.textContent = `${index + 1} / ${slides.length}`;
+    }
 
-Elegí una paleta monocromática (Blanco/Negro) para que el color lo aportaran los productos 3D de los clientes. El logo juega con la idea de "enmarcar" la realidad, igual que hace la pantalla del móvil al usar AR.
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide(currentIndex);
+    });
 
-<div class="bento-gallery">
-  <div class="bento-item span-2">
-      <img src="/assets/img/BEDiZEN/carte-visite-mockup.jpg" alt="Tarjetas de visita Bedizen">
-  </div>
-  <div class="bento-item">
-      <img src="/assets/img/BEDiZEN/bedizen_white.svg" alt="Logotipo Bedizen vector">
-  </div>
-  <div class="bento-item">
-      <img src="/assets/img/BEDiZEN/flyer.jpg" alt="Flyer promocional">
-  </div>
-</div>
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide(currentIndex);
+    });
 
-## Resultados
-La migración a **Tailwind CSS** en la V2 no solo mejoró la estética, sino que redujo el tiempo de desarrollo de nuevas landing pages en un 40%. La nueva interfaz ha recibido feedback positivo por su claridad, permitiendo a los clientes centrarse en lo importante: sus productos en 3D.
+    // Init
+    updateSlide(0);
+});
+</script>
