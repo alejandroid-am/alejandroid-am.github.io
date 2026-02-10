@@ -169,7 +169,7 @@ cover_image: /assets/img/bedizen-view.webp
     </div>
 </section>
     
-    <<section>
+    <section>
   <h2>Project Gallery</h2>
   <p>A selection of mockups showing the BEDiZEN brand in different real-world contexts.</p>
 </section>
