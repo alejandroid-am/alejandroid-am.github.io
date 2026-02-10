@@ -1244,28 +1244,25 @@ button,
 }
 
 /* =========================================
-   1. CARRUSEL DE DOCUMENTOS (FIX DEFINITIVO)
+   1. CARRUSEL DE DOCUMENTOS (FIX MOVIMIENTO)
    ========================================= */
 .document-carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px; /* Espacio entre botones e imagen */
-    margin: 60px auto;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    margin: 60px auto !important;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     position: relative;
 }
 
-/* El marco de las imágenes */
 .document-carousel {
     width: 100%;
-    max-width: 900px; /* Controla el ancho de la imagen */
-    background: transparent;
-    border: none;
-    position: relative;
-    /* IMPORTANTE: Oculta el cursor del sistema para que solo se vea tu bolita */
-    cursor: none !important; 
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: none !important; /* Aquí ocultamos cursor (tu bolita manda) */
 }
 
 .carousel-slide {
@@ -1273,20 +1270,20 @@ button,
     height: auto;
     display: none;
     object-fit: contain;
-    border-radius: 8px; /* Opcional: bordes suaves */
 }
 
 .carousel-slide.active-slide {
     display: block;
-    /* Animación suave de aparición */
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.5s;
 }
 
-/* Los botones laterales */
+/* ESTILOS DE LOS BOTONES LATERALES */
 .carousel-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    position: static !important;
+    background: transparent !important;
+    /* Ponemos borde transparente PERO sólido desde el principio para que no salte */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; 
+    color: #fff !important;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1294,24 +1291,26 @@ button,
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: none !important; /* Tu bolita manda aquí */
+    flex-shrink: 0;
+    margin: 0 !important;
     
-    /* IMPORTANTE: Cursor none para que uses tu bolita */
-    cursor: none !important; 
-    
-    /* Evita que se aplasten */
-    flex-shrink: 0; 
-    transition: border-color 0.3s, color 0.3s; /* Solo color */
+    /* --- FIX MOVIMIENTO: Solo animamos colores --- */
+    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease !important;
+    transform: none !important; /* PROHIBIDO MOVERSE */
 }
 
-/* Estado Hover: Solo cambia color, NO se mueve */
 .carousel-btn:hover {
-    background: transparent;
-    border-color: var(--hover); /* Amarillo */
-    color: var(--hover);
-    transform: none !important; /* Bloquea cualquier movimiento */
+    background: transparent !important;
+    border-color: var(--hover) !important; /* Amarillo */
+    color: var(--hover) !important;
+    
+    /* --- FIX MOVIMIENTO: Aseguramos que no haya transform --- */
+    transform: none !important; 
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Contador */
 .carousel-counter {
     position: absolute;
     bottom: -40px;
@@ -1321,22 +1320,8 @@ button,
     color: #666;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 /* =========================================
-   2. GALERÍA BENTO (FIX CURSOR)
-   ========================================= */
-/* Ocultamos el cursor del sistema en las imágenes para ver solo tu bolita */
-.bento-gallery .zoom-trigger, 
-.bento-gallery img {
-    cursor: none !important;
-}
-
-/* =========================================
-   3. LIGHTBOX (PANTALLA COMPLETA)
+   2. LIGHTBOX / ZOOM (FIX CURSOR VISIBLE)
    ========================================= */
 .lightbox {
     display: none;
@@ -1350,8 +1335,10 @@ button,
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* En el lightbox también ocultamos el cursor normal */
-    cursor: none !important; 
+    
+    /* --- FIX CURSOR: Volvemos a mostrar el cursor del sistema --- */
+    /* Es necesario porque el z-index tapa tu cursor personalizado */
+    cursor: auto !important; 
 }
 
 .lightbox.active {
@@ -1363,11 +1350,12 @@ button,
     max-width: 90vw;
     max-height: 80vh;
     object-fit: contain;
-    /* Sombra para resaltar la imagen */
-    box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    /* Opcional: si quieres que la mano aparezca sobre la imagen */
+    cursor: default; 
 }
 
-/* Flechas del Lightbox */
+/* Flechas y Botones del Zoom */
 .lightbox-prev,
 .lightbox-next {
     position: absolute;
@@ -1377,7 +1365,10 @@ button,
     color: white;
     font-size: 3rem;
     z-index: 10001;
-    cursor: none !important; /* Tu bolita manda */
+    transition: color 0.3s;
+    
+    /* --- FIX CURSOR: Puntero de mano para que el usuario sepa que es clicable --- */
+    cursor: pointer !important; 
 }
 
 .lightbox-prev { left: 20px; }
@@ -1386,6 +1377,8 @@ button,
 .lightbox-prev:hover,
 .lightbox-next:hover {
     color: var(--hover);
+    /* Sin movimiento extra */
+    transform: translateY(-50%) scale(1.1); 
 }
 
 .lightbox-close {
@@ -1395,8 +1388,9 @@ button,
     color: #fff;
     font-size: 3rem;
     line-height: 1;
-    cursor: none !important;
     z-index: 10001;
+    cursor: pointer !important; /* Puntero de mano */
+    transition: color 0.3s;
 }
 
 .lightbox-close:hover { color: var(--hover); }
@@ -1407,18 +1401,19 @@ button,
     font-family: monospace;
 }
 
-/* Responsive Móvil */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .document-carousel-container {
         flex-wrap: wrap;
         gap: 10px;
     }
-    .document-carousel { order: 1; width: 100%; }
-    .carousel-counter { order: 2; width: 100%; text-align: center; margin-bottom: 10px;}
-    
-    /* En móvil los botones van abajo */
+    .document-carousel { order: 1; }
+    .carousel-counter { order: 2; width: 100%; text-align: center; position: static; margin: 10px 0;}
     .prev-btn { order: 3; margin-right: auto; }
     .next-btn { order: 4; margin-left: auto; }
-    
-    .carousel-btn { width: 50px; height: 50px; font-size: 1.5rem; }
 }
