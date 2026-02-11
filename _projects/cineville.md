@@ -26,9 +26,9 @@ cover_image: /assets/img/cineville_view.webp
     </div>
   </header>
 
-  <a href="javascript:void(0)" class="zoom-trigger">
+
           <img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="The final poster design for Cinéville" class="project-hero-poster" >
-        </a>
+   
   
 
   <article class="case-study-content">
