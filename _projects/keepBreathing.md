@@ -21,8 +21,8 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
     <p class="project-subtitle">Turning 48 hours of chaos into an award-winning Survival FPS. Our first Global Game Jam, our first time using Unity, and a Technical Achievement Award to bring home.</p>
     <div class="project-details">
       <div><strong>Role:</strong> 3D Modeler, UI/UX, Level Design</div>
-      <div><strong>Team:</strong> 4 Developers, 1 Sound Designer</div>
-      <div><strong>Award:</strong> Best Technical Achievement (GGJ Alsace 2026)</div>
+      <div><strong>Team:</strong> 5 Developers, 2 Designer</div>
+      <div><strong>Award:</strong> Best Technical Achievement (GGJ Strasbourg 2026)</div>
     </div>
   </header>
 
@@ -40,17 +40,8 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 
     <section>
       <h2>Game Design: The Oxygen Loop</h2>
-      <p>Before touching a single polygon, I mapped out the game's logic and user flow (Arborescence) in Figma. We needed a system that was scalable but simple enough to code in two days.</p>
-      <p>The Core Loop: <strong>Explore Room &rarr; Oxygen Decays &rarr; Find Mask &rarr; Oxygen Refills &rarr; Difficulty Increases.</strong></p>
-
-      <div class="bento-gallery" style="grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0;">
-        <div class="bento-item" style="grid-column: span 2;">
-             <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Game Loop Diagram in Figma" data-caption="Figma Flow: Defining the Win/Loss conditions and Menu navigation">
-             </a>
-             <figcaption style="text-align:center; color:#888; margin-top:5px;">Game Architecture (Figma)</figcaption>
-        </div>
-      </div>
+      <p>Before touching a single polygon, we mapped out the game's logic and user flow (Arborescence) in Figma. We needed a system that was scalable but simple enough to code in two days.</p>
+      <p>The Core Loop: <strong>Play &rarr Explore Room &rarr; Oxygen Decays &rarr; Find Mask &rarr; Oxygen Refills &rarr; Difficulty Increases &rarr Game Over.</strong></p>
     </section>
 
     <section>
@@ -59,33 +50,8 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
       <ul>
         <li><strong>Low Poly Count:</strong> Kept geometry simple to allow for many instances.</li>
         <li><strong>Modular Design:</strong> Walls, floors, and ceilings snap together, allowing us to build infinite variations of the level quickly.</li>
-        <li><strong>Atmospheric Lighting:</strong> Relied on Unity's fog and emissive materials to create the "toxic" vibe without expensive rendering costs.</li>
+        <li><strong>Site-Specific Textures:</strong> The industrial aesthetic is based on <strong>Le Shadok</strong> (our Jam venue). I took photos of the on-site concrete and metal surfaces, converting them into a single <strong>Texture Atlas</strong>. This gave the game a grounded, realistic feel while maintaining strict draw-call optimization.</li>
       </ul>
-
-      <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
-        <div class="bento-item">
-          <figure style="margin:0">
-            <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/mask_model_render.webp" alt="3D Model of the Gas Mask" data-caption="The Hero Asset: Modeled in Blender, textured for Unity">
-            </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">The Gas Mask (Blender)</figcaption>
-          </figure>
-        </div>
-        <div class="bento-item">
-          <figure style="margin:0">
-            <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/modular_kit_wireframe.webp" alt="Wireframe of the level kit" data-caption="Modular Corridor Kit: Walls, Corners, and Doors">
-            </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">Modular Environment</figcaption>
-          </figure>
-        </div>
-        <div class="bento-item" style="grid-column: span 2;">
-             <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/unity_scene_view.webp" alt="Unity Scene View" data-caption="Assembling the level in Unity">
-             </a>
-             <figcaption style="text-align:center; color:#888; margin-top:5px;">Level Assembly in Unity</figcaption>
-        </div>
-      </div>
     </section>
 
     <section>
@@ -121,22 +87,32 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
       <p>48 hours, liters of coffee, and zero sleep later, we presented "Keep Breathing" at the CCI Campus Alsace. The judges recognized the stability of our build and the integration of our systems, awarding us <strong>Best Technical Achievement</strong>.</p>
       <p>For a team using Unity for the first time, this was a massive validation of our ability to learn and adapt on the fly.</p>
 
-      <div class="bento-gallery" style="grid-template-columns: 1fr; margin-top: 40px;">
+      <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
         <div class="bento-item">
+          <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/team_photo.webp" alt="The Team at GGJ Alsace" data-caption="The team after 48 hours of jamming!">
+                <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="Picture of the Team "Firsty Jam" data-caption="The Team First Jam">
             </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">The "Keep Breathing" Team @ CCI Campus Alsace</figcaption>
+            <figcaption style="text-align:center; color:#888; margin-top:5px;">The Team First Jam</figcaption>
+          </figure>
+        </div>
+        <div class="bento-item">
+          <figure style="margin:0">
+            <a href="javascript:void(0)" class="zoom-trigger">
+                <img src="/assets/img/KeepBreathing/ccicampus-team.webp" alt="The students of CCI Campus Alsace" data-caption="The students of CCI Campus Alsace">
+            </a>
+            <figcaption style="text-align:center; color:#888; margin-top:5px;">The students of CCI Campus Alsace</figcaption>
+          </figure>
+        </div>
+        <div class="bento-item" style="grid-column: span 2;">
+             <a href="javascript:void(0)" class="zoom-trigger">
+                <img src="/assets/img/KeepBreathing/jury-presentation.webp" alt="The team presenting the game to the jury" data-caption="The team making a presentation of the game to the jury">
+             </a>
+             <figcaption style="text-align:center; color:#888; margin-top:5px;">Presentation moment in front of the jury</figcaption>
         </div>
       </div>
     </section>
 
-    <div style="text-align: center; margin: 80px 0;">
-        <h3 style="margin-bottom: 20px;">Survive the toxicity. Try the game.</h3>
-        <a href="https://itch.io/jam/global-game-jam-2026/rate/your-game-id" target="_blank" rel="noopener noreferrer" class="submit-btn" style="display: inline-block; padding: 15px 40px; background-color: #fff; color: #000; text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid #000; transition: all 0.3s;">
-            Play on Itch.io &rarr;
-        </a>
-    </div>
 
   </article>
 </div>
