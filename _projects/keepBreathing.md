@@ -91,7 +91,7 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
         <div class="bento-item">
           <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="Picture of the Team "Firsty Jam" data-caption="The Team First Jam">
+                <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="Picture of the Team Firsty Jam" data-caption="The Team First Jam">
             </a>
             <figcaption style="text-align:center; color:#888; margin-top:5px;">The Team First Jam</figcaption>
           </figure>
