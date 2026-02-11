@@ -42,6 +42,11 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
       <h2>Game Design: The Oxygen Loop</h2>
       <p>Before touching a single polygon, we mapped out the game's logic and user flow (Arborescence) in Figma. We needed a system that was scalable but simple enough to code in two days.</p>
       <p>The Core Loop: <strong>Play &rarr Explore Room &rarr; Oxygen Decays &rarr; Find Mask &rarr; Oxygen Refills &rarr; Difficulty Increases &rarr Game Over.</strong></p>
+
+        <a href="https://www.figma.com/proto/QSs8reDgssWakM8UEdcsEc/UI-Game-Keep-Breathing?page-id=0%3A1&node-id=1-2&p=f&viewport=419%2C342%2C0.08&t=fi78lM3WjjGiSLXA-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A2" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
+         Wanna try it on Figma ? &rarr;
+      </a>
+
     </section>
 
     <section>
@@ -56,10 +61,10 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 
     <section>
       <h2>UI Design: Survival Minimalism</h2>
-      <p>For the interface, I wanted to avoid clutter. In a survival game, information should create tension, not remove it.</p>
+      <p>For the interface, we wanted to avoid clutter. Simplicity and effectiveness was our signature.</p>
       <ul>
-        <li><strong>Main Menu:</strong> Simple, eerie, setting the tone immediately.</li>
-        <li><strong>In-Game HUD:</strong> Instead of a health bar, we used a vignette effect and sound cues (heavy breathing) to indicate low oxygen.</li>
+        <li><strong>Main Menu:</strong> Simple, setting the tone immediately.</li>
+        <li><strong>In-Game HUD:</strong> Instead of one life bar, we created two, one for oxigen and another for health, a timer that counts the points and the interaction buttons.</li>
         <li><strong>Game Over:</strong> High score display to encourage replayability (the "Just one more run" effect).</li>
       </ul>
       
