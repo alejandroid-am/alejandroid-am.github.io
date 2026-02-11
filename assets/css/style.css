@@ -979,7 +979,7 @@ footer #copyright {
     /* 1. Fijar el header abajo */
     header {
         position: fixed;
-        bottom: 0;
+        bottom: 0 !important; /* Fija el header en la parte inferior */
         left: 0;
         width: 100%;
         top: auto; /* Anulamos cualquier top */
