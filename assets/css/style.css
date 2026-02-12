@@ -973,39 +973,7 @@ footer #copyright {
   }
 }
 
-/* --- NAVEGACIÓN INFERIOR (MÓVIL) --- */
-@media (max-width: 768px) {
-    
-    /* 1. Fijar el header abajo */
-    header {
-        position: fixed;
-        bottom: 0 !important; /* Fija el header en la parte inferior */
-        left: 0;
-        width: 100%;
-        top: auto; /* Anulamos cualquier top */
-        background-color: var(--bg); /* Asegura que tenga fondo para no ser transparente */
-        border-top: 1px solid #333; /* Una línea sutil para separarlo del contenido */
-        z-index: 1000;
-        padding: 10px 0; /* Un poco más compacto */
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.5); /* Sombra hacia arriba */
-    }
 
-    /* 2. Padding para que el contenido no quede tapado */
-    body {
-        padding-bottom: 80px; /* Ajusta este valor según la altura real de tu header */
-    }
-
-    /* 3. El Menú Desplegable debe abrirse hacia ARRIBA */
-    .nav-menu {
-        top: auto;
-        bottom: 100%; /* Se coloca justo encima del header */
-        margin-bottom: 1px; /* Pequeño ajuste */
-        /* Asegúrate de mantener tus estilos de fondo y ancho */
-    }
-    
-    /* Opcional: Ocultar el logo en móvil si ocupa mucho espacio abajo */
-    /* header .logo { display: none; } */
-}
 
 
 /*
@@ -1333,9 +1301,9 @@ button,
 }
 
 .carousel-btn:hover {
-    background: transparent !important;
+    background: var(--hover) !important;
     border-color: var(--hover) !important; /* Amarillo */
-    color: var(--hover) !important;
+    color: var(--bg) !important;
     
     /* --- FIX MOVIMIENTO: Aseguramos que no haya transform --- */
     transform: none !important; 
@@ -1408,7 +1376,7 @@ button,
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-    color: var(--hover);
+    color: var(--bg);
     /* Sin movimiento extra */
     transform: translateY(-50%) scale(1.1); 
 }
