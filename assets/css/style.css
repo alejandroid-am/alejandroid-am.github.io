@@ -1301,9 +1301,9 @@ button,
 }
 
 .carousel-btn:hover {
-    background: transparent !important;
+    background: var(--hover) !important;
     border-color: var(--hover) !important; /* Amarillo */
-    color: var(--hover) !important;
+    color: var(--bg) !important;
     
     /* --- FIX MOVIMIENTO: Aseguramos que no haya transform --- */
     transform: none !important; 
