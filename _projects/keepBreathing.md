@@ -40,8 +40,8 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 
     <section>
       <h2>Game Design: The Oxygen Loop</h2>
-      <p>Before touching a single polygon, we mapped out the game's logic and user flow (Arborescence) in Figma. We needed a system that was scalable but simple enough to code in two days.</p>
-      <p>The Core Loop: <strong>Play &rarr Explore Room &rarr; Oxygen Decays &rarr; Find Mask &rarr; Oxygen Refills &rarr; Difficulty Increases &rarr Game Over.</strong></p>
+      <p>Before touching a single polygon, we mapped out the game's logic and user flow in Figma. We needed a system that was scalable but simple enough to code in two days.</p>
+      <p>The Core Loop: <strong>Play &rarr; Explore Room &rarr; Oxygen Decays &rarr; Find Mask &rarr; Oxygen Refills &rarr; Difficulty Increases &rarr; Game Over.</strong></p>
 
         <a href="https://www.figma.com/proto/QSs8reDgssWakM8UEdcsEc/UI-Game-Keep-Breathing?page-id=0%3A1&node-id=1-2&p=f&viewport=419%2C342%2C0.08&t=fi78lM3WjjGiSLXA-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A2" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
          Wanna try it on Figma ? &rarr;
@@ -89,16 +89,16 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 
     <section>
       <h2>The Outcome</h2>
-      <p>48 hours, liters of coffee, and zero sleep later, we presented "Keep Breathing" at the CCI Campus Alsace. The judges recognized the stability of our build and the integration of our systems, awarding us <strong>Best Technical Achievement</strong>.</p>
+      <p>48 hours, liters of coffee and Red Bulls, and just a few hours sleep later, we presented "Keep Breathing" at Le Shadok, Strasbourg. The judges recognized the potential, and creativity of our build and the conception of our systems, awarding us <strong>Best Technical Achievement</strong>.</p>
       <p>For a team using Unity for the first time, this was a massive validation of our ability to learn and adapt on the fly.</p>
 
       <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
         <div class="bento-item">
           <figure style="margin:0">
             <a href="javascript:void(0)" class="zoom-trigger">
-                <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="Picture of the Team Firsty Jam" data-caption="The Team First Jam">
+                <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="Picture of the team" data-caption="The Team">
             </a>
-            <figcaption style="text-align:center; color:#888; margin-top:5px;">The Team First Jam</figcaption>
+            <figcaption style="text-align:center; color:#888; margin-top:5px;">The Team</figcaption>
           </figure>
         </div>
         <div class="bento-item">
