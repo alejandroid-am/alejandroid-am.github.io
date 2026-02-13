@@ -314,6 +314,7 @@ footer #copyright {
 .somosartelink {
   color: var(--hover);
   text-decoration: none;
+}
 
 .about-image-container img {
   width: 100%;
