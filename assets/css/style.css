@@ -311,6 +311,10 @@ footer #copyright {
   margin-bottom: 2rem;
 }
 
+.somosartelink {
+  color: var(--hover);
+  text-decoration: none;
+
 .about-image-container img {
   width: 100%;
   max-width: 180px; 
