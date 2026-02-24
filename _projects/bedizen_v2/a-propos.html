@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEDiZEN - Prototype</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        img.icon-critical { width: 24px !important; height: 24px !important; max-width: 24px !important; }
+        @media (min-width: 1024px) { .mobile-nav-critical { display: none !important; } }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #1A1B1C;
+            --color-secondary: #F2F1F0;
+            --color-accent: #E13C30;
+            --font-poppins: 'Poppins', sans-serif;
+        }
+
+        @layer components {
+            /* Estilos de Textos */
+            .prose h2 { @apply text-3xl lg:text-4xl font-extrabold text-primary mt-12 mb-6 leading-tight; }
+            .prose h3 { @apply text-2xl lg:text-3xl font-bold text-primary mt-8 mb-4; }
+            .prose p { @apply mb-6 leading-relaxed text-gray-600; }
+            
+            /* Estilos del Formulario */
+            .bedizen-input { @apply w-full bg-gray-50 border-b-2 border-gray-300 py-3 px-4 text-primary outline-none focus:border-primary focus:bg-gray-100 transition-colors duration-300; }
+            .bedizen-btn { @apply w-full md:w-auto inline-block bg-primary text-white font-bold uppercase tracking-widest text-sm px-10 py-6 hover:bg-accent cursor-pointer transition-colors duration-300 border-none text-center; }
+            .bedizen-checkboxes input[type="checkbox"] { @apply accent-primary cursor-pointer w-4 h-4 mr-1 align-middle; }
+        }
+    </style>
+</head>
+
+<body class="pt-2 lg:pt-5 pb-15 lg:pb-0 font-poppins text-primary bg-white">
+    
+    <header class="relative container mx-auto lg:px-2 z-[9999]">
+        <nav class="lg:hidden fixed bottom-0 right-0 left-0 font-medium z-[9999] bg-secondary mobile-nav-critical">
+            <ul class="grid grid-cols-4 bottom-0 right-0">
+                <li class="group py-2 flex justify-center bg-white border-t-0 border-r border-gray-400">
+                    <a href="index.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical" src="./assets/icons/bedizen_icone_classique_nr.svg" alt="Home">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary">Home</span>
+                    </a>
+                </li>
+                <li class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="a-propos.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_about_us_1.svg" alt="À propos">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">À propos</span>
+                    </a>
+                </li>
+                <li class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="catalogue.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_services.svg" alt="Services">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">Services</span>
+                    </a>
+                </li>
+                <li class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="contact.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_contact.svg" alt="Contact">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="hidden lg:block fixed lg:top-0 right-0 left-0 z-[9999]">
+            <div class="bg-secondary">
+                <ul class="font-medium grid lg:grid-cols-4 text-left">
+                    <li class="p-2 border border-gray-400 bg-white font-bold"><a href="index.html" class="block w-full h-full ml-2 flex items-center">Home</a></li>
+                    <li class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary"><a href="a-propos.html" class="block w-full h-full ml-2 flex items-center">A propos de nous</a></li>
+                    <li class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary"><a href="catalogue.html" class="block w-full h-full ml-2 flex items-center">Nos Services</a></li>
+                    <li class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary"><a href="contact.html" class="block w-full h-full ml-2 flex items-center">Contact</a></li>
+                </ul>
+            </div>
+            <section class="bg-white hidden lg:block"><div class="grid grid-cols-4 gap-0 w-full h-5"><div class="border-r border-gray-200"></div><div class="border-r border-gray-200"></div><div class="border-r border-gray-200"></div><div class="border-r border-gray-200"></div></div></section>
+        </nav>
+    </header>
+    <main class="w-full font-poppins text-primary bg-white">
+    <section class="w-full h-72 md:h-96 lg:h-[36rem] flex items-center relative overflow-hidden">
+        <img src="https://placekittens.com/1600/900" alt="Hero" class="absolute inset-0 w-full h-full object-cover z-0">
+        <div class="absolute inset-0 bg-black/40 z-10"></div> 
+        <div class="container mx-auto relative z-20">
+            <h1 class="text-white text-4xl md:text-6xl lg:text-8xl font-extrabold text-center py-6 drop-shadow-lg">Vers le zénith<br>et au-delà</h1>
+        </div>
+    </section>
+
+    <section class="border-b border-gray-200 bg-gray-50">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-0 w-full border-l border-gray-200 border-b border-gray-200">
+            <div class="hidden lg:block border-r border-gray-200 bg-white"></div>
+            <div class="col-span-1 lg:col-span-2 p-8 lg:p-20 border-r border-gray-200 text-center bg-white">
+                <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-primary">L'équipe derrière l'écran</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Chez BEDiZEN, nous allions la créativité du design 3D à la rigueur du développement web pour vous livrer des expériences fluides.</p>
+            </div>
+            <div class="hidden lg:block border-r border-gray-200 bg-white"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 w-full border-l border-gray-200">
+            <div class="col-span-1 border-r border-gray-200 relative group overflow-hidden aspect-[3/4] bg-gray-200 flex flex-col justify-end border-b lg:border-b-0">
+                <img src="https://placekittens.com/400/600" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 z-0 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 z-10"></div>
+                <div class="relative z-20 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-1">M. Whiskers</h3>
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent">CEO & Founder</span>
+                </div>
+            </div>
+            <div class="col-span-1 border-r border-gray-200 relative group overflow-hidden aspect-[3/4] bg-gray-200 flex flex-col justify-end border-b lg:border-b-0">
+                <img src="https://placekittens.com/401/600" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 z-0 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 z-10"></div>
+                <div class="relative z-20 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-1">Luna</h3>
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent">Lead 3D Artist</span>
+                </div>
+            </div>
+            <div class="col-span-1 border-r border-gray-200 relative group overflow-hidden aspect-[3/4] bg-gray-200 flex flex-col justify-end"><img src="https://placekittens.com/402/600" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 z-0"><div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-80 z-10"></div><div class="relative z-20 p-8"><h3 class="text-2xl font-bold text-white">Garfield</h3><span class="text-xs font-bold text-accent">Dev Backend</span></div></div>
+            <div class="col-span-1 border-r border-gray-200 relative group overflow-hidden aspect-[3/4] bg-gray-200 flex flex-col justify-end"><img src="https://placekittens.com/403/600" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 z-0"><div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-80 z-10"></div><div class="relative z-20 p-8"><h3 class="text-2xl font-bold text-white">Simba</h3><span class="text-xs font-bold text-accent">Marketing</span></div></div>
+        </div>
+    </section>
+</main>
+    <footer class="bg-primary text-secondary pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-6">BEDiZEN.</h2>
+                <p class="text-gray-400 max-w-sm">Le studio XR qui transforme votre e-commerce en une expérience immersive.</p>
+            </div>
+            <div class="flex flex-col md:items-end">
+                <a href="contact.html" class="inline-block bg-accent text-white font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white hover:text-primary transition-colors">Démarrer un projet</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.group');
+            productCards.forEach(card => {
+                const video = card.querySelector('video');
+                if (video) {
+                    card.addEventListener('mouseenter', () => {
+                        video.classList.remove('opacity-0'); video.classList.add('opacity-100');
+                        let playPromise = video.play();
+                        if (playPromise !== undefined) playPromise.catch(e => {});
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        video.classList.remove('opacity-100'); video.classList.add('opacity-0');
+                        video.pause(); video.currentTime = 0;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

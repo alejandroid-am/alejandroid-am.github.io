@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEDiZEN - Prototype</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        img.icon-critical { width: 24px !important; height: 24px !important; max-width: 24px !important; }
+        @media (min-width: 1024px) { .mobile-nav-critical { display: none !important; } }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #1A1B1C;
+            --color-secondary: #F2F1F0;
+            --color-accent: #E13C30;
+            --font-poppins: 'Poppins', sans-serif;
+        }
+
+        @layer components {
+            /* Estilos de Textos */
+            .prose h2 { @apply text-3xl lg:text-4xl font-extrabold text-primary mt-12 mb-6 leading-tight; }
+            .prose h3 { @apply text-2xl lg:text-3xl font-bold text-primary mt-8 mb-4; }
+            .prose p { @apply mb-6 leading-relaxed text-gray-600; }
+            
+            /* Estilos del Formulario */
+            .bedizen-input { @apply w-full bg-gray-50 border-b-2 border-gray-300 py-3 px-4 text-primary outline-none focus:border-primary focus:bg-gray-100 transition-colors duration-300; }
+            .bedizen-btn { @apply w-full md:w-auto inline-block bg-primary text-white font-bold uppercase tracking-widest text-sm px-10 py-6 hover:bg-accent cursor-pointer transition-colors duration-300 border-none text-center; }
+            .bedizen-checkboxes input[type="checkbox"] { @apply accent-primary cursor-pointer w-4 h-4 mr-1 align-middle; }
+        }
+    </style>
+</head>
+
+<body class="pt-2 lg:pt-5 pb-15 lg:pb-0 font-poppins text-primary bg-white">
+    
+    <header class="relative container mx-auto lg:px-2 z-[9999]">
+        <nav class="lg:hidden fixed bottom-0 right-0 left-0 font-medium z-[9999] bg-secondary mobile-nav-critical">
+            <ul class="grid grid-cols-4 bottom-0 right-0">
+                <li class="group py-2 flex justify-center bg-white border-t-0 border-r border-gray-400">
+                    <a href="index.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical" src="./assets/icons/bedizen_icone_classique_nr.svg" alt="Home">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary">Home</span>
+                    </a>
+                </li>
+                <li class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="a-propos.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_about_us_1.svg" alt="À propos">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">À propos</span>
+                    </a>
+                </li>
+                <li class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="catalogue.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_services.svg" alt="Services">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">Services</span>
+                    </a>
+                </li>
+                <li class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="contact.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_contact.svg" alt="Contact">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="hidden lg:block fixed lg:top-0 right-0 left-0 z-[9999]">
+            <div class="bg-secondary">
+                <ul class="font-medium grid lg:grid-cols-4 text-left">
+                    <li class="p-2 border border-gray-400 bg-white font-bold"><a href="index.html" class="block w-full h-full ml-2 flex items-center">Home</a></li>
+                    <li class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary"><a href="a-propos.html" class="block w-full h-full ml-2 flex items-center">A propos de nous</a></li>
+                    <li class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary"><a href="catalogue.html" class="block w-full h-full ml-2 flex items-center">Nos Services</a></li>
+                    <li class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary"><a href="contact.html" class="block w-full h-full ml-2 flex items-center">Contact</a></li>
+                </ul>
+            </div>
+            <section class="bg-white hidden lg:block"><div class="grid grid-cols-4 gap-0 w-full h-5"><div class="border-r border-gray-200"></div><div class="border-r border-gray-200"></div><div class="border-r border-gray-200"></div><div class="border-r border-gray-200"></div></div></section>
+        </nav>
+    </header>
+    <main class="w-full font-poppins text-primary bg-white">
+    <section class="border-b border-gray-200 bg-white">
+        <div class="flex flex-col lg:grid lg:grid-cols-4 gap-0 w-full border-l border-gray-200 lg:h-[75vh]">
+            <div class="col-span-1 border-r border-gray-200 flex flex-col justify-between p-6 lg:p-12 bg-white relative z-10">
+                <img src="./assets/icons/logotype_black.svg" alt="BEDiZEN." class="h-8 lg:h-10 w-auto">
+            </div>
+            <div class="col-span-1 lg:col-span-3 relative h-[60vh] lg:h-full border-r border-t lg:border-t-0 border-gray-200 overflow-hidden group bg-gray-100">
+                <img src="https://placekittens.com/1200/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[30s]" alt="Hero">
+                <div class="absolute inset-0 grid grid-cols-3 pointer-events-none opacity-20 z-0">
+                    <div class="border-r border-gray-800/40 h-full"></div>
+                    <div class="border-r border-gray-800/40 h-full"></div>
+                    <div class="h-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-b border-gray-200 bg-white">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-0 w-full border-l border-gray-200">
+            <div class="hidden lg:block border-r border-gray-200 bg-gray-50"></div>
+            <div class="col-span-1 lg:col-span-3 py-16 px-8 lg:py-32 lg:px-20 border-r border-gray-200 flex flex-col justify-center bg-white">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] text-primary mb-10">
+                    Plus que de la technologie,<br>nous créons des <span class="text-accent">expériences.</span>
+                </h1>
+                <div class="text-lg lg:text-xl leading-relaxed text-gray-600 max-w-2xl font-light">
+                    Transformez le doute en certitude grâce à nos solutions WebAR et 3D intégrées directement sur votre site e-commerce.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 border-b border-gray-200">
+        <div class="w-full border-l border-gray-200 relative">
+            <div class="sticky top-0 lg:top-[50px] z-50 bg-gray-50 border-b border-gray-200 grid grid-cols-1 lg:grid-cols-4 w-full">
+                <div class="hidden lg:block border-r border-gray-200"></div>
+                <div class="col-span-1 lg:col-span-2 p-8 lg:p-12 border-r border-gray-200 flex items-center">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-primary">4 piliers pour transformer votre expérience client.</h2>
+                </div>
+            </div>
+            
+            <div class="hidden lg:grid grid-cols-4 w-full">
+                <div class="w-full border-r border-gray-200 relative">
+                    <div class="sticky top-[180px] flex aspect-square flex-col justify-between p-12 bg-white border-b border-gray-200 hover:bg-gray-100 z-10 transition-colors">
+                        <p class="text-lg text-gray-500"><span class="text-accent font-semibold">Permettez</span> à vos clients d'essayer avant d'acheter.</p>
+                        <h3 class="font-bold text-2xl">Virtual Try-On</h3>
+                    </div>
+                    <div class="aspect-square"></div><div class="aspect-square"></div>
+                </div>
+                <div class="w-full border-r border-gray-200 relative">
+                    <div class="aspect-square"></div>
+                    <div class="sticky top-[180px] flex aspect-square flex-col justify-between p-12 bg-white border-y border-gray-200 hover:bg-gray-100 z-20">
+                        <p class="text-lg text-gray-500"><span class="text-accent font-semibold">Engagez</span> votre audience avec la 3D.</p>
+                        <h3 class="font-bold text-2xl">Visualisation 3D</h3>
+                    </div>
+                    <div class="aspect-square"></div>
+                </div>
+                <div class="w-full border-r border-gray-200 relative">
+                    <div class="aspect-square"></div><div class="aspect-square"></div>
+                    <div class="sticky top-[180px] flex aspect-square flex-col justify-between p-12 bg-white border-y border-gray-200 hover:bg-gray-100 z-30">
+                        <p class="text-lg text-gray-500">Mettez en scène vos produits.</p>
+                        <h3 class="font-bold text-2xl">WebAR Instantané</h3>
+                    </div>
+                </div>
+                <div class="w-full border-r border-gray-200 relative">
+                    <div class="aspect-square"></div><div class="aspect-square"></div><div class="aspect-square"></div>
+                    <div class="sticky top-[180px] flex aspect-square flex-col justify-between p-12 bg-white border-y border-gray-200 hover:bg-gray-100 z-40">
+                        <p class="text-lg text-gray-500">Boostez vos ventes.</p>
+                        <h3 class="font-bold text-2xl">Analytics</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    <footer class="bg-primary text-secondary pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-6">BEDiZEN.</h2>
+                <p class="text-gray-400 max-w-sm">Le studio XR qui transforme votre e-commerce en une expérience immersive.</p>
+            </div>
+            <div class="flex flex-col md:items-end">
+                <a href="contact.html" class="inline-block bg-accent text-white font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white hover:text-primary transition-colors">Démarrer un projet</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.group');
+            productCards.forEach(card => {
+                const video = card.querySelector('video');
+                if (video) {
+                    card.addEventListener('mouseenter', () => {
+                        video.classList.remove('opacity-0'); video.classList.add('opacity-100');
+                        let playPromise = video.play();
+                        if (playPromise !== undefined) playPromise.catch(e => {});
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        video.classList.remove('opacity-100'); video.classList.add('opacity-0');
+                        video.pause(); video.currentTime = 0;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

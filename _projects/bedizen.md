@@ -99,7 +99,7 @@ cover_image: /assets/img/bedizen-view.webp
                 <li><strong>Responsiveness:</strong> Tailwind's utility-first approach ensures a seamless experience across all device sizes (Mobile-First).</li>
                 <li><strong>Clarity:</strong> The new active states make it easy for users to identify their current location.</li>
               </ul>
-              <a href="/projects/web_bedizen_v2.0/index2.html" 
+              <a href="http://alejandro.am.servd16161.odns.fr/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="submit-btn" 
