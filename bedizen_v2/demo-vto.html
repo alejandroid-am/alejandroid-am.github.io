@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEDiZEN - Virtual Try-On Demo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        img.icon-critical {
+            width: 24px !important;
+            height: 24px !important;
+            max-width: 24px !important;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-nav-critical {
+                display: none !important;
+            }
+        }
+
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s, outline 0.2s;
+        }
+
+        .color-btn.active {
+            transform: scale(1.1);
+            outline: 2px solid #E13C30;
+            outline-offset: 2px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #1A1B1C;
+            --color-secondary: #F2F1F0;
+            --color-accent: #E13C30;
+            --font-poppins: 'Poppins', sans-serif;
+        }
+    </style>
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- MediaPipe Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="pt-2 lg:pt-5 pb-15 lg:pb-0 font-poppins text-primary bg-gray-50 flex flex-col min-h-screen">
+
+    <header class="relative container mx-auto lg:px-2 z-[9000]">
+        <nav class="lg:hidden fixed bottom-0 right-0 left-0 font-medium z-[9000] bg-secondary mobile-nav-critical">
+            <ul class="grid grid-cols-4 bottom-0 right-0">
+                <li class="group py-2 flex justify-center bg-white border-t-0 border-r border-gray-400">
+                    <a href="index.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical" src="./assets/icons/bedizen_icone_classique_nr.svg" alt="Home">
+                        <span class="text-[10px] font-semibold uppercase tracking-wide text-primary">Home</span>
+                    </a>
+                </li>
+                <li
+                    class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="a-propos.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_about_us_1.svg"
+                            alt="À propos">
+                        <span
+                            class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">À
+                            propos</span>
+                    </a>
+                </li>
+                <li
+                    class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="catalogue.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_services.svg"
+                            alt="Services">
+                        <span
+                            class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">Services</span>
+                    </a>
+                </li>
+                <li
+                    class="group py-2 flex justify-center bg-secondary border-t border-gray-400 hover:bg-primary border-r">
+                    <a href="contact.html" class="w-full h-full flex flex-col justify-center items-center gap-1">
+                        <img class="icon-critical group-hover:invert" src="./assets/icons/icon_contact.svg"
+                            alt="Contact">
+                        <span
+                            class="text-[10px] font-semibold uppercase tracking-wide text-primary group-hover:text-secondary">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="hidden lg:block fixed lg:top-0 right-0 left-0 z-[9000]">
+            <div class="bg-secondary">
+                <ul class="font-medium grid lg:grid-cols-4 text-left">
+                    <li class="p-2 border border-gray-400 bg-white font-bold"><a href="index.html"
+                            class="block w-full h-full ml-2 flex items-center">Home</a></li>
+                    <li
+                        class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary">
+                        <a href="a-propos.html" class="block w-full h-full ml-2 flex items-center">A propos de nous</a>
+                    </li>
+                    <li
+                        class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary">
+                        <a href="catalogue.html" class="block w-full h-full ml-2 flex items-center">Nos Services</a>
+                    </li>
+                    <li
+                        class="p-2 border border-gray-400 border-l-0 text-gray-600 hover:bg-primary hover:text-secondary">
+                        <a href="contact.html" class="block w-full h-full ml-2 flex items-center">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <section class="bg-white hidden lg:block">
+                <div class="grid grid-cols-4 gap-0 w-full h-5">
+                    <div class="border-r border-gray-200"></div>
+                    <div class="border-r border-gray-200"></div>
+                    <div class="border-r border-gray-200"></div>
+                    <div class="border-r border-gray-200"></div>
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <main
+        class="w-full flex-grow flex items-center justify-center pt-24 pb-20 lg:pt-[44px] lg:pb-0 px-4 lg:px-0 bg-white">
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-0 w-full lg:border-l border-gray-200 lg:min-h-[80vh]">
+
+            <!-- Colonne gauche vide -->
+            <div class="hidden lg:block border-r border-gray-200 bg-gray-50"></div>
+
+            <!-- Colonne centrale pour l'expérience VTO -->
+            <div
+                class="col-span-1 lg:col-span-2 border-r border-gray-200 flex flex-col items-center justify-center bg-white">
+
+                <!-- Start Screen -->
+                <div id="vto-start-screen"
+                    class="max-w-2xl w-full bg-white p-10 md:p-16 border border-gray-200 text-center">
+                    <h1 class="text-3xl md:text-5xl font-extrabold mb-6 text-primary">Essai Virtuel</h1>
+                    <p class="text-gray-600 mb-10 leading-relaxed font-light">
+                        Testez nos lunettes en temps réel grâce à la technologie de réalité augmentée. Cliquez sur le
+                        bouton ci-dessous pour démarrer l'expérience.
+                    </p>
+                    <button id="btn-open-privacy"
+                        class="inline-block bg-primary text-white font-bold uppercase tracking-widest px-10 py-5 hover:bg-accent transition-colors duration-300 w-full md:w-auto">
+                        Démarrer l'essai
+                    </button>
+                    <div id="https-warning"
+                        class="hidden mt-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 text-sm text-left">
+                        <p class="font-bold uppercase mb-1">HTTPS Requis</p>
+                        <p>Votre navigateur a bloqué l'accès à la caméra car ce site n'est pas chargé via HTTPS
+                            (sécurisé).</p>
+                    </div>
+                </div>
+
+                <!-- VTO Interface -->
+                <div id="vto-interface" class="hidden w-full bg-white border border-gray-200 overflow-hidden relative">
+
+                    <!-- Controls Overlay (Top) -->
+                    <div class="absolute top-4 left-4 right-4 z-40 flex justify-end items-start pointer-events-none">
+                        <button id="btn-close-vto"
+                            class="pointer-events-auto bg-white/80 hover:bg-white text-primary p-2 rounded-full backdrop-blur-sm transition-all"
+                            aria-label="Fermer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- AR Container -->
+                    <div
+                        class="relative w-full aspect-[4/3] md:aspect-video bg-black overflow-hidden flex justify-center items-center">
+                        <!-- Webcam Video -->
+                        <video id="vto-input-video" class="absolute inset-0 w-full h-full object-cover z-10" playsinline
+                            autoplay muted style="transform: scaleX(-1);"></video>
+
+                        <!-- Three.js Canvas Container -->
+                        <div id="vto-canvas-container" class="absolute inset-0 w-full h-full z-20 pointer-events-none"
+                            style="transform: scaleX(-1);"></div>
+
+                        <!-- Loader -->
+                        <div id="vto-loader"
+                            class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/80 text-white transition-opacity duration-500">
+                            <span id="vto-loader-text" class="mb-4 font-semibold text-lg tracking-wider">Initialisation
+                                AR...</span>
+                            <div id="vto-spinner"
+                                class="w-10 h-10 border-4 border-t-accent border-white/20 rounded-full animate-spin">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Colonne droite vide -->
+            <div class="hidden lg:block border-r border-gray-200 bg-gray-50"></div>
+
+        </div>
+
+        <!-- Privacy Policy Modal -->
+        <div id="privacy-modal" class="fixed inset-0 bg-black/60 z-[9999] hidden flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-3xl max-h-[90vh] flex flex-col border border-gray-200">
+                <div class="p-6 border-b border-gray-200">
+                    <h2 class="text-2xl font-bold">Bienvenue dans Virtual Mirror</h2>
+                </div>
+                <div class="p-6 overflow-y-auto text-sm text-gray-700 font-light leading-relaxed">
+                    <p class="mb-4">
+                        Nous avons besoin de votre consentement pour procéder au traitement de vos données biométriques
+                        potentielles et vous proposer des modèles de lunettes ou nos expériences d’essayage virtuel. Vos
+                        données biométriques potentielles seront traitées en temps réel sur votre appareil.
+                    </p>
+                    <p class="mb-4">
+                        Lorsque certaines fonctionnalités sont sélectionnées, comme prendre une photo ou une vidéo ou
+                        télécharger votre photo, les données biométriques potentielles seront stockées pendant une
+                        courte période ne dépassant pas une semaine. Pour plus d'informations, consultez la section «
+                        Informations biométriques que nous collectons » dans la Politique de confidentialité ci-dessous
+                        ou notre Avis sur l'utilisation des données biométriques.
+                    </p>
+                    <p class="mb-4 font-semibold text-primary">Politique de confidentialité (Résumé)</p>
+                    <p class="mb-4">
+                        En vertu du RGPD, vos données à caractère personnel sont protégées. Nous agissons en tant que
+                        responsable du traitement.
+                    </p>
+                    <p class="mb-4">
+                        <strong>Technologie VM (Essai en direct) :</strong> Nous traitons votre image en temps réel. Vos
+                        données sont traitées sur votre appareil et ne seront PAS stockées par nous. Nous ne traitons
+                        pas de données biométriques dans ce mode.
+                    </p>
+                    <p>
+                        En cliquant sur « ACCEPTER », vous consentez à ce que nous collections vos données potentielles
+                        conformément à notre politique. Pour refuser le consentement, cliquez sur « REFUSER ».
+                    </p>
+                </div>
+                <div class="p-6 border-t border-gray-200 flex justify-end gap-4">
+                    <button id="btn-decline-privacy"
+                        class="px-6 py-3 border border-gray-300 text-gray-600 font-bold uppercase text-sm hover:bg-gray-100 transition-colors">
+                        Refuser
+                    </button>
+                    <button id="btn-accept-privacy"
+                        class="px-8 py-3 bg-primary text-white font-bold uppercase text-sm hover:bg-accent transition-colors">
+                        Accepter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-primary text-secondary pt-12 pb-8 border-t border-gray-800 mt-auto">
+        <div class="container mx-auto px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-2xl font-extrabold mb-2">BEDiZEN.</h2>
+                <p class="text-gray-400 text-sm">Le studio XR qui transforme votre e-commerce.</p>
+            </div>
+            <div class="md:text-right">
+                <a href="contact.html"
+                    class="text-sm font-bold uppercase tracking-widest text-accent hover:text-white transition-colors">Démarrer
+                    un projet</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const startScreen = document.getElementById('vto-start-screen');
+            const privacyModal = document.getElementById('privacy-modal');
+            const vtoInterface = document.getElementById('vto-interface');
+            const btnOpenPrivacy = document.getElementById('btn-open-privacy');
+            const btnAcceptPrivacy = document.getElementById('btn-accept-privacy');
+            const btnDeclinePrivacy = document.getElementById('btn-decline-privacy');
+            const btnCloseVto = document.getElementById('btn-close-vto');
+            const httpsWarning = document.getElementById('https-warning');
+
+            const videoElement = document.getElementById('vto-input-video');
+            const container = document.getElementById('vto-canvas-container');
+            const loaderEl = document.getElementById('vto-loader');
+            const loaderText = document.getElementById('vto-loader-text');
+            const loaderSpinner = document.getElementById('vto-spinner');
+
+            let cameraObj = null;
+            let faceMesh = null;
+            let isVtoActive = false;
+
+            // Check HTTPS
+            if (!window.isSecureContext && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+                httpsWarning.classList.remove('hidden');
+                btnOpenPrivacy.disabled = true;
+                btnOpenPrivacy.classList.add('opacity-50', 'cursor-not-allowed');
+                btnOpenPrivacy.textContent = 'Caméra bloquée';
+            }
+
+            // UI Flow
+            btnOpenPrivacy.addEventListener('click', () => {
+                privacyModal.classList.remove('hidden');
+            });
+
+            btnDeclinePrivacy.addEventListener('click', () => {
+                privacyModal.classList.add('hidden');
+            });
+
+            btnAcceptPrivacy.addEventListener('click', () => {
+                privacyModal.classList.add('hidden');
+                startScreen.classList.add('hidden');
+                vtoInterface.classList.remove('hidden');
+                startVTO();
+            });
+
+            btnCloseVto.addEventListener('click', () => {
+                stopVTO();
+                vtoInterface.classList.add('hidden');
+                startScreen.classList.remove('hidden');
+            });
+
+            // Three.js Setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+            camera.position.z = 10;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            dirLight.position.set(0, 10, 5);
+            scene.add(dirLight);
+
+            let glassesModel = null;
+
+            // Handle resizing
+            const resizeObserver = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    const { width, height } = entry.contentRect;
+                    if (width > 0 && height > 0) {
+                        camera.aspect = width / height;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(width, height);
+                    }
+                }
+            });
+            resizeObserver.observe(container);
+
+            // Load Model function
+            function loadModel() {
+                if (glassesModel) return Promise.resolve();
+
+                return new Promise((resolve) => {
+                    loaderText.textContent = "Chargement du modèle 3D...";
+                    const gltfLoader = new GLTFLoader();
+                    const modelPath = './3D/heart_glasses_red.glb';
+
+                    gltfLoader.load(modelPath, (gltf) => {
+                        const model = gltf.scene;
+
+                        // Center model
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        model.position.z -= center.z - 0.5;
+                        model.position.y -= center.y;
+
+                        // --- AJUSTEMENT DU CENTRE ---
+                        // Les lunettes peuvent paraître décalées si leur centre géométrique ne correspond pas au pont du nez.
+                        // Modifiez cette valeur pour recentrer gauche/droite. 
+                        // Ex: -0.2 pour les décaler vers la droite de l'écran, +0.2 pour la gauche.
+                        const offsetHorizontal = 1;
+                        model.position.x = -center.x + offsetHorizontal;
+
+                        // Tourner de 90° vers la gauche
+                        model.rotation.y = Math.PI / 2;
+
+                        glassesModel = new THREE.Group();
+                        glassesModel.add(model);
+
+                        // Pas besoin de flipper le modèle car le canvas est déjà flippé par CSS
+                        glassesModel.scale.set(1, 1, 1);
+
+                        scene.add(glassesModel);
+                        glassesModel.visible = false;
+                        resolve();
+                    }, undefined, (error) => {
+                        console.error('Erreur de chargement du modèle 3D:', error);
+                        // Fallback cube
+                        const geometry = new THREE.BoxGeometry(2, 0.5, 0.5);
+                        const material = new THREE.MeshStandardMaterial({ color: 0x1A1B1C });
+                        glassesModel = new THREE.Mesh(geometry, material);
+                        scene.add(glassesModel);
+                        glassesModel.visible = false;
+                        resolve();
+                    });
+                });
+            }
+
+
+
+            async function startVTO() {
+                isVtoActive = true;
+                loaderEl.style.display = 'flex';
+                loaderEl.style.opacity = '1';
+
+                await loadModel();
+
+                loaderText.textContent = "Accès à la caméra...";
+
+                try {
+                    if (!faceMesh) {
+                        faceMesh = new FaceMesh({
+                            locateFile: (file) => {
+                                return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`;
+                            }
+                        });
+
+                        faceMesh.setOptions({
+                            maxNumFaces: 1,
+                            refineLandmarks: true,
+                            minDetectionConfidence: 0.6,
+                            minTrackingConfidence: 0.6
+                        });
+
+                        faceMesh.onResults(onFaceResults);
+                    }
+
+                    if (!cameraObj) {
+                        cameraObj = new Camera(videoElement, {
+                            onFrame: async () => {
+                                if (isVtoActive) {
+                                    await faceMesh.send({ image: videoElement });
+                                }
+                            },
+                            width: 1280,
+                            height: 720
+                        });
+                    }
+
+                    await cameraObj.start();
+
+                    loaderEl.style.opacity = '0';
+                    setTimeout(() => { if (!isVtoActive) return; loaderEl.style.display = 'none'; }, 500);
+
+                } catch (err) {
+                    console.error("Erreur de caméra: ", err);
+                    loaderText.textContent = "Échec d'accès à la caméra. Vérifiez les permissions.";
+                    loaderSpinner.classList.add('hidden');
+                }
+            }
+
+            function stopVTO() {
+                isVtoActive = false;
+                if (cameraObj) {
+                    cameraObj.stop();
+                }
+                if (glassesModel) {
+                    glassesModel.visible = false;
+                    renderer.render(scene, camera);
+                }
+            }
+
+            function onFaceResults(results) {
+                if (!glassesModel || !isVtoActive) return;
+
+                if (results.multiFaceLandmarks && results.multiFaceLandmarks.length > 0) {
+                    glassesModel.visible = true;
+                    const landmarks = results.multiFaceLandmarks[0];
+
+                    const vFOV = THREE.MathUtils.degToRad(camera.fov);
+                    const height = 2 * Math.tan(vFOV / 2) * camera.position.z;
+                    const width = height * camera.aspect;
+
+                    const rightEye = landmarks[133];
+                    const leftEye = landmarks[362];
+
+                    if (rightEye && leftEye) {
+                        const cx = (rightEye.x + leftEye.x) / 2;
+                        const cy = (rightEye.y + leftEye.y) / 2;
+
+                        const xWorld = (cx - 0.5) * width;
+                        const yWorld = -(cy - 0.5) * height;
+
+                        glassesModel.position.set(xWorld, yWorld, 0);
+
+                        const dx = leftEye.x - rightEye.x;
+                        const dy = leftEye.y - rightEye.y;
+                        let angleZ = Math.atan2(dy, dx);
+                        glassesModel.rotation.z = -angleZ;
+
+                        const dz = leftEye.z - rightEye.z;
+                        let angleY = Math.asin(dz / Math.sqrt(dx * dx + dz * dz));
+                        glassesModel.rotation.y = angleY;
+
+                        const faceWidth = Math.sqrt(dx * dx + dy * dy) * width;
+                        const scale = faceWidth * 1.5;
+                        glassesModel.scale.set(scale, scale, scale);
+                    }
+                } else {
+                    glassesModel.visible = false;
+                }
+
+                renderer.render(scene, camera);
+            }
+        });
+    </script>
+</body>
+
+</html>
