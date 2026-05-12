@@ -360,7 +360,7 @@
                 return new Promise((resolve) => {
                     loaderText.textContent = "Chargement du modèle 3D...";
                     const gltfLoader = new GLTFLoader();
-                    const modelPath = './3D/heart_glasses_red.glb';
+                    const modelPath = '/heart_glasses_red.glb';
 
                     gltfLoader.load(modelPath, (gltf) => {
                         const model = gltf.scene;
