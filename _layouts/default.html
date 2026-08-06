@@ -1,99 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en' }}">
 <head>
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ4ERD7XYL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  gtag('config', 'G-NZ4ERD7XYL');
-</script>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PC2MB67S');</script>
-<meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Alejandro Amaro Mendoza — Visual & UI Designer</title>
-  
-  <meta name="description" content="Official portfolio of Alejandro A. Mendoza.">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Title -->
+  <title>{% if page.title and page.title != 'Home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | truncate: 160 }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
+  <meta name="twitter:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
+
+  <!-- Content Security Policy (Removed for local development compatibility) -->
+
+  <!-- Fonts: Poppins (subset Latin, key weights, swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+  <!-- JSON-LD Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alejandro Amaro Mendoza",
+    "url": "https://alejandro-is.me",
+    "jobTitle": "Product & Visual Designer",
+    "sameAs": [
+      "https://www.linkedin.com/in/alejandro-a-mendoza/"
+    ],
+    "knowsAbout": ["UX Design", "UI Design", "Visual Identity", "Web Development", "Product Design"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Strasbourg",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
 </head>
 
 <body class="{{ page.title | downcase | slugify }}-page">
-  
-  <div class="custom-cursor"></div>
-  
-  <header>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Custom Cursor (progressive enhancement — hidden until JS loads) -->
+  <div class="custom-cursor" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header role="banner">
     <div class="container header-content">
-      <a href="/" class="logo">alejandro a.m.</a>
-      <nav id="desktop-menu" class="desktop-nav">
+      <a href="/" class="logo" aria-label="Alejandro A.M. — Home">alejandro a.m.</a>
+      
+      <nav id="desktop-menu" class="desktop-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="/about.html">about</a></li>
-          <li><a href="/portfolio.html">portfolio</a></li>
-          <li><a href="/contact.html">contact</a></li>
+          <li><a href="/#about">about</a></li>
+          <li><a href="/#projects">projects</a></li>
+          <li><a href="/#contact">contact</a></li>
         </ul>
       </nav>
-      <button id="menu-btn" class="menu-btn">
-        <svg id="icon-menu" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="icon-close" class="icon hidden-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+
+      <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Toggle navigation menu">
+        <svg id="icon-menu" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="icon hidden-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
       </button>
-      <nav id="menu" class="nav-menu">
+
+      <nav id="menu" class="nav-menu" aria-label="Mobile navigation">
         <ul>
-          <li><a href="/about.html">about</a></li>
-          <li><a href="/portfolio.html">portfolio</a></li>
-          <li><a href="/contact.html">contact</a></li>
+          <li><a href="/#about">about</a></li>
+          <li><a href="/#projects">projects</a></li>
+          <li><a href="/#contact">contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-    <main>
-        {{ content }}
-    </main>
+  <main id="main-content">
+    {{ content }}
+  </main>
 
-    <footer>
+  <!-- Footer -->
+  <footer role="contentinfo">
     <div class="container footer-container">
-      <div>
-        <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a>
-        <a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank">LinkedIn</a>
+      <div class="footer-links">
+        <a href="#" class="email-link" data-u="ale.amaro.m" data-d="proton.me" aria-label="Send email">
+          <span aria-hidden="true">ale.amaro.m[at]proton.me</span>
+        </a>
+        <a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
       <div class="cv-links">
-        <a href="/assets/img/CV/CV_AlejandroAM_EN.pdf" target="_blank">Résumé (EN)</a>
-        <span>/</span>
-        <a href="/assets/img/CV/CV_AlejandroAM_FR.pdf" target="_blank">CV (FR)</a>
+        <a href="/assets/img/CV/CV_AlejandroAM_EN.pdf" target="_blank" rel="noopener noreferrer">Résumé (EN)</a>
+        <span aria-hidden="true">/</span>
+        <a href="/assets/img/CV/CV_AlejandroAM_FR.pdf" target="_blank" rel="noopener noreferrer">CV (FR)</a>
       </div>
     </div>
-    <p id="copyright">© 2026 Alejandro Amaro Mendoza - Design & Code</p>
+    <div class="footer-bottom">
+      <p id="copyright">© 2026 Alejandro Amaro Mendoza — Design & Code</p>
+      <a href="/mentions-legales.html" class="legal-link">Mentions légales</a>
+    </div>
   </footer>
-     <a href="#" id="back-to-top" class="back-to-top-btn" title="go-up">&gt;</a>
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/zoom.js"></script> 
-    <script src="/assets/js/cursor.js"></script>
-     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-<script>
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-    });
 
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-</script>
+  <!-- Back to Top -->
+  <a href="#" id="back-to-top" class="back-to-top-btn" title="Back to top" aria-label="Back to top">&gt;</a>
 
+  <!-- Scripts -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/zoom.js"></script>
+  <script src="/assets/js/cursor.js"></script>
 </body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC2MB67S"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </html>

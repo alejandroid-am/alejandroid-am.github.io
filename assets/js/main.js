@@ -1,21 +1,24 @@
 /*
 =================================================================
-  Main JavaScript File
------------------------------------------------------------------
-  * Contains functionality for:
-  * 1. Mobile Menu Toggle
-  * 2. Portfolio Filter
-  * 3. Document Carousel (in project pages)
-  * 4. Lightbox Gallery (in project pages)
-  * 5. Back to Top Button
+  Main JavaScript
+  ---------------------------------------------------------------
+  1. Mobile Menu Toggle
+  2. Portfolio Filter
+  3. Back to Top Button
+  4. Scroll Reveal (Intersection Observer)
+  5. Email Obfuscation
+  6. Smooth Scroll for Anchor Links
 =================================================================
 */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Remove no-js class if present
+  document.documentElement.classList.remove('no-js');
+
   /*
   ==============================================
-  --- 1. Mobile Menu Toggle
+  1. Mobile Menu Toggle
   ==============================================
   */
   const menuBtn = document.getElementById("menu-btn");
@@ -25,16 +28,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuBtn && menu) {
     menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("open");
+      const isOpen = menu.classList.toggle("open");
       iconMenu.classList.toggle("hidden-icon");
       iconClose.classList.toggle("hidden-icon");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+
+      // Trap focus in menu when open
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu on link click
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("open");
+        iconMenu.classList.remove("hidden-icon");
+        iconClose.classList.add("hidden-icon");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        iconMenu.classList.remove("hidden-icon");
+        iconClose.classList.add("hidden-icon");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = '';
+        menuBtn.focus();
+      }
     });
   }
 
 
   /*
   ==============================================
-  --- 2. Portfolio Filter
+  2. Portfolio Filter
   ==============================================
   */
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -47,9 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
         button.classList.add("active");
         const filter = button.dataset.filter;
         portfolioItems.forEach(item => {
-          const itemCategories = item.dataset.category;
-          if (filter === "all" || itemCategories.includes(filter)) {
-            item.style.display = "block";
+          const categories = item.dataset.category || '';
+          if (filter === "all" || categories.includes(filter)) {
+            item.style.display = "";
           } else {
             item.style.display = "none";
           }
@@ -61,131 +95,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
   ==============================================
-  --- 3. Document Carousel (Project Pages)
+  3. Back to Top Button
   ==============================================
   */
-  const docCarousel = document.querySelector(".document-carousel-container");
-  if (docCarousel) {
-    const slides = docCarousel.querySelectorAll(".carousel-slide");
-    const nextBtn = docCarousel.querySelector(".next-btn");
-    const prevBtn = docCarousel.querySelector(".prev-btn");
-    const counter = docCarousel.querySelector(".carousel-counter");
-    let currentIndex = 0;
-    if (slides.length > 0) {
-      const updateCarousel = () => {
-        slides.forEach((slide, index) => {
-          slide.classList.toggle("active-slide", index === currentIndex);
+  const backToTopBtn = document.getElementById("back-to-top");
+
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      backToTopBtn.style.display = window.scrollY > 400 ? "block" : "none";
+    }, { passive: true });
+
+    backToTopBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+
+  /*
+  ==============================================
+  4. Scroll Reveal (Intersection Observer)
+  ==============================================
+  */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealElements = document.querySelectorAll('.reveal');
+
+  if (revealElements.length > 0) {
+    if (prefersReducedMotion) {
+      // Reduced motion: make everything visible immediately
+      revealElements.forEach(el => el.classList.add('visible'));
+    } else if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
         });
-        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === slides.length - 1;
-      };
-      nextBtn.addEventListener("click", () => {
-        if (currentIndex < slides.length - 1) {
-          currentIndex++;
-          updateCarousel();
-        }
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
       });
-      prevBtn.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-        }
-      });
-      updateCarousel();
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      // No IntersectionObserver support: show everything
+      revealElements.forEach(el => el.classList.add('visible'));
     }
   }
 
 
   /*
   ==============================================
-  --- 4. Lightbox Gallery (Project Pages)
+  5. Email Obfuscation
   ==============================================
   */
-  const lightbox = document.getElementById("lightbox");
-  const galleryLinks = document.querySelectorAll("a[data-gallery]");
-  if (lightbox && galleryLinks.length > 0) {
-      const lightboxImg = document.getElementById("lightbox-img");
-      const lightboxCaption = document.getElementById("lightbox-caption");
-      const closeBtn = lightbox.querySelector(".lightbox-close");
-      const prevBtn = lightbox.querySelector(".lightbox-prev");
-      const nextBtn = lightbox.querySelector(".lightbox-next");
-      let currentGallery = [];
-      let currentIndex = 0;
-      const updateLightboxImage = () => {
-        const currentLink = currentGallery[currentIndex];
-        lightboxImg.src = currentLink.href;
-        lightboxCaption.textContent = currentLink.dataset.caption || '';
-        prevBtn.style.display = currentIndex === 0 ? "none" : "block";
-        nextBtn.style.display = currentIndex === currentGallery.length - 1 ? "none" : "block";
-      };
-      const openLightbox = (e) => {
-        e.preventDefault();
-        const link = e.currentTarget;
-        const galleryName = link.dataset.gallery;
-        currentGallery = Array.from(document.querySelectorAll(`a[data-gallery="${galleryName}"]`));
-        currentIndex = currentGallery.indexOf(link);
-        updateLightboxImage();
-        lightbox.style.display = "block";
-        document.body.style.overflow = "hidden";
-      };
-      const closeLightbox = () => {
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto";
-      };
-      const showNextImage = () => {
-        if (currentIndex < currentGallery.length - 1) {
-          currentIndex++;
-          updateLightboxImage();
-        }
-      };
-      const showPrevImage = () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateLightboxImage();
-        }
-      };
-      galleryLinks.forEach(link => link.addEventListener("click", openLightbox));
-      closeBtn.addEventListener("click", closeLightbox);
-      nextBtn.addEventListener("click", showNextImage);
-      prevBtn.addEventListener("click", showPrevImage);
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (lightbox.style.display === "block") {
-          if (e.key === "ArrowRight") showNextImage();
-          if (e.key === "ArrowLeft") showPrevImage();
-          if (e.key === "Escape") closeLightbox();
-        }
-      });
-  }
-  
-  
-  /*
-  ==============================================
-  --- 5. Back to Top Button
-  ==============================================
-  */
-  const backToTopBtn = document.getElementById("back-to-top");
-
-  if (backToTopBtn) {
-    // Muestra u oculta el botón dependiendo del scroll
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) { // Aparece después de bajar 300px
-        backToTopBtn.style.display = "block";
-      } else {
-        backToTopBtn.style.display = "none";
+  document.querySelectorAll('.email-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const u = link.dataset.u;
+      const d = link.dataset.d;
+      if (u && d) {
+        window.location.href = 'mailto:' + u + '@' + d;
       }
     });
+  });
 
-    // Scroll suave hacia arriba al hacer clic
-    backToTopBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+
+  /*
+  ==============================================
+  6. Smooth Scroll for Anchor Links
+  ==============================================
+  */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId === '#main-content') return;
+
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        
+        // Update URL without scroll jump
+        history.pushState(null, null, targetId);
+      }
     });
-  }
+  });
+
 });

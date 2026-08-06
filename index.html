@@ -1,10 +1,13 @@
 ---
 layout: default
 title: Home
+description: Product & Visual Designer crafting interfaces, visual identities, and user experiences. Based in Strasbourg, France.
 ---
 
-<section class="hero">
-  
+<!-- ============================================
+  HERO SECTION — Word Carousel
+============================================= -->
+<section class="hero" aria-label="Introduction">
   <div class="hero-intro">
     <p class="hero-tagline">Product & Visual Designer</p>
   </div>
@@ -12,7 +15,7 @@ title: Home
   <h1 class="hero-title">
     <div class="line-wrapper">
       <span class="static-text">I design</span>
-      <div class="carousel" id="carousel-transformo">
+      <div class="carousel" id="carousel-transformo" role="text">
         <ul>
           <li class="is-visible" data-key="interfaces">interfaces</li>
           <li data-key="visuals">visuals</li>
@@ -24,7 +27,7 @@ title: Home
     
     <div class="line-wrapper">
       <span class="static-text">made to</span>
-      <div class="carousel" id="carousel-en">
+      <div class="carousel" id="carousel-en" role="text">
         <ul>
           <li class="is-visible" data-key="enhance usability">enhance usability</li>
           <li data-key="simplify journeys">simplify journeys</li>
@@ -36,7 +39,7 @@ title: Home
     
     <div class="line-wrapper">
       <span class="static-text">driven by</span>
-      <div class="carousel" id="carousel-para">
+      <div class="carousel" id="carousel-para" role="text">
         <ul>
           <li class="is-visible" data-key="curiosity">curiosity</li>
           <li data-key="creativity">creativity</li>
@@ -46,7 +49,266 @@ title: Home
       </div>
     </div>
   </h1>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span></span>
+  </div>
 </section>
 
+<!-- ============================================
+  ABOUT SECTION
+============================================= -->
+<section id="about" class="section reveal" aria-label="About me">
+  <h2 class="section-title">About</h2>
+  
+  <div class="about-grid">
+    <div>
+      <img src="/assets/img/profile.webp" alt="Photo of Alejandro Amaro Mendoza" class="about-photo" width="160" height="160" loading="lazy">
+    </div>
+    <div class="about-text">
+      <p>
+        <strong>Am I the right person for your project?</strong><br>
+        Let's find out.
+      </p>
+      <p>
+        I don't have a standard background, and honestly? That's my biggest asset.
+        My design process is shaped by a life of constant reinvention. I learned <strong>resilience</strong> in Cuba, 
+        <strong>business strategy</strong> in Chile where I co-founded 
+        <a class="about-link" href="https://somosarte.cl/" target="_blank" rel="noopener noreferrer"><em>Somos Arte</em></a> 
+        and built a community of 10,000+ people from scratch, and <strong>adaptability</strong> in France, 
+        where I moved for love and mastered a third language.
+      </p>
+      <p>
+        <strong>Why does this matter to you?</strong><br>
+        Because I don't look at a project and just see colors and typography. Thanks to my entrepreneurial roots, 
+        I see business goals, constraints, and user needs. I understand that a design isn't finished when it looks 
+        good in Figma — it's finished when it works in the browser and converts for your business.
+      </p>
+      <p>
+        I bridge the gap between creative vision and technical reality. Whether it's coding a prototype, 
+        modeling in Blender, or defining a brand identity, I give purpose to every pixel.
+      </p>
+    </div>
+  </div>
 
-  <script src="/assets/js/home-interaction.js"></script>
+  <!-- Fun Facts -->
+  <ul class="fun-facts-list reveal">
+    <li>
+      <div class="fact-icon">
+        <img src="/assets/img/icons/bike.svg" alt="" width="32" height="32" aria-hidden="true">
+      </div>
+      <h3>Explorer on Wheels</h3>
+      <p>Cyclotourism is my form of moving meditation. The best views are discovered at a slower pace.</p>
+    </li>
+    <li>
+      <div class="fact-icon">
+        <img src="/assets/img/icons/vr_glasses.svg" alt="" width="32" height="32" aria-hidden="true">
+      </div>
+      <h3>XR Enthusiast</h3>
+      <p>Passionate about the immersive potential of virtual and augmented reality.</p>
+    </li>
+    <li>
+      <div class="fact-icon">
+        <img src="/assets/img/icons/coin_memories.svg" alt="" width="32" height="32" aria-hidden="true">
+      </div>
+      <h3>Keeper of Memories</h3>
+      <p>I collect coins from the places I visit — each one a tangible memory.</p>
+    </li>
+    <li>
+      <div class="fact-icon">
+        <img src="/assets/img/icons/cockttail-potions.svg" alt="" width="32" height="32" aria-hidden="true">
+      </div>
+      <h3>Cocktail Alchemist</h3>
+      <p>I enjoy mixing cocktails — it feels like brewing modern-day potions.</p>
+    </li>
+  </ul>
+</section>
+
+<!-- ============================================
+  SKILLS SECTION
+============================================= -->
+<section id="skills" class="section reveal" aria-label="Skills">
+  <h2 class="section-title">Skills</h2>
+  
+  <div class="skills-grid">
+    <div class="skill-category reveal">
+      <h3>Design</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">UX Research</span>
+        <span class="skill-tag">UI Design</span>
+        <span class="skill-tag">Wireframing</span>
+        <span class="skill-tag">Prototyping</span>
+        <span class="skill-tag">Design Systems</span>
+        <span class="skill-tag">Visual Identity</span>
+        <span class="skill-tag">Typography</span>
+        <span class="skill-tag">Accessibility (WCAG)</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <h3>Tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Adobe Illustrator</span>
+        <span class="skill-tag">Adobe Photoshop</span>
+        <span class="skill-tag">Blender</span>
+        <span class="skill-tag">After Effects</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <h3>Development</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">WordPress</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+  EXPERIENCE / JOURNEY SECTION
+============================================= -->
+<section id="journey" class="section reveal" aria-label="Journey">
+  <h2 class="section-title">Journey</h2>
+  <p class="section-subtitle">From Cuba to Chile to France — each chapter shaped how I approach design today.</p>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2026 — Present</div>
+      <div class="timeline-title">Product & Visual Designer — Freelance</div>
+      <div class="timeline-desc">Working with clients on UX/UI design, visual identity, and full-stack web projects. Building tools like Audita11y and OmniFormat.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2026</div>
+      <div class="timeline-title">Best Technical Achievement — Global Game Jam</div>
+      <div class="timeline-desc">Led 3D art and UI/UX for "Keep Breathing," an award-winning survival FPS built in 48 hours at Le Shadok, Strasbourg.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2024 – 2026</div>
+      <div class="timeline-title">Web UX/UI Designer Certification — CCI Campus Alsace</div>
+      <div class="timeline-desc">Professional certification covering UX research, UI design, front-end development, and full-stack web development. BEDiZEN built as the capstone project.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2019 – 2024</div>
+      <div class="timeline-title">Relocation to France</div>
+      <div class="timeline-desc">Moved to Strasbourg. Mastered French as a third language. Pivoted career toward digital design and technology.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">2015 – 2019</div>
+      <div class="timeline-title">Co-founder — Somos Arte, Chile</div>
+      <div class="timeline-desc">Co-founded a creative community and events company. Built a 10,000+ audience from scratch through branding, social media, and event production.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+  PROJECTS / CASE STUDIES SECTION
+============================================= -->
+<section id="projects" class="section" aria-label="Projects">
+  <h2 class="section-title reveal">Selected Work</h2>
+  
+  <div class="projects-grid">
+    {% assign sorted_projects = site.projects | sort: "year" | reverse %}
+    {% for project in sorted_projects %}
+    {% unless project.slug == 'zz_others' %}
+    <a href="{{ project.url }}" class="project-card reveal" aria-label="View {{ project.title }} case study">
+      <img src="{{ project.cover_image }}" alt="{{ project.title }} project cover" loading="lazy" width="800" height="500">
+      <div class="card-overlay">
+        <span class="card-meta">{{ project.role }} · {{ project.year }}</span>
+        <h3 class="card-title">{{ project.title }}</h3>
+        <p class="card-desc">{{ project.description }}</p>
+      </div>
+    </a>
+    {% endunless %}
+    {% endfor %}
+
+    <!-- Other Works — last -->
+    {% for project in site.projects %}
+    {% if project.slug == 'zz_others' %}
+    <a href="{{ project.url }}" class="project-card reveal" aria-label="View {{ project.title }}">
+      <img src="{{ project.cover_image }}" alt="{{ project.title }} project cover" loading="lazy" width="800" height="500">
+      <div class="card-overlay">
+        <span class="card-meta">{{ project.role }} · {{ project.year }}</span>
+        <h3 class="card-title">{{ project.title }}</h3>
+        <p class="card-desc">{{ project.description }}</p>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <div style="text-align: center; margin-top: var(--space-xl);" class="reveal">
+    <a href="/portfolio.html" class="submit-btn">View all projects &rarr;</a>
+  </div>
+</section>
+
+<!-- ============================================
+  EDUCATION SECTION
+============================================= -->
+<section id="education" class="section reveal" aria-label="Education">
+  <h2 class="section-title">Education</h2>
+
+  <div class="education-grid">
+    <div class="education-item reveal">
+      <div class="education-year">2024 – 2026</div>
+      <h3 class="education-title">Web UX/UI Designer — titre obtenu</h3>
+      <p class="education-school">CCI Campus Alsace, Strasbourg</p>
+      <span class="education-badge">Certified</span>
+    </div>
+    <div class="education-item reveal">
+      <div class="education-year">2026</div>
+      <h3 class="education-title">Best Technical Achievement</h3>
+      <p class="education-school">Global Game Jam — Le Shadok, Strasbourg</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+  CONTACT SECTION
+============================================= -->
+<section id="contact" class="section reveal" aria-label="Contact">
+  <h2 class="section-title">Let's talk</h2>
+  <p class="section-subtitle">Have a project in mind? Let's discuss how I can help bring your vision to life.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <a href="#" class="email-link" data-u="ale.amaro.m" data-d="proton.me" aria-label="Send email">
+        <span aria-hidden="true">ale.amaro.m[at]proton.me</span>
+      </a>
+      <a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn &nearr;</a>
+      <div style="margin-top: var(--space-sm);">
+        <a href="/assets/img/CV/CV_AlejandroAM_EN.pdf" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-right: var(--space-sm);">Résumé (EN)</a>
+        <a href="/assets/img/CV/CV_AlejandroAM_FR.pdf" target="_blank" rel="noopener noreferrer" class="submit-btn">CV (FR)</a>
+      </div>
+    </div>
+
+    <form action="https://formspree.io/f/xqayldza" method="POST" class="contact-form reveal" aria-label="Contact form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First name</label>
+          <input type="text" id="first-name" name="first-name" required autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last name</label>
+          <input type="text" id="last-name" name="last-name" required autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send message</button>
+    </form>
+  </div>
+</section>
+
+<script src="/assets/js/home-interaction.js"></script>

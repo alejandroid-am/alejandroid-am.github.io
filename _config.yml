@@ -1,8 +1,45 @@
 title: Alejandro Amaro | Product & Visual Designer
-description: Product & Visual Designer 
-baseurl: "" 
+description: Product & Visual Designer crafting interfaces, visual identities, and user experiences. Based in Strasbourg, France.
+baseurl: ""
 url: "https://alejandro-is.me"
+lang: en
+
+author:
+  name: Alejandro Amaro Mendoza
+  email: ale.amaro.m@proton.me
+  url: "https://alejandro-is.me"
+  linkedin: "https://www.linkedin.com/in/alejandro-a-mendoza/"
+
 collections:
   projects:
     output: true
     permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/img/og-default.webp
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - tools
+  - bedizen_v2
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - "*.pdf"
+  - .gitignore
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+sass:
+  style: compressed

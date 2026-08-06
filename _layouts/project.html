@@ -2,22 +2,56 @@
 layout: default
 ---
 <div class="case-study-container">
-    <nav class="breadcrumbs">
-        <a href="/">Home</a> &gt; <a href="/portfolio">Portfolio</a> &gt; <span style="opacity:0.5">{{ page.title }}</span>
-    </nav>
 
-    <header class="project-header">
-        <h1 class="project-title">{{ page.title }}</h1>
-        <p class="project-subtitle">{{ page.description }}</p>
-        
-        <div class="project-details">
-            <div><strong>Role:</strong> {{ page.role }}</div>
-            <div><strong>Tools:</strong> {{ page.tools }}</div>
-            <div><strong>Year:</strong> {{ page.year }}</div>
-        </div>
-    </header>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li aria-current="page">{{ page.title }}</li>
+    </ol>
+  </nav>
 
-    <article class="case-study-content">
-        {{ content }}
-    </article>
+  <header class="project-header">
+    <h1 class="project-title">{{ page.title }}</h1>
+    <p class="project-subtitle">{{ page.description }}</p>
+    
+    <div class="project-details">
+      {% if page.role %}<div><strong>Role:</strong> {{ page.role }}</div>{% endif %}
+      {% if page.tools %}<div><strong>Tools:</strong> {{ page.tools }}</div>{% endif %}
+      {% if page.team %}<div><strong>Team:</strong> {{ page.team }}</div>{% endif %}
+      {% if page.award %}<div><strong>Award:</strong> {{ page.award }}</div>{% endif %}
+      {% if page.year %}<div><strong>Year:</strong> {{ page.year }}</div>{% endif %}
+    </div>
+  </header>
+
+  <article class="case-study-content">
+    {{ content }}
+  </article>
+
+  <nav class="project-nav" aria-label="Project navigation">
+    <a href="/#projects" class="back-link">&larr; Back to all projects</a>
+  </nav>
+
 </div>
+
+<!-- JSON-LD CreativeWork Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "{{ page.title }}",
+  "description": "{{ page.description | strip_html | escape }}",
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ page.cover_image | absolute_url }}",
+  "dateCreated": "{{ page.year }}",
+  "author": {
+    "@type": "Person",
+    "name": "Alejandro Amaro Mendoza",
+    "url": "https://alejandro-is.me"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Alejandro Amaro Mendoza"
+  }
+}
+</script>

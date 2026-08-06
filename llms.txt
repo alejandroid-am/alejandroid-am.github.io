@@ -1,0 +1,25 @@
+# alejandro-is.me
+
+> Personal portfolio of Alejandro Amaro Mendoza — Product & Visual Designer based in Strasbourg, France.
+
+## Site Structure
+
+- **Homepage** (`/`): Single-page landing with hero, about, skills, experience, projects, education, and contact sections.
+- **Portfolio** (`/portfolio.html`): Filterable grid of all case studies.
+- **Projects** (`/projects/`): Individual case study pages:
+  - BEDiZEN — Full-stack WebAR startup project (branding, UX/UI, front-end, back-end, database, hosting)
+  - Spin App — Fintech app redesign with gamification and user flow restructuring
+  - WorkPics — Field reporting app for construction teams ("dirty hands" UX)
+  - Cinéville Festival — Surrealist visual identity for a film festival
+  - Keep Breathing — Award-winning game jam survival FPS (Best Technical Achievement, GGJ 2026)
+  - Other Works — Illustration, logo design, and digital art gallery
+
+## Contact
+
+- Email: ale.amaro.m [at] proton.me
+- LinkedIn: linkedin.com/in/alejandro-a-mendoza/
+- Location: Strasbourg, France
+
+## Technologies
+
+Built with Jekyll (static site generator), vanilla HTML/CSS/JS. Hosted on GitHub Pages.
