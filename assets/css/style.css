@@ -1270,8 +1270,16 @@ footer {
   margin-bottom: var(--space-md);
 }
 /* --- 8.5 Logos (WorkPics) --- */
-.logo-workpics {
+.logo-workpics-wrap {
+  display: inline-block;
   border-radius: 40px;
+  overflow: hidden;
+  background: var(--bg-surface); /* o el color de fondo que quieras visible en las esquinas */
+}
+
+.logo-workpics {
+  display: block;
+  border-radius: 40px; /* redundante pero seguro */
 }
 
 /* --- 8.5.1 Color Palette (WorkPics) --- */
