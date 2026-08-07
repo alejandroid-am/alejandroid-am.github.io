@@ -354,13 +354,12 @@ footer {
 
 /* Scroll indicator */
 .scroll-indicator {
+  align-self: center;      
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
   margin-top: var(--space-xl);
-  margin-inline: auto;      /* centra el bloque si el padre no es flex */
-  width: fit-content;        /* necesario para que margin auto funcione */
   color: var(--text-subtle);
   font-size: 0.8rem;
   letter-spacing: 0.1em;
@@ -369,10 +368,10 @@ footer {
 
 .scroll-indicator span {
   display: block;
-  width: 4px;                /* antes 1px → más grueso */
+  width: 4px;
   height: 40px;
-  background: #FFEE00;
-  border-radius: 999px;      /* redondeado */
+  background: var(--accent);   
+  border-radius: 999px;
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
