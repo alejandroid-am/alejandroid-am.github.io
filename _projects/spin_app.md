@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Spin App
-description: Redesigning a fintech app with gamification — fixing a broken user flow that was punishing users before they even made a purchase.
+description: Redesigning a mobile top-up fintech app with gamified, roulette-style rewards — fixing a broken user flow that was punishing users before they even made a purchase.
 role: UI/UX Designer & Brand Strategist
 tools: Figma, Illustrator, Photoshop
 year: 2025
