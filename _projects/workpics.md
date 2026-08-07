@@ -87,7 +87,7 @@ cover_image: /assets/img/workpics-view.webp
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Workpics/workpics1.webp" alt="WorkPics logo proposal A — camera shutter concept" data-caption="Concept A: The Shutter">
+          <img class="logo-workpics" src="/assets/img/Workpics/workpics1.webp" alt="WorkPics logo proposal A — camera shutter concept" data-caption="Concept A: The Shutter">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">Proposal A</figcaption>
       </figure>
@@ -95,7 +95,7 @@ cover_image: /assets/img/workpics-view.webp
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Workpics/workpics2.webp" alt="WorkPics logo proposal B — cloud sync concept" data-caption="Concept B: The Cloud Sync">
+          <img class="logo-workpics" src="/assets/img/Workpics/workpics2.webp" alt="WorkPics logo proposal B — cloud sync concept" data-caption="Concept B: The Cloud Sync">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">Proposal B</figcaption>
       </figure>
@@ -105,7 +105,7 @@ cover_image: /assets/img/workpics-view.webp
         <a href="javascript:void(0)" class="zoom-trigger">
           <img src="/assets/img/Workpics/logo-worpics-client-choice.svg" alt="WorkPics final logo — the provisional design chosen by the client, orange and white app icon" data-caption="Final Choice: Client-Selected Design">
         </a>
-        <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">✓ Client's Choice (Final)</figcaption>
+        <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">✓ Proposal C (Client's Choice)</figcaption>
       </figure>
     </div>
   </div>
