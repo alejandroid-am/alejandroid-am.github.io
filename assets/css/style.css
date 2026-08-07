@@ -354,28 +354,34 @@ footer {
 
 /* Scroll indicator */
 .scroll-indicator {
+  width: 20px;
+  height: 32px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-top: var(--space-xl);
-  color: var(--text-subtle);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .scroll-indicator span {
-  display: block;
-  width: 1px;
-  height: 40px;
-  background: var(--text-subtle);
-  animation: scrollPulse 2s ease-in-out infinite;
+  width: 2px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 1px;
+  animation: scroll-move 1.6s ease-in-out infinite;
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
-  50% { opacity: 1; transform: scaleY(1); }
+@keyframes scroll-move {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
 }
 
 /*
