@@ -1269,8 +1269,12 @@ footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   margin-bottom: var(--space-md);
 }
+/* --- 8.5 Logos (WorkPics) --- */
+.logo-workpics {
+  border-radius: 40px;
+}
 
-/* --- 8.5 Color Palette (WorkPics) --- */
+/* --- 8.5.1 Color Palette (WorkPics) --- */
 .color-palette-container {
   margin: var(--space-lg) 0;
   padding: var(--space-md);
