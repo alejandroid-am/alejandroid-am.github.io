@@ -4,7 +4,7 @@ title: BEDiZEN
 description: A full-stack project — from brand identity and UX/UI design to front-end development, back-end architecture, database design, and deployment.
 role: UX/UI Designer, Full-Stack Developer, Branding
 tools: Figma, Illustrator, HTML/CSS, Tailwind CSS, PHP, MySQL, WordPress
-year: 2024–2026
+year: 2026
 categories: identity ux-ui frontend
 cover_image: /assets/img/bedizen-view.webp
 ---
