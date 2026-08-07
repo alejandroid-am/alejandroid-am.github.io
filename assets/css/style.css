@@ -353,14 +353,14 @@ footer {
 .carousel li.is-visible { opacity: 1; }
 
 /* Scroll indicator */
-/* Scroll indicator */
+
 .scroll-indicator {
   align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-3xl);
   color: var(--text-subtle);
   font-size: 0.8rem;
   letter-spacing: 0.1em;
