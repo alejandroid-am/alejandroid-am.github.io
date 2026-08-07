@@ -1270,7 +1270,7 @@ footer {
   margin-bottom: var(--space-md);
 }
 /* --- 8.5 Logos (WorkPics) --- */
-.bento-item img#logo-workpics {
+#logo-workpics {
   border-radius: 40px;
 }
 
