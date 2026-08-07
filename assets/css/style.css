@@ -1446,6 +1446,7 @@ html.cursor-ready .custom-cursor { display: block; }
 .legal-page .legal-content {
   max-width: 700px;
   margin: 0 auto;
+  margin-left: var(--space-xl);
   padding: var(--space-xl) var(--space-md);
 }
 
