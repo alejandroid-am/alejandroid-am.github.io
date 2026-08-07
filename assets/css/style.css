@@ -128,8 +128,8 @@ header[role="banner"] {
   top: 0;
   z-index: 100;
   background-color: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+ /* backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);*/
 }
 
 .header-content {
