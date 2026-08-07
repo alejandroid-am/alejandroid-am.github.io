@@ -354,34 +354,31 @@ footer {
 
 /* Scroll indicator */
 .scroll-indicator {
-  width: 20px;
-  height: 32px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xl);
+  margin-inline: auto;      /* centra el bloque si el padre no es flex */
+  width: fit-content;        /* necesario para que margin auto funcione */
+  color: var(--text-subtle);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .scroll-indicator span {
-  width: 2px;
-  height: 8px;
-  background: currentColor;
-  border-radius: 1px;
-  animation: scroll-move 1.6s ease-in-out infinite;
+  display: block;
+  width: 4px;                /* antes 1px → más grueso */
+  height: 40px;
+  background: #FFEE00;
+  border-radius: 999px;      /* redondeado */
+  animation: scrollPulse 2s ease-in-out infinite;
 }
 
-@keyframes scroll-move {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  70% {
-    transform: translateY(16px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(16px);
-    opacity: 0;
-  }
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
 }
 
 /*
