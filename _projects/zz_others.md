@@ -4,7 +4,7 @@ title: Other Works
 description: A curated collection of personal experiments, logo designs, political satire, and digital illustrations.
 role: Illustrator & Graphic Designer
 tools: Photoshop, Illustrator
-year: 2020–Present
+year: 
 categories: illustration identity
 cover_image: /assets/img/others-view.webp
 ---
