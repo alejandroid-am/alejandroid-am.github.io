@@ -273,6 +273,8 @@
     background:linear-gradient(to top, var(--bg) 60%, transparent);
     padding:24px 0 8px;
     margin-top:8px;
+    display:flex;
+    gap:10px;
   }
   .save-note{font-size:11.5px;color:var(--text-faint);margin-top:10px;}
   .save-note .dot{color:var(--accent);}
@@ -388,6 +390,7 @@
 
     <div class="sidebar-foot">
       <button class="btn btn-primary btn-block" id="btn-export" data-i18n="btnExport"></button>
+      <button class="btn btn-ghost btn-block" id="btn-mail" data-i18n="btnMail"></button>
       <button class="btn btn-ghost btn-block btn-sm" id="btn-reset" data-i18n="btnReset"></button>
       <p class="save-note"><span class="dot">●</span> <span data-i18n="savedNote"></span></p>
     </div>
@@ -505,6 +508,7 @@
 
     <div class="export-bar">
       <button class="btn btn-primary" id="btn-export-2" data-i18n="btnExport"></button>
+      <button class="btn btn-ghost" id="btn-mail-2" data-i18n="btnMail"></button>
     </div>
   </main>
 </div>
@@ -516,6 +520,8 @@
   "use strict";
 
   var STORAGE_KEY = "brandbrief.v1";
+  var MAILTO_ADDRESS = "ale.amaro.m@proton.me";
+  var MAILTO_SAFE_BODY_CHARS = 900;
   var SPECTRUM_IDS = ["trad_modern","serious_playful","simple_complex","exclusive_inclusive",
     "luxury_affordable","formal_informal","masc_fem","quiet_loud","elegant_rugged","mature_youthful"];
   var TYPOGRAPHY_IDS = ["sans","serif","cursive"];
@@ -528,6 +534,8 @@
       navAudience:"Sobre la audiencia", navLogo:"Sobre el logo", navSpectrum:"Espectro de marca",
       navPrefs:"Preferencias de diseño", navInspiration:"Inspiración",
       btnExport:"Exportar a PDF", btnReset:"Vaciar formulario", savedNote:"Guardado automático local",
+      btnMail:"Enviar por correo",
+      mailTruncated:"— Brief truncado por límite del proveedor de correo. Adjunta el PDF exportado para el contenido completo. —",
       metaClientLabel:"Cliente / Marca", metaClientPh:"Nombre del cliente",
       metaProjectLabel:"Proyecto", metaProjectPh:"Identidad de marca / Rediseño de logo",
       metaDateLabel:"Fecha",
@@ -594,6 +602,8 @@
       navAudience:"About the audience", navLogo:"About the logo", navSpectrum:"Brand spectrum",
       navPrefs:"Design preferences", navInspiration:"Inspiration",
       btnExport:"Export to PDF", btnReset:"Clear form", savedNote:"Autosaved locally",
+      btnMail:"Send by email",
+      mailTruncated:"— Brief truncated due to email provider limits. Attach the exported PDF for the full content. —",
       metaClientLabel:"Client / Brand", metaClientPh:"Client name",
       metaProjectLabel:"Project", metaProjectPh:"Brand identity / Logo redesign",
       metaDateLabel:"Date",
@@ -660,6 +670,8 @@
       navAudience:"À propos de l'audience", navLogo:"À propos du logo", navSpectrum:"Spectre de marque",
       navPrefs:"Préférences de design", navInspiration:"Inspiration",
       btnExport:"Exporter en PDF", btnReset:"Vider le formulaire", savedNote:"Enregistrement automatique local",
+      btnMail:"Envoyer par e-mail",
+      mailTruncated:"— Brief tronqué en raison des limites du fournisseur d'e-mail. Joignez le PDF exporté pour le contenu complet. —",
       metaClientLabel:"Client / Marque", metaClientPh:"Nom du client",
       metaProjectLabel:"Projet", metaProjectPh:"Identité de marque / Refonte du logo",
       metaDateLabel:"Date",
@@ -1114,6 +1126,108 @@
   }
   document.getElementById("btn-export").addEventListener("click", exportPdf);
   document.getElementById("btn-export-2").addEventListener("click", exportPdf);
+
+  function txtField(question, answer){
+    var a = (answer || "").trim();
+    return question + ": " + (a ? a : L("pvNoAnswer"));
+  }
+
+  function buildMailBody(){
+    var dict = I18N[state.lang] || I18N.es;
+    var m = state.meta;
+    var lines = [];
+
+    lines.push((m.client ? m.client + " " : "") + "— Brand Brief");
+    var metaLine = [m.project, m.date].filter(Boolean).join(" · ");
+    if(metaLine) lines.push(metaLine);
+    lines.push("");
+
+    lines.push("## " + L("purposeTitle"));
+    lines.push(txtField(L("purposeLabel"), state.purpose));
+    lines.push("");
+    lines.push("## " + L("missionTitle"));
+    lines.push(txtField(L("missionLabel"), state.mission));
+    lines.push("");
+
+    lines.push("## " + L("valuesTitle"));
+    var vals = state.values.filter(function(v){return (v.name||"").trim() || (v.desc||"").trim();});
+    if(vals.length){
+      vals.forEach(function(v){
+        lines.push("- " + (v.name || L("pvUnnamed")) + (v.desc ? ": " + v.desc : ""));
+      });
+    } else {
+      lines.push(L("pvNoAnswer"));
+    }
+    lines.push("");
+
+    lines.push("## " + L("brandTitle"));
+    lines.push(txtField(L("brandPersonality"), state.brand.personality));
+    lines.push(txtField(L("brandStrengths"), state.brand.strengths));
+    lines.push(txtField(L("brandCompetitors"), state.brand.competitors));
+    lines.push(txtField(L("brandWeaknesses"), state.brand.weaknesses));
+    lines.push(txtField(L("brandDifferentiation"), state.brand.differentiation));
+    lines.push(txtField(L("brandCustomerValue"), state.brand.customerValue));
+    lines.push("");
+
+    lines.push("## " + L("audienceTitle"));
+    lines.push(txtField(L("audPrimary"), state.audience.primary));
+    lines.push(txtField(L("audGender"), state.audience.gender));
+    lines.push(txtField(L("audSecondary"), state.audience.secondary));
+    lines.push(txtField(L("audAge"), state.audience.age));
+    lines.push(txtField(L("audAttraction"), state.audience.attraction));
+    lines.push("");
+
+    lines.push("## " + L("logoTitle"));
+    lines.push(txtField(L("logoCurrent"), state.logo.current));
+    lines.push(txtField(L("logoWords"), state.logo.words));
+    lines.push(txtField(L("logoLikes"), state.logo.likes));
+    lines.push(txtField(L("logoDislikes"), state.logo.dislikes));
+    lines.push(txtField(L("logoLooking"), state.logo.looking));
+    lines.push("");
+
+    lines.push("## " + L("spectrumTitle"));
+    SPECTRUM_IDS.forEach(function(id){
+      var pair = dict.spectrum[id];
+      var val = state.spectrum[id];
+      lines.push(pair[0] + " — " + val + "/100 — " + pair[1]);
+    });
+    lines.push("");
+
+    lines.push("## " + L("prefsTitle"));
+    lines.push(txtField(L("colorPrefsLabel"), state.prefs.colorPrefs));
+    lines.push(txtField(L("typographyLabel"), (dict.typography[state.prefs.typography] || "") +
+      (state.prefs.typographyNotes ? " — " + state.prefs.typographyNotes : "")));
+    lines.push(txtField(L("logotypeLabel"), (dict.logotype[state.prefs.logoType] || "") +
+      (state.prefs.logoTypeNotes ? " — " + state.prefs.logoTypeNotes : "")));
+    lines.push("");
+
+    lines.push("## " + L("inspirationTitle"));
+    lines.push(txtField(L("successDefLabel"), state.inspiration.successDef));
+    lines.push(txtField(L("likedLogosLabel"), state.inspiration.likedLogos));
+    lines.push(txtField(L("additionalLabel"), state.inspiration.additional));
+
+    var full = lines.join("\n");
+
+    if(full.length > MAILTO_SAFE_BODY_CHARS){
+      var cut = full.slice(0, MAILTO_SAFE_BODY_CHARS);
+      var lastBreak = cut.lastIndexOf("\n");
+      if(lastBreak > 0) cut = cut.slice(0, lastBreak);
+      full = cut + "\n\n" + L("mailTruncated");
+    }
+    return full;
+  }
+
+  function sendMail(){
+    var m = state.meta;
+    var subject = (m.client ? m.client + " " : "") + "Brand Brief";
+    var body = buildMailBody();
+    var mailto = "mailto:" + MAILTO_ADDRESS +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+    window.location.href = mailto;
+  }
+  document.getElementById("btn-mail").addEventListener("click", sendMail);
+  document.getElementById("btn-mail-2").addEventListener("click", sendMail);
 
 })();
 </script>
