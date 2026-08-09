@@ -28,13 +28,11 @@ defaults:
       layout: project
 
 exclude:
-  - tools
   - bedizen_v2
   - node_modules
   - Gemfile
   - Gemfile.lock
   - README.md
-  - "*.pdf"
   - .gitignore
 
 plugins:
