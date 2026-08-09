@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative & Dev Toolkit | Local Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -54,11 +57,11 @@
             --primary: #FFEE00; 
             --primary-fg: #000000;
             --primary-bg: #333300;
-            --surface: #111111; 
-            --background: #000000; 
-            --border-col: #2a2a2a;
-            --text-main: #ffffff; 
-            --text-muted: #a1a1aa;
+            --surface: #1a1a1a; 
+            --background: #111111; 
+            --border-col: #222222;
+            --text-main: #FAFAFA; 
+            --text-muted: #b0b0b0;
             --checker-bg: #111111;
             --checker-fg: #222222;
         }
@@ -91,6 +94,17 @@
     </style>
 </head>
 <body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Breadcrumb -->
+    <style>
+      .portfolio-breadcrumb { background: #111111; border-bottom: 1px solid #222222; padding: 12px 24px; font-family: 'Poppins', system-ui, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 8px; color: #b0b0b0; z-index: 9999; position: relative; width: 100%; box-sizing: border-box; }
+      .portfolio-breadcrumb a { color: #fafafa; text-decoration: none; transition: color 0.2s; }
+      .portfolio-breadcrumb a:hover { color: #FFEE00; }
+      .portfolio-breadcrumb .separator { color: #555555; }
+    </style>
+    <nav class="portfolio-breadcrumb">
+      <a href="/">alejandro a.m.</a><span class="separator">/</span><a href="/tools/">tools</a><span class="separator">/</span><span style="color: #FFEE00;">OmniFormat Toolkit</span>
+    </nav>
 
     <!-- Encabezado de Navegación -->
     <header class="bg-surface border-b border-borderCol sticky top-0 z-50 shadow-sm transition-colors">

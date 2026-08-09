@@ -6,14 +6,14 @@
 <title>Brand Brief</title>
 <style>
   :root{
-    --bg:#0A0A0B;
-    --bg-raised:#141416;
-    --bg-input:#0F0F11;
-    --border:#242428;
-    --border-soft:#1B1B1E;
-    --text:#F4F4F5;
-    --text-dim:#A1A1AA;
-    --text-faint:#6B6B70;
+    --bg:#111111;
+    --bg-raised:#1a1a1a;
+    --bg-input:#111111;
+    --border:#222222;
+    --border-soft:#222222;
+    --text:#FAFAFA;
+    --text-dim:#b0b0b0;
+    --text-faint:#888888;
     --accent:#FFEE00;
     --accent-dim:#8A8000;
     --radius:6px;
@@ -364,6 +364,15 @@
 </style>
 </head>
 <body>
+    <style>
+      .portfolio-breadcrumb { background: #111111; border-bottom: 1px solid #222222; padding: 12px 24px; font-family: 'Poppins', system-ui, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 8px; color: #b0b0b0; z-index: 9999; position: relative; width: 100%; box-sizing: border-box; }
+      .portfolio-breadcrumb a { color: #fafafa; text-decoration: none; transition: color 0.2s; }
+      .portfolio-breadcrumb a:hover { color: #FFEE00; }
+      .portfolio-breadcrumb .separator { color: #555555; }
+    </style>
+    <nav class="portfolio-breadcrumb">
+      <a href="/">alejandro a.m.</a><span class="separator">/</span><a href="/tools/">tools</a><span class="separator">/</span><span style="color: #FFEE00;">BrandBrief</span>
+    </nav>
 
 <div class="app-shell">
   <aside class="sidebar">
