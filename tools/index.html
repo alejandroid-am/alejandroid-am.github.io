@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tools — Alejandro Amaro</title>
+  <meta name="description" content="Free design & development micro-tools built by Alejandro Amaro Mendoza.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+  <style>
+    :root {
+      --bg: #111111;
+      --bg-surface: #1a1a1a;
+      --bg-elevated: #222222;
+      --text: #FAFAFA;
+      --text-muted: #b0b0b0;
+      --text-subtle: #888888;
+      --accent: #FFEE00;
+      --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+      --max-width: 900px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --transition-fast: 200ms ease;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--text); text-decoration: none; transition: color var(--transition-fast); }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* --- Header (minimal, matches portfolio) --- */
+    .tools-header {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .tools-header .logo { font-weight: 600; font-size: 1rem; letter-spacing: 0.02em; }
+    .tools-header .back-link { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+    .tools-header .back-link:hover { color: var(--accent); }
+
+    /* --- Main --- */
+    main {
+      flex-grow: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    /* --- Tool Cards --- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .tool-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      text-decoration: none;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      color: var(--text);
+    }
+
+    .tool-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .tool-info { flex-grow: 1; }
+
+    .tool-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .tool-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .tool-arrow {
+      flex-shrink: 0;
+      font-size: 1.25rem;
+      color: var(--text-subtle);
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .tool-card:hover .tool-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    /* --- Footer --- */
+    .tools-footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+    }
+
+    @media (min-width: 600px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="tools-header">
+    <a href="/" class="logo">alejandro a.m.</a>
+    <a href="/" class="back-link">&larr; back to portfolio</a>
+  </header>
+
+  <main>
+    <h1>Tools</h1>
+    <p class="subtitle">Free micro-tools I designed and built to solve real problems I kept running into.</p>
+
+    <div class="tools-grid">
+
+      <a href="/tools/audita11y/" class="tool-card">
+        <div class="tool-icon">🛡️</div>
+        <div class="tool-info">
+          <div class="tool-name">Audita11y</div>
+          <div class="tool-desc">Accessibility & UX audit checklist — WCAG 2.1 criteria with exportable reports.</div>
+        </div>
+        <span class="tool-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a href="/tools/omniformat/" class="tool-card">
+        <div class="tool-icon">🔄</div>
+        <div class="tool-info">
+          <div class="tool-name">OmniFormat</div>
+          <div class="tool-desc">Batch image converter & optimizer — resize, compress, and change formats in-browser.</div>
+        </div>
+        <span class="tool-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a href="/tools/brandbrief/" class="tool-card">
+        <div class="tool-icon">📋</div>
+        <div class="tool-info">
+          <div class="tool-name">BrandBrief</div>
+          <div class="tool-desc">Guided brand identity questionnaire — generates a structured brief for design projects.</div>
+        </div>
+        <span class="tool-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="tools-footer">
+    <p>© 2026 Alejandro Amaro Mendoza</p>
+  </footer>
+</body>
+</html>
