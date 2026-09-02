@@ -1,0 +1,107 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+sitemap: false
+---
+
+<style>
+.error-section {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+.error-title {
+  font-size: clamp(4rem, 20vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.error-zero {
+  display: inline-block;
+  position: relative;
+  width: clamp(3rem, 15vw, 9rem);
+  height: clamp(4rem, 20vw, 12rem);
+  background: var(--accent);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.error-eye {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(1.2rem, 6vw, 3.5rem);
+  height: clamp(1.2rem, 6vw, 3.5rem);
+  background: var(--bg);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+.error-quote {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+.error-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+}
+</style>
+
+<section class="error-section reveal">
+  <div class="error-title">
+    <span>4</span>
+    <div class="error-zero" id="eye-container">
+      <div class="error-eye" id="eye-pupil"></div>
+    </div>
+    <span>4</span>
+  </div>
+  <p class="error-quote">"Not all those who wander are lost..."</p>
+  <p class="error-subtitle">But it seems you might be. The page you're looking for doesn't exist or has been moved.</p>
+  <a href="/" class="submit-btn">Return home</a>
+</section>
+
+<script>
+document.addEventListener('mousemove', (e) => {
+  const container = document.getElementById('eye-container');
+  const pupil = document.getElementById('eye-pupil');
+  
+  if (!container || !pupil) return;
+
+  const rect = container.getBoundingClientRect();
+  
+  // Center of the container
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+  
+  // Mouse position relative to the center
+  const mouseX = e.clientX - centerX;
+  const mouseY = e.clientY - centerY;
+  
+  // Angle
+  const angle = Math.atan2(mouseY, mouseX);
+  
+  // Max distance the pupil can move from the center
+  const maxDistanceX = (rect.width - pupil.offsetWidth) / 2.5;
+  const maxDistanceY = (rect.height - pupil.offsetHeight) / 2.5;
+  
+  const pupilX = Math.cos(angle) * Math.min(Math.abs(mouseX), maxDistanceX);
+  const pupilY = Math.sin(angle) * Math.min(Math.abs(mouseY), maxDistanceY);
+  
+  pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+});
+</script>
+

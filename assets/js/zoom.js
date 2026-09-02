@@ -78,9 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         lightboxImg.src = src;
         
-        // Caption
+        // Caption and Alt
         const caption = img.getAttribute('data-caption') || img.alt || '';
         lightboxCaption.textContent = caption;
+        lightboxImg.alt = img.alt || 'Enlarged image';
     };
 
     const closeLightbox = () => {
