@@ -5,7 +5,7 @@ description: Redesigning a mobile top-up fintech app with gamified, roulette-sty
 role: UI/UX Designer & Brand Strategist
 tools: Figma, Illustrator, Photoshop
 year: 2025
-categories: ux-ui identity
+categories: ux-ui identity motion
 cover_image: /assets/img/spin_view.webp
 ---
 

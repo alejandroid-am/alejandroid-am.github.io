@@ -5,7 +5,7 @@ description: A full-stack project — from brand identity and UX/UI design to fr
 role: UX/UI Designer, Full-Stack Developer, Branding
 tools: Figma, Illustrator, HTML/CSS, Tailwind CSS, PHP, MySQL, WordPress
 year: 2026
-categories: identity ux-ui frontend
+categories: identity ux-ui frontend motion
 cover_image: /assets/img/bedizen-view.webp
 ---
 
@@ -78,6 +78,26 @@ cover_image: /assets/img/bedizen-view.webp
     <li><strong>Hosting & Deployment:</strong> Configured and deployed on a dedicated hosting environment with domain management, SSL, and server optimization.</li>
   </ul>
   <p>This full-stack approach gave me end-to-end ownership of the product — from the first wireframe to the live server.</p>
+
+  <h3>4 — Motion & Social Production</h3>
+  <p>Beyond the product itself, I produced two short videos to communicate BEDiZEN's core experience across formats: a landscape piece built for YouTube and other horizontal placements, and a vertical cut built for Instagram/TikTok-style social feeds.</p>
+
+  <div class="video-duo">
+    <div class="video-duo-item">
+      <h4>La Réalité Augmentée native pour l'e-commerce</h4>
+      <div class="video-frame ratio-16-9">
+        <iframe src="https://player.vimeo.com/video/1194848845?app_id=122963" title="Bedizen - La Réalité Augmentée native Pour l'e-commerce" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      </div>
+      <p class="version-desc">Landscape format, for YouTube and other horizontal placements.</p>
+    </div>
+    <div class="video-duo-item">
+      <h4>L'Expérience Try-On en un Clic</h4>
+      <div class="video-frame ratio-9-16">
+        <iframe src="https://player.vimeo.com/video/1190134356?app_id=122963" title="BEDiZEN | L'Expérience Try-On en un Clic" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      </div>
+      <p class="version-desc">De la simple navigation à l'immersion totale : un aperçu vertical pensé pour les réseaux sociaux.</p>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -87,6 +107,7 @@ cover_image: /assets/img/bedizen-view.webp
     <li><strong>Clear Value Proposition:</strong> The brand identity successfully communicates BEDiZEN's mission as an innovative yet accessible partner for small businesses.</li>
     <li><strong>Iterative Improvement:</strong> Usability testing between v1 and v2 was the turning point — what looked "clean" in design review wasn't working for real users, and the data showed it.</li>
     <li><strong>Technical Growth:</strong> Building the back-end and database from scratch deepened my understanding of how design decisions impact development and vice versa.</li>
+    <li><strong>Multi-Format Production:</strong> Beyond the static site, I produced landscape and vertical video content for the same product, adapting one message to two very different viewing contexts.</li>
   </ul>
 </section>
 
