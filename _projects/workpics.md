@@ -1,7 +1,7 @@
 ---
 layout: project
 title: WorkPics
-description: Radical simplification of field reporting for construction teams: designing for dirty hands, bright sunlight, and zero patience.
+description: Radical simplification of field reporting for construction teams, designing for dirty hands, bright sunlight, and zero patience.
 role: UI/UX Designer & Brand Identity
 tools: Figma, Illustrator
 year: 2025
