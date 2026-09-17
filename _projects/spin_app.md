@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Spin App
-description: Redesigning a mobile top-up fintech app with gamified, roulette-style rewards — fixing a broken user flow that was punishing users before they even made a purchase.
+description: Redesigning a mobile top-up fintech app with gamified, roulette-style rewards: fixing a broken user flow that was punishing users before they even made a purchase.
 role: UI/UX Designer & Brand Strategist
 tools: Figma, Illustrator, Photoshop
 year: 2025
@@ -14,7 +14,7 @@ cover_image: /assets/img/spin_view.webp
 <section>
   <h2>The Problem: A Broken Reward Loop</h2>
   <p>Spin App had a functional product but a <strong>fundamentally broken core mechanic</strong>. Users were allowed to "Spin the Wheel" for a reward <em>before</em> completing a purchase.</p>
-  <p>The issue? If the user spun and got "Try Again" or a low reward, they felt disappointed and often abandoned the purchase entirely. The gamification was effectively <strong>punishing users before they even spent money</strong> — the opposite of what a reward system should do.</p>
+  <p>The issue? If the user spun and got "Try Again" or a low reward, they felt disappointed and often abandoned the purchase entirely. The gamification was effectively <strong>punishing users before they even spent money</strong>, the opposite of what a reward system should do.</p>
   <p>Additionally, the UI was cluttered and the visual identity felt dated, lacking the energy and trust needed for a consumer fintech app.</p>
 </section>
 
@@ -22,7 +22,7 @@ cover_image: /assets/img/spin_view.webp
   <h2>The Core Fix: Flipping the User Flow</h2>
   
   <h3>Before → After: The Critical Change</h3>
-  <p>This wasn't just a visual redesign — it was a <strong>fundamental restructuring of the user flow</strong> based on behavioral psychology:</p>
+  <p>This wasn't just a visual redesign: it was a <strong>fundamental restructuring of the user flow</strong> based on behavioral psychology:</p>
   
   <div class="version-comparison">
     <div class="version-card">
@@ -71,13 +71,13 @@ cover_image: /assets/img/spin_view.webp
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/old-spin_logo.webp" alt="Original Spin logo — unbalanced proportions and harsh colors" style="width:100%">
+        <img src="/assets/img/Spin_app/old-spin_logo.webp" alt="Original Spin logo, unbalanced proportions and harsh colors" style="width:100%">
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> Unbalanced and lacked personality.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/new_spin_logo.webp" alt="Redesigned Spin logo — dynamic, scalable, and friendly" style="width:100%">
+        <img src="/assets/img/Spin_app/new_spin_logo.webp" alt="Redesigned Spin logo, dynamic, scalable, and friendly" style="width:100%">
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> Dynamic, scalable, and friendly.</figcaption>
       </figure>
     </div>
@@ -123,7 +123,7 @@ cover_image: /assets/img/spin_view.webp
   <p>The redesign shifted the app from a purely functional utility to an engaging experience:</p>
   <ul>
     <li><strong>Eliminated the Punishment Loop:</strong> By moving the spin to post-purchase, users no longer abandon transactions after a bad spin result.</li>
-    <li><strong>Every Spin Wins:</strong> Cashback, points, or double recharge — every interaction ends positively, reinforcing the habit loop.</li>
+    <li><strong>Every Spin Wins:</strong> Cashback, points, or double recharge: every interaction ends positively, reinforcing the habit loop.</li>
     <li><strong>Reduced Friction:</strong> Automating country code selection removed one step from every single transaction.</li>
     <li><strong>Brand Trust:</strong> The new visual identity feels trustworthy enough for financial transactions while remaining playful and engaging.</li>
   </ul>
@@ -154,7 +154,7 @@ cover_image: /assets/img/spin_view.webp
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/spin2.webp" alt="SPIN App reward wheel — post-purchase celebration" data-caption="Gamified Reward System">
+      <img src="/assets/img/Spin_app/spin2.webp" alt="SPIN App reward wheel, post-purchase celebration" data-caption="Gamified Reward System">
     </a>
   </div>
   <div class="bento-item">

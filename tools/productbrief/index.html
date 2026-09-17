@@ -314,7 +314,7 @@
       edit:"Editar", exportPdf:"Exportar a PDF", sendMail:"Enviar por correo", restart:"Empezar de nuevo",
       confirmRestart:"Esto borrará todas las respuestas. ¿Continuar?",
       noAnswer:"Sin respuesta",
-      mailTruncated:"— Brief truncado por límite del proveedor de correo. Adjunta el PDF exportado para el contenido completo. —",
+      mailTruncated:"Brief truncado por límite del proveedor de correo. Adjunta el PDF exportado para el contenido completo.",
       pvEyebrow:"Product Brief",
       priorityLabels:{must:"Imprescindible",should:"Importante",could:"Deseable",wont:"Fuera de alcance"}
     },
@@ -330,7 +330,7 @@
       edit:"Edit", exportPdf:"Export to PDF", sendMail:"Send by email", restart:"Start over",
       confirmRestart:"This will clear every answer. Continue?",
       noAnswer:"No answer",
-      mailTruncated:"— Brief truncated due to email provider limits. Attach the exported PDF for the full content. —",
+      mailTruncated:"Brief truncated due to email provider limits. Attach the exported PDF for the full content.",
       pvEyebrow:"Product Brief",
       priorityLabels:{must:"Must-have",should:"Should-have",could:"Could-have",wont:"Won't-have"}
     },
@@ -346,7 +346,7 @@
       edit:"Modifier", exportPdf:"Exporter en PDF", sendMail:"Envoyer par e-mail", restart:"Recommencer",
       confirmRestart:"Ceci effacera toutes les réponses. Continuer ?",
       noAnswer:"Sans réponse",
-      mailTruncated:"— Brief tronqué en raison des limites du fournisseur d'e-mail. Joignez le PDF exporté pour le contenu complet. —",
+      mailTruncated:"Brief tronqué en raison des limites du fournisseur d'e-mail. Joignez le PDF exporté pour le contenu complet.",
       pvEyebrow:"Product Brief",
       priorityLabels:{must:"Indispensable",should:"Important",could:"Souhaitable",wont:"Hors périmètre"}
     }
@@ -878,7 +878,7 @@
     if(q.type==="spectrum"){
       return SPECTRUM_IDS.map(function(id){
         var pair=lg(SPECTRUM_DEFS[id]);
-        return pair[0]+" — "+state.answers.spectrum[id]+"/100 — "+pair[1];
+        return pair[0]+": "+state.answers.spectrum[id]+"/100 - "+pair[1];
       }).join("\n");
     }
     if(q.type==="multi"){
@@ -932,7 +932,7 @@
   function buildPrintView(){
     var a=state.answers;
     var clientName=a.client||"";
-    var title=(clientName?clientName+" — ":"")+"Product Brief";
+    var title=(clientName?clientName+" - ":"")+"Product Brief";
     var html='<div class="pv-page">';
     html+='<div class="pv-header"><div class="pv-mark">X</div><div class="pv-eyebrow">'+esc(T("pvEyebrow"))+'</div></div>';
     html+='<h1>'+esc(title)+'</h1>';
@@ -957,7 +957,7 @@
           if(fs.length){
             html+='<ul class="pv-feat-list">';
             fs.forEach(function(f){
-              html+='<li><span class="pv-prio">'+esc(T("priorityLabels")[f.priority||"must"])+'</span> — '+esc(f.name)+'</li>';
+              html+='<li><span class="pv-prio">'+esc(T("priorityLabels")[f.priority||"must"])+'</span> - '+esc(f.name)+'</li>';
             });
             html+='</ul>';
           } else {
@@ -993,7 +993,7 @@
   function buildMailBody(){
     var a=state.answers;
     var lines=[];
-    lines.push((a.client?a.client+" ":"")+"— Product Brief");
+    lines.push((a.client?a.client+" - ":"")+"Product Brief");
     var metaLine=[a.product_name,a.date].filter(Boolean).join(" · ");
     if(metaLine) lines.push(metaLine);
     lines.push("");

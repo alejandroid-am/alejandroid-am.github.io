@@ -1,4 +1,4 @@
-# Alejandro Amaro Mendoza — Portfolio
+# Alejandro Amaro Mendoza - Portfolio
 
 Personal portfolio built with Jekyll and hosted on GitHub Pages.
 
@@ -30,14 +30,14 @@ bundle install
 bundle exec jekyll serve
 ```
 
-## Tools — External Artifacts
+## Tools: External Artifacts
 
 The `/tools/` directory is **excluded from Jekyll processing** (`exclude` in `_config.yml`). 
 Files in this directory are served as-is by GitHub Pages without any Jekyll templating.
 
 ### Updating Audita11y
 Replace `/tools/audita11y/index.html` with the compiled HTML artifact. 
-Do not integrate into the Jekyll build or convert — it is a standalone React app served as a static file.
+Do not integrate into the Jekyll build or convert: it is a standalone React app served as a static file.
 
 ### Updating OmniFormat
 Replace `/tools/omniformat/index.html` (or the entire folder contents) with the compiled artifact.

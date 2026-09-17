@@ -13,13 +13,13 @@ cover_image: /assets/img/others-view.webp
 
   <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/others/nature_sport_gear.webp" alt="Nature Sport Gear logo design — mountain and compass emblem" data-caption="Nature Sport Gear: Brand Identity" loading="lazy">
+      <img src="/assets/img/others/nature_sport_gear.webp" alt="Nature Sport Gear logo design, mountain and compass emblem" data-caption="Nature Sport Gear: Brand Identity" loading="lazy">
     </a>
   </div>
 
   <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/others/revolution_love.webp" alt="Revolution Love poster — raised fist with heart motif" data-caption="Poster Design: 'Revolution is Love'" loading="lazy">
+      <img src="/assets/img/others/revolution_love.webp" alt="Revolution Love poster, raised fist with heart motif" data-caption="Poster Design: 'Revolution is Love'" loading="lazy">
     </a>
   </div>
 
@@ -49,7 +49,7 @@ cover_image: /assets/img/others-view.webp
 
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/others/dios_singa_la_reina.webp" alt="Pop art illustration in Warhol style — political satire" data-caption="Pop Art Satire: 'God Save The Queen'" loading="lazy">
+      <img src="/assets/img/others/dios_singa_la_reina.webp" alt="Pop art illustration in Warhol style, political satire" data-caption="Pop Art Satire: 'God Save The Queen'" loading="lazy">
     </a>
   </div>
 

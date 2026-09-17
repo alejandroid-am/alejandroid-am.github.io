@@ -1,7 +1,7 @@
 ---
 layout: project
 title: WorkPics
-description: Radical simplification of field reporting for construction teams — designing for dirty hands, bright sunlight, and zero patience.
+description: Radical simplification of field reporting for construction teams: designing for dirty hands, bright sunlight, and zero patience.
 role: UI/UX Designer & Brand Identity
 tools: Figma, Illustrator
 year: 2025
@@ -22,7 +22,7 @@ cover_image: /assets/img/workpics-view.webp
   <p><strong>The core constraint:</strong> The end-users are construction workers. They often wear gloves, have dirty hands, and work under bright sunlight. They don't have the patience (or the dexterity) to navigate complex menus.</p>
   <p>The solution had to be <strong>radical simplification</strong>. The mantra became: <em>"Open → Shoot → Done"</em>.</p>
 
-  <h3>1 — Zoning for Speed</h3>
+  <h3>1 - Zoning for Speed</h3>
   <p>I started with paper zoning to strip away every non-essential element. We automated the data entry: geolocation, time, and user ID are captured in the background. The user only needs to frame the shot.</p>
   
   <div class="before-after-gallery" style="display: flex; gap: 20px; flex-wrap: wrap; margin: 40px 0;">
@@ -42,14 +42,14 @@ cover_image: /assets/img/workpics-view.webp
     </div>
   </div>
 
-  <h3>2 — Prototyping & High Contrast UI</h3>
+  <h3>2 - Prototyping & High Contrast UI</h3>
   <p>I moved to Figma to create a high-fidelity prototype. I implemented a "High Brightness" mode with strong contrast ratios to ensure legibility outdoors. The UI provides immediate visual feedback (green checks) so the worker knows the data is synced without reading text.</p>
   
   <a href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
     Try Figma Prototype &rarr;
   </a>
 
-  <h3>3 — Visual Identity: Safety & Efficiency</h3>
+  <h3>3 - Visual Identity: Safety & Efficiency</h3>
   <p>The brand needed to feel like a tool, not a toy. I developed a palette inspired by industrial safety gear (High-vis Orange, Signal Green) combined with a deep tech blue for reliability.</p>
 
   <section>
@@ -80,14 +80,14 @@ cover_image: /assets/img/workpics-view.webp
     </div>
   </section>
 
-  <h3>4 — Logo Design: Three Proposals, One Winner</h3>
+  <h3>4 - Logo Design: Three Proposals, One Winner</h3>
   <p>I presented three logo concepts to the client, each exploring a different visual metaphor for the app's core function:</p>
 
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img id="logo-workpics" src="/assets/img/Workpics/workpics1.webp" alt="WorkPics logo proposal A — camera shutter concept" data-caption="Concept A: The Shutter">
+          <img id="logo-workpics" src="/assets/img/Workpics/workpics1.webp" alt="WorkPics logo proposal A, camera shutter concept" data-caption="Concept A: The Shutter">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">Proposal A</figcaption>
       </figure>
@@ -95,7 +95,7 @@ cover_image: /assets/img/workpics-view.webp
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img id="logo-workpics" src="/assets/img/Workpics/workpics2.webp" alt="WorkPics logo proposal B — cloud sync concept" data-caption="Concept B: The Cloud Sync">
+          <img id="logo-workpics" src="/assets/img/Workpics/workpics2.webp" alt="WorkPics logo proposal B, cloud sync concept" data-caption="Concept B: The Cloud Sync">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">Proposal B</figcaption>
       </figure>
@@ -103,14 +103,14 @@ cover_image: /assets/img/workpics-view.webp
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Workpics/logo-worpics-client-choice.svg" alt="WorkPics final logo — the provisional design chosen by the client, orange and white app icon" data-caption="Final Choice: Client-Selected Design">
+          <img src="/assets/img/Workpics/logo-worpics-client-choice.svg" alt="WorkPics final logo, the provisional design chosen by the client, orange and white app icon" data-caption="Final Choice: Client-Selected Design">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">✓ Proposal C (Client's Choice)</figcaption>
       </figure>
     </div>
   </div>
 
-  <p>Interestingly, the client preferred the provisional logo I had created early in the process — sometimes the first instinct captures the essence better than a polished exploration. The lesson: <strong>don't over-design when the simple solution already works.</strong></p>
+  <p>Interestingly, the client preferred the provisional logo I had created early in the process: sometimes the first instinct captures the essence better than a polished exploration. The lesson: <strong>don't over-design when the simple solution already works.</strong></p>
 
   <div class="bento-gallery" style="grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">

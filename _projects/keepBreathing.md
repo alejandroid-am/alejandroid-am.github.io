@@ -12,7 +12,7 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 ---
 
 <div class="project-hero-media">
-  <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Keep Breathing main menu — dark sci-fi corridor with the game title" style="width: 100%; display: block;">
+  <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Keep Breathing main menu, dark sci-fi corridor with the game title" style="width: 100%; display: block;">
 </div>
 
 <section>
@@ -46,7 +46,7 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
   <p>For the interface, we wanted to avoid clutter. Simplicity and effectiveness was our signature.</p>
   <ul>
     <li><strong>Main Menu:</strong> Simple, setting the tone immediately.</li>
-    <li><strong>In-Game HUD:</strong> Two separate bars (oxygen and health), a timer for scoring, and interaction prompts — nothing more.</li>
+    <li><strong>In-Game HUD:</strong> Two separate bars (oxygen and health), a timer for scoring, and interaction prompts, nothing more.</li>
     <li><strong>Game Over:</strong> High score display to encourage replayability (the "just one more run" effect).</li>
   </ul>
   

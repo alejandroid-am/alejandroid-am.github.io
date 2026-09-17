@@ -544,7 +544,7 @@
       navPrefs:"Preferencias de diseño", navInspiration:"Inspiración",
       btnExport:"Exportar a PDF", btnReset:"Vaciar formulario", savedNote:"Guardado automático local",
       btnMail:"Enviar por correo",
-      mailTruncated:"— Brief truncado por límite del proveedor de correo. Adjunta el PDF exportado para el contenido completo. —",
+      mailTruncated:"Brief truncado por límite del proveedor de correo. Adjunta el PDF exportado para el contenido completo.",
       metaClientLabel:"Cliente / Marca", metaClientPh:"Nombre del cliente",
       metaProjectLabel:"Proyecto", metaProjectPh:"Identidad de marca / Rediseño de logo",
       metaDateLabel:"Fecha",
@@ -560,7 +560,7 @@
       valueNamePh:"Valor (ej. Integridad)", valueDescPh:"Breve descripción...",
       valueNameAria:"Nombre del valor", valueDescAria:"Descripción del valor",
       brandTitle:"Sobre la marca",
-      brandPersonality:"Personalidad — ¿cómo describirías la marca?",
+      brandPersonality:"Personalidad: ¿cómo describirías la marca?",
       brandStrengths:"¿Cuáles son sus fortalezas?",
       brandCompetitors:"¿Quiénes son sus competidores? (3–5 ejemplos)",
       brandWeaknesses:"¿Cuáles son algunas debilidades?",
@@ -600,7 +600,7 @@
       successDefLabel:"En tu opinión, ¿qué define un logo exitoso?",
       likedLogosLabel:"Mirando otros logos, ¿cuáles te gustan y por qué?",
       additionalLabel:"¿Algo más que añadir?",
-      pvTitleSuffix:"— Brand Brief",
+      pvTitleSuffix:"- Brand Brief",
       pvNoAnswer:"Sin respuesta", pvUnnamed:"(sin nombre)",
       pvValuesFallback:"Valores",
       confirmReset:"Esto borrará todos los campos del formulario. ¿Continuar?"
@@ -612,7 +612,7 @@
       navPrefs:"Design preferences", navInspiration:"Inspiration",
       btnExport:"Export to PDF", btnReset:"Clear form", savedNote:"Autosaved locally",
       btnMail:"Send by email",
-      mailTruncated:"— Brief truncated due to email provider limits. Attach the exported PDF for the full content. —",
+      mailTruncated:"Brief truncated due to email provider limits. Attach the exported PDF for the full content.",
       metaClientLabel:"Client / Brand", metaClientPh:"Client name",
       metaProjectLabel:"Project", metaProjectPh:"Brand identity / Logo redesign",
       metaDateLabel:"Date",
@@ -628,7 +628,7 @@
       valueNamePh:"Value (e.g. Integrity)", valueDescPh:"Short description...",
       valueNameAria:"Value name", valueDescAria:"Value description",
       brandTitle:"About the brand",
-      brandPersonality:"Personality — how would you describe the brand?",
+      brandPersonality:"Personality: how would you describe the brand?",
       brandStrengths:"What are its strengths?",
       brandCompetitors:"Who are its competitors? (3–5 examples)",
       brandWeaknesses:"What are some weaknesses?",
@@ -668,7 +668,7 @@
       successDefLabel:"In your opinion, what defines a successful logo?",
       likedLogosLabel:"When looking at other brands' logos, which do you like and why?",
       additionalLabel:"Is there anything else you'd like to add?",
-      pvTitleSuffix:"— Brand Brief",
+      pvTitleSuffix:"- Brand Brief",
       pvNoAnswer:"No answer", pvUnnamed:"(unnamed)",
       pvValuesFallback:"Values",
       confirmReset:"This will clear every field in the form. Continue?"
@@ -680,7 +680,7 @@
       navPrefs:"Préférences de design", navInspiration:"Inspiration",
       btnExport:"Exporter en PDF", btnReset:"Vider le formulaire", savedNote:"Enregistrement automatique local",
       btnMail:"Envoyer par e-mail",
-      mailTruncated:"— Brief tronqué en raison des limites du fournisseur d'e-mail. Joignez le PDF exporté pour le contenu complet. —",
+      mailTruncated:"Brief tronqué en raison des limites du fournisseur d'e-mail. Joignez le PDF exporté pour le contenu complet.",
       metaClientLabel:"Client / Marque", metaClientPh:"Nom du client",
       metaProjectLabel:"Projet", metaProjectPh:"Identité de marque / Refonte du logo",
       metaDateLabel:"Date",
@@ -696,7 +696,7 @@
       valueNamePh:"Valeur (ex. Intégrité)", valueDescPh:"Courte description...",
       valueNameAria:"Nom de la valeur", valueDescAria:"Description de la valeur",
       brandTitle:"À propos de la marque",
-      brandPersonality:"Personnalité — comment décririez-vous la marque ?",
+      brandPersonality:"Personnalité: comment décririez-vous la marque ?",
       brandStrengths:"Quelles sont ses forces ?",
       brandCompetitors:"Qui sont ses concurrents ? (3 à 5 exemples)",
       brandWeaknesses:"Quelles sont certaines faiblesses ?",
@@ -736,7 +736,7 @@
       successDefLabel:"Selon vous, qu'est-ce qui définit un logo réussi ?",
       likedLogosLabel:"En regardant d'autres logos, lesquels aimez-vous et pourquoi ?",
       additionalLabel:"Souhaitez-vous ajouter autre chose ?",
-      pvTitleSuffix:"— Brand Brief",
+      pvTitleSuffix:"- Brand Brief",
       pvNoAnswer:"Sans réponse", pvUnnamed:"(sans nom)",
       pvValuesFallback:"Valeurs",
       confirmReset:"Ceci effacera tous les champs du formulaire. Continuer ?"
@@ -784,7 +784,7 @@
 
   function saveState(){
     try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-    catch(e){ /* storage unavailable — form still works in-session */ }
+    catch(e){ /* storage unavailable, form still works in-session */ }
   }
 
   function L(key){
@@ -1068,7 +1068,7 @@
     if(vals.length){
       html += '<ul class="pv-values-list">';
       vals.forEach(function(v){
-        html += '<li><b>' + esc(v.name || L("pvUnnamed")) + '</b>' + (v.desc ? " — " + esc(v.desc) : "") + '</li>';
+        html += '<li><b>' + esc(v.name || L("pvUnnamed")) + '</b>' + (v.desc ? " - " + esc(v.desc) : "") + '</li>';
       });
       html += '</ul>';
     } else {
@@ -1116,9 +1116,9 @@
     html += pvH2("08", L("prefsTitle"));
     html += pvField(L("colorPrefsLabel"), state.prefs.colorPrefs);
     html += pvField(L("typographyLabel"), (dict.typography[state.prefs.typography] || "") +
-      (state.prefs.typographyNotes ? " — " + state.prefs.typographyNotes : ""));
+      (state.prefs.typographyNotes ? " - " + state.prefs.typographyNotes : ""));
     html += pvField(L("logotypeLabel"), (dict.logotype[state.prefs.logoType] || "") +
-      (state.prefs.logoTypeNotes ? " — " + state.prefs.logoTypeNotes : ""));
+      (state.prefs.logoTypeNotes ? " - " + state.prefs.logoTypeNotes : ""));
 
     html += pvH2("09", L("inspirationTitle"));
     html += pvField(L("successDefLabel"), state.inspiration.successDef);
@@ -1146,7 +1146,7 @@
     var m = state.meta;
     var lines = [];
 
-    lines.push((m.client ? m.client + " " : "") + "— Brand Brief");
+    lines.push((m.client ? m.client + " - " : "") + "Brand Brief");
     var metaLine = [m.project, m.date].filter(Boolean).join(" · ");
     if(metaLine) lines.push(metaLine);
     lines.push("");
@@ -1198,16 +1198,16 @@
     SPECTRUM_IDS.forEach(function(id){
       var pair = dict.spectrum[id];
       var val = state.spectrum[id];
-      lines.push(pair[0] + " — " + val + "/100 — " + pair[1]);
+      lines.push(pair[0] + ": " + val + "/100 - " + pair[1]);
     });
     lines.push("");
 
     lines.push("## " + L("prefsTitle"));
     lines.push(txtField(L("colorPrefsLabel"), state.prefs.colorPrefs));
     lines.push(txtField(L("typographyLabel"), (dict.typography[state.prefs.typography] || "") +
-      (state.prefs.typographyNotes ? " — " + state.prefs.typographyNotes : "")));
+      (state.prefs.typographyNotes ? " - " + state.prefs.typographyNotes : "")));
     lines.push(txtField(L("logotypeLabel"), (dict.logotype[state.prefs.logoType] || "") +
-      (state.prefs.logoTypeNotes ? " — " + state.prefs.logoTypeNotes : "")));
+      (state.prefs.logoTypeNotes ? " - " + state.prefs.logoTypeNotes : "")));
     lines.push("");
 
     lines.push("## " + L("inspirationTitle"));
