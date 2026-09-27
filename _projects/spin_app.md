@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Spin App
-description: Redesigning a mobile top-up fintech app with gamified, roulette-style rewards, fixing a broken user flow that was punishing users before they even made a purchase.
+description: A complete brand and UX redesign of a mobile top-up app. It never reached production for lack of funding. This is a design process piece, not a shipped product.
 role: UI/UX Designer & Brand Strategist
 tools: Figma, Illustrator, Photoshop
 year: 2025
@@ -12,17 +12,23 @@ cover_image: /assets/img/spin_view.webp
 <img src="/assets/img/Spin_app/Spin_App_Mockups_presentation (1).webp" alt="SPIN App redesigned interface showing home screen and reward wheel" class="project-hero-image" style="border-radius: 12px;">
 
 <section>
+  <h2>The Result</h2>
+  <p>I delivered a complete redesign of the brand and the user experience. <strong>It was never implemented. The company did not secure the funding to build it.</strong></p>
+  <p>This page shows the design work and the reasoning behind it. The outcomes below are what the redesign was built to achieve, not measured results.</p>
+</section>
+
+<section>
   <h2>The Problem: A Broken Reward Loop</h2>
-  <p>Spin App had a functional product but a <strong>fundamentally broken core mechanic</strong>. Users were allowed to "Spin the Wheel" for a reward <em>before</em> completing a purchase.</p>
-  <p>The issue? If the user spun and got "Try Again" or a low reward, they felt disappointed and often abandoned the purchase entirely. The gamification was effectively <strong>punishing users before they even spent money</strong>, the opposite of what a reward system should do.</p>
-  <p>Additionally, the UI was cluttered and the visual identity felt dated, lacking the energy and trust needed for a consumer fintech app.</p>
+  <p>Spin App let users "Spin the Wheel" for a reward <em>before</em> they paid for a top-up.</p>
+  <p>A "Try Again" or a low reward left users disappointed, and many dropped the purchase. The reward <strong>punished users before they spent any money</strong>.</p>
+  <p>The UI was cluttered. The visual identity felt dated and did not inspire trust for a payment app.</p>
 </section>
 
 <section>
   <h2>The Core Fix: Flipping the User Flow</h2>
   
   <h3>Before → After: The Critical Change</h3>
-  <p>This wasn't just a visual redesign: it was a <strong>fundamental restructuring of the user flow</strong> based on behavioral psychology:</p>
+  <p>The main change was to the <strong>order of the user flow</strong>, not the visuals:</p>
   
   <div class="version-comparison">
     <div class="version-card">
@@ -59,14 +65,14 @@ cover_image: /assets/img/spin_view.webp
   </div>
 
   <h3>The Psychology Behind It</h3>
-  <p>I restructured the user flow based on the <strong>Hook Model</strong>. By moving the "Spin" to the <em>end</em> of the transaction, the reward becomes a celebration of the purchase, not a prerequisite. The "No-Loss" mechanic ensures every interaction ends on a positive note (dopamine hit), reinforcing the habit of returning to the app.</p>
+  <p>I based the new flow on the <strong>Hook Model</strong>. The spin moves to the <em>end</em> of the transaction, so the reward celebrates the purchase instead of gating it. Every spin wins, so every session ends on a positive note. The goal is to bring users back.</p>
 </section>
 
 <section>
   <h2>Visual Identity: From Chaos to Clarity</h2>
   
   <h3>Brand Evolution</h3>
-  <p>The original brand felt aggressive with clashing neon colors. I developed a balanced, trustworthy, yet playful palette and a logo that suggests movement without chaos.</p>
+  <p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
   
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item">
@@ -96,7 +102,7 @@ cover_image: /assets/img/spin_view.webp
   </div>
   
   <h3>UI Evolution</h3>
-  <p>We moved from a cluttered list view to a clean, card-based interface. Key actions like "Top Up" are now prominent, and we removed a full step from every transaction by automating country code selection based on the contact's number.</p>
+  <p>I replaced the cluttered list view with cards. "Top Up" is the most visible action. The country code is filled in from the contact's number, which removes one step from every transaction.</p>
 
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item">
@@ -119,19 +125,19 @@ cover_image: /assets/img/spin_view.webp
 </section>
 
 <section>
-  <h2>Impact & Outcomes</h2>
-  <p>The redesign shifted the app from a purely functional utility to an engaging experience:</p>
+  <h2>What the Redesign Was Built to Do</h2>
+  <p>None of this was tested with real users, because the redesign never shipped. These are the design goals:</p>
   <ul>
-    <li><strong>Eliminated the Punishment Loop:</strong> By moving the spin to post-purchase, users no longer abandon transactions after a bad spin result.</li>
-    <li><strong>Every Spin Wins:</strong> Cashback, points, or double recharge: every interaction ends positively, reinforcing the habit loop.</li>
-    <li><strong>Reduced Friction:</strong> Automating country code selection removed one step from every single transaction.</li>
-    <li><strong>Brand Trust:</strong> The new visual identity feels trustworthy enough for financial transactions while remaining playful and engaging.</li>
+    <li><strong>Remove the punishment loop:</strong> Spinning after payment means a bad result can no longer cancel a purchase.</li>
+    <li><strong>Every spin wins:</strong> Cashback, points, or double recharge. Every session ends with a reward.</li>
+    <li><strong>One step less:</strong> Automatic country codes remove one step from every transaction.</li>
+    <li><strong>Trust:</strong> A calmer identity for an app that handles payments, still playful.</li>
   </ul>
 </section>
 
 <section>
   <h2>Project Gallery</h2>
-  <p>A look at the final screens and the promo video created for the launch.</p>
+  <p>The final screens and a promo video made for the redesign.</p>
   
   <div class="video-hero-container" style="margin: 40px 0;">
     <video controls muted playsinline preload="metadata" poster="/assets/img/spin_view.webp" style="width: 100%; display: block;">

@@ -1,8 +1,8 @@
 ---
 layout: project
 title: WorkPics
-description: Radical simplification of field reporting for construction teams, designing for dirty hands, bright sunlight, and zero patience.
-role: UI/UX Designer & Brand Identity
+description: Logo and app screens for a developer friend's field reporting app for construction teams, now published on Google Play.
+role: Visual Design (Logo & App Screens)
 tools: Figma, Illustrator
 year: 2025
 categories: ux-ui identity
@@ -12,18 +12,18 @@ cover_image: /assets/img/workpics-view.webp
 <img src="/assets/img/Workpics/workpicks_ui_mockups.webp" alt="WorkPics app interface showing camera view and photo management screens" class="project-hero-image" style="border-radius: 12px;">
 
 <section>
-  <h2>The Problem: Chaos in the Field</h2>
-  <p>Site managers were facing a logistical nightmare. Documenting progress on construction sites relied on decentralized channels: workers sending random photos via WhatsApp or SMS, often without context or location data.</p>
-  <p>This led to hours of wasted time manually sorting photos and a lack of reliable data for client reports. The goal was to centralize this flow without adding administrative burden to the workers.</p>
+  <h2>The Result</h2>
+  <p>WorkPics is published on Google Play. It is a field photo reporting app for construction teams, built by a developer friend.</p>
+  <p>My friend asked me for help with the design. I designed the logo and the interface screens. This was an informal collaboration, not a client commission.</p>
+  <p>My link to the Google Play release is as a tester. Google requires twelve testers before an app can leave closed testing. I was one of them.</p>
 </section>
 
 <section>
-  <h2>The Insight: "Dirty Hands" UX</h2>
-  <p><strong>The core constraint:</strong> The end-users are construction workers. They often wear gloves, have dirty hands, and work under bright sunlight. They don't have the patience (or the dexterity) to navigate complex menus.</p>
-  <p>The solution had to be <strong>radical simplification</strong>. The mantra became: <em>"Open → Shoot → Done"</em>.</p>
+  <h2>The Screens</h2>
+  <p>The users are construction workers. They wear gloves and work in bright sunlight. I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
 
-  <h3>1 - Zoning for Speed</h3>
-  <p>I started with paper zoning to strip away every non-essential element. We automated the data entry: geolocation, time, and user ID are captured in the background. The user only needs to frame the shot.</p>
+  <h3>1 - Sketching the Flow</h3>
+  <p>I sketched the layout on paper first and removed every non-essential element. Location, time, and user ID are captured in the background. The user only frames the shot.</p>
   
   <div class="before-after-gallery" style="display: flex; gap: 20px; flex-wrap: wrap; margin: 40px 0;">
     <figure style="flex: 1; min-width: 250px; margin: 0;">
@@ -33,7 +33,7 @@ cover_image: /assets/img/workpics-view.webp
       <figcaption style="color:var(--text-muted); margin-top:10px; text-align:center;">Defining the minimal viable flow.</figcaption>
     </figure>
     <div style="flex: 1; min-width: 250px;">
-      <h4 style="margin-top: 0;">Key UX Decisions</h4>
+      <h4 style="margin-top: 0;">Interface Choices</h4>
       <ul>
         <li><strong>Login & Forget:</strong> Workers log in once. The app remembers their session and assigned site.</li>
         <li><strong>Camera First:</strong> The interface mimics standard native cameras to reduce the learning curve to zero.</li>
@@ -42,15 +42,15 @@ cover_image: /assets/img/workpics-view.webp
     </div>
   </div>
 
-  <h3>2 - Prototyping & High Contrast UI</h3>
-  <p>I moved to Figma to create a high-fidelity prototype. I implemented a "High Brightness" mode with strong contrast ratios to ensure legibility outdoors. The UI provides immediate visual feedback (green checks) so the worker knows the data is synced without reading text.</p>
+  <h3>2 - High Contrast Screens</h3>
+  <p>I built a clickable prototype in Figma. The screens use strong contrast so they stay readable outdoors. A green check confirms each upload, so the worker does not need to read any text.</p>
   
   <a href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
     Try Figma Prototype &rarr;
   </a>
 
-  <h3>3 - Visual Identity: Safety & Efficiency</h3>
-  <p>The brand needed to feel like a tool, not a toy. I developed a palette inspired by industrial safety gear (High-vis Orange, Signal Green) combined with a deep tech blue for reliability.</p>
+  <h3>3 - Color Palette</h3>
+  <p>The palette borrows from safety gear: high-vis orange and signal green. A deep blue balances them.</p>
 
   <section>
     <div class="color-palette-container">
@@ -80,8 +80,8 @@ cover_image: /assets/img/workpics-view.webp
     </div>
   </section>
 
-  <h3>4 - Logo Design: Three Proposals, One Winner</h3>
-  <p>I presented three logo concepts to the client, each exploring a different visual metaphor for the app's core function:</p>
+  <h3>4 - Logo: The Placeholder Won</h3>
+  <p>I made several logo proposals, each based on research into a different visual idea for the app. The team chose none of them. They picked a placeholder I had made in five minutes.</p>
 
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
@@ -103,14 +103,14 @@ cover_image: /assets/img/workpics-view.webp
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Workpics/logo-worpics-client-choice.svg" alt="WorkPics final logo, the provisional design chosen by the client, orange and white app icon" data-caption="Final Choice: Client-Selected Design">
+          <img src="/assets/img/Workpics/logo-worpics-client-choice.svg" alt="WorkPics final logo, the five-minute placeholder chosen by the team, orange and white app icon" data-caption="Final Choice: The Five-Minute Placeholder">
         </a>
-        <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">✓ Proposal C (Client's Choice)</figcaption>
+        <figcaption style="text-align:center; color:var(--text-muted); margin-top:10px; font-weight:600;">✓ Placeholder (Team's Choice)</figcaption>
       </figure>
     </div>
   </div>
 
-  <p>Interestingly, the client preferred the provisional logo I had created early in the process: sometimes the first instinct captures the essence better than a polished exploration. The lesson: <strong>don't over-design when the simple solution already works.</strong></p>
+  <p>The lesson: <strong>a simple mark that already works can beat a polished exploration.</strong></p>
 
   <div class="bento-gallery" style="grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
     <div class="bento-item" style="border: none; background: transparent; box-shadow: none;">
@@ -134,7 +134,7 @@ cover_image: /assets/img/workpics-view.webp
 
 <section>
   <h2>Project Gallery</h2>
-  <p>Final high-fidelity mockups showing the interface and brand application.</p>
+  <p>Mockups of the screens and the logo in use.</p>
 </section>
 
 <section class="bento-gallery">

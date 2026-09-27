@@ -1,7 +1,7 @@
 ---
 layout: project
 title: BEDiZEN
-description: A full-stack project, from brand identity and UX/UI design to front-end development, and AI-directed back-end architecture, database design, and deployment.
+description: My capstone project for the CCI Campus Alsace Web UX/UI Designer certification. I designed the brand and the site, coded it, and set up the WordPress hosting myself.
 role: UX/UI Designer, Full-Stack Developer, Branding
 tools: Figma, Illustrator, HTML/CSS, Tailwind CSS, PHP, MySQL, WordPress
 year: 2026
@@ -12,25 +12,29 @@ cover_image: /assets/img/bedizen-view.webp
 <img src="/assets/img/BEDiZEN/bedizen_white.svg" alt="BEDiZEN logo, geometric wordmark with red accent dot" class="project-hero-image" style="width: 100%; max-width: 300px; margin: 40px auto; display: block;">
 
 <section>
-  <h2>The Problem: Bridging the Tech Gap</h2>
-  <p>Small and medium-sized e-commerce businesses often lack the resources to compete with larger retailers offering immersive shopping experiences like virtual try-ons. This creates a significant disadvantage in customer engagement and conversion.</p>
-  <p>The challenge was to design, build, and deploy a complete web platform for BEDiZEN, a startup whose mission is to make Web Augmented Reality (WebAR) accessible, affordable, and easy to implement for smaller businesses.</p>
+  <h2>The Result</h2>
+  <p>BEDiZEN is my own project and my capstone for the CCI Campus Alsace Web UX/UI Designer certification. The site is live.</p>
+  <p>I created the brand, designed the site in Figma, and wrote the code myself. I built version 1 by hand in HTML and CSS. I started version 2 alone in Tailwind CSS and used AI assistance in VS Code for specific parts only. I also set up the WordPress site and the hosting.</p>
+  <p>The concept: a WebAR studio that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers.</p>
+  <a href="http://alejandro.am.servd16161.odns.fr/" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
+    Visit the Live Site &rarr;
+  </a>
 </section>
 
 <section>
-  <h2>My Process: From Concept to Deployment</h2>
+  <h2>How I Got There</h2>
   
   <h3>1 - Brand Identity & Visual Strategy</h3>
-  <p>The goal was to create a brand that felt both technologically advanced and approachable: not pretty for the sake of it, but functional and legible for a broad audience.</p>
+  <p>The brand had to read as tech and still feel approachable. Legibility came before decoration.</p>
   <ul>
-    <li><strong>Market Research:</strong> Analyzed how existing AR services communicate innovation to identify a unique position for BEDiZEN: modern, minimal, and focused on the user experience.</li>
-    <li><strong>Logo Design:</strong> Built from a customized geometric font, the logo conveys stability and forward movement. The red dot on the "i" acts as a focal point of energy and creativity.</li>
-    <li><strong>Color Palette:</strong> Dark gray, white, and accent red: creating elegance and energy while maintaining high contrast and accessibility compliance.</li>
+    <li><strong>Market Research:</strong> Analyzed how existing AR services communicate innovation to find a position for BEDiZEN: modern, minimal, and easy to understand.</li>
+    <li><strong>Logo Design:</strong> Built from a customized geometric font, the logo reads as stable and forward-leaning. The red dot on the "i" is the focal point.</li>
+    <li><strong>Color Palette:</strong> Dark gray, white, and an accent red, chosen for high contrast and accessibility.</li>
   </ul>
 
   <h3>2 - UX Research & UI Prototyping</h3>
-  <p>Using Figma, I designed the complete user flow: from zoning and low-fidelity wireframes through to a functional high-fidelity prototype. The goal was to guide potential clients through BEDiZEN's core services (WebAR, 3D modeling) while demystifying the technology along the way.</p>
-  <p>Usability testing revealed two key issues in the first version: unclear button affordances and difficulty identifying current location within the site. These findings drove the iteration to version 2.0.</p>
+  <p>I designed the full user flow in Figma, from zoning and wireframes to a clickable prototype. The flow walks visitors through the core services (WebAR, 3D modeling) and explains the technology in plain terms.</p>
+  <p>Usability testing on version 1 found two problems: buttons did not look clickable, and users could not tell where they were on the site. Version 2 fixes both.</p>
 
   <div class="version-comparison">
     <div class="version-card">
@@ -58,29 +62,27 @@ cover_image: /assets/img/bedizen-view.webp
       <img src="/assets/img/BEDiZEN/bedizen_web_v2.webp" alt="BEDiZEN website version 2, improved navigation and responsive layout" class="project-img-shadow">
       <div class="version-desc">
         <h4>What Changed</h4>
-        <p>Based on testing feedback, I implemented a clearer navigation system and rebuilt the front-end using <strong>Tailwind CSS</strong> for a responsive, mobile-first architecture.</p>
+        <p>I rebuilt the navigation and the front-end in <strong>Tailwind CSS</strong>, mobile-first. I wrote most of it myself and used AI assistance in VS Code for specific parts.</p>
         <h4>Key Improvements</h4>
         <ul>
-          <li><strong>Responsive Design:</strong> Mobile-first approach ensures a seamless experience across all devices.</li>
+          <li><strong>Responsive Design:</strong> Mobile-first layout that adapts to every screen size.</li>
           <li><strong>Clear Wayfinding:</strong> Active states and breadcrumbs help users always know where they are.</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <h3>3 - Full-Stack Development</h3>
-  <p>BEDiZEN went beyond design: I built the complete technical stack from the ground up:</p>
+  <h3>3 - Development</h3>
+  <p>I handled the full stack, from the front-end code to the live server.</p>
   <ul>
-    <li><strong>Front-End:</strong> Responsive website built with HTML, CSS (Tailwind), and JavaScript. Clean, semantic markup with accessibility in mind.</li>
-    <li><strong>Back-End:</strong> Server-side logic with PHP handling form processing, content management, and business logic.</li>
-    <li><strong>Database:</strong> MySQL database for managing client data, service catalog, and contact requests.</li>
-    <li><strong>CMS Integration:</strong> WordPress integration for content management, allowing non-technical team members to update the site.</li>
-    <li><strong>Hosting & Deployment:</strong> Configured and deployed on a dedicated hosting environment with domain management, SSL, and server optimization.</li>
+    <li><strong>Front-End:</strong> I coded it myself. Version 1 in hand-written HTML and CSS. Version 2 in Tailwind CSS and JavaScript, with AI assistance in VS Code for specific parts. Semantic markup, built with accessibility in mind.</li>
+    <li><strong>Back-End:</strong> I wrote the first PHP by hand. Later I used GitHub Copilot in VS Code to work faster.</li>
+    <li><strong>WordPress:</strong> I installed WordPress and added plugins for security, SEO, WooCommerce, contact forms, and caching.</li>
+    <li><strong>Hosting & Deployment:</strong> I set up the hosting on O2switch and edited the server files over FTP with FileZilla. I tuned caching and load speed through the O2switch settings.</li>
   </ul>
-  <p>This full-stack approach gave me end-to-end ownership of the product, from the first wireframe to the live server.</p>
 
   <h3>4 - Motion & Social Production</h3>
-  <p>Beyond the product itself, I produced two short videos to communicate BEDiZEN's core experience across formats: a landscape piece built for YouTube and other horizontal placements, and a vertical cut built for Instagram/TikTok-style social feeds.</p>
+  <p>I produced two short videos that show the BEDiZEN experience. One is landscape, for YouTube. One is vertical, for Instagram and TikTok feeds.</p>
 
   <div class="video-duo">
     <div class="video-duo-item">
@@ -101,19 +103,17 @@ cover_image: /assets/img/bedizen-view.webp
 </section>
 
 <section>
-  <h2>Impact & Key Takeaways</h2>
+  <h2>Key Takeaways</h2>
   <ul>
-    <li><strong>End-to-End Ownership:</strong> This project proved I can handle the complete product lifecycle: research, design, development, and deployment, not just one piece of the puzzle.</li>
-    <li><strong>Clear Value Proposition:</strong> The brand identity successfully communicates BEDiZEN's mission as an innovative yet accessible partner for small businesses.</li>
-    <li><strong>Iterative Improvement:</strong> Usability testing between v1 and v2 was the turning point: what looked "clean" in design review wasn't working for real users, and the data showed it.</li>
-    <li><strong>Technical Growth:</strong> Building the back-end and database from scratch deepened my understanding of how design decisions impact development and vice versa.</li>
-    <li><strong>Multi-Format Production:</strong> Beyond the static site, I produced landscape and vertical video content for the same product, adapting one message to two very different viewing contexts.</li>
+    <li><strong>Testing beat taste:</strong> Version 1 looked clean in review. Users still could not find the buttons. Testing showed it, and version 2 fixed it.</li>
+    <li><strong>Design and code together:</strong> Coding my own designs showed me which design choices cost time in development.</li>
+    <li><strong>One message, two formats:</strong> The same product story had to work in a landscape video and a vertical one.</li>
   </ul>
 </section>
 
 <section>
   <h2>Brand Guidelines</h2>
-  <p>The complete style and brand guidelines developed from the ground up for BEDiZEN:</p>
+  <p>The full brand guidelines I wrote for BEDiZEN:</p>
 
   <div class="document-carousel-container">
     <button class="carousel-btn prev-btn" aria-label="Previous slide">&lt;</button>
@@ -158,7 +158,7 @@ cover_image: /assets/img/bedizen-view.webp
 
 <section>
   <h2>Project Gallery</h2>
-  <p>A selection of mockups showing the BEDiZEN brand in different real-world contexts.</p>
+  <p>Mockups of the BEDiZEN brand in use.</p>
 </section>
 
 <section class="bento-gallery">
