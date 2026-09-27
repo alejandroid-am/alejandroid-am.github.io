@@ -692,6 +692,23 @@ footer {
   transform: scale(1.03);
 }
 
+.project-card .card-img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-base), transform 0.4s ease;
+}
+
+.project-card:hover .card-img-hover,
+.project-card:focus-visible .card-img-hover {
+  opacity: 1;
+}
+
+/* Lighter overlay so the hover image stays visible; darker at the bottom for the text */
+.project-card--hover-swap .card-overlay {
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.5) 60%);
+}
+
 .project-card .card-title {
   font-size: 1.5rem;
   font-weight: 700;

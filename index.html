@@ -205,8 +205,9 @@ description: Product & Visual Designer crafting interfaces, visual identities, a
     {% assign all_projects = site.projects | where_exp: "p", "p.slug != 'zz_others'" | sort: "year" | reverse %}
     {% assign featured_projects = all_projects | slice: 0, 6 %}
     {% for project in featured_projects %}
-    <a href="{{ project.url }}" class="project-card reveal" aria-label="View {{ project.title }} case study">
-      <img src="{{ project.cover_image }}" alt="{{ project.title }} project cover" loading="lazy" width="800" height="500">
+    <a href="{{ project.url }}" class="project-card{% if project.thumb_hover_image %} project-card--hover-swap{% endif %} reveal" aria-label="View {{ project.title }} case study">
+      <img src="{{ project.thumb_image | default: project.cover_image }}" alt="{{ project.title }} project cover" loading="lazy" width="800" height="500">
+      {% if project.thumb_hover_image %}<img src="{{ project.thumb_hover_image }}" alt="" class="card-img-hover" loading="lazy" width="800" height="500" aria-hidden="true">{% endif %}
       <div class="card-overlay">
         <span class="card-meta">{{ project.role }} · {{ project.year }}</span>
         <h3 class="card-title">{{ project.title }}</h3>

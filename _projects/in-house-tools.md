@@ -7,6 +7,8 @@ tools: HTML, CSS, JavaScript, PHP (minimal backend where needed), Claude
 year: 2026
 categories: tools ux-ui
 cover_image: /assets/img/tools/in-house-tools-cover.webp
+thumb_image: /assets/img/tools/social-generator-brand-a-ui.webp
+thumb_hover_image: /assets/img/tools/social-generator-brand-b-ui.webp
 ---
 
 <img src="/assets/img/tools/social-generator-brand-a-ui.webp" alt="Screenshot of the social post generator interface, showing the template editor and a finished Halloween promotion post" class="project-hero-image" style="border-radius: 12px;">
