@@ -2,7 +2,7 @@
 layout: project
 title: BEDiZEN
 description: My capstone project for the CCI Campus Alsace Web UX/UI Designer certification. I designed the brand and the site, coded it, and set up the WordPress hosting myself.
-role: UX/UI Designer, Full-Stack Developer, Branding
+role: UX/UI Designer, Front-End Developer, Branding
 tools: Figma, Illustrator, HTML/CSS, Tailwind CSS, PHP, MySQL, WordPress
 year: 2026
 categories: identity ux-ui frontend motion
