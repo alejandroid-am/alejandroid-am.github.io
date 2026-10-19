@@ -7,9 +7,13 @@ tools: Figma, Illustrator
 year: 2025
 categories: ux-ui identity
 cover_image: /assets/img/workpics-view.webp
+home_order: 5
+last_modified_at: 2026-10-20
 ---
 
 <img src="/assets/img/Workpics/workpicks_ui_mockups.webp" alt="WorkPics app interface showing camera view and photo management screens" class="project-hero-image" style="border-radius: 12px;">
+
+<p class="case-hook">People who aren't very familiar with technology, but who all know how to use a phone and how to read.</p>
 
 <section>
   <h2>The Result</h2>
@@ -19,11 +23,11 @@ cover_image: /assets/img/workpics-view.webp
 </section>
 
 <section>
-  <h2>The Screens</h2>
-  <p>The users are construction workers. They wear gloves and work in bright sunlight. I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
+  <h2>The users: construction workers with gloves, in the sun</h2>
+  <p>Throughout the process, I kept in mind the user profiles described in the brief: their working conditions and an ideal user. The users are construction workers. They wear gloves and work in bright sunlight. I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
 
-  <h3>1 - Sketching the Flow</h3>
-  <p>I sketched the layout on paper first and removed every non-essential element. Location, time, and user ID are captured in the background. The user only frames the shot.</p>
+  <h3>1 - A pencil sketch first</h3>
+  <p>I started with a pencil sketch of the mobile interface and removed every non-essential element. Location, time, and user ID are captured in the background. The user only frames the shot.</p>
   
   <div class="before-after-gallery" style="display: flex; gap: 20px; flex-wrap: wrap; margin: 40px 0;">
     <figure style="flex: 1; min-width: 250px; margin: 0;">
@@ -36,21 +40,22 @@ cover_image: /assets/img/workpics-view.webp
       <h4 style="margin-top: 0;">Interface Choices</h4>
       <ul>
         <li><strong>Login & Forget:</strong> Workers log in once. The app remembers their session and assigned site.</li>
-        <li><strong>Camera First:</strong> The interface mimics standard native cameras to reduce the learning curve to zero.</li>
+        <li><strong>Camera First:</strong> The interface stays close to a standard phone camera, so there's little to learn.</li>
         <li><strong>Oversized Controls:</strong> Buttons are large and spaced out to prevent miss-clicks with gloves.</li>
       </ul>
     </div>
   </div>
 
-  <h3>2 - High Contrast Screens</h3>
-  <p>I built a clickable prototype in Figma. The screens use strong contrast so they stay readable outdoors. A green check confirms each upload, so the worker does not need to read any text.</p>
+  <h3>2 - The clickable prototype</h3>
+  <p>I built a clickable prototype in Figma.</p>
   
   <a href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
     Try Figma Prototype &rarr;
   </a>
 
-  <h3>3 - Color Palette</h3>
-  <p>The palette borrows from safety gear: high-vis orange and signal green. A deep blue balances them.</p>
+  <h3>3 - The colors</h3>
+  <p>White background, black text and three more colors: a fairly strong blue, #4300FF, for trust and contrast; a green only for the success icon (a check, no text); and an orange for alerts. There wasn't much else to do, since there were only a few screens.</p>
+  <p>The text is black on white so it reads well in the sun, and the success check is recognizable by its shape, not only by its color.</p>
 
   <section>
     <div class="color-palette-container">
@@ -59,22 +64,22 @@ cover_image: /assets/img/workpics-view.webp
         <div class="color-item">
           <div class="color-block" style="background-color: #F5F5F5; border: 1px solid #555;"></div>
           <p class="color-hex">#F5F5F5</p>
-          <p class="color-desc">Clarity</p>
+          <p class="color-desc">Background</p>
         </div>
         <div class="color-item">
           <div class="color-block" style="background-color: #4300FF;"></div>
           <p class="color-hex">#4300FF</p>
-          <p class="color-desc">Trust</p>
+          <p class="color-desc">Active controls</p>
         </div>
         <div class="color-item">
           <div class="color-block" style="background-color: #08CB00;"></div>
           <p class="color-hex">#08CB00</p>
-          <p class="color-desc">Success</p>
+          <p class="color-desc">Upload check icon</p>
         </div>
         <div class="color-item">
           <div class="color-block" style="background-color: #FF6600;"></div>
           <p class="color-hex">#FF6600</p>
-          <p class="color-desc">Alert/Action</p>
+          <p class="color-desc">Alerts</p>
         </div>
       </div>
     </div>

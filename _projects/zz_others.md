@@ -7,6 +7,7 @@ tools: Photoshop, Illustrator
 year: 
 categories: illustration identity
 cover_image: /assets/img/others-view.webp
+last_modified_at: 2026-09-18
 ---
 
 <section class="bento-gallery" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px;">

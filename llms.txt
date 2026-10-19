@@ -7,11 +7,12 @@
 - **Homepage** (`/`): Single-page landing with hero, about, skills, experience, projects, education, and contact sections.
 - **Portfolio** (`/portfolio.html`): Filterable grid of all case studies.
 - **Projects** (`/projects/`): Individual case study pages:
-  - BEDiZEN — Capstone project for the CCI Campus Alsace Web UX/UI Designer certification. Brand, UX/UI design, self-coded front-end (HTML/CSS, then Tailwind CSS), PHP, and WordPress on O2switch hosting
-  - Spin App — Brand and UX redesign of a mobile top-up app. Not implemented for lack of funding; a design process piece, not a shipped product
+  - In-House Tools — A social post generator and a rental contract generator in daily use at the shop where Alejandro works as in-house designer. Alejandro defines the problem, behavior and rules; Claude writes the code
+  - Keep Breathing — Survival FPS made in 48 hours at Global Game Jam 2026; Alejandro was project lead, game designer, 3D artist and UI designer. Best Technical Achievement
+  - BEDiZEN — Final project for the CCI Campus Alsace Web UX/UI Designer certification. Brand and UX/UI; v1 coded by hand, v2 built with AI on a 4-column grid Alejandro defined; database, hosting and WordPress set up by Alejandro
+  - Spin App — Brand and UX redesign of a mobile top-up app that moves the reward wheel to after payment. Never implemented, for lack of funding
   - WorkPics — Logo and app screens for a developer friend's field reporting app for construction teams, published on Google Play
-  - Cinéville Festival — Surrealist visual identity for a film festival
-  - Keep Breathing — Award-winning game jam survival FPS (Best Technical Achievement, GGJ 2026)
+  - Cinéville Festival — Surrealist film festival poster, made as a graded exam exercise (not a real client)
   - Other Works — Illustration, logo design, and digital art gallery
 
 ## Contact

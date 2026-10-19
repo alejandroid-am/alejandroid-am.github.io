@@ -16,11 +16,13 @@ layout: default
     <p class="project-subtitle">{{ page.description }}</p>
     
     <div class="project-details">
+      {% if page.context %}<div><strong>Context:</strong> {{ page.context }}</div>{% endif %}
       {% if page.role %}<div><strong>Role:</strong> {{ page.role }}</div>{% endif %}
       {% if page.tools %}<div><strong>Tools:</strong> {{ page.tools }}</div>{% endif %}
       {% if page.team %}<div><strong>Team:</strong> {{ page.team }}</div>{% endif %}
       {% if page.award %}<div><strong>Award:</strong> {{ page.award }}</div>{% endif %}
       {% if page.year %}<div><strong>Year:</strong> {{ page.year }}</div>{% endif %}
+      {% if page.result %}<div><strong>Result:</strong> {{ page.result }}</div>{% endif %}
     </div>
   </header>
 
@@ -47,7 +49,7 @@ layout: default
   "author": {
     "@type": "Person",
     "name": "Alejandro Amaro Mendoza",
-    "url": "https://alejandro-is.me"
+    "url": "https://www.alejandro-is.me"
   },
   "creator": {
     "@type": "Person",

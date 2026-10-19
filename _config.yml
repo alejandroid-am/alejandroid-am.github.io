@@ -1,5 +1,5 @@
 title: Alejandro Amaro | Product & Visual Designer
-description: Product & Visual Designer crafting interfaces, visual identities, and user experiences. Based in Strasbourg, France.
+description: Product & Visual Designer in Strasbourg, France. I design interfaces, visual identities, and internal tools.
 baseurl: ""
 url: "https://www.alejandro-is.me"
 lang: en
@@ -21,6 +21,10 @@ defaults:
     values:
       layout: default
       image: /assets/img/og-default.webp
+  - scope:
+      path: "tools"
+    values:
+      sitemap: false
   - scope:
       path: ""
       type: projects

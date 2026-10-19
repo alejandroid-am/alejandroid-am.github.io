@@ -1,75 +1,70 @@
 ---
 layout: project
 title: Spin App
-description: A complete brand and UX redesign of a mobile top-up app. It never reached production for lack of funding. This is a design process piece, not a shipped product.
-role: UI/UX Designer & Brand Strategist
+description: A redesign of a mobile top-up app that moves the reward wheel to after payment. Based on intuition, tested with 3 people, never built for lack of funding.
+role: UI/UX & brand
+role_short: UI/UX & Brand
+result: Full redesign; never implemented, for lack of funding.
 tools: Figma, Illustrator, Photoshop
 year: 2025
+home_order: 4
+last_modified_at: 2026-10-20
 categories: ux-ui identity motion
 cover_image: /assets/img/spin_view.webp
 ---
 
 <img src="/assets/img/Spin_app/Spin_App_Mockups_presentation (1).webp" alt="SPIN App redesigned interface showing home screen and reward wheel" class="project-hero-image" style="border-radius: 12px;">
 
+<p class="case-hook">Showing a skull that tells you you lost on the wheel could put people off buying.</p>
+
 <section>
-  <h2>The Result</h2>
-  <p>I delivered a complete redesign of the brand and the user experience. <strong>It was never implemented. The company did not secure the funding to build it.</strong></p>
-  <p>This page shows the design work and the reasoning behind it. The outcomes below are what the redesign was built to achieve, not measured results.</p>
+  <h2>There were few purchases</h2>
+  <p>Spin App let users spin a wheel for a reward <em>before</em> paying for a top-up. I knew there were few purchases.</p>
 </section>
 
 <section>
-  <h2>The Problem: A Broken Reward Loop</h2>
-  <p>Spin App let users "Spin the Wheel" for a reward <em>before</em> they paid for a top-up.</p>
-  <p>A "Try Again" or a low reward left users disappointed, and many dropped the purchase. The reward <strong>punished users before they spent any money</strong>.</p>
-  <p>The UI was cluttered. The visual identity felt dated and did not inspire trust for a payment app.</p>
+  <h2>But: I didn't have the data</h2>
+  <p>I didn't know it from data: it was just intuition. (I know, in UX there's no intuition, there's user feedback.) The back-end developer was the one with access to those numbers.</p>
 </section>
 
 <section>
-  <h2>The Core Fix: Flipping the User Flow</h2>
-  
-  <h3>Before → After: The Critical Change</h3>
-  <p>The main change was to the <strong>order of the user flow</strong>, not the visuals:</p>
-  
+  <h2>So: the wheel comes after paying</h2>
+  <p>Flipping the flow was my idea: the wheel, after paying.</p>
+  <p>I based it on conventions already established in similar apps, which were part of my research, to see if we could attract customers from the competition and keep the learning curve gentle.</p>
+
   <div class="version-comparison">
     <div class="version-card">
       <div class="version-header">
-        <h4>Before: The Punishment Loop</h4>
-        <span class="badge">Broken Flow</span>
+        <h4>Before</h4>
+        <span class="badge">Spin, then pay</span>
       </div>
       <div class="version-desc">
-        <p><strong>Open App → Spin the Wheel → Lose → Feel bad → Abandon purchase</strong></p>
+        <p><strong>Open App → Spin the Wheel → Top Up</strong></p>
         <ul>
-          <li>User spins <em>before</em> buying</li>
-          <li>Losing the spin kills motivation to purchase</li>
-          <li>The "reward" becomes a <strong>barrier</strong> to conversion</li>
-          <li>Users associate the app with disappointment</li>
+          <li>The user spins <em>before</em> buying.</li>
+          <li>A skull for a loss could put them off buying. This was my hypothesis, without data.</li>
         </ul>
       </div>
     </div>
 
     <div class="version-card">
       <div class="version-header">
-        <h4>After: The Celebration Loop</h4>
-        <span class="badge new">Fixed Flow</span>
+        <h4>After</h4>
+        <span class="badge new">Pay, then spin</span>
       </div>
       <div class="version-desc">
-        <p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel → Always win!</strong></p>
+        <p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>
         <ul>
-          <li>User spins <em>after</em> a confirmed purchase</li>
-          <li>The spin is a <strong>celebration</strong>, not a gamble</li>
-          <li>Every spin wins something: cashback, points, or double recharge</li>
-          <li>Users leave the app feeling <strong>rewarded every time</strong></li>
+          <li>The user spins <em>after</em> a confirmed purchase.</li>
+          <li>Every spin wins something: cashback, points, or double recharge.</li>
         </ul>
       </div>
     </div>
   </div>
-
-  <h3>The Psychology Behind It</h3>
-  <p>I based the new flow on the <strong>Hook Model</strong>. The spin moves to the <em>end</em> of the transaction, so the reward celebrates the purchase instead of gating it. Every spin wins, so every session ends on a positive note. The goal is to bring users back.</p>
 </section>
 
 <section>
-  <h2>Visual Identity: From Chaos to Clarity</h2>
+  <h2>The brand and the screens</h2>
   
   <h3>Brand Evolution</h3>
   <p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
@@ -77,26 +72,26 @@ cover_image: /assets/img/spin_view.webp
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/old-spin_logo.webp" alt="Original Spin logo, unbalanced proportions and harsh colors" style="width:100%">
-        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> Unbalanced and lacked personality.</figcaption>
+        <img src="/assets/img/Spin_app/old-spin_logo.webp" alt="Original Spin logo" style="width:100%">
+        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> the original logo.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/new_spin_logo.webp" alt="Redesigned Spin logo, dynamic, scalable, and friendly" style="width:100%">
-        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> Dynamic, scalable, and friendly.</figcaption>
+        <img src="/assets/img/Spin_app/new_spin_logo.webp" alt="Redesigned Spin logo" style="width:100%">
+        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> a logo that suggests movement.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/old_colore_palette.webp" alt="Original harsh neon color palette" style="width:100%">
-        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> Harsh neon colors causing eye strain.</figcaption>
+        <img src="/assets/img/Spin_app/old_colore_palette.webp" alt="Original neon color palette" style="width:100%">
+        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> clashing neon colors.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/new_color_palette.webp" alt="New balanced color palette with game-inspired tones" style="width:100%">
-        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> A game-inspired palette that balances energy with readability.</figcaption>
+        <img src="/assets/img/Spin_app/new_color_palette.webp" alt="New, calmer color palette" style="width:100%">
+        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> a calmer palette that still feels playful.</figcaption>
       </figure>
     </div>
   </div>
@@ -108,32 +103,33 @@ cover_image: /assets/img/spin_view.webp
     <div class="bento-item">
       <figure style="margin:0;">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Spin_app/old_spin ui.webp" alt="Original Spin UI with confusing hierarchy and cluttered layout">
+          <img src="/assets/img/Spin_app/old_spin ui.webp" alt="Original Spin UI, list view">
         </a>
-        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> Confusing hierarchy.</figcaption>
+        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> the original list view.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Spin_app/new_spin ui.webp" alt="Redesigned Spin UI with clean layout and clear call-to-actions">
+          <img src="/assets/img/Spin_app/new_spin ui.webp" alt="Redesigned Spin UI, card layout with a prominent Top Up button">
         </a>
-        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> Clean layout with clear Call-to-Actions.</figcaption>
+        <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> cards, with "Top Up" as the most visible action.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>What the Redesign Was Built to Do</h2>
-  <p>None of this was tested with real users, because the redesign never shipped. These are the design goals:</p>
-  <ul>
-    <li><strong>Remove the punishment loop:</strong> Spinning after payment means a bad result can no longer cancel a purchase.</li>
-    <li><strong>Every spin wins:</strong> Cashback, points, or double recharge. Every session ends with a reward.</li>
-    <li><strong>One step less:</strong> Automatic country codes remove one step from every transaction.</li>
-    <li><strong>Trust:</strong> A calmer identity for an app that handles payments, still playful.</li>
-  </ul>
+  <h2>The test: 3 people</h2>
+  <p>I tested it with 3 people. One is a developer with deep knowledge of ergonomics, accessibility and UX, who gave me the green light. The other two, also developers, went through the flow in the Figma prototype.</p>
 </section>
+
+<section>
+  <h2>What I would have measured</h2>
+  <p>The purchases made, how many users came back and how often, and how long they spent on each screen (if possible).</p>
+</section>
+
+<p class="case-closing">In UX there's no intuition: there's user feedback.</p>
 
 <section>
   <h2>Project Gallery</h2>

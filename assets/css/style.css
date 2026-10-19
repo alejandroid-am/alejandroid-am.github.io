@@ -1406,6 +1406,24 @@ footer {
   margin-top: 0.25rem;
 }
 
+.case-hook {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+
+.case-closing {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  border-top: 1px solid var(--bg-elevated);
+  padding-top: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
 .callout {
   background: var(--bg-surface);
   border-left: 3px solid var(--accent);

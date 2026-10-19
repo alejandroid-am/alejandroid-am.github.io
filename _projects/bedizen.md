@@ -1,87 +1,88 @@
 ---
 layout: project
 title: BEDiZEN
-description: My capstone project for the CCI Campus Alsace Web UX/UI Designer certification. I designed the brand and the site, coded it, and set up the WordPress hosting myself.
-role: UX/UI Designer, Front-End Developer, Branding
+description: My final project for the CCI Campus Alsace certification. Version 1 coded by hand; after user tests, version 2 built with AI on a 4-column grid I defined.
+role: Brand design, UX/UI. Version 1 coded by hand; version 2 built with AI on a grid I defined; database, hosting and WordPress set up by me.
+role_short: Brand & UX/UI
+result: Live website. Final project for the CCI Campus Alsace certification.
 tools: Figma, Illustrator, HTML/CSS, Tailwind CSS, PHP, MySQL, WordPress
 year: 2026
+home_order: 3
+last_modified_at: 2026-10-20
 categories: identity ux-ui frontend motion
 cover_image: /assets/img/bedizen-view.webp
 ---
 
 <img src="/assets/img/BEDiZEN/bedizen_white.svg" alt="BEDiZEN logo, geometric wordmark with red accent dot" class="project-hero-image" style="width: 100%; max-width: 300px; margin: 40px auto; display: block;">
 
+<p class="case-hook">The AI started out with its rounded borders and cards, but the brand is more brutalist and solid.</p>
+
 <section>
-  <h2>The Result</h2>
-  <p>BEDiZEN is my own project and my capstone for the CCI Campus Alsace Web UX/UI Designer certification. The site is live.</p>
-  <p>I created the brand, designed the site in Figma, and wrote the code myself. I built version 1 by hand in HTML and CSS. I started version 2 alone in Tailwind CSS and used AI assistance in VS Code for specific parts only. I also set up the WordPress site and the hosting.</p>
-  <p>The concept: a WebAR studio that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers.</p>
+  <h2>Version 1: coded by hand</h2>
+  <p>BEDiZEN is a WebAR studio concept that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers. It was my final project for the CCI Campus Alsace Web UX/UI Designer certification, and the site is live.</p>
+  <p>I made the first version myself, with HTML and CSS. Very little JS, or none, if I remember correctly.</p>
   <a href="http://alejandro.am.servd16161.odns.fr/" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
     Visit the Live Site &rarr;
   </a>
 </section>
 
 <section>
-  <h2>How I Got There</h2>
-  
-  <h3>1 - Brand Identity & Visual Strategy</h3>
-  <p>The brand had to read as tech and still feel approachable. Legibility came before decoration.</p>
-  <ul>
-    <li><strong>Market Research:</strong> Analyzed how existing AR services communicate innovation to find a position for BEDiZEN: modern, minimal, and easy to understand.</li>
-    <li><strong>Logo Design:</strong> Built from a customized geometric font, the logo reads as stable and forward-leaning. The red dot on the "i" is the focal point.</li>
-    <li><strong>Color Palette:</strong> Dark gray, white, and an accent red, chosen for high contrast and accessibility.</li>
-  </ul>
+  <h2>But: users couldn't tell what was clickable</h2>
+  <p>Then came the user tests: <strong>7 people with different profiles</strong> took the test. Users couldn't tell which buttons were clickable, and they didn't know where they were on the site.</p>
+</section>
 
-  <h3>2 - UX Research & UI Prototyping</h3>
-  <p>I designed the full user flow in Figma, from zoning and wireframes to a clickable prototype. The flow walks visitors through the core services (WebAR, 3D modeling) and explains the technology in plain terms.</p>
-  <p>Usability testing on version 1 found two problems: buttons did not look clickable, and users could not tell where they were on the site. Version 2 fixes both.</p>
+<section>
+  <h2>So: a grid that holds the whole site</h2>
+  <p>I did a thorough review of the brand identity and of how I wanted BEDiZEN to be different. I used AI to develop a website based on a consistent grid that would convey structure (both of work and of sustainability), seriousness and modernity, but that would be easy to use.</p>
+</section>
+
+<section>
+  <h2>But: I had to correct the AI</h2>
+  <p>At first, the AI started out with its rounded borders and cards. The brand is more brutalist and solid, so: square corners, no rounding, none of that.</p>
+  <p>I looked at groundbreaking sites, because I want to revolutionize the XR market on the web, so I went to sites like Awwwards. I asked it to create a 4-column grid that repeats across the whole site. I also had to correct the order of some things and how each column was used.</p>
+  <p>The AI also helped me fix repeated code, where I could have used variables to reuse things and end up with fewer lines of code.</p>
 
   <div class="version-comparison">
     <div class="version-card">
       <div class="version-header">
-        <h4>Version 1.0: The MVP</h4>
-        <span class="badge">Initial Concept</span>
+        <h4>Version 1: coded by hand</h4>
+        <span class="badge">HTML & CSS</span>
       </div>
       <img src="/assets/img/BEDiZEN/bedizen_web_v1.webp" alt="BEDiZEN website version 1, minimal layout with large whitespace" class="project-img-shadow">
       <div class="version-desc">
-        <h4>Design Decisions</h4>
-        <p>Prioritized clean aesthetics with large whitespace and minimal navigation.</p>
-        <h4>Usability Issues Found</h4>
+        <h4>What the user tests found</h4>
         <ul>
-          <li>Users struggled to identify clickable buttons.</li>
-          <li>Difficulty understanding current location within the site.</li>
+          <li>Users couldn't tell which buttons were clickable.</li>
+          <li>Users didn't know where they were on the site.</li>
         </ul>
       </div>
     </div>
 
     <div class="version-card">
       <div class="version-header">
-        <h4>Version 2.0: Enhanced UX</h4>
+        <h4>Version 2: built with AI on my grid</h4>
         <span class="badge new">Current Version</span>
       </div>
       <img src="/assets/img/BEDiZEN/bedizen_web_v2.webp" alt="BEDiZEN website version 2, improved navigation and responsive layout" class="project-img-shadow">
       <div class="version-desc">
-        <h4>What Changed</h4>
-        <p>I rebuilt the navigation and the front-end in <strong>Tailwind CSS</strong>, mobile-first. I wrote most of it myself and used AI assistance in VS Code for specific parts.</p>
-        <h4>Key Improvements</h4>
+        <h4>What changed</h4>
         <ul>
-          <li><strong>Responsive Design:</strong> Mobile-first layout that adapts to every screen size.</li>
-          <li><strong>Clear Wayfinding:</strong> Active states and breadcrumbs help users always know where they are.</li>
+          <li>A 4-column grid that repeats across the whole site, with square corners.</li>
+          <li>Mobile-first layout in Tailwind CSS.</li>
+          <li>Active states and breadcrumbs, so users know where they are.</li>
         </ul>
       </div>
     </div>
   </div>
+</section>
 
-  <h3>3 - Development</h3>
-  <p>I handled the full stack, from the front-end code to the live server.</p>
-  <ul>
-    <li><strong>Front-End:</strong> I coded it myself. Version 1 in hand-written HTML and CSS. Version 2 in Tailwind CSS and JavaScript, with AI assistance in VS Code for specific parts. Semantic markup, built with accessibility in mind.</li>
-    <li><strong>Back-End:</strong> I wrote the first PHP by hand. Later I used GitHub Copilot in VS Code to work faster.</li>
-    <li><strong>WordPress:</strong> I installed WordPress and added plugins for security, SEO, WooCommerce, contact forms, and caching.</li>
-    <li><strong>Hosting & Deployment:</strong> I set up the hosting on O2switch and edited the server files over FTP with FileZilla. I tuned caching and load speed through the O2switch settings.</li>
-  </ul>
+<section>
+  <h2>The setup</h2>
+  <p>I created the database and the hosting, and installed WordPress, the credentials, etc. The hosting is on O2switch: I edited the server files over FTP with FileZilla, and added WordPress plugins for security, SEO, WooCommerce, contact forms and caching.</p>
+</section>
 
-  <h3>4 - Motion & Social Production</h3>
+<section>
+  <h2>Two videos, two formats</h2>
   <p>I produced two short videos that show the BEDiZEN experience. One is landscape, for YouTube. One is vertical, for Instagram and TikTok feeds.</p>
 
   <div class="video-duo">
@@ -102,14 +103,7 @@ cover_image: /assets/img/bedizen-view.webp
   </div>
 </section>
 
-<section>
-  <h2>Key Takeaways</h2>
-  <ul>
-    <li><strong>Testing beat taste:</strong> Version 1 looked clean in review. Users still could not find the buttons. Testing showed it, and version 2 fixed it.</li>
-    <li><strong>Design and code together:</strong> Coding my own designs showed me which design choices cost time in development.</li>
-    <li><strong>One message, two formats:</strong> The same product story had to work in a landscape video and a vertical one.</li>
-  </ul>
-</section>
+<p class="case-closing">On this project I really was full stack, even if it was only once.</p>
 
 <section>
   <h2>Brand Guidelines</h2>
