@@ -45,6 +45,8 @@
 html {
   overflow-y: scroll;
   scroll-behavior: smooth;
+  /* Anchors and keyboard focus land below the sticky header (WCAG 2.4.11) */
+  scroll-padding-top: 96px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -69,6 +71,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  /* clip (unlike hidden) does not create a scroll container, so the sticky header works */
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
