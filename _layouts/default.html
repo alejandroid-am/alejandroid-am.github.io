@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html class="no-js" lang="{{ page.lang | default: site.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- JS is available: drop the no-JS fallback before first paint (no flash of hidden content) -->
+  <script>document.documentElement.classList.remove('no-js');</script>
 
   <!-- Title -->
   <title>{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
