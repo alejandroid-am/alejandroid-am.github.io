@@ -8,6 +8,9 @@ fr:
   cv_btn: "Recruteurs&nbsp;: CV et parcours"
   cv_url: /cv/
   availability: "Disponibilité&nbsp;: 1 projet à la fois · prochain créneau&nbsp;:"
+  what_title: Ce que je fais pour vous
+  what_all: Voir toutes les offres
+  vat: "TVA non applicable, art. 293 B du CGI."
 
 en:
   value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg — PrestaShop and WordPress — en français, in English, en español."
@@ -16,3 +19,6 @@ en:
   cv_btn: "Recruiters: CV and background"
   cv_url: /en/cv/
   availability: "Availability: 1 project at a time · next slot:"
+  what_title: What I do for you
+  what_all: See all offers
+  vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."

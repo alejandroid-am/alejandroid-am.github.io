@@ -2543,3 +2543,42 @@ html.cursor-ready .custom-cursor {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* --- Home: "Ce que je fais pour vous" --- */
+.offer-short {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.offer-more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-top: auto;
+  font-weight: 600;
+}
+
+.offers-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.offers-footer .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+.offers-footer .vat-note {
+  margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .offer-grid--home {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

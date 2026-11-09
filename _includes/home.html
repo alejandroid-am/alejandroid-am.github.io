@@ -66,6 +66,33 @@
 </section>
 
 <!-- ============================================
+  WHAT I DO FOR YOU - 3 offers (full list on /services/)
+============================================= -->
+{%- assign ui = site.data.offers.ui[page.lang] | default: site.data.offers.ui.fr -%}
+{%- assign home_offers = site.data.offers.list | where: "home", true -%}
+<section id="offers" class="section reveal" aria-labelledby="offers-title">
+  <h2 class="section-title" id="offers-title">{{ h.what_title }}</h2>
+  <div class="offer-grid offer-grid--home">
+    {%- for o in home_offers %}
+    {%- assign c = o[page.lang] | default: o.fr %}
+    <article class="offer-card{% if o.featured %} offer-card--featured{% endif %}" aria-labelledby="home-{{ o.id }}-title">
+      {%- if o.featured %}
+      <p class="offer-badge">{{ ui.featured }}</p>
+      {%- endif %}
+      <h3 class="offer-title" id="home-{{ o.id }}-title">{{ c.title }}</h3>
+      <p class="offer-short">{{ c.short }}</p>
+      <p class="offer-price">{{ c.price }}</p>
+      <a href="{{ ui.services }}#{{ o.id }}" class="about-link offer-more">{{ ui.see_offer }}<span class="sr-only"> – {{ c.title }}</span> &rarr;</a>
+    </article>
+    {%- endfor %}
+  </div>
+  <p class="offers-footer">
+    <a href="{{ ui.services }}" class="submit-btn">{{ h.what_all }}</a>
+    <span class="vat-note">{{ h.vat }}</span>
+  </p>
+</section>
+
+<!-- ============================================
   ABOUT SECTION
 ============================================= -->
 <section id="about" class="section reveal" aria-label="About me">
