@@ -1609,10 +1609,18 @@ footer {
   z-index: 9999;
 }
 
-/* Only hide native cursor when our custom cursor is active */
-html.cursor-ready,
+/* Only hide native cursor when our custom cursor is active, and only on
+   non-interactive areas: links, buttons and form fields keep the system cursor */
+html.cursor-ready {
+  cursor: none;
+}
+
 html.cursor-ready a,
 html.cursor-ready button,
+html.cursor-ready summary,
+html.cursor-ready label,
+html.cursor-ready select,
+html.cursor-ready [role="button"],
 html.cursor-ready .portfolio-item,
 html.cursor-ready .project-card,
 html.cursor-ready .filter-btn,
@@ -1624,7 +1632,18 @@ html.cursor-ready .carousel-btn,
 html.cursor-ready .lightbox-prev,
 html.cursor-ready .lightbox-next,
 html.cursor-ready .lightbox-close {
-  cursor: none;
+  cursor: pointer;
+}
+
+html.cursor-ready input,
+html.cursor-ready textarea {
+  cursor: text;
+}
+
+html.cursor-ready input[type="checkbox"],
+html.cursor-ready input[type="radio"],
+html.cursor-ready input[type="submit"] {
+  cursor: pointer;
 }
 
 html.cursor-ready .custom-cursor {
