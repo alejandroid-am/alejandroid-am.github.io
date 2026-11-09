@@ -14,11 +14,11 @@ fr:
   vat: "Prix en euros. TVA non applicable, art. 293 B du CGI."
 en:
   title: Offers and prices
-  lead: "Price agreed before we start. 2 rounds of feedback included. Reply within 48 working hours."
+  lead: "Price agreed before work starts. 2 rounds of feedback included. Reply within 48 working hours."
   recurrent: Recurring
   recurrent_sub: Ongoing help, every month.
   projet: Project
-  projet_sub: "One clear need, a price agreed before we start."
+  projet_sub: "One clear need, a price agreed before work starts."
   agences: Agencies
   dev_note: "Need custom development? I work with developers I trust and remain your single point of contact."
   dev_todo: "[[A CONFIRMAR: ¿tengo realmente esos desarrolladores? Si no, quitar la frase]]"
