@@ -12,8 +12,12 @@ last_modified_at: 2026-11-09
   <h2>Éditeur du site</h2>
   <p>
     Ce site est édité par <strong>Alejandro Amaro Mendoza</strong>, entrepreneur individuel (EI), régime micro-entrepreneur.<br>
-    SIRET&nbsp;: [[A COMPLETAR: SIRET]]<br>
-    Adresse&nbsp;: [[A COMPLETAR: adresse professionnelle]]<br>
+    {%- if site.siret != "" %}
+    SIRET&nbsp;: {{ site.siret }}<br>
+    {%- endif %}
+    {%- if site.address != "" %}
+    Adresse&nbsp;: {{ site.address }}<br>
+    {%- endif %}
     Email&nbsp;: ale.amaro.m@proton.me<br>
     Directeur de la publication&nbsp;: Alejandro Amaro Mendoza.
   </p>

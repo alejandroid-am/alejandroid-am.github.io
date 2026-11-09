@@ -4,12 +4,13 @@ baseurl: ""
 url: "https://www.alejandro-is.me"
 lang: fr
 
-# Contact links still to provide. While empty, the page shows the
-# [[A COMPLETAR]] marker instead of a link, and the header button reads
-# "Me contacter" (it switches to "Échanger 20 min" once cal_url is set).
+# Data still to provide. While a value is empty, the element that needs it
+# is not rendered at all (no marker on screen). The header button reads
+# "Me contacter" until cal_url is set, then "Échanger 20 min".
 cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
-malt_url: ""       # [[A COMPLETAR: URL Malt]]
 instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
+siret: ""          # [[A COMPLETAR: SIRET]] (mentions légales)
+address: ""        # [[A COMPLETAR: adresse professionnelle]] (mentions légales)
 
 author:
   name: Alejandro Amaro Mendoza

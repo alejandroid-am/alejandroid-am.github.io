@@ -7,8 +7,9 @@ fr:
   projet: Projet
   projet_sub: "Un besoin précis, un prix annoncé avant de commencer."
   agences: Agences
+  # [[A CONFIRMAR]] show_dev_note stays false until the trusted developers are confirmed.
+  show_dev_note: false
   dev_note: "Besoin de développement sur mesure&nbsp;? Je travaille avec des développeurs de confiance et je reste votre seul interlocuteur."
-  dev_todo: "[[A CONFIRMAR: ¿tengo realmente esos desarrolladores? Si no, quitar la frase]]"
   end_title: "Vous hésitez entre deux offres&nbsp;?"
   end_text: "Décrivez votre besoin en quelques lignes. Je vous réponds sous 48&nbsp;h ouvrées avec l'offre la plus adaptée."
   vat: "Prix en euros. TVA non applicable, art. 293 B du CGI."
@@ -20,8 +21,8 @@ en:
   projet: Project
   projet_sub: "One clear need, a price agreed before work starts."
   agences: Agencies
+  show_dev_note: false
   dev_note: "Need custom development? I work with developers I trust and remain your single point of contact."
-  dev_todo: "[[A CONFIRMAR: ¿tengo realmente esos desarrolladores? Si no, quitar la frase]]"
   end_title: Not sure which offer fits?
   end_text: "Describe what you need in a few lines. I'll reply within 48 working hours with the best fit."
   vat: "Prices in euros. VAT not applicable, art. 293 B of the French tax code (CGI)."

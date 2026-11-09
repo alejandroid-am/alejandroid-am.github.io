@@ -119,19 +119,6 @@
   </div>
 </section>
 
-<!-- ============================================
-  PROOF STRIP - verifiable facts only
-============================================= -->
-<section class="section proof-strip reveal" aria-labelledby="proof-title">
-  <h2 class="sr-only" id="proof-title">{{ h.proof_title }}</h2>
-  <ul class="proof-list">
-    {%- for item in h.proof %}
-    <li>{{ item }}</li>
-    {%- endfor %}
-    <li>{% if site.malt_url != "" %}<a href="{{ site.malt_url }}" class="about-link" target="_blank" rel="noopener noreferrer">{{ h.malt }}</a>{% else %}{{ h.malt }} [[A COMPLETAR: URL Malt]]{% endif %}</li>
-  </ul>
-</section>
-
 {% include testimonials.html title=h.testimonials_title %}
 
 <!-- ============================================
@@ -193,7 +180,7 @@
 <section id="contact" class="section reveal" aria-labelledby="contact-title">
   <h2 class="section-title" id="contact-title">{{ ct.title }}</h2>
   <p class="section-subtitle">{{ ct.reply }}
-    {%- if site.cal_url != "" %} {{ ct.cal_text }} <a href="{{ site.cal_url }}" class="about-link" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% else %} <span class="todo-marker">[[A COMPLETAR: enlace Cal.com]]</span>{% endif %}
+    {%- if site.cal_url != "" %} {{ ct.cal_text }} <a href="{{ site.cal_url }}" class="about-link" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% endif %}
   </p>
 
   <div class="contact-grid">
@@ -202,8 +189,9 @@
         <span aria-hidden="true">ale.amaro.m@proton.me</span>
       </a></li>
       <li><a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li>{% if site.instagram_url != "" %}<a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% else %}Instagram <span class="todo-marker">[[A COMPLETAR: URL Instagram]]</span>{% endif %}</li>
-      <li>{% if site.malt_url != "" %}<a href="{{ site.malt_url }}" target="_blank" rel="noopener noreferrer">Malt</a>{% else %}Malt <span class="todo-marker">[[A COMPLETAR: URL Malt]]</span>{% endif %}</li>
+      {%- if site.instagram_url != "" %}
+      <li><a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      {%- endif %}
     </ul>
 
     <div class="contact-form-wrap reveal">

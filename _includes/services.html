@@ -39,7 +39,9 @@
       <p class="offer-price">{{ agence[lang].price }}</p>
       <a href="{{ ui.contact }}?offre={{ agence.id }}#contact" class="submit-btn">{{ agence[lang].request }}</a>
     </div>
-    <p class="dev-note">{{ sp.dev_note }} <span class="todo-marker">{{ sp.dev_todo }}</span></p>
+    {%- if sp.show_dev_note %}
+    <p class="dev-note">{{ sp.dev_note }}</p>
+    {%- endif %}
   </section>
 
   <section class="services-end" aria-labelledby="services-end-title">
