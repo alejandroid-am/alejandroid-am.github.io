@@ -401,6 +401,27 @@ footer {
   opacity: 1;
 }
 
+/* Mobile only: a word that wraps onto two lines (e.g. "enhance usability")
+   used to overflow the fixed 3.4rem box and sit on top of the line above.
+   Stack all words in one grid cell instead, so the box takes the height of
+   the tallest word and never jumps when the word changes. Desktop unchanged. */
+@media (max-width: 767px) {
+  .carousel {
+    height: auto;
+    min-width: 0;
+  }
+
+  .carousel ul {
+    display: grid;
+  }
+
+  .carousel li {
+    position: static;
+    grid-area: 1 / 1;
+    height: auto;
+  }
+}
+
 /* Scroll indicator */
 
 .scroll-indicator {
