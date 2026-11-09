@@ -1,0 +1,138 @@
+# Offers shown on /services/, on the home cards and in the contact form.
+# Prices exclude VAT (TVA non applicable, art. 293 B du CGI).
+# Maintenance offers (Sérénité 150 €/mois, + amélioration continue 320 €/mois)
+# are intentionally absent until CGV and RC Pro are settled:
+# [[A COMPLETAR: CGV / RC Pro]]
+#
+# "for", "includes" and "excludes" texts that are not in the brief are drafts
+# to validate: [[A VALIDAR]].
+
+ui:
+  fr:
+    for: Pour qui
+    includes: Inclus
+    excludes: Non inclus
+    delay: Délai
+    delay_todo: "[[A COMPLETAR: plazo]]"
+    request: Demander cette offre
+    featured: Point de départ conseillé
+    see_offer: Voir l'offre
+    case_link: Voir le cas In-House Tools
+    contact: /
+    services: /services/
+  en:
+    for: Who it's for
+    includes: Included
+    excludes: Not included
+    delay: Timeline
+    delay_todo: "[[A COMPLETAR: plazo]]"
+    request: Request this offer
+    featured: Recommended starting point
+    see_offer: See the offer
+    case_link: See the In-House Tools case study
+    contact: /en/
+    services: /en/services/
+
+list:
+  - id: visuels
+    block: recurrent
+    home: true
+    fr:
+      title: Visuels mensuels pour votre boutique
+      short: Bannières, fiches produit, retouche photo et visuels de campagne, chaque mois.
+      price: "à partir de 300&nbsp;€/mois"
+      for: Les boutiques en ligne qui ont besoin de visuels réguliers, sans recruter.
+      includes: [Bannières, Visuels pour fiches produit, Retouche photo, Visuels de campagne]
+      excludes: [Prise de vue photo, Impression]
+    en:
+      title: Monthly visuals for your shop
+      short: Banners, product pages, photo retouching and campaign visuals, every month.
+      price: "from €300/month"
+      for: Online shops that need visuals every month, without hiring.
+      includes: [Banners, Product page visuals, Photo retouching, Campaign visuals]
+      excludes: [Photo shoots, Printing]
+
+  - id: revue-ux
+    block: projet
+    featured: true
+    home: true
+    fr:
+      title: Revue UX de votre boutique + plan d'action
+      short: Fiche produit, panier et tunnel de commande passés en revue, avec un plan d'action priorisé.
+      price: "1&nbsp;200&nbsp;€"
+      for: Les boutiques qui veulent savoir quoi améliorer en priorité.
+      includes: ["Analyse de la fiche produit, du panier et du tunnel de commande", Rapport priorisé avec plan d'action, Bases d'accessibilité incluses]
+      excludes: [La mise en œuvre des corrections (possible ensuite sur devis)]
+    en:
+      title: UX review of your shop + action plan
+      short: Product page, cart and checkout reviewed, with a prioritised action plan.
+      price: "€1,200"
+      for: Shops that want to know what to improve first.
+      includes: ["Review of the product page, cart and checkout", Prioritised report with an action plan, Accessibility basics included]
+      excludes: ["Making the changes (possible afterwards, quoted separately)"]
+
+  - id: outil
+    block: projet
+    case_url: /projects/in-house-tools/
+    fr:
+      title: Outil web sur mesure
+      short: Une page-outil qui résout un problème précis.
+      price: "à partir de 1&nbsp;500&nbsp;€"
+      for: Une tâche répétitive ou un problème précis que vos outils actuels gèrent mal.
+      includes: [Une page-outil qui résout un problème précis, "Par exemple : générateur de posts, de contrats, calculateur…"]
+      excludes: [Une application complète avec comptes utilisateurs]
+    en:
+      title: Custom web tool
+      short: A single-page tool that solves one specific problem.
+      price: "from €1,500"
+      for: A repetitive task or a specific problem your current tools handle badly.
+      includes: [A single-page tool that solves one specific problem, "For example: a post generator, a contract generator, a calculator…"]
+      excludes: [A full application with user accounts]
+
+  - id: refonte-ux
+    block: projet
+    home: true
+    fr:
+      title: Refonte UX des pages clés
+      short: Fiche produit, panier et checkout repensés, à prix fixe, 2 tours de retours inclus.
+      price: "à partir de 3&nbsp;600&nbsp;€"
+      for: Les boutiques dont la fiche produit, le panier ou le checkout freinent les ventes.
+      includes: ["Fiche produit, panier et checkout", Prix fixe, 2 tours de retours inclus]
+      excludes: [La refonte complète du site]
+    en:
+      title: UX redesign of your key pages
+      short: Product page, cart and checkout redesigned, at a fixed price, 2 rounds of feedback included.
+      price: "from €3,600"
+      for: Shops whose product page, cart or checkout hold back sales.
+      includes: ["Product page, cart and checkout", Fixed price, 2 rounds of feedback included]
+      excludes: [A full site redesign]
+
+  - id: site-vitrine
+    block: projet
+    fr:
+      title: Site vitrine
+      short: 5 pages sous WordPress, construit avec soin pour l'accessibilité.
+      price: "à partir de 3&nbsp;000&nbsp;€"
+      for: Les indépendants et petites entreprises qui ont besoin d'un site clair et professionnel.
+      includes: [5 pages, WordPress, Construit avec soin pour l'accessibilité, 2 tours de retours inclus]
+      excludes: [Boutique en ligne, Rédaction des textes, Hébergement et nom de domaine]
+    en:
+      title: Showcase website
+      short: 5 pages on WordPress, built with care for accessibility.
+      price: "from €3,000"
+      for: Freelancers and small businesses that need a clear, professional website.
+      includes: [5 pages, WordPress, Built with care for accessibility, 2 rounds of feedback included]
+      excludes: [Online shop, Copywriting, Hosting and domain name]
+
+  - id: agences
+    block: agences
+    fr:
+      title: Agences
+      short: "Je renforce votre équipe en régie ou en sous-traitance&nbsp;: webdesign, graphisme, intégration WordPress/PrestaShop."
+      price: "350&nbsp;€/jour"
+      request: Proposer une mission
+    en:
+      title: Agencies
+      short: "I reinforce your team, on-site or as a subcontractor: web design, graphic design, WordPress/PrestaShop integration."
+      price: "€350/day"
+      request: Propose an assignment

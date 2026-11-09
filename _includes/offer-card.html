@@ -1,0 +1,33 @@
+{%- comment -%} One offer card. Params: include.offer, include.lang {%- endcomment -%}
+{%- assign o = include.offer -%}
+{%- assign c = o[include.lang] -%}
+{%- assign ui = site.data.offers.ui[include.lang] -%}
+<article class="offer-card{% if o.featured %} offer-card--featured{% endif %}" id="{{ o.id }}" aria-labelledby="{{ o.id }}-title">
+  {%- if o.featured %}
+  <p class="offer-badge">{{ ui.featured }}</p>
+  {%- endif %}
+  <h3 class="offer-title" id="{{ o.id }}-title">{{ c.title }}</h3>
+  <p class="offer-price">{{ c.price }}</p>
+  <dl class="offer-details">
+    <div>
+      <dt>{{ ui.for }}</dt>
+      <dd>{{ c.for }}</dd>
+    </div>
+    <div>
+      <dt>{{ ui.includes }}</dt>
+      <dd><ul>{% for i in c.includes %}<li>{{ i }}</li>{% endfor %}</ul></dd>
+    </div>
+    <div>
+      <dt>{{ ui.excludes }}</dt>
+      <dd><ul>{% for i in c.excludes %}<li>{{ i }}</li>{% endfor %}</ul></dd>
+    </div>
+    <div>
+      <dt>{{ ui.delay }}</dt>
+      <dd>{{ c.delay | default: ui.delay_todo }}</dd>
+    </div>
+  </dl>
+  {%- if o.case_url %}
+  <p class="offer-case"><a href="{{ o.case_url }}" class="about-link"{% if include.lang != 'en' %} hreflang="en"{% endif %}>{{ ui.case_link }}</a></p>
+  {%- endif %}
+  <a href="{{ ui.contact }}?offre={{ o.id }}#contact" class="submit-btn offer-cta{% if o.featured %} btn-solid{% endif %}">{{ ui.request }}<span class="sr-only"> – {{ c.title }}</span></a>
+</article>

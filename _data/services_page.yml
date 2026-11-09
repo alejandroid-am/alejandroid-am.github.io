@@ -1,0 +1,27 @@
+# Copy for /services/ (FR source) and /en/services/.
+fr:
+  title: Offres et tarifs
+  lead: "Prix annoncé avant de commencer. 2 tours de retours inclus. Réponse sous 48&nbsp;h ouvrées."
+  recurrent: Récurrent
+  recurrent_sub: Un suivi chaque mois.
+  projet: Projet
+  projet_sub: "Un besoin précis, un prix annoncé avant de commencer."
+  agences: Agences
+  dev_note: "Besoin de développement sur mesure&nbsp;? Je travaille avec des développeurs de confiance et je reste votre seul interlocuteur."
+  dev_todo: "[[A CONFIRMAR: ¿tengo realmente esos desarrolladores? Si no, quitar la frase]]"
+  end_title: "Vous hésitez entre deux offres&nbsp;?"
+  end_text: "Décrivez votre besoin en quelques lignes. Je vous réponds sous 48&nbsp;h ouvrées avec l'offre la plus adaptée."
+  vat: "Prix en euros. TVA non applicable, art. 293 B du CGI."
+en:
+  title: Offers and prices
+  lead: "Price agreed before we start. 2 rounds of feedback included. Reply within 48 working hours."
+  recurrent: Recurring
+  recurrent_sub: Ongoing help, every month.
+  projet: Project
+  projet_sub: "One clear need, a price agreed before we start."
+  agences: Agencies
+  dev_note: "Need custom development? I work with developers I trust and remain your single point of contact."
+  dev_todo: "[[A CONFIRMAR: ¿tengo realmente esos desarrolladores? Si no, quitar la frase]]"
+  end_title: Not sure which offer fits?
+  end_text: "Describe what you need in a few lines. I'll reply within 48 working hours with the best fit."
+  vat: "Prices in euros. VAT not applicable, art. 293 B of the French tax code (CGI)."

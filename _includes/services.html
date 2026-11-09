@@ -1,0 +1,52 @@
+{%- assign lang = page.lang | default: 'fr' -%}
+{%- assign sp = site.data.services_page[lang] -%}
+{%- assign ui = site.data.offers.ui[lang] -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign recurrent = site.data.offers.list | where: "block", "recurrent" -%}
+{%- assign projets = site.data.offers.list | where: "block", "projet" -%}
+{%- assign agence = site.data.offers.list | where: "block", "agences" | first -%}
+{%- capture contact_href %}{{ ui.contact }}?offre=ne-sais-pas#contact{% endcapture -%}
+{%- if site.cal_url != "" -%}{%- assign cta_label = t.cta_call -%}{%- assign cta_href = site.cal_url -%}{%- else -%}{%- assign cta_label = t.cta_contact -%}{%- assign cta_href = contact_href -%}{%- endif -%}
+
+<section class="section services-page" aria-labelledby="services-title">
+  <h1 class="hero-portfolio" id="services-title">{{ sp.title }}</h1>
+  <p class="section-subtitle services-lead">{{ sp.lead }}</p>
+
+  <section class="offer-block" aria-labelledby="block-recurrent">
+    <h2 class="offer-block-title" id="block-recurrent">{{ sp.recurrent }}</h2>
+    <p class="offer-block-sub">{{ sp.recurrent_sub }}</p>
+    <div class="offer-grid">
+      {%- for o in recurrent %}
+      {% include offer-card.html offer=o lang=lang %}
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="offer-block" aria-labelledby="block-projet">
+    <h2 class="offer-block-title" id="block-projet">{{ sp.projet }}</h2>
+    <p class="offer-block-sub">{{ sp.projet_sub }}</p>
+    <div class="offer-grid">
+      {%- for o in projets %}
+      {% include offer-card.html offer=o lang=lang %}
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="offer-block" aria-labelledby="block-agences" id="{{ agence.id }}">
+    <h2 class="offer-block-title" id="block-agences">{{ sp.agences }}</h2>
+    <div class="agency-box">
+      <p>{{ agence[lang].short }}</p>
+      <p class="offer-price">{{ agence[lang].price }}</p>
+      <a href="{{ ui.contact }}?offre={{ agence.id }}#contact" class="submit-btn">{{ agence[lang].request }}</a>
+    </div>
+    <p class="dev-note">{{ sp.dev_note }} <span class="todo-marker">{{ sp.dev_todo }}</span></p>
+  </section>
+
+  <section class="services-end" aria-labelledby="services-end-title">
+    <h2 class="offer-block-title" id="services-end-title">{{ sp.end_title }}</h2>
+    <p>{{ sp.end_text }}</p>
+    <a href="{{ cta_href }}" class="submit-btn btn-solid">{{ cta_label }}</a>
+  </section>
+
+  <p class="vat-note">{{ sp.vat }}</p>
+</section>
