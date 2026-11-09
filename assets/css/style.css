@@ -2730,3 +2730,105 @@ html.cursor-ready .custom-cursor {
 ul.skill-tags {
   list-style: none;
 }
+
+/* --- Contact form --- */
+ul.contact-info {
+  list-style: none;
+}
+
+/* Links in the contact column stayed invisible on hover (text turned the
+   background colour): use the site's usual accent hover instead */
+.contact-info a:hover {
+  color: var(--accent);
+}
+
+.form-note {
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.form-group select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem;
+  border: 1px solid var(--bg-elevated);
+  background-color: var(--bg-surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  color-scheme: dark;
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input {
+  min-height: 48px;
+}
+
+.form-group select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Keyboard focus stays clearly visible on fields too */
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.form-group [aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+
+.form-error {
+  font-size: 0.875rem;
+  margin-top: var(--space-xs);
+}
+
+.form-submit {
+  min-height: 48px;
+}
+
+.form-submit[aria-disabled="true"] {
+  cursor: progress;
+  opacity: 0.85;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status {
+  max-width: 600px;
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--bg-elevated);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  line-height: 1.6;
+}
+
+.form-status--error {
+  border-left-color: #ff6b6b;
+}
+
+.form-status:focus {
+  outline: none;
+}
+
+.form-status:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.form-privacy {
+  max-width: 600px;
+  margin-top: var(--space-md);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}

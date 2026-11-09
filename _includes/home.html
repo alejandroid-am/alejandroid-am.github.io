@@ -189,41 +189,85 @@
 <!-- ============================================
   CONTACT SECTION
 ============================================= -->
-<section id="contact" class="section reveal" aria-label="Contact">
-  <h2 class="section-title">Let's talk</h2>
-  <p class="section-subtitle">Have a project in mind? Let's discuss how I can help bring your vision to life.</p>
+{%- assign ct = site.data.contact[page.lang] | default: site.data.contact.fr -%}
+<section id="contact" class="section reveal" aria-labelledby="contact-title">
+  <h2 class="section-title" id="contact-title">{{ ct.title }}</h2>
+  <p class="section-subtitle">{{ ct.reply }}
+    {%- if site.cal_url != "" %} {{ ct.cal_text }} <a href="{{ site.cal_url }}" class="about-link" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% else %} <span class="todo-marker">[[A COMPLETAR: enlace Cal.com]]</span>{% endif %}
+  </p>
 
   <div class="contact-grid">
-    <div class="contact-info reveal">
-      <a href="mailto:ale.amaro.m@proton.me" class="email-link" data-u="ale.amaro.m" data-d="proton.me" aria-label="Send email">
+    <ul class="contact-info reveal">
+      <li><a href="mailto:ale.amaro.m@proton.me" class="email-link" data-u="ale.amaro.m" data-d="proton.me" aria-label="{{ ct.email_label }}, ale.amaro.m@proton.me">
         <span aria-hidden="true">ale.amaro.m@proton.me</span>
-      </a>
-      <a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      
-    </div>
+      </a></li>
+      <li><a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li>{% if site.instagram_url != "" %}<a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% else %}Instagram <span class="todo-marker">[[A COMPLETAR: URL Instagram]]</span>{% endif %}</li>
+      <li>{% if site.malt_url != "" %}<a href="{{ site.malt_url }}" target="_blank" rel="noopener noreferrer">Malt</a>{% else %}Malt <span class="todo-marker">[[A COMPLETAR: URL Malt]]</span>{% endif %}</li>
+    </ul>
 
-    <form action="https://formspree.io/f/xqayldza" method="POST" class="contact-form reveal" aria-label="Contact form">
-      <div class="form-row">
+    <div class="contact-form-wrap reveal">
+      <form action="https://formspree.io/f/xqayldza" method="POST" class="contact-form" id="contact-form" aria-labelledby="contact-title"
+            data-sending="{{ ct.sending }}">
+        <p class="form-note">{{ ct.required_note }}</p>
+
         <div class="form-group">
-          <label for="first-name">First name</label>
-          <input type="text" id="first-name" name="first-name" required autocomplete="given-name">
+          <label for="cf-name">{{ ct.name }}</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" aria-describedby="cf-name-error"
+                 data-msg-empty="{{ ct.name_err }}">
+          <p class="form-error" id="cf-name-error" hidden></p>
         </div>
+
         <div class="form-group">
-          <label for="last-name">Last name</label>
-          <input type="text" id="last-name" name="last-name" required autocomplete="family-name">
+          <label for="cf-email">{{ ct.email }}</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" aria-describedby="cf-email-error"
+                 data-msg-empty="{{ ct.email_err }}" data-msg-format="{{ ct.email_err_format }}">
+          <p class="form-error" id="cf-email-error" hidden></p>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required autocomplete="email">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Send message</button>
-    </form>
+
+        <div class="form-group">
+          <label for="cf-demande">{{ ct.demande }}</label>
+          <select id="cf-demande" name="demande" required aria-describedby="cf-demande-error" data-msg-empty="{{ ct.demande_err }}">
+            <option value="">{{ ct.demande_placeholder }}</option>
+            {%- for d in ct.demandes %}
+            <option value="{{ d.value }}">{{ d.label }}</option>
+            {%- endfor %}
+          </select>
+          <p class="form-error" id="cf-demande-error" hidden></p>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-offre">{{ ct.offre }}</label>
+          <select id="cf-offre" name="offre">
+            <option value="ne-sais-pas">{{ ct.offre_unknown }}</option>
+            {%- for o in site.data.offers.list %}
+            {%- assign oc = o[page.lang] | default: o.fr %}
+            <option value="{{ o.id }}" data-demande="{% if o.block == 'agences' %}agence{% else %}projet{% endif %}">{{ oc.title | strip_html }}</option>
+            {%- endfor %}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-message">{{ ct.message }}</label>
+          <textarea id="cf-message" name="message" required aria-describedby="cf-message-error" data-msg-empty="{{ ct.message_err }}"></textarea>
+          <p class="form-error" id="cf-message-error" hidden></p>
+        </div>
+
+        <!-- Spam trap: hidden from everyone, bots fill it in and Formspree drops the message -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+        <input type="hidden" name="_subject" value="{{ ct.subject }}">
+        <input type="hidden" name="langue" value="{{ page.lang }}">
+
+        <button type="submit" class="submit-btn btn-solid form-submit">{{ ct.submit }}</button>
+      </form>
+
+      <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"
+           data-success="{{ ct.success | escape }}" data-error="{{ ct.error | escape }}"></div>
+
+      <p class="form-privacy">{{ ct.privacy }}</p>
+    </div>
   </div>
 </section>
 
 <script src="/assets/js/home-interaction.js"></script>
+<script src="/assets/js/contact-form.js"></script>

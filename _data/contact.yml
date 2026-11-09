@@ -1,0 +1,69 @@
+# Contact section copy (home, FR source + EN).
+fr:
+  title: Parlons de votre projet
+  reply: "Réponse sous 48&nbsp;h ouvrées."
+  cal_text: "Vous préférez réserver directement un créneau&nbsp;?"
+  cal_link: Échanger 20 min
+  email_label: "Envoyer un email"
+  required_note: "Tous les champs sont obligatoires, sauf l'offre."
+  name: Nom
+  name_err: Indiquez votre nom.
+  email: Email
+  email_err: Indiquez votre email pour que je puisse vous répondre.
+  email_err_format: "Cet email semble incomplet&nbsp;: vérifiez le @ et le domaine (par exemple nom@domaine.fr)."
+  demande: Votre demande
+  demande_placeholder: Choisissez une option
+  demande_err: Choisissez le type de demande.
+  demandes:
+    - value: projet
+      label: Projet client
+    - value: agence
+      label: Agence / sous-traitance
+    - value: recrutement
+      label: Recrutement
+    - value: autre
+      label: Autre
+  offre: Offre (facultatif)
+  offre_unknown: Je ne sais pas encore
+  message: Message
+  message_err: Décrivez votre besoin en quelques mots.
+  submit: Envoyer ma demande
+  sending: "Envoi…"
+  subject: Nouvelle demande via alejandro-is.me
+  success: "Merci, j'ai bien reçu votre demande. Je vous réponds sous 48&nbsp;h ouvrées. En attendant, voici <a href=\"#process\" class=\"about-link\">comment ça se passe</a>."
+  error: "L'envoi n'a pas abouti. Votre message est toujours là&nbsp;: réessayez dans un instant, ou écrivez-moi directement à ale.amaro.m@proton.me."
+  privacy: "Vos données servent uniquement à répondre à votre demande. Elles sont conservées 12 mois, puis supprimées. Pour y accéder ou les faire supprimer, écrivez-moi à ale.amaro.m@proton.me. Détails dans les <a href=\"/mentions-legales.html\" class=\"about-link\">mentions légales</a>."
+en:
+  title: Let's talk
+  reply: Reply within 48 working hours.
+  cal_text: Prefer to book a slot directly?
+  cal_link: Book a 20-min call
+  email_label: Send an email
+  required_note: All fields are required, except the offer.
+  name: Name
+  name_err: Please enter your name.
+  email: Email
+  email_err: Please enter your email so I can reply.
+  email_err_format: "This email looks incomplete: check the @ and the domain (for example name@domain.com)."
+  demande: Your request
+  demande_placeholder: Choose an option
+  demande_err: Please choose the type of request.
+  demandes:
+    - value: projet
+      label: Client project
+    - value: agence
+      label: Agency / subcontracting
+    - value: recrutement
+      label: Recruitment
+    - value: autre
+      label: Other
+  offre: Offer (optional)
+  offre_unknown: I don't know yet
+  message: Message
+  message_err: Please describe what you need in a few words.
+  submit: Send my request
+  sending: "Sending…"
+  subject: New request via alejandro-is.me
+  success: "Thank you, I have received your request. I'll reply within 48 working hours. Meanwhile, here is <a href=\"#process\" class=\"about-link\">how it works</a>."
+  error: "Your message could not be sent. It is still here: try again in a moment, or email me directly at ale.amaro.m@proton.me."
+  privacy: "Your data is only used to answer your request. It is kept for 12 months, then deleted. To access or delete it, email me at ale.amaro.m@proton.me. Details in the <a href=\"/mentions-legales.html\" class=\"about-link\" hreflang=\"fr\" lang=\"fr\">mentions légales</a>."
