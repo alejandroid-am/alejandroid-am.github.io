@@ -213,12 +213,17 @@ header[role="banner"] {
   align-items: center;
   justify-content: center;
   transform: translateX(100%);
-  transition: transform 0.4s ease-in-out;
+  /* Closed menu is also hidden from keyboard and screen readers
+     (visibility switches after the slide-out finishes) */
+  visibility: hidden;
+  transition: transform 0.4s ease-in-out, visibility 0s linear 0.4s;
   z-index: 50;
 }
 
 .nav-menu.open {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.4s ease-in-out, visibility 0s linear 0s;
 }
 
 .nav-menu ul {
@@ -2838,4 +2843,13 @@ ul.contact-info {
 .legal-content a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+/* Mobile menu open: the bottom bar would sit on top of it */
+body:has(.nav-menu.open) .mobile-cta-bar {
+  display: none;
+}
+
+.nav-menu a.lang-switch {
+  text-transform: none;
 }
