@@ -19,6 +19,10 @@ fr:
     - Prix annoncé avant de commencer
   malt: Mon profil Malt
   testimonials_title: Ils m'ont fait confiance
+  projects_title: Projets
+  projects_all: Voir tous les projets
+  about_title: À propos
+  cv_link: Parcours et compétences
   process_title: Comment ça se passe
   process:
     - "Un premier échange gratuit de 20 minutes, en visio ou par écrit, selon votre préférence."
@@ -44,6 +48,10 @@ en:
     - Price agreed before we start
   malt: My Malt profile
   testimonials_title: What clients say
+  projects_title: Selected Work
+  projects_all: View all projects
+  about_title: About
+  cv_link: Background and skills
   process_title: How it works
   process:
     - "A free 20-minute first conversation, by video call or in writing, as you prefer."

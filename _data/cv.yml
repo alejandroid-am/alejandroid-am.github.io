@@ -1,0 +1,39 @@
+# Copy for /cv/ (FR) and /en/cv/. Skills and education moved here from the home page.
+fr:
+  title: CV et parcours
+  skills_title: Compétences
+  education_title: Formation et distinctions
+  skills:
+    - name: Design
+      tags: [UI Design, Wireframing, Prototypage, Accessibilité, Illustration, Photomontage numérique, Identité visuelle, Design Systems, Typographie, Motion Design, Montage vidéo, Montage audio]
+    - name: Web &amp; e-commerce
+      tags: [HTML / CSS, Tailwind CSS, Design web responsive, WordPress, PrestaShop, Création d'outils internes avec l'IA]
+    - name: Outils
+      tags: [Figma, Adobe Illustrator, Adobe Photoshop, Adobe Lightroom, Adobe InDesign, Adobe Premiere, After Effects, Blender, Audacity]
+  education:
+    - year: 2024 – 2026
+      title: Titre professionnel Concepteur designer UI (niveau 6)
+      place: CCI Campus Alsace, Strasbourg
+    - year: "2026"
+      title: Best Technical Achievement
+      title_lang: en
+      place: "Global Game Jam&nbsp;: Le Shadok, Strasbourg"
+en:
+  title: CV and background
+  skills_title: Skills
+  education_title: Education and awards
+  skills:
+    - name: Design
+      tags: [UI Design, Wireframing, Prototyping, Accessibility, Illustration, Digital Photomontage, Visual Identity, Design Systems, Typography, Motion Design, Video Editing, Audio Editing]
+    - name: Web &amp; e-commerce
+      tags: [HTML / CSS, Tailwind CSS, Responsive Web Design, WordPress, PrestaShop, Building internal tools with AI]
+    - name: Tools
+      tags: [Figma, Adobe Illustrator, Adobe Photoshop, Adobe Lightroom, Adobe InDesign, Adobe Premiere, After Effects, Blender, Audacity]
+  education:
+    - year: 2024 – 2026
+      title: Titre professionnel Concepteur designer UI (niveau 6)
+      title_lang: fr
+      place: CCI Campus Alsace, Strasbourg
+    - year: "2026"
+      title: Best Technical Achievement
+      place: "Global Game Jam: Le Shadok, Strasbourg"

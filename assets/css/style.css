@@ -2710,3 +2710,23 @@ html.cursor-ready .custom-cursor {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- About: link to /cv/ --- */
+.about-more {
+  margin-top: var(--space-xl);
+}
+
+.about-more .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+/* --- /cv/ --- */
+.cv-block {
+  margin-top: var(--space-3xl);
+}
+
+ul.skill-tags {
+  list-style: none;
+}
