@@ -10,7 +10,6 @@ lang: fr
 cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
 malt_url: ""       # [[A COMPLETAR: URL Malt]]
 instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
-next_slot: ""      # [[A COMPLETAR: fecha]] próximo hueco libre, p. ej. "janvier 2027"
 
 author:
   name: Alejandro Amaro Mendoza

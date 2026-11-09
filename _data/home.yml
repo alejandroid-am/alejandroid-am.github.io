@@ -2,12 +2,12 @@
 # Existing blocks (H1 carousel, About, case studies) stay in English, untouched.
 
 fr:
-  value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e-commerce à Strasbourg — PrestaShop et WordPress — en français, in English, en español."
+  value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e-commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
   offers_btn: Voir les offres
   offers_url: /services/
   cv_btn: "Recruteurs&nbsp;: CV et parcours"
   cv_url: /cv/
-  availability: "Disponibilité&nbsp;: 1 projet à la fois · prochain créneau&nbsp;:"
+  availability: 1 projet à la fois.
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
   vat: "TVA non applicable, art. 293 B du CGI."
@@ -28,15 +28,15 @@ fr:
     - "Un premier échange gratuit de 20 minutes, en visio ou par écrit, selon votre préférence."
     - "Devis et cahier des charges clairs&nbsp;: ce qui est inclus et ce qui ne l'est pas."
     - Réalisation avec 2 tours de retours inclus.
-    - "Livraison, puis maintenance si vous le souhaitez."
+    - "Livraison et prise en main, puis suite possible selon vos besoins."
 
 en:
-  value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg — PrestaShop and WordPress — en français, in English, en español."
+  value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
   offers_btn: See the offers
   offers_url: /en/services/
   cv_btn: "Recruiters: CV and background"
   cv_url: /en/cv/
-  availability: "Availability: 1 project at a time · next slot:"
+  availability: 1 project at a time.
   what_title: What I do for you
   what_all: See all offers
   vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."
@@ -57,4 +57,4 @@ en:
     - "A free 20-minute first conversation, by video call or in writing, as you prefer."
     - "A clear quote and specification: what is included and what is not."
     - "The work itself, with 2 rounds of feedback included."
-    - "Delivery, then maintenance if you wish."
+    - "Delivery and handover, then further work if you need it."

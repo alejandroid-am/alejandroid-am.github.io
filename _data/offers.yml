@@ -13,7 +13,7 @@ ui:
     includes: Inclus
     excludes: Non inclus
     delay: Délai
-    delay_todo: "[[A COMPLETAR: plazo]]"
+    delay_text: Délai précisé dans le devis.
     request: Demander cette offre
     featured: Point de départ conseillé
     see_offer: Voir l'offre
@@ -25,7 +25,7 @@ ui:
     includes: Included
     excludes: Not included
     delay: Timeline
-    delay_todo: "[[A COMPLETAR: plazo]]"
+    delay_text: Timeline set out in the quote.
     request: Request this offer
     featured: Recommended starting point
     see_offer: See the offer
