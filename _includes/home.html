@@ -7,7 +7,11 @@
     <p class="hero-tagline">Product & Visual Designer</p>
   </div>
 
+  {%- if page.lang == 'en' -%}{%- assign h1_name = "Alejandro Amaro, web and UI designer in Strasbourg" -%}{%- else -%}{%- assign h1_name = "Alejandro Amaro, designer web et UI à Strasbourg" -%}{%- endif %}
   <h1 class="hero-title">
+    <span class="sr-only">{{ h1_name }}</span>
+    <!-- Interactive word carousel: decorative for assistive tech, the stable name is above -->
+    <div aria-hidden="true" lang="en">
     <div class="line-wrapper">
       <span class="static-text">I design</span>
       <div class="carousel" id="carousel-transformo" role="text">
@@ -42,6 +46,7 @@
           <li data-key="empathy">empathy</li>
         </ul>
       </div>
+    </div>
     </div>
   </h1>
 
