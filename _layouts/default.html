@@ -129,6 +129,11 @@
     {{ content }}
   </main>
 
+  <!-- Mobile call-to-action bar (hidden on desktop, over the home hero and over the contact section) -->
+  <div class="mobile-cta-bar{% if page.home %} is-hidden{% endif %}" id="mobile-cta-bar">
+    <a href="{{ cta_url }}" class="submit-btn btn-solid">{{ cta_label }}</a>
+  </div>
+
   <!-- Footer -->
   <footer role="contentinfo">
     <div class="container footer-container">

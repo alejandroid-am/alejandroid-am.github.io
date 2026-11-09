@@ -2275,3 +2275,58 @@ html.cursor-ready .custom-cursor {
     padding: 0.875rem 0;
   }
 }
+
+/* --- Mobile call-to-action bar --- */
+.mobile-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 400;
+  padding: 0.75rem var(--space-md) calc(0.75rem + env(safe-area-inset-bottom));
+  background-color: rgba(17, 17, 17, 0.95);
+  border-top: 1px solid var(--bg-elevated);
+  transition: transform var(--transition-base), visibility 0s linear 0s;
+}
+
+.mobile-cta-bar .submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+}
+
+/* Slid away (transform only: no layout shift) and removed from the tab order */
+.mobile-cta-bar.is-hidden {
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform var(--transition-base), visibility 0s linear 300ms;
+}
+
+/* Without JS nothing toggles it back: keep it visible */
+.no-js .mobile-cta-bar.is-hidden {
+  transform: none;
+  visibility: visible;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 76px;
+  }
+
+  /* Keyboard focus is never hidden behind the bar (WCAG 2.4.11) */
+  html {
+    scroll-padding-bottom: 96px;
+  }
+
+  .back-to-top-btn {
+    bottom: 92px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-cta-bar {
+    display: none;
+  }
+}

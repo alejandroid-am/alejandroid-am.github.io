@@ -215,3 +215,26 @@ document.addEventListener("DOMContentLoaded", () => {
     cta.classList.toggle("is-quiet", entry.isIntersecting);
   }, { threshold: 0.25 }).observe(hero);
 });
+
+
+/*
+==============================================
+9. Mobile call-to-action bar: hidden while the home hero
+   (which has its own primary button) or the contact section is on screen
+==============================================
+*/
+document.addEventListener("DOMContentLoaded", () => {
+  const bar = document.getElementById("mobile-cta-bar");
+  if (!bar || !("IntersectionObserver" in window)) return;
+
+  const targets = [document.querySelector(".hero"), document.getElementById("contact")].filter(Boolean);
+  if (targets.length === 0) return;
+
+  const visible = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target));
+    bar.classList.toggle("is-hidden", visible.size > 0);
+  }, { threshold: 0.1 });
+
+  targets.forEach(t => observer.observe(t));
+});
