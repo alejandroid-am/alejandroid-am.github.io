@@ -11,6 +11,14 @@ fr:
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
   vat: "TVA non applicable, art. 293 B du CGI."
+  proof_title: En bref
+  proof:
+    - "Titre professionnel Concepteur designer UI (niveau 6), CCI Campus Alsace"
+    - "Best Technical Achievement, Global Game Jam 2026"
+    - 2 tours de retours inclus
+    - Prix annoncé avant de commencer
+  malt: Mon profil Malt
+  testimonials_title: Ils m'ont fait confiance
 
 en:
   value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg — PrestaShop and WordPress — en français, in English, en español."
@@ -22,3 +30,11 @@ en:
   what_title: What I do for you
   what_all: See all offers
   vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."
+  proof_title: At a glance
+  proof:
+    - "French professional title Concepteur designer UI (level 6), CCI Campus Alsace"
+    - "Best Technical Achievement, Global Game Jam 2026"
+    - 2 rounds of feedback included
+    - Price agreed before we start
+  malt: My Malt profile
+  testimonials_title: What clients say

@@ -1,0 +1,8 @@
+# Real testimonials only, with the person's name and permission.
+# While this list is empty, the testimonials section is not rendered at all.
+# Format:
+# - name: Prénom Nom
+#   role: Fonction, Entreprise
+#   lang: fr            # language of the quote
+#   quote: "…"
+[]

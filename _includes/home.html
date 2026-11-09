@@ -211,6 +211,21 @@
 </section>
 
 <!-- ============================================
+  PROOF STRIP - verifiable facts only
+============================================= -->
+<section class="section proof-strip reveal" aria-labelledby="proof-title">
+  <h2 class="sr-only" id="proof-title">{{ h.proof_title }}</h2>
+  <ul class="proof-list">
+    {%- for item in h.proof %}
+    <li>{{ item }}</li>
+    {%- endfor %}
+    <li>{% if site.malt_url != "" %}<a href="{{ site.malt_url }}" class="about-link" target="_blank" rel="noopener noreferrer">{{ h.malt }}</a>{% else %}{{ h.malt }} [[A COMPLETAR: URL Malt]]{% endif %}</li>
+  </ul>
+</section>
+
+{% include testimonials.html title=h.testimonials_title %}
+
+<!-- ============================================
   EDUCATION SECTION
 ============================================= -->
 <section id="education" class="section reveal" aria-label="Education">

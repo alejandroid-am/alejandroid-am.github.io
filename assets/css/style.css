@@ -2582,3 +2582,81 @@ html.cursor-ready .custom-cursor {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* --- Home: proof strip --- */
+.proof-strip {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.proof-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--bg-elevated);
+  border-bottom: 1px solid var(--bg-elevated);
+}
+
+.proof-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.proof-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .proof-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm) var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .proof-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- Testimonials (rendered only when real quotes exist) --- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.testimonial {
+  padding: var(--space-lg);
+  border: 1px solid var(--bg-elevated);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.testimonial blockquote p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.testimonial figcaption {
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 1024px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
