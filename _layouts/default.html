@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {%- assign page_lang = page.lang | default: site.lang | default: 'fr' -%}
 {%- assign t = site.data.i18n[page_lang] | default: site.data.i18n.fr -%}
+{%- assign site_title = t.site_title | default: site.title -%}
 {%- comment -%} Bilingual pages link to their own language. English-only pages (case studies, portfolio) link to the default FR paths; main.js swaps them to data-href-en when the visitor chose English or came from the English home. {%- endcomment -%}
 {%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- assign swap_nav = false -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- assign swap_nav = true -%}{%- assign nav_en = site.data.i18n.en -%}{%- endif -%}
 {%- if site.cal_url != "" -%}{%- assign cta_label = t.cta_call -%}{%- assign cta_url = site.cal_url -%}{%- else -%}{%- assign cta_label = t.cta_contact -%}{%- assign cta_url = nav_t.contact_url -%}{%- assign cta_url_en = site.data.i18n.en.contact_url -%}{%- endif -%}
@@ -11,7 +12,7 @@
   <!-- JS is available: drop the no-JS fallback before first paint (no flash of hidden content) -->
   <script>document.documentElement.classList.remove('no-js');</script>
   <!-- Title -->
-  <title>{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}</title>
 
   <!-- SEO Meta -->
   <meta name="description" content="{{ page.description | default: site.description | strip_html | truncate: 160 }}">
@@ -25,16 +26,16 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}">
   <meta property="og:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
-  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:site_name" content="{{ site_title }}">
   <meta property="og:locale" content="{{ t.locale }}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}">
   <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
   <meta name="twitter:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
 
@@ -150,7 +151,7 @@
       <span class="legal-link" aria-hidden="true">·</span>
       <a href="{{ nav_t.contact_url }}" class="legal-link">{{ t.footer_contact }}</a>
       <span class="legal-link" aria-hidden="true">·</span>
-      <a href="/tools/" class="legal-link">{{ t.footer_tools }}</a>
+      <a href="/tools/" class="legal-link"{% if page_lang != 'en' %} hreflang="en"{% endif %}>{{ t.footer_tools }}</a>
       <span class="legal-link" aria-hidden="true">·</span>
       <a href="/mentions-legales.html" class="legal-link" lang="fr">{{ t.footer_legal }}</a>
     </div>

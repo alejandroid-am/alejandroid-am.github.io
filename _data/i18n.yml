@@ -4,6 +4,7 @@
 
 fr:
   locale: fr_FR
+  site_title: Alejandro Amaro | Designer produit et visuel
   home: /
   skip: Aller au contenu principal
   logo_label: Alejandro A.M., accueil
@@ -30,12 +31,13 @@ fr:
   hint_go: Passer en français
   hint_stay: Rester en français
   footer_contact: Contact
-  footer_tools: Tools
+  footer_tools: Outils
   footer_legal: Mentions légales
   back_to_top: Retour en haut
 
 en:
   locale: en_US
+  site_title: Alejandro Amaro | Product & Visual Designer
   home: /en/
   skip: Skip to main content
   logo_label: Alejandro A.M., Home

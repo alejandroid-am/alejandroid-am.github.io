@@ -2,6 +2,8 @@
 # Existing blocks (H1 carousel, About, case studies) stay in English, untouched.
 
 fr:
+  tagline: Designer produit et visuel
+  hero_label: Présentation
   value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e-commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
   offers_btn: Voir les offres
   offers_url: /services/
@@ -14,6 +16,9 @@ fr:
   testimonials_title: Ils m'ont fait confiance
   projects_title: Projets
   projects_all: Voir tous les projets
+  case_label: "Voir l'étude de cas %s"
+  cover_alt: "Couverture du projet %s"
+  photo_alt: "Photo d'Alejandro Amaro Mendoza"
   about_title: À propos
   cv_link: Parcours et compétences
   process_title: Comment ça se passe
@@ -24,6 +29,8 @@ fr:
     - "Livraison et prise en main, puis suite possible selon vos besoins."
 
 en:
+  tagline: Product &amp; Visual Designer
+  hero_label: Introduction
   value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
   offers_btn: See the offers
   offers_url: /en/services/
@@ -36,6 +43,9 @@ en:
   testimonials_title: What clients say
   projects_title: Selected Work
   projects_all: View all projects
+  case_label: "View %s case study"
+  cover_alt: "%s project cover"
+  photo_alt: Photo of Alejandro Amaro Mendoza
   about_title: About
   cv_link: Background and skills
   process_title: How it works
