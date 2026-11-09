@@ -185,3 +185,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+/*
+==============================================
+7. Language switch: remember the visitor's choice
+==============================================
+*/
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".lang-switch[data-lang]").forEach(link => {
+    link.addEventListener("click", () => {
+      try { localStorage.setItem("lang", link.dataset.lang); } catch (e) { /* storage blocked: link still works */ }
+    });
+  });
+});
+
+
+/*
+==============================================
+8. Header call-to-action: outline while the home hero is visible
+   (the hero has its own primary button), solid everywhere else
+==============================================
+*/
+document.addEventListener("DOMContentLoaded", () => {
+  const cta = document.querySelector(".header-cta.is-quiet");
+  const hero = document.querySelector(".hero");
+  if (!cta || !hero || !("IntersectionObserver" in window)) return;
+
+  new IntersectionObserver(([entry]) => {
+    cta.classList.toggle("is-quiet", entry.isIntersecting);
+  }, { threshold: 0.25 }).observe(hero);
+});

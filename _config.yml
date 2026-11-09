@@ -2,7 +2,14 @@ title: Alejandro Amaro | Product & Visual Designer
 description: Product & Visual Designer in Strasbourg, France. I design interfaces, visual identities, and internal tools.
 baseurl: ""
 url: "https://www.alejandro-is.me"
-lang: en
+lang: fr
+
+# Contact links still to provide. While empty, the page shows the
+# [[A COMPLETAR]] marker instead of a link, and the header button reads
+# "Me contacter" (it switches to "Échanger 20 min" once cal_url is set).
+cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
+malt_url: ""       # [[A COMPLETAR: URL Malt]]
+instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
 
 author:
   name: Alejandro Amaro Mendoza
@@ -30,6 +37,7 @@ defaults:
       type: projects
     values:
       layout: project
+      lang: en
 
 exclude:
   - bedizen_v2

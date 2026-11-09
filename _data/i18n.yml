@@ -1,0 +1,59 @@
+# Interface strings for the site chrome (header, footer, shared UI).
+# Pages declare `lang: fr` or `lang: en`. Bilingual pages also declare
+# `alt_url` (URL of the same page in the other language).
+
+fr:
+  locale: fr_FR
+  home: /
+  skip: Aller au contenu principal
+  logo_label: Alejandro A.M., accueil
+  nav_label: Navigation principale
+  nav_mobile_label: Navigation mobile
+  menu_toggle: Ouvrir ou fermer le menu
+  nav:
+    - label: projets
+      url: /#projects
+    - label: services
+      url: /services/
+    - label: cv
+      url: /cv/
+    - label: à propos
+      url: /#about
+  contact_url: /#contact
+  cta_call: Échanger 20 min
+  cta_contact: Me contacter
+  switch_code: EN
+  switch_lang: en
+  switch_label: English version
+  footer_contact: Contact
+  footer_tools: Tools
+  footer_legal: Mentions légales
+  back_to_top: Retour en haut
+
+en:
+  locale: en_US
+  home: /en/
+  skip: Skip to main content
+  logo_label: Alejandro A.M., Home
+  nav_label: Main navigation
+  nav_mobile_label: Mobile navigation
+  menu_toggle: Toggle navigation menu
+  nav:
+    - label: projects
+      url: /en/#projects
+    - label: services
+      url: /en/services/
+    - label: cv
+      url: /en/cv/
+    - label: about
+      url: /en/#about
+  contact_url: /en/#contact
+  cta_call: Book a 20-min call
+  cta_contact: Contact me
+  switch_code: FR
+  switch_lang: fr
+  switch_label: Version française
+  footer_contact: Contact
+  footer_tools: Tools
+  footer_legal: Mentions légales
+  back_to_top: Back to top
