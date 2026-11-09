@@ -19,6 +19,12 @@ fr:
     - Prix annoncé avant de commencer
   malt: Mon profil Malt
   testimonials_title: Ils m'ont fait confiance
+  process_title: Comment ça se passe
+  process:
+    - "Un premier échange gratuit de 20 minutes, en visio ou par écrit, selon votre préférence."
+    - "Devis et cahier des charges clairs&nbsp;: ce qui est inclus et ce qui ne l'est pas."
+    - Réalisation avec 2 tours de retours inclus.
+    - "Livraison, puis maintenance si vous le souhaitez."
 
 en:
   value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg — PrestaShop and WordPress — en français, in English, en español."
@@ -38,3 +44,9 @@ en:
     - Price agreed before we start
   malt: My Malt profile
   testimonials_title: What clients say
+  process_title: How it works
+  process:
+    - "A free 20-minute first conversation, by video call or in writing, as you prefer."
+    - "A clear quote and specification: what is included and what is not."
+    - "The work itself, with 2 rounds of feedback included."
+    - "Delivery, then maintenance if you wish."

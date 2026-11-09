@@ -247,6 +247,21 @@
 </section>
 
 <!-- ============================================
+  PROCESS - 4 steps
+============================================= -->
+<section id="process" class="section reveal" aria-labelledby="process-title">
+  <h2 class="section-title" id="process-title">{{ h.process_title }}</h2>
+  <ol class="process-steps">
+    {%- for step in h.process %}
+    <li class="process-step">
+      <span class="process-num" aria-hidden="true">{{ forloop.index }}</span>
+      <p>{{ step }}</p>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+<!-- ============================================
   CONTACT SECTION
 ============================================= -->
 <section id="contact" class="section reveal" aria-label="Contact">

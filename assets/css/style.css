@@ -2660,3 +2660,53 @@ html.cursor-ready .custom-cursor {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* --- Home: process steps --- */
+.process-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  counter-reset: none;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+  align-content: start;
+  padding: var(--space-lg);
+  border: 1px solid var(--bg-elevated);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.process-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.process-step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-top: 0.4rem;
+}
+
+@media (min-width: 1024px) {
+  .process-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .process-step {
+    grid-template-columns: 1fr;
+  }
+}
