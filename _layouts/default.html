@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 {%- assign page_lang = page.lang | default: site.lang | default: 'fr' -%}
 {%- assign t = site.data.i18n[page_lang] | default: site.data.i18n.fr -%}
-{%- comment -%} Bilingual pages link to their own language; English-only pages (case studies, portfolio) use the default paths, which follow the visitor's saved language. {%- endcomment -%}
-{%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- endif -%}
-{%- if site.cal_url != "" -%}{%- assign cta_label = t.cta_call -%}{%- assign cta_url = site.cal_url -%}{%- else -%}{%- assign cta_label = t.cta_contact -%}{%- assign cta_url = nav_t.contact_url -%}{%- endif -%}
+{%- comment -%} Bilingual pages link to their own language. English-only pages (case studies, portfolio) link to the default FR paths; main.js swaps them to data-href-en when the visitor chose English or came from the English home. {%- endcomment -%}
+{%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- assign swap_nav = false -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- assign swap_nav = true -%}{%- assign nav_en = site.data.i18n.en -%}{%- endif -%}
+{%- if site.cal_url != "" -%}{%- assign cta_label = t.cta_call -%}{%- assign cta_url = site.cal_url -%}{%- else -%}{%- assign cta_label = t.cta_contact -%}{%- assign cta_url = nav_t.contact_url -%}{%- assign cta_url_en = site.data.i18n.en.contact_url -%}{%- endif -%}
 <html class="no-js" lang="{{ page_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- JS is available: drop the no-JS fallback before first paint (no flash of hidden content) -->
   <script>document.documentElement.classList.remove('no-js');</script>
-  {%- if page.alt_url %}
-  <!-- Remember the visitor's language: open the saved language version of this page -->
-  <script>(function(){try{var l="{{ page_lang }}",p=localStorage.getItem("lang");if(p&&p!==l){location.replace("{{ page.alt_url }}"+location.search+location.hash);return;}localStorage.setItem("lang",l);}catch(e){}})();</script>
-  {%- endif %}
-
   <!-- Title -->
   <title>{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
@@ -82,20 +77,32 @@
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">{{ t.skip }}</a>
 
+  {%- if page.alt_url %}
+  <!-- Language hint: shown by main.js only when the browser language differs and no choice is saved. Never redirects. -->
+  {%- assign alt_t = site.data.i18n[t.switch_lang] %}
+  <div class="lang-hint" id="lang-hint" role="region" aria-label="{{ alt_t.hint_label }}" lang="{{ t.switch_lang }}" data-page-lang="{{ page_lang }}" hidden>
+    <div class="container lang-hint-inner">
+      <p>{{ alt_t.hint_text }}</p>
+      <a href="{{ page.alt_url }}" class="lang-switch lang-hint-go" hreflang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}">{{ alt_t.hint_go }}</a>
+      <button type="button" class="lang-hint-stay" lang="{{ page_lang }}" data-lang="{{ page_lang }}">{{ t.hint_stay }}</button>
+    </div>
+  </div>
+  {%- endif %}
+
   <!-- Custom Cursor (progressive enhancement, hidden until JS loads) -->
   <div class="custom-cursor" aria-hidden="true"></div>
 
   <!-- Header -->
   <header role="banner">
     <div class="container header-content">
-      <a href="{{ nav_t.home }}" class="logo" aria-label="{{ t.logo_label }}">alejandro a.m.</a>
+      <a href="{{ nav_t.home }}"{% if swap_nav %} data-href-en="{{ nav_en.home }}"{% endif %} class="logo" aria-label="{{ t.logo_label }}">alejandro a.m.</a>
 
       <nav id="desktop-menu" class="desktop-nav" aria-label="{{ t.nav_label }}">
         <ul>
           {%- for item in t.nav %}
-          <li><a href="{{ nav_t.nav[forloop.index0].url }}"{% if page.url == nav_t.nav[forloop.index0].url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          <li><a href="{{ nav_t.nav[forloop.index0].url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if page.url == nav_t.nav[forloop.index0].url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
           {%- endfor %}
-          <li><a href="{{ cta_url }}" class="submit-btn header-cta{% if page.home %} is-quiet{% endif %}">{{ cta_label }}</a></li>
+          <li><a href="{{ cta_url }}"{% if swap_nav and cta_url_en %} data-href-en="{{ cta_url_en }}"{% endif %} class="submit-btn header-cta{% if page.home %} is-quiet{% endif %}">{{ cta_label }}</a></li>
           {%- if page.alt_url %}
           <li><a href="{{ page.alt_url }}" class="lang-switch" hreflang="{{ t.switch_lang }}" lang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}"><span aria-hidden="true">{{ t.switch_code }}</span><span class="sr-only">{{ t.switch_label }}</span></a></li>
           {%- endif %}
@@ -114,9 +121,9 @@
       <nav id="menu" class="nav-menu" aria-label="{{ t.nav_mobile_label }}">
         <ul>
           {%- for item in t.nav %}
-          <li><a href="{{ nav_t.nav[forloop.index0].url }}"{% if page.url == nav_t.nav[forloop.index0].url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          <li><a href="{{ nav_t.nav[forloop.index0].url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if page.url == nav_t.nav[forloop.index0].url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
           {%- endfor %}
-          <li><a href="{{ cta_url }}">{{ cta_label }}</a></li>
+          <li><a href="{{ cta_url }}"{% if swap_nav and cta_url_en %} data-href-en="{{ cta_url_en }}"{% endif %}>{{ cta_label }}</a></li>
           {%- if page.alt_url %}
           <li><a href="{{ page.alt_url }}" class="lang-switch" hreflang="{{ t.switch_lang }}" lang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}">{{ t.switch_label }}</a></li>
           {%- endif %}

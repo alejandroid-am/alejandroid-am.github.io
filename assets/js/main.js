@@ -188,15 +188,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*
 ==============================================
-7. Language switch: remember the visitor's choice
+7. Language: remember the visitor's choice, never redirect
+  - FR is the default at /. A click on a language link or on
+    "Rester en français / Stay in English" saves the choice.
+  - If no choice is saved and the browser language differs from the
+    page, a small non-blocking hint offers the other version.
+  - English-only pages (case studies) point their nav to the FR paths;
+    they switch to the EN paths when the visitor chose English or
+    arrived from an English page in this session.
 ==============================================
 */
 document.addEventListener("DOMContentLoaded", () => {
+  const store = {
+    get(k, s) { try { return (s || localStorage).getItem(k); } catch (e) { return null; } },
+    set(k, v, s) { try { (s || localStorage).setItem(k, v); } catch (e) { /* storage blocked */ } }
+  };
+  const saved = store.get("lang");
+  const pageLang = document.documentElement.lang;
+  const hint = document.getElementById("lang-hint");
+
   document.querySelectorAll(".lang-switch[data-lang]").forEach(link => {
-    link.addEventListener("click", () => {
-      try { localStorage.setItem("lang", link.dataset.lang); } catch (e) { /* storage blocked: link still works */ }
-    });
+    link.addEventListener("click", () => store.set("lang", link.dataset.lang));
   });
+
+  if (hint) {
+    // Bilingual page: remember the language of this session for English-only pages
+    store.set("lang_ctx", pageLang, sessionStorage);
+    const browser = (navigator.language || "").toLowerCase();
+    const browserIsFr = browser.indexOf("fr") === 0;
+    const differs = pageLang === "fr" ? !browserIsFr : browserIsFr;
+    if (!saved && browser && differs) {
+      hint.hidden = false;
+      const stay = hint.querySelector(".lang-hint-stay");
+      stay.addEventListener("click", () => {
+        store.set("lang", stay.dataset.lang);
+        hint.hidden = true;
+        const main = document.getElementById("main-content");
+        if (main) { main.setAttribute("tabindex", "-1"); main.focus({ preventScroll: true }); }
+      });
+    }
+  }
+
+  const ctx = saved || store.get("lang_ctx", sessionStorage);
+  if (ctx === "en") {
+    document.querySelectorAll("a[data-href-en]").forEach(a => { a.href = a.dataset.hrefEn; });
+  }
 });
 
 

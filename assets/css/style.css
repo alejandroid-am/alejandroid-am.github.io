@@ -2286,6 +2286,58 @@ html.cursor-ready .custom-cursor {
   }
 }
 
+/* --- Language hint (non-blocking, scrolls away with the page) --- */
+.lang-hint {
+  background: var(--bg-elevated);
+  font-size: 0.875rem;
+}
+
+.lang-hint[hidden] {
+  display: none;
+}
+
+.lang-hint-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-md);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.lang-hint p {
+  margin: 0;
+  color: var(--text);
+}
+
+.lang-hint-go,
+.lang-hint-stay {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font: inherit;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.lang-hint-stay {
+  color: var(--text-muted);
+}
+
+.lang-hint-go:hover,
+.lang-hint-stay:hover {
+  color: var(--text);
+}
+
+main:focus {
+  outline: none;
+}
+
 /* --- Mobile call-to-action bar --- */
 .mobile-cta-bar {
   position: fixed;

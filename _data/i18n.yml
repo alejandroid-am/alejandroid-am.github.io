@@ -25,6 +25,10 @@ fr:
   switch_code: EN
   switch_lang: en
   switch_label: English version
+  hint_label: Langue du site
+  hint_text: Ce site existe aussi en français.
+  hint_go: Passer en français
+  hint_stay: Rester en français
   footer_contact: Contact
   footer_tools: Tools
   footer_legal: Mentions légales
@@ -53,6 +57,10 @@ en:
   switch_code: FR
   switch_lang: fr
   switch_label: Version française
+  hint_label: Site language
+  hint_text: This site is also available in English.
+  hint_go: Switch to English
+  hint_stay: Stay in English
   footer_contact: Contact
   footer_tools: Tools
   footer_legal: Mentions légales
