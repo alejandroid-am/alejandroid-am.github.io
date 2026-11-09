@@ -1,0 +1,18 @@
+# Home page copy for the new client-facing blocks (FR is the source text).
+# Existing blocks (H1 carousel, About, case studies) stay in English, untouched.
+
+fr:
+  value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e-commerce à Strasbourg — PrestaShop et WordPress — en français, in English, en español."
+  offers_btn: Voir les offres
+  offers_url: /services/
+  cv_btn: "Recruteurs&nbsp;: CV et parcours"
+  cv_url: /cv/
+  availability: "Disponibilité&nbsp;: 1 projet à la fois · prochain créneau&nbsp;:"
+
+en:
+  value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg — PrestaShop and WordPress — en français, in English, en español."
+  offers_btn: See the offers
+  offers_url: /en/services/
+  cv_btn: "Recruiters: CV and background"
+  cv_url: /en/cv/
+  availability: "Availability: 1 project at a time · next slot:"

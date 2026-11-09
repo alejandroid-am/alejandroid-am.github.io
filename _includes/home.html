@@ -2,6 +2,7 @@
 <!-- ============================================
   HERO SECTION - Word Carousel
 ============================================= -->
+{%- assign h = site.data.home[page.lang] | default: site.data.home.fr -%}
 <section class="hero" aria-label="Introduction">
   <div class="hero-intro">
     <p class="hero-tagline">Product & Visual Designer</p>
@@ -49,6 +50,15 @@
     </div>
     </div>
   </h1>
+
+  <div class="hero-offer">
+    <p class="hero-value">{{ h.value }}</p>
+    <div class="hero-actions">
+      <a href="{{ h.offers_url }}" class="submit-btn btn-solid">{{ h.offers_btn }}</a>
+      <a href="{{ h.cv_url }}" class="submit-btn">{{ h.cv_btn }}</a>
+    </div>
+    <p class="hero-availability">{{ h.availability }} {% if site.next_slot != "" %}{{ site.next_slot }}{% else %}[[A COMPLETAR: fecha]]{% endif %}</p>
+  </div>
 
   <div class="scroll-indicator" aria-hidden="true">
     <span></span>

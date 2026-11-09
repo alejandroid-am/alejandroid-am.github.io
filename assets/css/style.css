@@ -2334,3 +2334,37 @@ html.cursor-ready .custom-cursor {
     display: none;
   }
 }
+
+/* --- Home hero: value line, actions, availability --- */
+.hero-offer {
+  max-width: var(--max-width);
+  margin: var(--space-lg) auto 0;
+  width: 100%;
+}
+
+.hero-value {
+  max-width: 46ch;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.hero-actions .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.hero-availability {
+  margin-top: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+}
