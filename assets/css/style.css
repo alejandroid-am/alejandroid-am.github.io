@@ -1720,17 +1720,15 @@ html.cursor-ready .custom-cursor {
   12. MENTIONS LÉGALES
 =================================================================
 */
-.legal-page .legal-content {
-  max-width: 700px;
-  margin: 0 auto;
-  margin-left: var(--space-xl);
-  padding: var(--space-xl) var(--space-md);
+/* Same container and spacing as the other pages (.section); the h1 uses
+   .hero-portfolio like /services/ and /cv/. Text keeps a readable measure. */
+.legal-content h1 {
+  margin-bottom: var(--space-lg);
 }
 
-.legal-content h1 {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: var(--space-xl);
+.legal-content h2,
+.legal-content p {
+  max-width: 70ch;
 }
 
 .legal-content h2 {
