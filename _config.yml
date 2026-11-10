@@ -46,6 +46,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - NOTAS-PARA-ALE.md
   - .gitignore
 
 plugins:
