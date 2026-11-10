@@ -45,13 +45,14 @@
 
   <!-- Content Security Policy (Removed for local development compatibility) -->
 
-  <!-- Fonts: Poppins (subset Latin, key weights, swap) -->
+  <!-- Fonts: Poppins self-hosted (latin + latin-ext, 400 to 700, swap). No third-party request. -->
   {%- if page.preload_image %}
   <link rel="preload" as="image" href="{{ page.preload_image }}"{% if page.preload_srcset %} imagesrcset="{{ page.preload_srcset }}" imagesizes="{{ page.preload_sizes }}"{% endif %} fetchpriority="high">
   {%- endif %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+{% include fonts.css %}  </style>
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">

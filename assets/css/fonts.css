@@ -1,0 +1,4 @@
+---
+# Same @font-face rules as the inline block in _layouts/default.html (used by /tools/ pages).
+---
+{% include fonts.css %}
