@@ -1368,6 +1368,29 @@ footer {
   color: var(--accent);
 }
 
+/* The controls are real buttons now: keep their look, show focus */
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  font-family: inherit;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.lightbox[hidden],
+.lightbox-prev[hidden],
+.lightbox-next[hidden] {
+  display: none;
+}
+
+.lightbox-close:focus-visible,
+.lightbox-prev:focus-visible,
+.lightbox-next:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  color: var(--accent);
+}
+
 .lightbox-caption {
   margin-top: var(--space-md);
   color: var(--text-muted);

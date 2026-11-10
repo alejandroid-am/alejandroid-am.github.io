@@ -35,93 +35,68 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel(0);
     }
 
-    /* --- 2. LIGHTBOX (ZOOM) --- */
-    
-    // Inyectar HTML del lightbox si no existe
+    /* --- 2. LIGHTBOX (ZOOM) ---
+       Accessible dialog: labelled buttons, Esc closes, arrows navigate,
+       Tab stays inside while open, focus returns to the opener on close. */
+    const fr = (document.documentElement.lang || 'en').indexOf('fr') === 0;
+    const L = fr
+        ? { dialog: 'Visionneuse d\'images', close: 'Fermer', prev: 'Image précédente', next: 'Image suivante', open: 'Agrandir l\'image', fallback: 'Image agrandie' }
+        : { dialog: 'Image viewer', close: 'Close', prev: 'Previous image', next: 'Next image', open: 'Enlarge image', fallback: 'Enlarged image' };
+
     if (!document.getElementById('lightbox')) {
         const lightboxHTML = `
-        <div id="lightbox" class="lightbox">
-            <span class="lightbox-close">&times;</span>
-            <div class="lightbox-prev">&#10094;</div>
-            <img class="lightbox-content" id="lightbox-img">
-            <div class="lightbox-next">&#10095;</div>
-            <div class="lightbox-caption"></div>
+        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="${L.dialog}" hidden>
+            <button type="button" class="lightbox-close" aria-label="${L.close}"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="lightbox-prev" aria-label="${L.prev}"><span aria-hidden="true">&#10094;</span></button>
+            <img class="lightbox-content" id="lightbox-img" alt="">
+            <button type="button" class="lightbox-next" aria-label="${L.next}"><span aria-hidden="true">&#10095;</span></button>
+            <div class="lightbox-caption" aria-live="polite"></div>
         </div>`;
         document.body.insertAdjacentHTML('beforeend', lightboxHTML);
     }
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.querySelector('.lightbox-caption');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevArrow = document.querySelector('.lightbox-prev');
-    const nextArrow = document.querySelector('.lightbox-next');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevArrow = lightbox.querySelector('.lightbox-prev');
+    const nextArrow = lightbox.querySelector('.lightbox-next');
 
     let currentImages = [];
     let currentIdx = 0;
-
-    // Función para abrir
-    const openLightbox = (index, images) => {
-        currentImages = images;
-        currentIdx = index;
-        updateLightboxContent();
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloquear scroll
-    };
+    let opener = null;
 
     const updateLightboxContent = () => {
         const img = currentImages[currentIdx];
-        // Buscar la fuente real (src) o la del link
-        let src = img.src;
-        // Si la imagen está dentro de un link, a veces queremos el href del link (mayor calidad)
-        // pero en tu caso usamos la misma imagen.
-        
-        lightboxImg.src = src;
-        
-        // Caption and Alt
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || L.fallback;
         const caption = img.getAttribute('data-caption') || img.alt || '';
-        lightboxCaption.textContent = caption;
-        lightboxImg.alt = img.alt || 'Enlarged image';
+        const count = currentImages.length > 1 ? ` (${currentIdx + 1} / ${currentImages.length})` : '';
+        lightboxCaption.textContent = caption + count;
+    };
+
+    const openLightbox = (index, images, trigger) => {
+        currentImages = images;
+        currentIdx = index;
+        opener = trigger || document.activeElement;
+        const several = images.length > 1;
+        prevArrow.hidden = !several;
+        nextArrow.hidden = !several;
+        updateLightboxContent();
+        lightbox.hidden = false;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
     };
 
     const closeLightbox = () => {
+        if (lightbox.hidden) return;
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+        if (opener && typeof opener.focus === 'function') opener.focus();
+        opener = null;
     };
-
-    // --- LISTENERS PARA ABRIR ---
-
-    // A. Imágenes del Carrusel
-    // Seleccionamos directamente las imágenes visibles
-    const carouselImages = document.querySelectorAll('.document-carousel img');
-    if (carouselImages.length > 0) {
-        carouselImages.forEach((img, index) => {
-            img.addEventListener('click', () => {
-                openLightbox(index, Array.from(carouselImages));
-            });
-        });
-    }
-
-    // B. Galería Bento (Detectar clic en el enlace .zoom-trigger)
-    const bentoLinks = document.querySelectorAll('.bento-gallery .zoom-trigger');
-    if (bentoLinks.length > 0) {
-        // Creamos un array de las IMÁGENES dentro de los links para pasarlo al lightbox
-        const bentoImages = Array.from(bentoLinks).map(link => link.querySelector('img'));
-        
-        bentoLinks.forEach((link, index) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault(); // Evitar navegación del link
-                openLightbox(index, bentoImages);
-            });
-        });
-    }
-
-    // --- CONTROLES NAVEGACIÓN ---
-    
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
 
     const showNext = () => {
         currentIdx = (currentIdx + 1) % currentImages.length;
@@ -133,14 +108,55 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxContent();
     };
 
+    // --- OPENERS ---
+
+    // A. Document carousel images: make them reachable and operable by keyboard
+    const carouselImages = Array.from(document.querySelectorAll('.document-carousel img'));
+    carouselImages.forEach((img, index) => {
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', `${L.open}: ${img.alt || index + 1}`);
+        img.addEventListener('click', () => openLightbox(index, carouselImages, img));
+        img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(index, carouselImages, img); }
+        });
+    });
+
+    // B. Bento gallery links (.zoom-trigger)
+    const bentoLinks = Array.from(document.querySelectorAll('.bento-gallery .zoom-trigger'));
+    const bentoImages = bentoLinks.map(link => link.querySelector('img'));
+    bentoLinks.forEach((link, index) => {
+        if (!link.hasAttribute('aria-label') && bentoImages[index]) {
+            link.setAttribute('aria-label', `${L.open}: ${bentoImages[index].alt || index + 1}`);
+        }
+        link.setAttribute('role', 'button');
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            openLightbox(index, bentoImages, link);
+        });
+        link.addEventListener('keydown', (e) => {
+            if (e.key === ' ') { e.preventDefault(); openLightbox(index, bentoImages, link); }
+        });
+    });
+
+    // --- CONTROLS ---
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
     nextArrow.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
     prevArrow.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
 
-    // Teclado
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
+        if (lightbox.hidden) return;
+        if (e.key === 'Escape') { e.preventDefault(); closeLightbox(); return; }
+        if (currentImages.length > 1 && e.key === 'ArrowRight') { e.preventDefault(); showNext(); return; }
+        if (currentImages.length > 1 && e.key === 'ArrowLeft') { e.preventDefault(); showPrev(); return; }
+        if (e.key === 'Tab') {
+            // Focus trap: cycle through the visible buttons only
+            const focusables = [closeBtn, prevArrow, nextArrow].filter(b => !b.hidden);
+            const first = focusables[0], last = focusables[focusables.length - 1];
+            const idx = focusables.indexOf(document.activeElement);
+            if (e.shiftKey && (idx <= 0)) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && (idx === -1 || idx === focusables.length - 1)) { e.preventDefault(); first.focus(); }
+        }
     });
 });
