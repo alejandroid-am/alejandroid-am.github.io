@@ -1,6 +1,38 @@
 # Copy for /cv/ (FR) and /en/cv/. Skills and education moved here from the home page.
+# Never write "17 ans d'expérience en e-commerce": the trade (since 2009) and
+# e-commerce (since 2019) are two separate facts.
+# CV PDFs (assets/img/CV/) are not linked yet: see NOTAS-PARA-ALE.md.
+cases: [in-house-tools, keepBreathing, spin_app]
 fr:
   title: CV et parcours
+  lead: "Designer UI, web et graphique. Je cherche un CDI à Strasbourg."
+  roles_title: Postes recherchés
+  roles:
+    - Designer UI
+    - Web designer
+    - Graphiste et designer UI
+    - Product designer junior
+  facts_title: En bref
+  facts:
+    - label: Métier
+      value: "17 ans de métier, depuis 2009."
+    - label: E-commerce
+      value: "Sites e-commerce depuis 2019 (WordPress, puis PrestaShop)."
+    - label: Formation
+      value: "Titre professionnel Concepteur designer UI (niveau 6), CCI Campus Alsace."
+    - label: Distinction
+      value: "Global Game Jam 2026, <span lang=\"en\">Best Technical Achievement</span>."
+    - label: Langues
+      value: "Espagnol (langue maternelle), français (C1), anglais (C1)."
+  contact_title: Me joindre
+  linkedin: Profil LinkedIn
+  email_label: Envoyer un email
+  form: Formulaire de contact
+  form_url: /#contact
+  cases_title: Trois études de cas
+  cases_note: "Études de cas rédigées en anglais."
+  case_label: "Voir l'étude de cas %s"
+  cover_alt: "Couverture du projet %s"
   skills_title: Compétences
   education_title: Formation et distinctions
   skills:
@@ -20,6 +52,34 @@ fr:
       place: "Global Game Jam&nbsp;: Le Shadok, Strasbourg"
 en:
   title: CV and background
+  lead: "UI, web and graphic designer. Looking for a permanent position (CDI) in Strasbourg."
+  roles_title: Roles I'm looking for
+  roles:
+    - UI designer
+    - Web designer
+    - Graphic and UI designer
+    - Junior product designer
+  facts_title: At a glance
+  facts:
+    - label: Experience
+      value: "17 years in the trade, since 2009."
+    - label: E-commerce
+      value: "E-commerce websites since 2019 (WordPress, then PrestaShop)."
+    - label: Education
+      value: "French professional title Concepteur designer UI (level 6), CCI Campus Alsace."
+    - label: Award
+      value: "Global Game Jam 2026, Best Technical Achievement."
+    - label: Languages
+      value: "Spanish (native), French (C1), English (C1)."
+  contact_title: Get in touch
+  linkedin: LinkedIn profile
+  email_label: Send an email
+  form: Contact form
+  form_url: /en/#contact
+  cases_title: Three case studies
+  cases_note: ""
+  case_label: "View %s case study"
+  cover_alt: "%s project cover"
   skills_title: Skills
   education_title: Education and awards
   skills:
