@@ -11,6 +11,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- JS is available: drop the no-JS fallback before first paint (no flash of hidden content) -->
   <script>document.documentElement.classList.remove('no-js');</script>
+  {%- if page.alt_url %}
+  <!-- Language hint decided before first paint (no layout shift): shown only when no choice is saved and the browser language differs from the page -->
+  <script>(function(){try{var d=document.documentElement,p="{{ page_lang }}",b=(navigator.language||"").toLowerCase(),fr=b.indexOf("fr")===0;if(!localStorage.getItem("lang")&&b&&(p==="fr"?!fr:fr))d.classList.add("lang-hint-on");}catch(e){}})();</script>
+  {%- endif %}
   <!-- Title -->
   <title>{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}</title>
 
@@ -79,9 +83,9 @@
   <a href="#main-content" class="skip-link">{{ t.skip }}</a>
 
   {%- if page.alt_url %}
-  <!-- Language hint: shown by main.js only when the browser language differs and no choice is saved. Never redirects. -->
+  <!-- Language hint: visibility set by the inline script in <head>. Never redirects. -->
   {%- assign alt_t = site.data.i18n[t.switch_lang] %}
-  <div class="lang-hint" id="lang-hint" role="region" aria-label="{{ alt_t.hint_label }}" lang="{{ t.switch_lang }}" data-page-lang="{{ page_lang }}" hidden>
+  <div class="lang-hint" id="lang-hint" role="region" aria-label="{{ alt_t.hint_label }}" lang="{{ t.switch_lang }}" data-page-lang="{{ page_lang }}">
     <div class="container lang-hint-inner">
       <p>{{ alt_t.hint_text }}</p>
       <a href="{{ page.alt_url }}" class="lang-switch lang-hint-go" hreflang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}">{{ alt_t.hint_go }}</a>

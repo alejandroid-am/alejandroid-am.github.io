@@ -440,6 +440,13 @@ footer {
   .carousel li {
     display: block;
   }
+
+  /* Each group on its own line: the line count no longer depends on the
+     font (fallback vs Poppins), so the swap causes no layout shift, and a
+     short word no longer leaves an empty reserved line under it. */
+  .h1-group {
+    display: block;
+  }
 }
 
 /* Scroll indicator */
@@ -2360,8 +2367,12 @@ html.cursor-ready .custom-cursor {
   font-size: 0.875rem;
 }
 
-.lang-hint[hidden] {
+.lang-hint {
   display: none;
+}
+
+html.lang-hint-on .lang-hint {
+  display: block;
 }
 
 .lang-hint-inner {

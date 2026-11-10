@@ -214,19 +214,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hint) {
     // Bilingual page: remember the language of this session for English-only pages
     store.set("lang_ctx", pageLang, sessionStorage);
-    const browser = (navigator.language || "").toLowerCase();
-    const browserIsFr = browser.indexOf("fr") === 0;
-    const differs = pageLang === "fr" ? !browserIsFr : browserIsFr;
-    if (!saved && browser && differs) {
-      hint.hidden = false;
-      const stay = hint.querySelector(".lang-hint-stay");
-      stay.addEventListener("click", () => {
-        store.set("lang", stay.dataset.lang);
-        hint.hidden = true;
-        const main = document.getElementById("main-content");
-        if (main) { main.setAttribute("tabindex", "-1"); main.focus({ preventScroll: true }); }
-      });
-    }
+    // Visibility is decided in <head> (class lang-hint-on) to avoid a layout shift
+    const stay = hint.querySelector(".lang-hint-stay");
+    stay.addEventListener("click", () => {
+      store.set("lang", stay.dataset.lang);
+      document.documentElement.classList.remove("lang-hint-on");
+      const main = document.getElementById("main-content");
+      if (main) { main.setAttribute("tabindex", "-1"); main.focus({ preventScroll: true }); }
+    });
   }
 
   const ctx = saved || store.get("lang_ctx", sessionStorage);
