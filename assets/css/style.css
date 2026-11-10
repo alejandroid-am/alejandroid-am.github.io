@@ -2720,6 +2720,13 @@ main:focus {
   }
 }
 
+/* Narrowest phones (320 px): let the two cells wrap instead of overflowing */
+@media (max-width: 359px) {
+  .hero-status {
+    flex-wrap: wrap;
+  }
+}
+
 @media (min-width: 1024px) {
   .hero {
     padding-top: var(--space-lg);
