@@ -2,6 +2,34 @@
 # Existing blocks (H1 carousel, About, case studies) stay in English, untouched.
 
 fr:
+  # Longest H1 line in em (static + widest word + gap): the desktop font
+  # shrinks only when that line would not fit.
+  h1_fit: 14.2
+  # H1 carousel: data-key stays the same in both languages (home-interaction.js
+  # matches on keys), only the visible text changes. "|" splits a word into
+  # groups that never break inside (article + noun stay together on mobile).
+  h1:
+    - id: carousel-transformo
+      static: Je conçois
+      words:
+        - {key: interfaces, label: des interfaces}
+        - {key: visuals, label: des visuels}
+        - {key: experiences, label: des expériences}
+        - {key: identities, label: des identités}
+    - id: carousel-en
+      static: pour
+      words:
+        - {key: enhance usability, label: "faciliter|l'usage"}
+        - {key: simplify journeys, label: simplifier|les parcours}
+        - {key: elevate brands, label: valoriser|les marques}
+        - {key: build trust, label: inspirer|confiance}
+    - id: carousel-para
+      static: guidé par
+      words:
+        - {key: curiosity, label: la curiosité}
+        - {key: creativity, label: la créativité}
+        - {key: storytelling, label: le récit}
+        - {key: empathy, label: "l'empathie"}
   tagline: Designer produit et visuel
   hero_label: Présentation
   value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e-commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
@@ -29,6 +57,29 @@ fr:
     - "Livraison et prise en main, puis suite possible selon vos besoins."
 
 en:
+  h1_fit: 13.8
+  h1:
+    - id: carousel-transformo
+      static: I design
+      words:
+        - {key: interfaces, label: interfaces}
+        - {key: visuals, label: visuals}
+        - {key: experiences, label: experiences}
+        - {key: identities, label: identities}
+    - id: carousel-en
+      static: made to
+      words:
+        - {key: enhance usability, label: enhance|usability}
+        - {key: simplify journeys, label: simplify|journeys}
+        - {key: elevate brands, label: elevate|brands}
+        - {key: build trust, label: build|trust}
+    - id: carousel-para
+      static: driven by
+      words:
+        - {key: curiosity, label: curiosity}
+        - {key: creativity, label: creativity}
+        - {key: storytelling, label: storytelling}
+        - {key: empathy, label: empathy}
   tagline: Product &amp; Visual Designer
   hero_label: Introduction
   value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."

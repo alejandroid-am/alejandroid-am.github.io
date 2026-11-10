@@ -9,45 +9,22 @@
   </div>
 
   {%- if page.lang == 'en' -%}{%- assign h1_name = "Alejandro Amaro, web and UI designer in Strasbourg" -%}{%- else -%}{%- assign h1_name = "Alejandro Amaro, designer web et UI à Strasbourg" -%}{%- endif %}
-  <h1 class="hero-title">
+  <h1 class="hero-title" style="--h1-fit: {{ h.h1_fit }}">
     <span class="sr-only">{{ h1_name }}</span>
     <!-- Interactive word carousel: decorative for assistive tech, the stable name is above -->
-    <div aria-hidden="true" lang="en">
+    <div aria-hidden="true">
+    {%- for line in h.h1 %}
     <div class="line-wrapper">
-      <span class="static-text">I design</span>
-      <div class="carousel" id="carousel-transformo" role="text">
+      <span class="static-text">{{ line.static }}</span>
+      <div class="carousel" id="{{ line.id }}" role="text">
         <ul>
-          <li class="is-visible" data-key="interfaces">interfaces</li>
-          <li data-key="visuals">visuals</li>
-          <li data-key="experiences">experiences</li>
-          <li data-key="identities">identities</li>
+          {%- for w in line.words %}
+          <li{% if forloop.first %} class="is-visible"{% endif %} data-key="{{ w.key }}"><span class="h1-word"><span class="h1-group">{{ w.label | split: "|" | join: '</span> <span class="h1-group">' }}</span></span></li>
+          {%- endfor %}
         </ul>
       </div>
     </div>
-    
-    <div class="line-wrapper">
-      <span class="static-text">made to</span>
-      <div class="carousel" id="carousel-en" role="text">
-        <ul>
-          <li class="is-visible" data-key="enhance usability">enhance usability</li>
-          <li data-key="simplify journeys">simplify journeys</li>
-          <li data-key="elevate brands">elevate brands</li>
-          <li data-key="build trust">build trust</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="line-wrapper">
-      <span class="static-text">driven by</span>
-      <div class="carousel" id="carousel-para" role="text">
-        <ul>
-          <li class="is-visible" data-key="curiosity">curiosity</li>
-          <li data-key="creativity">creativity</li>
-          <li data-key="storytelling">storytelling</li>
-          <li data-key="empathy">empathy</li>
-        </ul>
-      </div>
-    </div>
+    {%- endfor %}
     </div>
   </h1>
 
