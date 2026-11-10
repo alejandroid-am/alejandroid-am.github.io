@@ -15,10 +15,10 @@
   <section class="offer-block" aria-labelledby="block-projet">
     <h2 class="offer-block-title" id="block-projet">{{ sp.projet }}</h2>
     <p class="offer-block-sub">{{ sp.projet_sub }}</p>
-    <div class="offer-grid">
+    <div class="offer-list">
       {%- for o in projets %}
       {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
-      {% include offer-card.html offer=o lang=lang num=num %}
+      {% include offer-card.html offer=o lang=lang num=num mode="services" %}
       {%- endfor %}
     </div>
   </section>
@@ -38,11 +38,11 @@
   <section class="offer-block" aria-labelledby="block-recurrent">
     <h2 class="offer-block-title" id="block-recurrent">{{ sp.recurrent }}</h2>
     <p class="offer-block-sub">{{ sp.recurrent_sub }}</p>
-    <div class="offer-grid">
+    <div class="offer-list">
       {%- for o in recurrent %}
       {%- assign n = projets.size | plus: forloop.index -%}
       {%- capture num %}{{ n | prepend: "0" | slice: -2, 2 }}{% endcapture %}
-      {% include offer-card.html offer=o lang=lang num=num %}
+      {% include offer-card.html offer=o lang=lang num=num mode="services" %}
       {%- endfor %}
     </div>
   </section>

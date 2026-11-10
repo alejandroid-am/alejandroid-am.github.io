@@ -5,7 +5,7 @@
 # [[A COMPLETAR: CGV / RC Pro]]
 #
 # "for" (Pour qui) and "excludes" (Non inclus) are drafts written from the brief.
-# They are never rendered until the offer has validated: false. Order of this list
+# They are never rendered until the offer has validated: true. Order of this list
 # = order on /services/ (inside each block) and on the home cards (home: true).
 
 ui:
@@ -38,7 +38,7 @@ ui:
 
 list:
   - id: revue-ux
-    validated: true  # true shows "Pour qui" and "Non inclus" (drafts)
+    validated: false # true shows "Pour qui" and "Non inclus" (drafts)
     block: projet
     home: true
     featured: true

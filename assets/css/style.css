@@ -2806,30 +2806,156 @@ main:focus {
   color: var(--text-muted);
 }
 
-.offer-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
+
+
+
+/* Offers as rows (phase 4 stage 2): number, name + promise, price, one CTA.
+   Thick yellow rules frame the list; the single link covers the whole head. */
+.offer-list {
   margin-top: var(--space-lg);
+  border-top: 4px solid var(--accent);
+  border-bottom: 4px solid var(--accent);
 }
 
-.offer-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-lg);
-  border: 1px solid var(--bg-elevated);
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
+.offer-row {
+  border-bottom: 1px solid var(--bg-elevated);
 }
 
-/* The one highlighted offer: accent border plus a text badge (not colour alone) */
-.offer-card--featured {
-  border-color: var(--accent);
+.offer-row:last-child {
+  border-bottom: 0;
+}
+
+.offer-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  grid-template-areas:
+    "num main"
+    "num price"
+    "num cta";
+  column-gap: var(--space-sm);
+  row-gap: var(--space-xs);
+  padding: var(--space-md) var(--space-xs);
+  transition: background-color var(--transition-fast);
+}
+
+.offer-num {
+  grid-area: num;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-subtle);
+  transition: color var(--transition-fast);
+}
+
+.offer-main {
+  grid-area: main;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: start;
+}
+
+.offer-head .offer-price {
+  grid-area: price;
+  white-space: nowrap;
+}
+
+.offer-cta {
+  grid-area: cta;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* One link per row, stretched over the whole head */
+.offer-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.offer-cta:focus-visible {
+  outline: none;
+}
+
+.offer-cta:focus-visible::after {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.offer-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.offer-head:hover,
+.offer-head:focus-within {
+  background-color: var(--bg-surface);
+}
+
+.offer-head:hover .offer-num,
+.offer-head:focus-within .offer-num {
+  color: var(--accent);
+}
+
+.offer-head:hover .offer-arrow,
+.offer-head:focus-within .offer-arrow {
+  transform: translateX(4px);
+}
+
+/* The recommended offer: yellow bar on the left plus a text badge (not colour alone) */
+.offer-row--featured .offer-head {
+  box-shadow: inset 6px 0 0 var(--accent);
+}
+
+.offer-row .offer-details {
+  padding: 0 var(--space-xs) var(--space-lg) calc(3.25rem + var(--space-sm) + var(--space-xs));
+}
+
+@media (min-width: 768px) {
+  .offer-head {
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto auto;
+    grid-template-areas: "num main price cta";
+    align-items: center;
+    column-gap: var(--space-lg);
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .offer-num {
+    font-size: 2rem;
+    padding-left: var(--space-xs);
+  }
+
+  .offer-cta {
+    justify-self: end;
+  }
+
+  .offer-row .offer-details {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    column-gap: var(--space-lg);
+    padding: 0 var(--space-sm) var(--space-lg) calc(4.5rem + var(--space-lg) + var(--space-sm));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-arrow {
+    transition: none;
+  }
+
+  .offer-head:hover .offer-arrow,
+  .offer-head:focus-within .offer-arrow {
+    transform: none;
+  }
 }
 
 .offer-badge {
-  align-self: flex-start;
   padding: 0.2rem 0.6rem;
   background: var(--accent);
   color: var(--bg);
@@ -2837,7 +2963,7 @@ main:focus {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
 }
 
 .offer-title {
@@ -2886,25 +3012,8 @@ main:focus {
   color: var(--text-subtle);
 }
 
-.offer-head {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
 
-.offer-num {
-  font-weight: 700;
-  color: var(--text-subtle);
-}
 
-.offer-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  align-self: flex-start;
-  min-height: 48px;
-  margin-top: auto;
-}
 
 .agency-box {
   display: grid;
@@ -2957,11 +3066,6 @@ main:focus {
   color: var(--text-subtle);
 }
 
-@media (min-width: 768px) {
-  .offer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* --- Home: "Ce que je fais pour vous" --- */
 .offer-short {
@@ -2969,14 +3073,6 @@ main:focus {
   line-height: 1.6;
 }
 
-.offer-more {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  min-height: 44px;
-  margin-top: auto;
-  font-weight: 600;
-}
 
 .offers-footer {
   display: flex;
@@ -2996,11 +3092,6 @@ main:focus {
   margin-top: 0;
 }
 
-@media (min-width: 1024px) {
-  .offer-grid--home {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 /* --- Testimonials (rendered only when real quotes exist) --- */
 .testimonial-grid {

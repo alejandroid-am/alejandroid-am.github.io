@@ -65,18 +65,10 @@
 {%- assign home_offers = site.data.offers.list | where: "home", true -%}
 <section id="offers" class="section reveal" aria-labelledby="offers-title">
   <h2 class="section-title" id="offers-title">{{ h.what_title }}</h2>
-  <div class="offer-grid offer-grid--home">
+  <div class="offer-list offer-list--home">
     {%- for o in home_offers %}
-    {%- assign c = o[page.lang] | default: o.fr %}
-    <article class="offer-card{% if o.featured %} offer-card--featured{% endif %}" aria-labelledby="home-{{ o.id }}-title">
-      {%- if o.featured %}
-      <p class="offer-badge">{{ ui.featured }}</p>
-      {%- endif %}
-      <h3 class="offer-title" id="home-{{ o.id }}-title">{{ c.title }}</h3>
-      <p class="offer-short">{{ c.short }}</p>
-      <p class="offer-price">{{ c.price }}</p>
-      <a href="{{ ui.services }}#{{ o.id }}" class="about-link offer-more">{{ ui.see_offer }}<span class="sr-only"> – {{ c.title }}</span> &rarr;</a>
-    </article>
+    {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+    {% include offer-card.html offer=o lang=page.lang num=num mode="home" %}
     {%- endfor %}
   </div>
   <p class="offers-footer">
