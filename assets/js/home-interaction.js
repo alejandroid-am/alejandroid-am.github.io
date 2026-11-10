@@ -2,8 +2,8 @@
 =================================================================
   Homepage Word Interaction
 -----------------------------------------------------------------
-  * Handles the interactive word-swapping feature on the homepage.
-  * Now uses data-keys to be translation-proof.
+  * Swaps one highlighted H1 word for another that fits one of the
+  * combos below. Matches on data-key, so it works in every language.
 =================================================================
 */
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,13 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     { design: "identities", made: "elevate brands", driven: "creativity" }
   ];
 
-  // UPDATED FUNCTION: Now reads the data-key attribute
   const getActive = (el) => {
     const node = el.querySelector("li.is-visible");
     return node ? node.dataset.key : null;
   };
 
-  // UPDATED FUNCTION: Now matches against the data-key attribute
   const setActive = (el, value) => {
     Array.from(el.querySelectorAll("li")).forEach(li => {
       li.classList.toggle("is-visible", li.dataset.key === value);
@@ -71,13 +69,36 @@ document.addEventListener("DOMContentLoaded", () => {
     setActive(document.querySelector(`#${carouselId}`), newWord);
   };
 
-  const eventType = "ontouchstart" in window ? "click" : "mouseenter";
+  // Hover only for a real mouse (pointerType "mouse"), with a short intent
+  // delay so crossing a word on the way to the buttons does not swap it.
+  // Click (or tap) swaps for every pointer type, so hybrid devices work too.
+  const HOVER_DELAY = 120;
+  const CLICK_GUARD = 600;
 
   [
     ["carousel-transformo", transformo],
     ["carousel-en", en],
     ["carousel-para", para]
   ].forEach(([id, el]) => {
-    if (el) el.addEventListener(eventType, () => changeWord(id));
+    let timer = 0;
+    let lastHoverSwap = 0;
+
+    el.addEventListener("pointerenter", (e) => {
+      if (e.pointerType !== "mouse") return;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        changeWord(id);
+        lastHoverSwap = Date.now();
+      }, HOVER_DELAY);
+    });
+
+    el.addEventListener("pointerleave", () => clearTimeout(timer));
+
+    el.addEventListener("click", () => {
+      clearTimeout(timer);
+      // A mouse click right after a hover swap would swap twice.
+      if (Date.now() - lastHoverSwap < CLICK_GUARD) return;
+      changeWord(id);
+    });
   });
 });

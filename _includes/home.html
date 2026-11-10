@@ -16,7 +16,7 @@
     {%- for line in h.h1 %}
     <div class="line-wrapper">
       <span class="static-text">{{ line.static }}</span>
-      <div class="carousel" id="{{ line.id }}" role="text">
+      <div class="carousel" id="{{ line.id }}">
         <ul>
           {%- for w in line.words %}
           <li{% if forloop.first %} class="is-visible"{% endif %} data-key="{{ w.key }}"><span class="h1-word"><span class="h1-group">{{ w.label | split: "|" | join: '</span> <span class="h1-group">' }}</span></span></li>
