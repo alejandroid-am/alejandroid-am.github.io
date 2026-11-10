@@ -13,7 +13,7 @@ categories: ux-ui identity motion
 cover_image: /assets/img/spin_view.webp
 ---
 
-<img src="/assets/img/Spin_app/Spin_App_Mockups_presentation (1).webp" alt="SPIN App redesigned interface showing home screen and reward wheel" class="project-hero-image" style="border-radius: 12px;">
+<img src="/assets/img/Spin_app/Spin_App_Mockups_presentation (1).webp" alt="SPIN App redesigned interface showing home screen and reward wheel" class="project-hero-image" style="border-radius: 12px;" width="1920" height="1080" srcset="/assets/img/Spin_app/Spin_App_Mockups_presentation%20%281%29-960w.webp 960w, /assets/img/Spin_app/Spin_App_Mockups_presentation%20%281%29.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" fetchpriority="high">
 
 <p class="case-hook">Showing a skull that tells you you lost on the wheel could put people off buying.</p>
 
@@ -72,25 +72,25 @@ cover_image: /assets/img/spin_view.webp
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0;">
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/old-spin_logo.webp" alt="Original Spin logo" style="width:100%">
+        <img src="/assets/img/Spin_app/old-spin_logo.webp" alt="Original Spin logo" style="width:100%" width="1920" height="1080" srcset="/assets/img/Spin_app/old-spin_logo-960w.webp 960w, /assets/img/Spin_app/old-spin_logo.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> the original logo.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/new_spin_logo.webp" alt="Redesigned Spin logo" style="width:100%">
+        <img src="/assets/img/Spin_app/new_spin_logo.webp" alt="Redesigned Spin logo" style="width:100%" width="1920" height="1080" srcset="/assets/img/Spin_app/new_spin_logo-960w.webp 960w, /assets/img/Spin_app/new_spin_logo.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> a logo that suggests movement.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/old_colore_palette.webp" alt="Original neon color palette" style="width:100%">
+        <img src="/assets/img/Spin_app/old_colore_palette.webp" alt="Original neon color palette" style="width:100%" width="1920" height="1080" srcset="/assets/img/Spin_app/old_colore_palette-960w.webp 960w, /assets/img/Spin_app/old_colore_palette.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> clashing neon colors.</figcaption>
       </figure>
     </div>
     <div class="bento-item">
       <figure style="margin:0;">
-        <img src="/assets/img/Spin_app/new_color_palette.webp" alt="New, calmer color palette" style="width:100%">
+        <img src="/assets/img/Spin_app/new_color_palette.webp" alt="New, calmer color palette" style="width:100%" width="1920" height="1080" srcset="/assets/img/Spin_app/new_color_palette-960w.webp 960w, /assets/img/Spin_app/new_color_palette.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> a calmer palette that still feels playful.</figcaption>
       </figure>
     </div>
@@ -103,7 +103,7 @@ cover_image: /assets/img/spin_view.webp
     <div class="bento-item">
       <figure style="margin:0;">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Spin_app/old_spin ui.webp" alt="Original Spin UI, list view">
+          <img src="/assets/img/Spin_app/old_spin ui.webp" alt="Original Spin UI, list view" width="2400" height="1696" srcset="/assets/img/Spin_app/old_spin%20ui-960w.webp 960w, /assets/img/Spin_app/old_spin%20ui.webp 2400w" sizes="(max-width: 767px) 92vw, 2400px" loading="lazy" decoding="async">
         </a>
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>Before:</strong> the original list view.</figcaption>
       </figure>
@@ -111,7 +111,7 @@ cover_image: /assets/img/spin_view.webp
     <div class="bento-item">
       <figure style="margin:0;">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/Spin_app/new_spin ui.webp" alt="Redesigned Spin UI, card layout with a prominent Top Up button">
+          <img src="/assets/img/Spin_app/new_spin ui.webp" alt="Redesigned Spin UI, card layout with a prominent Top Up button" width="2400" height="1696" srcset="/assets/img/Spin_app/new_spin%20ui-960w.webp 960w, /assets/img/Spin_app/new_spin%20ui.webp 2400w" sizes="(max-width: 767px) 92vw, 2400px" loading="lazy" decoding="async">
         </a>
         <figcaption style="color:var(--text-muted); margin-top:10px; font-size:0.9rem;"><strong>After:</strong> cards, with "Top Up" as the most visible action.</figcaption>
       </figure>
@@ -146,37 +146,37 @@ cover_image: /assets/img/spin_view.webp
 <section class="bento-gallery">
   <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/Spin_App_Mockups_image.webp" alt="SPIN App redesigned home screen dashboard" data-caption="Home Screen Dashboard">
+      <img src="/assets/img/Spin_app/Spin_App_Mockups_image.webp" alt="SPIN App redesigned home screen dashboard" data-caption="Home Screen Dashboard" width="4549" height="3475" srcset="/assets/img/Spin_app/Spin_App_Mockups_image-960w.webp 960w, /assets/img/Spin_app/Spin_App_Mockups_image.webp 4549w" sizes="(max-width: 767px) 92vw, 4549px" loading="lazy" decoding="async">
     </a>
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/spin1.webp" alt="SPIN App login screen with gradient background" data-caption="Login Screen">
+      <img src="/assets/img/Spin_app/spin1.webp" alt="SPIN App login screen with gradient background" data-caption="Login Screen" width="2400" height="1800" srcset="/assets/img/Spin_app/spin1-960w.webp 960w, /assets/img/Spin_app/spin1.webp 2400w" sizes="(max-width: 767px) 92vw, 2400px" loading="lazy" decoding="async">
     </a>
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/spin2.webp" alt="SPIN App reward wheel, post-purchase celebration" data-caption="Gamified Reward System">
+      <img src="/assets/img/Spin_app/spin2.webp" alt="SPIN App reward wheel, post-purchase celebration" data-caption="Gamified Reward System" width="2400" height="1800" srcset="/assets/img/Spin_app/spin2-960w.webp 960w, /assets/img/Spin_app/spin2.webp 2400w" sizes="(max-width: 767px) 92vw, 2400px" loading="lazy" decoding="async">
     </a>
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/iphone-mockup.webp" alt="SPIN App home screen on iPhone in context" data-caption="Mockup in context">
+      <img src="/assets/img/Spin_app/iphone-mockup.webp" alt="SPIN App home screen on iPhone in context" data-caption="Mockup in context" width="500" height="1000" loading="lazy" decoding="async">
     </a>
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/spin3.webp" alt="SPIN App streamlined contacts list" data-caption="Streamlined Contacts">
+      <img src="/assets/img/Spin_app/spin3.webp" alt="SPIN App streamlined contacts list" data-caption="Streamlined Contacts" width="2400" height="1800" srcset="/assets/img/Spin_app/spin3-960w.webp 960w, /assets/img/Spin_app/spin3.webp 2400w" sizes="(max-width: 767px) 92vw, 2400px" loading="lazy" decoding="async">
     </a>
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/spin4.webp" alt="SPIN App user profile settings" data-caption="User Profile">
+      <img src="/assets/img/Spin_app/spin4.webp" alt="SPIN App user profile settings" data-caption="User Profile" width="2400" height="1800" srcset="/assets/img/Spin_app/spin4-960w.webp 960w, /assets/img/Spin_app/spin4.webp 2400w" sizes="(max-width: 767px) 92vw, 2400px" loading="lazy" decoding="async">
     </a>
   </div>
   <div class="bento-item">
     <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Spin_app/spin-phone.webp" alt="SPIN App promotional marketing shot" data-caption="Promotional Material">
+      <img src="/assets/img/Spin_app/spin-phone.webp" alt="SPIN App promotional marketing shot" data-caption="Promotional Material" width="4000" height="3000" srcset="/assets/img/Spin_app/spin-phone-960w.webp 960w, /assets/img/Spin_app/spin-phone.webp 4000w" sizes="(max-width: 767px) 92vw, 4000px" loading="lazy" decoding="async">
     </a>
   </div>
 </section>

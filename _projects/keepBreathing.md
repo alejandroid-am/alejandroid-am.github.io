@@ -15,7 +15,7 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 ---
 
 <div class="project-hero-media">
-  <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Keep Breathing main menu, dark sci-fi corridor with the game title" style="width: 100%; display: block;">
+  <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Keep Breathing main menu, dark sci-fi corridor with the game title" style="width: 100%; display: block;" width="1920" height="1080" srcset="/assets/img/KeepBreathing/keep-breathing-main-menu-960w.webp 960w, /assets/img/KeepBreathing/keep-breathing-main-menu.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" fetchpriority="high">
 </div>
 
 <p class="case-hook">When the jury was coming to our table, our game was split across 3 PCs.</p>
@@ -65,17 +65,17 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
   <div class="bento-gallery" style="margin: 40px 0;">
     <div class="bento-item">
       <a href="javascript:void(0)" class="zoom-trigger">
-        <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Keep Breathing main menu UI with industrial aesthetic" data-caption="Main Menu Design">
+        <img src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" alt="Keep Breathing main menu UI with industrial aesthetic" data-caption="Main Menu Design" width="1920" height="1080" srcset="/assets/img/KeepBreathing/keep-breathing-main-menu-960w.webp 960w, /assets/img/KeepBreathing/keep-breathing-main-menu.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
       </a>
     </div>
     <div class="bento-item">
       <a href="javascript:void(0)" class="zoom-trigger">
-        <img src="/assets/img/KeepBreathing/keep-breathing-menu-pause.webp" alt="Keep Breathing pause menu overlay" data-caption="Pause Menu Overlay">
+        <img src="/assets/img/KeepBreathing/keep-breathing-menu-pause.webp" alt="Keep Breathing pause menu overlay" data-caption="Pause Menu Overlay" width="1920" height="1080" srcset="/assets/img/KeepBreathing/keep-breathing-menu-pause-960w.webp 960w, /assets/img/KeepBreathing/keep-breathing-menu-pause.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
       </a>
     </div>
     <div class="bento-item" style="grid-column: span 2;">
       <a href="javascript:void(0)" class="zoom-trigger">
-        <img src="/assets/img/KeepBreathing/keep-breathing-game-over.webp" alt="Keep Breathing game over screen" data-caption="Game Over Screen">
+        <img src="/assets/img/KeepBreathing/keep-breathing-game-over.webp" alt="Keep Breathing game over screen" data-caption="Game Over Screen" width="1920" height="1080" srcset="/assets/img/KeepBreathing/keep-breathing-game-over-960w.webp 960w, /assets/img/KeepBreathing/keep-breathing-game-over.webp 1920w" sizes="(max-width: 767px) 92vw, 1920px" loading="lazy" decoding="async">
       </a>
     </div>
   </div>
@@ -102,7 +102,7 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
     <div class="bento-item">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="The Keep Breathing development team at Le Shadok" data-caption="The Team">
+          <img src="/assets/img/KeepBreathing/team-firstjam.webp" alt="The Keep Breathing development team at Le Shadok" data-caption="The Team" width="1291" height="1049" srcset="/assets/img/KeepBreathing/team-firstjam-840w.webp 840w, /assets/img/KeepBreathing/team-firstjam.webp 1291w" sizes="(max-width: 767px) 92vw, 1291px" loading="lazy" decoding="async">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:5px;">The Team</figcaption>
       </figure>
@@ -110,14 +110,14 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
     <div class="bento-item">
       <figure style="margin:0">
         <a href="javascript:void(0)" class="zoom-trigger">
-          <img src="/assets/img/KeepBreathing/ccicampus-team.webp" alt="CCI Campus Alsace students at Global Game Jam" data-caption="CCI Campus Alsace students">
+          <img src="/assets/img/KeepBreathing/ccicampus-team.webp" alt="CCI Campus Alsace students at Global Game Jam" data-caption="CCI Campus Alsace students" width="906" height="733" loading="lazy" decoding="async">
         </a>
         <figcaption style="text-align:center; color:var(--text-muted); margin-top:5px;">CCI Campus Alsace students</figcaption>
       </figure>
     </div>
     <div class="bento-item" style="grid-column: span 2;">
       <a href="javascript:void(0)" class="zoom-trigger">
-        <img src="/assets/img/KeepBreathing/jury-presentation.webp" alt="The team presenting Keep Breathing to the jury at Le Shadok" data-caption="Presenting to the jury">
+        <img src="/assets/img/KeepBreathing/jury-presentation.webp" alt="The team presenting Keep Breathing to the jury at Le Shadok" data-caption="Presenting to the jury" width="1186" height="1320" loading="lazy" decoding="async">
       </a>
       <figcaption style="text-align:center; color:var(--text-muted); margin-top:5px;">Presentation to the jury</figcaption>
     </div>
