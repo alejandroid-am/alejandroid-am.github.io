@@ -9,8 +9,8 @@ lang: fr
 # "Me contacter" until cal_url is set, then "Échanger 20 min".
 cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
 instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
-siret: ""          # [[A COMPLETAR: SIRET]] (mentions légales)
-address: ""        # [[A COMPLETAR: adresse professionnelle]] (mentions légales)
+siret: "108 337 783 00014"  # SIREN 108 337 783
+address: ""        # Left empty on purpose (decision 2026-11-10): never rendered while empty.
 
 author:
   name: Alejandro Amaro Mendoza

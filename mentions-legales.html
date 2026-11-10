@@ -13,12 +13,13 @@ last_modified_at: 2026-11-09
   <p>
     Ce site est édité par <strong>Alejandro Amaro Mendoza</strong>, entrepreneur individuel (EI), régime micro-entrepreneur.<br>
     {%- if site.siret != "" %}
-    SIRET&nbsp;: {{ site.siret }}<br>
+    SIRET&nbsp;: {{ site.siret }} (SIREN {{ site.siret | slice: 0, 11 }})<br>
     {%- endif %}
     {%- if site.address != "" %}
     Adresse&nbsp;: {{ site.address }}<br>
     {%- endif %}
-    Email&nbsp;: ale.amaro.m@proton.me<br>
+    Email&nbsp;: <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a><br>
+    Formulaire&nbsp;: <a href="/#contact">formulaire de contact</a><br>
     Directeur de la publication&nbsp;: Alejandro Amaro Mendoza.
   </p>
   <p>TVA non applicable, art. 293 B du CGI.</p>
