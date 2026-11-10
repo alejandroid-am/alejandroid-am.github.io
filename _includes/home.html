@@ -80,27 +80,33 @@
 <!-- ============================================
   PROJECTS / CASE STUDIES SECTION
 ============================================= -->
-<section id="projects" class="section" aria-labelledby="projects-title">
-  <h2 class="section-title reveal" id="projects-title">{{ h.projects_title }}</h2>
-  
-  <div class="projects-grid">
-    {% assign all_projects = site.projects | where_exp: "p", "p.home_order" | sort: "home_order" %}
-    {% assign featured_projects = all_projects | slice: 0, 6 %}
-    {% for project in featured_projects %}
-    <a href="{{ project.url }}" class="project-card{% if project.thumb_hover_image %} project-card--hover-swap{% endif %} reveal" aria-label="{{ h.case_label | replace: '%s', project.title }}">
-      <img src="{{ project.thumb_image | default: project.cover_image }}" alt="{{ h.cover_alt | replace: '%s', project.title }}" loading="lazy" width="800" height="500">
-      {% if project.thumb_hover_image %}<img src="{{ project.thumb_hover_image }}" alt="" class="card-img-hover" loading="lazy" width="800" height="500" aria-hidden="true">{% endif %}
-      <div class="card-overlay"{% if page.lang != 'en' %} lang="en"{% endif %}>
-        <span class="card-meta">{{ project.role_short | default: project.role }} · {{ project.year }}</span>
-        <h3 class="card-title">{{ project.title }}</h3>
-        <p class="card-desc">{{ project.description }}</p>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-
-  <div style="text-align: center; margin-top: var(--space-xl);" class="reveal">
-    <a href="/portfolio.html" class="submit-btn"{% if page.lang != 'en' %} hreflang="en"{% endif %}>{{ h.projects_all }} &rarr;</a>
+<section id="projects" class="section rail" aria-labelledby="projects-title" data-rail>
+  <!-- Horizontal rail. Default (no JS, phones, reduced motion): a native horizontal
+       scroller with scroll-snap. With JS on wide screens, rail.js pins the block
+       (position: sticky) and moves the track with the vertical scroll. Never hijacks
+       the wheel; focus moves the page so the focused card is in view. -->
+  <div class="rail-sticky">
+    <h2 class="section-title" id="projects-title">{{ h.projects_title }}</h2>
+    <ul class="rail-track" role="list">
+      {%- assign featured_projects = site.projects | where_exp: "p", "p.home_order" | sort: "home_order" %}
+      {%- for project in featured_projects %}
+      <li class="rail-item">
+        <a href="{{ project.url }}" class="project-card{% if project.thumb_hover_image %} project-card--hover-swap{% endif %}" aria-label="{{ h.case_label | replace: '%s', project.title }}">
+          <img src="{{ project.thumb_image | default: project.cover_image }}" alt="{{ h.cover_alt | replace: '%s', project.title }}" loading="lazy" decoding="async" width="800" height="500">
+          {% if project.thumb_hover_image %}<img src="{{ project.thumb_hover_image }}" alt="" class="card-img-hover" loading="lazy" decoding="async" width="800" height="500" aria-hidden="true">{% endif %}
+          <div class="card-overlay"{% if page.lang != 'en' %} lang="en"{% endif %}>
+            <span class="card-meta">{{ project.role_short | default: project.role }} · {{ project.year }}</span>
+            <h3 class="card-title">{{ project.title }}</h3>
+            <p class="card-desc">{{ project.description }}</p>
+          </div>
+        </a>
+        <p class="rail-caption" aria-hidden="true"><span class="rail-index">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span> {{ project.title }}</p>
+      </li>
+      {%- endfor %}
+      <li class="rail-item rail-item--all">
+        <a href="/portfolio.html" class="rail-all"{% if page.lang != 'en' %} hreflang="en"{% endif %}><span>{{ h.projects_all }}</span><span class="rail-all-arrow" aria-hidden="true">&rarr;</span></a>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -244,4 +250,5 @@
 
 <script src="/assets/js/home-interaction.js"></script>
 <script src="/assets/js/hero-status.js"></script>
+<script src="/assets/js/rail.js"></script>
 <script src="/assets/js/contact-form.js"></script>

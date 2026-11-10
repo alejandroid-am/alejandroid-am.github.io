@@ -2785,6 +2785,120 @@ main:focus {
   }
 }
 
+/* --- Projects rail (phase 4 stage 3) ---
+   Base = native horizontal scroller with scroll-snap (no JS, phones,
+   reduced motion). .rail--pinned (added by rail.js on wide screens)
+   turns it into a sticky block whose track follows the vertical scroll. */
+.rail-track {
+  display: flex;
+  gap: var(--space-md);
+  margin: var(--space-lg) calc(-1 * var(--space-md)) 0;
+  padding: 0 var(--space-md) var(--space-md);
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 var(--space-md);
+  scrollbar-color: var(--accent) var(--bg-elevated);
+}
+
+.rail-item {
+  flex: 0 0 min(82vw, 440px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rail .project-card {
+  border-radius: 0;
+  border: 3px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.rail .project-card:hover,
+.rail .project-card:focus-visible {
+  border-color: var(--accent);
+}
+
+.rail .project-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.rail-caption {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rail-index {
+  margin-right: 0.4rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+/* Last card: "Voir tous les projets" */
+.rail-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 16 / 10;
+  padding: var(--space-lg);
+  border: 4px solid var(--accent);
+  color: var(--accent);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.rail-all-arrow {
+  align-self: flex-end;
+  font-size: 1.5em;
+}
+
+.rail-all:hover,
+.rail-all:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.rail-all:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+/* Pinned mode (JS, >= 1024px, motion allowed) */
+.rail--pinned {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.rail--pinned .rail-sticky {
+  position: sticky;
+  top: var(--rail-top, 0px);
+  height: calc(100vh - var(--rail-top, 0px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* clip, not hidden: focus cannot scroll a clipped box, so the track position stays ours */
+  overflow: clip;
+}
+
+.rail--pinned .rail-track {
+  overflow: visible;
+  scroll-snap-type: none;
+  margin: var(--space-lg) 0 0;
+  padding: 0 0 var(--space-xs);
+  will-change: transform;
+}
+
+.rail--pinned .rail-item {
+  flex-basis: clamp(340px, 34vw, 520px);
+}
+
 /* --- Offers (/services/ and home cards) --- */
 .services-lead {
   color: var(--text);
