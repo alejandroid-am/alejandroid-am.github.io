@@ -31,7 +31,7 @@ fr:
   sending: "Envoi…"
   subject: Nouvelle demande via alejandro-is.me
   success: "Merci, j'ai bien reçu votre demande. Je vous réponds sous 48&nbsp;h ouvrées. En attendant, voici <a href=\"#process\" class=\"about-link\">comment ça se passe</a>."
-  error: "L'envoi n'a pas abouti. Votre message est toujours là&nbsp;: réessayez dans un instant, ou écrivez-moi directement à ale.amaro.m@proton.me."
+  error: "L'envoi n'a pas abouti. Votre message est toujours là&nbsp;: réessayez dans un instant, ou écrivez-moi directement à <a href=\"mailto:ale.amaro.m@proton.me\" class=\"about-link\">ale.amaro.m@proton.me</a>."
   privacy: "Vos données servent uniquement à répondre à votre demande. Elles sont conservées 12 mois, puis supprimées. Pour y accéder ou les faire supprimer, écrivez-moi à ale.amaro.m@proton.me. Détails dans les <a href=\"/mentions-legales.html\" class=\"about-link\">mentions légales</a>."
 en:
   title: Let's talk
@@ -65,5 +65,5 @@ en:
   sending: "Sending…"
   subject: New request via alejandro-is.me
   success: "Thank you, I have received your request. I'll reply within 48 working hours. Meanwhile, here is <a href=\"#process\" class=\"about-link\">how it works</a>."
-  error: "Your message could not be sent. It is still here: try again in a moment, or email me directly at ale.amaro.m@proton.me."
+  error: "Your message could not be sent. It is still here: try again in a moment, or email me directly at <a href=\"mailto:ale.amaro.m@proton.me\" class=\"about-link\">ale.amaro.m@proton.me</a>."
   privacy: "Your data is only used to answer your request. It is kept for 12 months, then deleted. To access or delete it, email me at ale.amaro.m@proton.me. Details in the <a href=\"/mentions-legales.html\" class=\"about-link\" hreflang=\"fr\" lang=\"fr\">mentions légales</a>."
