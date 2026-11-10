@@ -2651,8 +2651,15 @@ main:focus {
   color: var(--text-subtle);
 }
 
-.offer-case {
-  font-size: 0.95rem;
+.offer-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.offer-num {
+  font-weight: 700;
+  color: var(--text-subtle);
 }
 
 .offer-cta {

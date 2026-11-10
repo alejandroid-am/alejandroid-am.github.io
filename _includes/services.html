@@ -12,22 +12,13 @@
   <h1 class="hero-portfolio" id="services-title">{{ sp.title }}</h1>
   <p class="section-subtitle services-lead">{{ sp.lead }}</p>
 
-  <section class="offer-block" aria-labelledby="block-recurrent">
-    <h2 class="offer-block-title" id="block-recurrent">{{ sp.recurrent }}</h2>
-    <p class="offer-block-sub">{{ sp.recurrent_sub }}</p>
-    <div class="offer-grid">
-      {%- for o in recurrent %}
-      {% include offer-card.html offer=o lang=lang %}
-      {%- endfor %}
-    </div>
-  </section>
-
   <section class="offer-block" aria-labelledby="block-projet">
     <h2 class="offer-block-title" id="block-projet">{{ sp.projet }}</h2>
     <p class="offer-block-sub">{{ sp.projet_sub }}</p>
     <div class="offer-grid">
       {%- for o in projets %}
-      {% include offer-card.html offer=o lang=lang %}
+      {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+      {% include offer-card.html offer=o lang=lang num=num %}
       {%- endfor %}
     </div>
   </section>
@@ -42,6 +33,18 @@
     {%- if sp.show_dev_note %}
     <p class="dev-note">{{ sp.dev_note }}</p>
     {%- endif %}
+  </section>
+
+  <section class="offer-block" aria-labelledby="block-recurrent">
+    <h2 class="offer-block-title" id="block-recurrent">{{ sp.recurrent }}</h2>
+    <p class="offer-block-sub">{{ sp.recurrent_sub }}</p>
+    <div class="offer-grid">
+      {%- for o in recurrent %}
+      {%- assign n = projets.size | plus: forloop.index -%}
+      {%- capture num %}{{ n | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+      {% include offer-card.html offer=o lang=lang num=num %}
+      {%- endfor %}
+    </div>
   </section>
 
   <section class="services-end" aria-labelledby="services-end-title">

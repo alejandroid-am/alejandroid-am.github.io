@@ -1,33 +1,53 @@
-{%- comment -%} One offer card. Params: include.offer, include.lang {%- endcomment -%}
+{%- comment -%}
+  One offer on /services/. Params: include.offer, include.lang, include.num
+  Readable in 5 seconds: number, name, one-line promise, price, one CTA.
+  "Pour qui" and "Non inclus" are drafts: rendered only when the offer has
+  validated: true in _data/offers.yml.
+{%- endcomment -%}
 {%- assign o = include.offer -%}
 {%- assign c = o[include.lang] -%}
 {%- assign ui = site.data.offers.ui[include.lang] -%}
 <article class="offer-card{% if o.featured %} offer-card--featured{% endif %}" id="{{ o.id }}" aria-labelledby="{{ o.id }}-title">
-  {%- if o.featured %}
-  <p class="offer-badge">{{ ui.featured }}</p>
-  {%- endif %}
-  <h3 class="offer-title" id="{{ o.id }}-title">{{ c.title }}</h3>
-  <p class="offer-price">{{ c.price }}</p>
+  <div class="offer-head">
+    {%- if include.num %}
+    <p class="offer-num" aria-hidden="true">{{ include.num }}</p>
+    {%- endif %}
+    <div class="offer-main">
+      {%- if o.featured %}
+      <p class="offer-badge">{{ ui.featured }}</p>
+      {%- endif %}
+      <h3 class="offer-title" id="{{ o.id }}-title">{{ c.title }}</h3>
+      <p class="offer-short">{{ c.short }}</p>
+    </div>
+    <p class="offer-price">{{ c.price }}</p>
+    <a href="{{ ui.contact }}?offre={{ o.id }}#contact" class="submit-btn offer-cta{% if o.featured %} btn-solid{% endif %}">{{ ui.request }}<span class="sr-only"> : {{ c.title }}</span></a>
+  </div>
   <dl class="offer-details">
+    {%- if o.validated == true %}
     <div>
       <dt>{{ ui.for }}</dt>
       <dd>{{ c.for }}</dd>
     </div>
+    {%- endif %}
     <div>
       <dt>{{ ui.includes }}</dt>
       <dd><ul>{% for i in c.includes %}<li>{{ i }}</li>{% endfor %}</ul></dd>
     </div>
+    {%- if o.validated == true %}
     <div>
       <dt>{{ ui.excludes }}</dt>
       <dd><ul>{% for i in c.excludes %}<li>{{ i }}</li>{% endfor %}</ul></dd>
     </div>
+    {%- endif %}
     <div>
       <dt>{{ ui.delay }}</dt>
       <dd>{{ ui.delay_text }}</dd>
     </div>
+    {%- if o.case_url %}
+    <div>
+      <dt>{{ ui.example }}</dt>
+      <dd><a href="{{ o.case_url }}" class="about-link"{% if include.lang != 'en' %} hreflang="en"{% endif %}>{{ ui.case_link }}</a></dd>
+    </div>
+    {%- endif %}
   </dl>
-  {%- if o.case_url %}
-  <p class="offer-case"><a href="{{ o.case_url }}" class="about-link"{% if include.lang != 'en' %} hreflang="en"{% endif %}>{{ ui.case_link }}</a></p>
-  {%- endif %}
-  <a href="{{ ui.contact }}?offre={{ o.id }}#contact" class="submit-btn offer-cta{% if o.featured %} btn-solid{% endif %}">{{ ui.request }}<span class="sr-only"> – {{ c.title }}</span></a>
 </article>
