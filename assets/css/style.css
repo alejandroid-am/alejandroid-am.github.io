@@ -1651,19 +1651,16 @@ footer {
   9. SCROLL REVEAL
 =================================================================
 */
-.reveal {
+/* Content is visible by default. main.js adds .js-reveal to <html> only when
+   IntersectionObserver exists and motion is allowed, so a failed or blocked
+   script never leaves a section hidden. One soft reveal per section, 14 px. */
+.js-reveal .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* No-JS fallback: content always visible */
-.no-js .reveal {
+.js-reveal .reveal.visible {
   opacity: 1;
   transform: none;
 }
@@ -3238,53 +3235,200 @@ main:focus {
   }
 }
 
-/* --- Home: process steps --- */
+/* --- Home: process as numbered chapters (phase 4 stage 4) --- */
 .process-steps {
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  counter-reset: none;
+  margin-top: var(--space-lg);
+  border-top: 4px solid var(--accent);
 }
 
 .process-step {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-sm);
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: var(--space-md);
   align-items: start;
-  align-content: start;
-  padding: var(--space-lg);
-  border: 1px solid var(--bg-elevated);
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--bg-elevated);
+  transition: color 300ms ease;
 }
 
 .process-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--bg);
+  font-size: 2rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
 }
 
 .process-step p {
-  font-size: 1rem;
-  line-height: 1.6;
-  padding-top: 0.4rem;
+  max-width: 40ch;
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 @media (min-width: 1024px) {
-  .process-steps {
-    grid-template-columns: repeat(4, 1fr);
+  .process-step {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    padding: var(--space-xl) 0;
   }
 
-  .process-step {
-    grid-template-columns: 1fr;
+  .process-num {
+    font-size: 4rem;
+  }
+
+  .process-step p {
+    padding-top: 0.6rem;
+  }
+
+  /* Asymmetric: chapters indented under the title, not centred */
+  .process-steps {
+    margin-left: 25%;
+  }
+}
+
+/* Lit by scroll (chapters.js adds .process--live). Dimmed text stays
+   above 4.5:1 on the background (#8a8a8a on #111 is about 5.6:1). */
+.process--live .process-step {
+  color: #8a8a8a;
+}
+
+.process--live .process-num {
+  color: var(--text-subtle);
+  transition: color 300ms ease;
+}
+
+.process--live .process-step.is-lit {
+  color: var(--text);
+}
+
+.process--live .process-step.is-lit .process-num {
+  color: var(--accent);
+}
+
+/* --- Text ribbon (phase 4 stage 4) --- */
+.ribbon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border-top: 1px solid var(--bg-elevated);
+  border-bottom: 1px solid var(--bg-elevated);
+  padding: 0 var(--space-md);
+}
+
+.ribbon-window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.ribbon-track {
+  display: flex;
+  width: max-content;
+}
+
+.ribbon-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0.75rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ribbon-list li {
+  display: flex;
+  align-items: center;
+}
+
+.ribbon-list li::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 0 1.25rem;
+  background: var(--accent);
+}
+
+/* Static default: one copy, wrapping if needed */
+.ribbon-copy {
+  display: none;
+}
+
+.ribbon-track {
+  width: auto;
+}
+
+.ribbon--live .ribbon-track {
+  width: max-content;
+  animation: ribbonMove 40s linear infinite;
+}
+
+.ribbon--live .ribbon-list {
+  flex-wrap: nowrap;
+}
+
+.ribbon--live .ribbon-copy {
+  display: flex;
+}
+
+.ribbon--live.is-paused .ribbon-track,
+.ribbon--live:hover .ribbon-track,
+.ribbon--live:focus-within .ribbon-track {
+  animation-play-state: paused;
+}
+
+@keyframes ribbonMove {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ribbon-toggle {
+  flex: none;
+  min-height: 32px;
+  padding: 0.2rem 0.75rem;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.ribbon-toggle:hover {
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.ribbon-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbon--live .ribbon-track {
+    animation: none;
+    width: auto;
+  }
+
+  .ribbon--live .ribbon-copy {
+    display: none;
+  }
+
+  .ribbon--live .ribbon-list {
+    flex-wrap: wrap;
+  }
+
+  .process-step,
+  .process--live .process-num {
+    transition: none;
   }
 }
 

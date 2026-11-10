@@ -126,6 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Reduced motion: make everything visible immediately
       revealElements.forEach(el => el.classList.add('visible'));
     } else if ('IntersectionObserver' in window) {
+      // Opt in to the hidden start state only now (see .js-reveal in style.css)
+      document.documentElement.classList.add('js-reveal');
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {

@@ -46,6 +46,10 @@ fr:
   copy_label: "Copier l'adresse email"
   copied: Adresse copiée.
   copy_fail: "Copie impossible. Sélectionnez l'adresse à la main."
+  ribbon_label: En bref
+  ribbon: [Revue UX, Refonte UX, Site vitrine, PrestaShop, WordPress, Strasbourg, Français, English, Español]
+  ribbon_pause: Mettre en pause
+  ribbon_play: Reprendre
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
   vat: "TVA non applicable, art. 293 B du CGI."
@@ -104,6 +108,10 @@ en:
   copy_label: Copy the email address
   copied: Address copied.
   copy_fail: "Could not copy. Select the address by hand."
+  ribbon_label: In short
+  ribbon: [UX review, UX redesign, Showcase website, PrestaShop, WordPress, Strasbourg, Français, English, Español]
+  ribbon_pause: Pause
+  ribbon_play: Play
   what_title: What I do for you
   what_all: See all offers
   vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."

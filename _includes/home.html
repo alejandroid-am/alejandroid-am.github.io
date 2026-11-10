@@ -58,6 +58,18 @@
   </div>
 </section>
 
+<!-- Text ribbon: static by default (no JS, reduced motion). ribbon.js starts the
+     scroll and shows the pause button; hover and focus also pause it. -->
+<section class="ribbon" aria-label="{{ h.ribbon_label }}">
+  <div class="ribbon-window">
+    <div class="ribbon-track">
+      <ul class="ribbon-list" role="list">{% for r in h.ribbon %}<li{% if r == "English" %} lang="en"{% elsif r == "Español" %} lang="es"{% elsif r == "Français" %} lang="fr"{% endif %}>{{ r }}</li>{% endfor %}</ul>
+      <ul class="ribbon-list ribbon-copy" role="list" aria-hidden="true">{% for r in h.ribbon %}<li>{{ r }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+  <button type="button" class="ribbon-toggle" aria-pressed="false" data-pause="{{ h.ribbon_pause }}" data-play="{{ h.ribbon_play }}" hidden>{{ h.ribbon_pause }}</button>
+</section>
+
 <!-- ============================================
   WHAT I DO FOR YOU - 3 offers (full list on /services/)
 ============================================= -->
@@ -115,12 +127,14 @@
 <!-- ============================================
   PROCESS - 4 steps
 ============================================= -->
-<section id="process" class="section reveal" aria-labelledby="process-title">
+<section id="process" class="section" aria-labelledby="process-title">
   <h2 class="section-title" id="process-title">{{ h.process_title }}</h2>
+  <!-- Numbered chapters. All text is fully readable by default; with JS (and motion
+       allowed) the chapter in the middle of the screen is lit, the others dimmed. -->
   <ol class="process-steps">
     {%- for step in h.process %}
     <li class="process-step">
-      <span class="process-num" aria-hidden="true">{{ forloop.index }}</span>
+      <span class="process-num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
       <p>{{ step }}</p>
     </li>
     {%- endfor %}
@@ -251,4 +265,5 @@
 <script src="/assets/js/home-interaction.js"></script>
 <script src="/assets/js/hero-status.js"></script>
 <script src="/assets/js/rail.js"></script>
+<script src="/assets/js/home-motion.js"></script>
 <script src="/assets/js/contact-form.js"></script>
