@@ -13,9 +13,12 @@ categories: tools ux-ui
 cover_image: /assets/img/tools/in-house-tools-cover.webp
 thumb_image: /assets/img/tools/social-generator-brand-a-ui.webp
 thumb_hover_image: /assets/img/tools/social-generator-brand-b-ui.webp
+preload_image: /assets/img/tools/social-generator-brand-a-ui.webp
+preload_srcset: "/assets/img/tools/social-generator-brand-a-ui-840w.webp 840w, /assets/img/tools/social-generator-brand-a-ui.webp 1680w"
+preload_sizes: "(max-width: 767px) 92vw, 1680px"
 ---
 
-<img src="/assets/img/tools/social-generator-brand-a-ui.webp" alt="Screenshot of the social post generator interface, showing the template editor and a finished Halloween promotion post" class="project-hero-image" style="border-radius: 12px;">
+<img src="/assets/img/tools/social-generator-brand-a-ui.webp" alt="Screenshot of the social post generator interface, showing the template editor and a finished Halloween promotion post" class="project-hero-image" style="border-radius: 12px;" width="1680" height="1150" srcset="/assets/img/tools/social-generator-brand-a-ui-840w.webp 840w, /assets/img/tools/social-generator-brand-a-ui.webp 1680w" sizes="(max-width: 767px) 92vw, 1680px" fetchpriority="high">
 
 <p class="case-hook">Before, only 2 people knew how to make a rental contract. Now even the interns can.</p>
 
@@ -53,10 +56,10 @@ thumb_hover_image: /assets/img/tools/social-generator-brand-b-ui.webp
 
   <div class="bento-gallery" style="grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0;">
     <div class="bento-item">
-      <img src="/assets/img/tools/social-generator-brand-a-ui.webp" alt="Brand A mode: bold yellow layout with a Halloween promotion post">
+      <img src="/assets/img/tools/social-generator-brand-a-ui.webp" alt="Brand A mode: bold yellow layout with a Halloween promotion post" width="1680" height="1150" srcset="/assets/img/tools/social-generator-brand-a-ui-840w.webp 840w, /assets/img/tools/social-generator-brand-a-ui.webp 1680w" sizes="(max-width: 767px) 92vw, 1680px" loading="lazy" decoding="async">
     </div>
     <div class="bento-item">
-      <img src="/assets/img/tools/social-generator-brand-b-ui.webp" alt="Brand B mode: same tool switched to a dark, serif, premium identity">
+      <img src="/assets/img/tools/social-generator-brand-b-ui.webp" alt="Brand B mode: same tool switched to a dark, serif, premium identity" width="1680" height="1150" srcset="/assets/img/tools/social-generator-brand-b-ui-840w.webp 840w, /assets/img/tools/social-generator-brand-b-ui.webp 1680w" sizes="(max-width: 767px) 92vw, 1680px" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -83,7 +86,7 @@ thumb_hover_image: /assets/img/tools/social-generator-brand-b-ui.webp
     <li>A formula so the price changes with the number of days rented, with specific rules: -50% from the second day, and Sundays and Mondays don't count because the shop is closed.</li>
   </ul>
 
-  <img src="/assets/img/tools/contract-generator-sheet.webp" alt="Generated rental contract sheet showing two line items, the tiered daily rate applied automatically, and a calculated total" style="width:100%; max-width:600px; display:block; margin: 24px auto; border-radius: 8px;">
+  <img src="/assets/img/tools/contract-generator-sheet.webp" alt="Generated rental contract sheet showing two line items, the tiered daily rate applied automatically, and a calculated total" style="width:100%; max-width:600px; display:block; margin: 24px auto; border-radius: 8px;" width="796" height="722" loading="lazy" decoding="async">
 
   <p>I checked the formula against a real example the team gave me before trusting it: one item at 30€ a day, rented for two days, 45€ in total. Those are the numbers in the screenshot above.</p>
 

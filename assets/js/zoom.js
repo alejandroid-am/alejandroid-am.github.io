@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateLightboxContent = () => {
         const img = currentImages[currentIdx];
-        lightboxImg.src = img.currentSrc || img.src;
+        // Always the full-size original, even when srcset served a smaller file.
+        lightboxImg.src = img.src || img.currentSrc;
         lightboxImg.alt = img.alt || L.fallback;
         const caption = img.getAttribute('data-caption') || img.alt || '';
         const count = currentImages.length > 1 ? ` (${currentIdx + 1} / ${currentImages.length})` : '';

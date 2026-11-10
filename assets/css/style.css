@@ -2194,6 +2194,15 @@ html.cursor-ready .custom-cursor {
   gap: var(--space-sm);
 }
 
+/* Small screens: two columns that may shrink below the images' natural
+   width (minmax(0, 1fr)), so the pair never overflows the viewport. */
+@media (max-width: 767px) {
+  .cv-brouillon-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .cv-brouillon-pair img {
   max-width: 210px;
 }
