@@ -2509,11 +2509,6 @@ main:focus {
   min-height: 48px;
 }
 
-.hero-availability {
-  margin-top: var(--space-md);
-  font-size: 0.9rem;
-  color: var(--text-subtle);
-}
 
 /* Hero on phones: one responsive hero (same markup), tighter spacing,
    equal full-width buttons, no scroll cue, so the H1, the value line and
@@ -2547,6 +2542,246 @@ main:focus {
 
   .scroll-indicator {
     display: none;
+  }
+}
+
+/* --- Home hero, phase 4 stage 1: status bar, 3D slot, staggered entrance --- */
+.hero-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto var(--space-xl);
+  border-top: 3px solid var(--accent);
+  border-bottom: 1px solid var(--bg-elevated);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.status-cell {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.35rem 1rem 0.35rem 0;
+  margin-right: 1rem;
+  border-right: 1px solid var(--bg-elevated);
+}
+
+.status-cell:last-child {
+  border-right: 0;
+  margin-right: 0;
+}
+
+.status-time,
+.status-avail {
+  text-transform: uppercase;
+}
+
+/* Reserved width: "00:00" in tabular figures, so the clock filling in shifts nothing */
+.status-clock {
+  display: inline-block;
+  min-width: 5ch;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+}
+
+.status-mail-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text-subtle);
+  text-underline-offset: 3px;
+}
+
+.status-mail-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.status-copy {
+  min-height: 28px;
+  padding: 0.1rem 0.6rem;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.status-copy:hover,
+.status-copy.is-done {
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.status-copy:focus-visible,
+.status-mail-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.status-feedback {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.status-feedback.is-error {
+  color: var(--text);
+}
+
+.status-feedback:empty {
+  display: none;
+}
+
+/* 3D render slot: static, sober placeholder with corner marks until the real render lands */
+.hero-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin-top: var(--space-xl);
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-elevated);
+}
+
+.hero-media::before,
+.hero-media::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 0 solid var(--accent);
+}
+
+.hero-media::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 4px;
+  border-left-width: 4px;
+}
+
+.hero-media::after {
+  right: -1px;
+  bottom: -1px;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+}
+
+/* A real render dropped into the slot fills it */
+.hero-media > img,
+.hero-media > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-media:not(:empty)::before,
+.hero-media:not(:empty)::after {
+  display: none;
+}
+
+/* Phones: one compact line (time + availability). The email is in the
+   contact section and the footer, so the offers button stays in the first screen. */
+@media (max-width: 767px) {
+  .hero-status {
+    flex-wrap: nowrap;
+    margin-bottom: var(--space-md);
+    font-size: 0.75rem;
+  }
+
+  .status-cell {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-height: 36px;
+    padding-right: 0.75rem;
+    margin-right: 0.75rem;
+  }
+
+  .status-mail {
+    display: none;
+  }
+
+  .status-avail {
+    border-right: 0;
+  }
+
+  .hero-media {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: var(--space-lg);
+  }
+
+  .hero-status {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-offer {
+    display: grid;
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .hero-media {
+    margin-top: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Staggered entrance, CSS only, 700 ms in total. Starts at opacity .01, not 0,
+   so the content counts as painted at once (LCP) and is there without JS. */
+@keyframes heroIn {
+  from {
+    opacity: 0.01;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-status,
+.hero-intro,
+.hero-title,
+.hero-value,
+.hero-actions,
+.hero-media {
+  animation: heroIn 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-intro { animation-delay: 40ms; }
+.hero-title { animation-delay: 90ms; }
+.hero-value { animation-delay: 180ms; }
+.hero-actions { animation-delay: 240ms; }
+.hero-media { animation-delay: 280ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-status,
+  .hero-intro,
+  .hero-title,
+  .hero-value,
+  .hero-actions,
+  .hero-media {
+    animation: none;
   }
 }
 

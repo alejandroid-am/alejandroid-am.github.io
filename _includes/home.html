@@ -4,6 +4,17 @@
   HERO SECTION - Word Carousel
 ============================================= -->
 <section class="hero" aria-label="{{ h.hero_label }}">
+  <!-- Status bar: Strasbourg time (filled by hero-status.js, width reserved), availability, email with copy -->
+  <div class="hero-status" role="group" aria-label="{{ h.status_label }}">
+    <p class="status-cell status-time"><span>{{ h.status_city }}</span> <time class="status-clock" data-tz="Europe/Paris" data-locale="{% if page.lang == 'en' %}en-GB{% else %}fr-FR{% endif %}" aria-label="{{ h.status_time }}"></time></p>
+    <p class="status-cell status-avail"><span class="status-dot" aria-hidden="true"></span>{{ h.status_avail }}</p>
+    <p class="status-cell status-mail">
+      <a href="mailto:ale.amaro.m@proton.me" class="status-mail-link">ale.amaro.m@proton.me</a>
+      <button type="button" class="status-copy" data-copy="ale.amaro.m@proton.me" data-ok="{{ h.copied }}" data-fail="{{ h.copy_fail }}" aria-label="{{ h.copy_label }}" hidden>{{ h.copy_btn }}</button>
+      <span class="status-feedback" role="status" aria-live="polite"></span>
+    </p>
+  </div>
+
   <div class="hero-intro">
     <p class="hero-tagline">{{ h.tagline }}</p>
   </div>
@@ -29,12 +40,17 @@
   </h1>
 
   <div class="hero-offer">
-    <p class="hero-value">{{ h.value }}</p>
-    <div class="hero-actions">
-      <a href="{{ h.offers_url }}" class="submit-btn btn-solid">{{ h.offers_btn }}</a>
-      <a href="{{ h.cv_url }}" class="submit-btn">{{ h.cv_btn }}</a>
+    <div class="hero-offer-text">
+      <p class="hero-value">{{ h.value }}</p>
+      <div class="hero-actions">
+        <a href="{{ h.offers_url }}" class="submit-btn btn-solid">{{ h.offers_btn }}</a>
+        <a href="{{ h.cv_url }}" class="submit-btn">{{ h.cv_btn }}</a>
+      </div>
     </div>
-    <p class="hero-availability">{{ h.availability }}</p>
+    <!-- Reserved slot for Ale's 3D render. Drop an <img> (with width/height) or a muted,
+         looping <video> with a poster inside this div; keep it static on mobile and with
+         reduced motion. Until then: a sober static placeholder, hidden from assistive tech. -->
+    <div class="hero-media" data-slot="hero-3d" aria-hidden="true"></div>
   </div>
 
   <div class="scroll-indicator" aria-hidden="true">
@@ -235,4 +251,5 @@
 </section>
 
 <script src="/assets/js/home-interaction.js"></script>
+<script src="/assets/js/hero-status.js"></script>
 <script src="/assets/js/contact-form.js"></script>

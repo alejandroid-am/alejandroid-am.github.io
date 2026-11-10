@@ -38,6 +38,14 @@ fr:
   cv_btn: "Recruteurs&nbsp;: CV et parcours"
   cv_url: /cv/
   availability: 1 projet à la fois.
+  status_label: État
+  status_city: Strasbourg
+  status_time: Heure locale à Strasbourg
+  status_avail: 1 projet à la fois
+  copy_btn: Copier
+  copy_label: "Copier l'adresse email"
+  copied: Adresse copiée.
+  copy_fail: "Copie impossible. Sélectionnez l'adresse à la main."
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
   vat: "TVA non applicable, art. 293 B du CGI."
@@ -88,6 +96,14 @@ en:
   cv_btn: "Recruiters: CV and background"
   cv_url: /en/cv/
   availability: 1 project at a time.
+  status_label: Status
+  status_city: Strasbourg
+  status_time: Local time in Strasbourg
+  status_avail: 1 project at a time
+  copy_btn: Copy
+  copy_label: Copy the email address
+  copied: Address copied.
+  copy_fail: "Could not copy. Select the address by hand."
   what_title: What I do for you
   what_all: See all offers
   vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."
