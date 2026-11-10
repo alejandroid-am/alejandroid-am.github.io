@@ -32,7 +32,7 @@ fr:
         - {key: empathy, label: "l'empathie"}
   tagline: Designer produit et visuel
   hero_label: Présentation
-  value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e-commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
+  value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e&#8209;commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
   offers_btn: Voir les offres
   offers_url: /services/
   cv_btn: "Recruteurs&nbsp;: CV et parcours"
@@ -82,7 +82,7 @@ en:
         - {key: empathy, label: empathy}
   tagline: Product &amp; Visual Designer
   hero_label: Introduction
-  value: "Your online shop: beautiful, up to date, and selling. Web &amp; e-commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
+  value: "Your online shop: beautiful, up to date, and selling. Web &amp; e&#8209;commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
   offers_btn: See the offers
   offers_url: /en/services/
   cv_btn: "Recruiters: CV and background"

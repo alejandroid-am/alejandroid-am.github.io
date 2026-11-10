@@ -2472,6 +2472,41 @@ main:focus {
   color: var(--text-subtle);
 }
 
+/* Hero on phones: one responsive hero (same markup), tighter spacing,
+   equal full-width buttons, no scroll cue, so the H1, the value line and
+   "Voir les offres" fit in the first screen at 360x780. */
+@media (max-width: 767px) {
+  .hero {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
+    min-height: 0;
+  }
+
+  .hero-intro {
+    margin-bottom: var(--space-xs);
+  }
+
+  .hero-offer {
+    margin-top: var(--space-md);
+  }
+
+  .hero-value {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .submit-btn {
+    width: 100%;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
 /* --- Offers (/services/ and home cards) --- */
 .services-lead {
   color: var(--text);
