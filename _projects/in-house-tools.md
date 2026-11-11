@@ -32,13 +32,13 @@ preload_sizes: "(max-width: 767px) 92vw, 1680px"
 </section>
 
 <section>
-  <h2>But: the posts have to stay consistent when I'm not there</h2>
+  <h2>The posts have to stay consistent when I'm not there</h2>
   <p>I'm the one who makes the posts for social media. And I wanted the posts made while I'm away to stay consistent with what already existed.</p>
   <p>In Canva, if the designer isn't there and someone else takes over, there's a risk they won't use the right colors and typefaces.</p>
 </section>
 
 <section>
-  <h2>So: how I work with Claude</h2>
+  <h2>How I work with Claude</h2>
   <p>With Claude, I made a folder for each project and put the context files and the rules in it: the brand identity and the current structure (in case of a redesign), so it knows what I'm working on. If there's already a design idea, I add it to that folder too, so it works from it.</p>
   <p>We already used Canva and Photoshop, so I decided the base should feel similar: a column on the left for the content and its settings, like in Canva and Photoshop.</p>
 </section>
@@ -97,7 +97,7 @@ preload_sizes: "(max-width: 767px) 92vw, 1680px"
 </section>
 
 <section>
-  <h2>But: what went wrong</h2>
+  <h2>What went wrong</h2>
   <ul>
     <li><strong>The scroll.</strong> The tools column has several sections, so scrolling moved the whole page, including the design you were working on, and you lost sight of it. The idea is to keep the canvas of the image or post you're on fixed in place.</li>
     <li><strong>Transparency.</strong> At first, images with a transparent background didn't load properly.</li>
@@ -111,7 +111,7 @@ preload_sizes: "(max-width: 767px) 92vw, 1680px"
 </section>
 
 <section>
-  <h2>So: what changed</h2>
+  <h2>What changed</h2>
   <ul>
     <li><strong>Post generator:</strong> we no longer pay for subscriptions to paid platforms. The learning curve is faster: pick a template, change the text and the color, and add an image if needed. Making content for social media takes less time (images only: videos still need editing and time to shoot).</li>
     <li><strong>Contract generator:</strong> it doesn't just cut the time it takes to make a contract, it also saves paper (the card deposit used to go on a separate sheet). Contract generation is now centralized and automated: an Excel file that took about 3 minutes to open, plus a separate Word file for the deposit, became a single HTML tool that is smarter and more intuitive.</li>
