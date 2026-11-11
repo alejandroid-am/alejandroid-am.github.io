@@ -17,6 +17,9 @@
     {%- if site.instagram_url != "" %}
     <p><a class="link-arrow" href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram<span aria-hidden="true"> →</span></a></p>
     {%- endif %}
+    {%- unless site.form_enabled %}
+    <p class="form-privacy">{{ ct.privacy }}</p>
+    {%- endunless %}
   </div>
 
   {%- if site.form_enabled %}
@@ -78,10 +81,6 @@
     <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"
          data-success="{{ ct.success | escape }}" data-error="{{ ct.error | escape }}"></div>
     <p class="form-privacy" style="margin-top:20px">{{ ct.privacy }}</p>
-  </div>
-  {%- else %}
-  <div>
-    <p class="form-privacy">{{ ct.privacy }}</p>
   </div>
   {%- endif %}
 </div>
