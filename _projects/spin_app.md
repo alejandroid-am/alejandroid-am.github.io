@@ -41,8 +41,6 @@ palette:
   - { name: Coral, hex: "#FF696C" }
   - { name: Green, hex: "#5BB75A" }
   - { name: Purple, hex: "#582B76" }
-logos:
-  - { src: /assets/img/Spin_app/new_spin_logo.webp, alt: "Redesigned Spin logo", w: 1920, h: 1080, bg: full, caption: "Main logo" }
 ---
 <h2 class="case-compare-title">The wheel comes after paying</h2>
 
@@ -56,13 +54,30 @@ logos:
 
 {% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" caption="Every spin wins something: cashback, points, or double recharge." %}
 
+<figure class="case-fig">
+  <video controls muted playsinline preload="none" poster="/assets/img/spin_view.webp" width="1920" height="1080">
+    <source src="/assets/img/Spin_app/spin_video.mp4" type="video/mp4">
+  </video>
+  <figcaption>A promo video made for the redesign.</figcaption>
+</figure>
 
 <h2>The brand and the screens</h2>
 
 {% include case/palette.html colors=page.palette %}
 
+<h3>Brand Evolution</h3>
 
-{% include case/logo.html items=page.logos %}
+<p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
+
+{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original logo." b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a logo that suggests movement." %}
+
+{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> clashing neon colors." b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a calmer palette that still feels playful." %}
+
+<h3>UI Evolution</h3>
+
+<p>I replaced the cluttered list view with cards. "Top Up" is the most visible action. The country code is filled in from the contact's number, which removes one step from every transaction.</p>
+
+{% include case/pair.html a="/assets/img/Spin_app/old_spin ui.webp" a_alt="Original Spin UI, list view" a_w=2400 a_h=1696 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original list view." b="/assets/img/Spin_app/new_spin ui.webp" b_alt="Redesigned Spin UI, card layout with a prominent Top Up button" b_w=2400 b_h=1696 b_caption="<strong>After:</strong> cards, with &quot;Top Up&quot; as the most visible action." %}
 
 {% capture long %}
 <h3>There were few purchases</h3>
@@ -87,15 +102,6 @@ logos:
   <li>Every spin wins something: cashback, points, or double recharge.</li>
 </ul>
 
-<h3>The brand and the screens</h3>
-<h4>Brand Evolution</h4>
-<p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
-{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original logo." b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a logo that suggests movement." %}
-{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> clashing neon colors." b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a calmer palette that still feels playful." %}
-<h4>UI Evolution</h4>
-<p>I replaced the cluttered list view with cards. "Top Up" is the most visible action. The country code is filled in from the contact's number, which removes one step from every transaction.</p>
-{% include case/pair.html a="/assets/img/Spin_app/old_spin ui.webp" a_alt="Original Spin UI, list view" a_w=2400 a_h=1696 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original list view." b="/assets/img/Spin_app/new_spin ui.webp" b_alt="Redesigned Spin UI, card layout with a prominent Top Up button" b_w=2400 b_h=1696 b_caption="<strong>After:</strong> cards, with &quot;Top Up&quot; as the most visible action." %}
-
 <h3>The test: 3 people</h3>
 <p>I tested it with 3 people. One is a developer with deep knowledge of ergonomics, accessibility and UX, who gave me the green light. The other two, also developers, went through the flow in the Figma prototype.</p>
 
@@ -106,11 +112,6 @@ logos:
 
 <h3>Project Gallery</h3>
 <p>The final screens and a promo video made for the redesign.</p>
-<figure class="case-fig">
-  <video controls muted playsinline preload="none" poster="/assets/img/spin_view.webp" width="1920" height="1080">
-    <source src="/assets/img/Spin_app/spin_video.mp4" type="video/mp4">
-  </video>
-</figure>
 {% include case/pair.html a="/assets/img/Spin_app/spin1.webp" a_alt="SPIN App login screen with gradient background" a_w=2400 a_h=1800 a_caption="Login Screen" b="/assets/img/Spin_app/spin3.webp" b_alt="SPIN App streamlined contacts list" b_w=2400 b_h=1800 b_caption="Streamlined Contacts" %}
 {% include case/pair.html a="/assets/img/Spin_app/spin4.webp" a_alt="SPIN App user profile settings" a_w=2400 a_h=1800 a_caption="User Profile" b="/assets/img/Spin_app/spin-phone.webp" b_alt="SPIN App promotional marketing shot" b_w=4000 b_h=3000 b_caption="Promotional Material" %}
 <figure class="case-fig c-narrow"><img src="/assets/img/Spin_app/iphone-mockup.webp" alt="SPIN App home screen on iPhone in context" width="500" height="1000" loading="lazy" decoding="async"><figcaption>Mockup in context</figcaption></figure>
