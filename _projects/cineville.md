@@ -65,7 +65,7 @@ preload_image: /assets/img/Cineville/cineville-title.webp
 </section>
 
 <section class="reveal">
-  <h2>So: from the paintings to the cinema</h2>
+  <h2>From the paintings to the cinema</h2>
   <p>After looking at several works by Dalí and Magritte, I took obvious references from them and carried them over to cinema: theater seats, a film reel, text forming an arch, etc.</p>
   <p>I did several sketches until I settled on the composition that convinced me most. Then I went to Photoshop and started there.</p>
 
@@ -94,7 +94,7 @@ preload_image: /assets/img/Cineville/cineville-title.webp
 </section>
 
 <section class="reveal">
-  <h2>But: the reel came from AI</h2>
+  <h2>The reel came from AI</h2>
   <div class="cv-duo">
     <img src="/assets/img/Cineville/melting-reel.webp" alt="The melting film reel illustration created for the Cinéville poster, inspired by Dalí's soft clocks" class="cv-reel-img" width="605" height="760" loading="lazy" decoding="async">
     <div class="cv-duo-text">
@@ -104,7 +104,7 @@ preload_image: /assets/img/Cineville/cineville-title.webp
 </section>
 
 <section class="reveal">
-  <h2>So: the decisions</h2>
+  <h2>The decisions</h2>
   <div class="cv-duo">
     <div class="cv-duo-text">
       <ul>
