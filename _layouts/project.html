@@ -16,7 +16,7 @@ layout: default
   Layout C "Gallery with captions": title block, metadata row, THEN the hero
   image, then the body (case/ includes), then the next project.
   Front matter used: title, summary (or description), role, year, project_type,
-  tools, result, hero_image / hero_w / hero_h / hero_alt.
+  context, team, award (optional), tools, result, hero_image / hero_w / hero_h / hero_alt.
 {%- endcomment -%}
 {%- assign ordered = site.projects | where_exp: "p", "p.home_order" | where_exp: "p", "p.locked != true" | sort: "home_order" -%}
 {%- assign next_p = nil -%}
@@ -39,6 +39,9 @@ layout: default
       {%- if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
       {%- if page.year %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
       {%- if page.project_type %}<div><dt>Type</dt><dd>{{ page.project_type }}</dd></div>{% endif %}
+      {%- if page.context %}<div><dt>Context</dt><dd>{{ page.context }}</dd></div>{% endif %}
+      {%- if page.team %}<div><dt>Team</dt><dd>{{ page.team }}</dd></div>{% endif %}
+      {%- if page.award %}<div><dt>Award</dt><dd>{{ page.award }}</dd></div>{% endif %}
       {%- if page.tools %}<div><dt>Tools</dt><dd>{{ page.tools }}</dd></div>{% endif %}
       {%- if page.result %}<div><dt>Result</dt><dd>{{ page.result }}</dd></div>{% endif %}
     </dl>

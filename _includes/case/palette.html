@@ -3,6 +3,7 @@
     palette:
       - { name: Violet nuit, hex: "#2B1B5A", use: Fond principal }
   {% include case/palette.html colors=page.palette %}
+  Without colours: a sober placeholder, text in placeholder="..." (palette still to come).
 {%- endcomment -%}
 {%- if include.colors %}
 <ul class="case-palette">
@@ -13,4 +14,6 @@
   </li>
   {%- endfor %}
 </ul>
+{%- elsif include.placeholder %}
+<div class="case-placeholder case-palette-ph"><span>{{ include.placeholder }}</span></div>
 {%- endif %}
