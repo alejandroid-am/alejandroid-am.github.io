@@ -5,6 +5,27 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# Tanda 3 (revisión de Ale), 11/11/2026
+
+## A. Layout de escritorio: causa (medida con Playwright antes de arreglar)
+
+Medidas antes del arreglo (ancho de contenido útil del caso BEDiZEN y de la home):
+
+| Ventana | Home: padding lateral | Home: contenido | Caso: margin + padding | Caso: contenido | Figura más pequeña del caso |
+|---|---|---|---|---|---|
+| 390 | 20 | 350 | 0 + 20 | 350 | 350 |
+| 1280 | 20 | 1240 | 20 + 20 | 1200 | 590 (columna) |
+| 1440 | 80 | 1280 | 100 + 80 | 1080 | 530 |
+| 1920 | 320 | 1280 | 340 + 320 | 600 | 290 |
+| 2560 | 640 | 1280 | 640 + 640 | 0 | 55 |
+
+Causa: dos sistemas de centrado sumados.
+- `--pad` era `max(20px, (100vw - 1280px) / 2)`: un padding que ya centra el contenido en 1280 px (bien para las secciones a sangre).
+- En los casos C, `.case-c-wrap` añadía además `max-width: 1240px; margin: 0 auto` y encima `padding-inline: var(--pad)`.
+- Al ampliar la ventana, `--pad` crece y el ancho máximo no: el contenido se encoge (600 px a 1920, 0 a 2560). Al reducirla, `--pad` cae a 20 px y todo se pega a los bordes. De ahí el efecto "invertido" (los ~332 px de margen + 320 de padding que viste son los 340 + 320 de 1920).
+- A 1280 el gutter era solo 20 px.
+- El caso In-House Tools (estilo antiguo) usa su propia columna fija de 1000 px: no se encoge; no lo toco.
+
 # Tanda antes de publicar + SEO, 11/11/2026
 
 ## Commits (uno por punto)
