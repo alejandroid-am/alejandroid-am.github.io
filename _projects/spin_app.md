@@ -46,13 +46,13 @@ logos:
 ---
 <h2 class="case-compare-title">The wheel comes after paying</h2>
 
-{% include case/row.html items=page.screens_before caption="Spin App let users spin a wheel for a reward before paying for a top-up." %}
+{% include case/row.html items=page.screens_before tag="before" caption="Spin App let users spin a wheel for a reward before paying for a top-up." %}
 
 {% capture before %}<p><strong>Open App → Spin the Wheel → Top Up</strong></p>{% endcapture %}
 {% capture after %}<p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>{% endcapture %}
 {% include case/compare.html before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
 
-{% include case/row.html items=page.screens_after caption="I replaced the cluttered list view with cards." %}
+{% include case/row.html items=page.screens_after tag="after" caption="I replaced the cluttered list view with cards." %}
 
 {% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" caption="Every spin wins something: cashback, points, or double recharge." %}
 
@@ -90,11 +90,11 @@ logos:
 <h3>The brand and the screens</h3>
 <h4>Brand Evolution</h4>
 <p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
-{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_caption="<strong>Before:</strong> the original logo." b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a logo that suggests movement." %}
-{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_caption="<strong>Before:</strong> clashing neon colors." b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a calmer palette that still feels playful." %}
+{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original logo." b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a logo that suggests movement." %}
+{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> clashing neon colors." b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a calmer palette that still feels playful." %}
 <h4>UI Evolution</h4>
 <p>I replaced the cluttered list view with cards. "Top Up" is the most visible action. The country code is filled in from the contact's number, which removes one step from every transaction.</p>
-{% include case/pair.html a="/assets/img/Spin_app/old_spin ui.webp" a_alt="Original Spin UI, list view" a_w=2400 a_h=1696 a_caption="<strong>Before:</strong> the original list view." b="/assets/img/Spin_app/new_spin ui.webp" b_alt="Redesigned Spin UI, card layout with a prominent Top Up button" b_w=2400 b_h=1696 b_caption="<strong>After:</strong> cards, with &quot;Top Up&quot; as the most visible action." %}
+{% include case/pair.html a="/assets/img/Spin_app/old_spin ui.webp" a_alt="Original Spin UI, list view" a_w=2400 a_h=1696 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original list view." b="/assets/img/Spin_app/new_spin ui.webp" b_alt="Redesigned Spin UI, card layout with a prominent Top Up button" b_w=2400 b_h=1696 b_caption="<strong>After:</strong> cards, with &quot;Top Up&quot; as the most visible action." %}
 
 <h3>The test: 3 people</h3>
 <p>I tested it with 3 people. One is a developer with deep knowledge of ergonomics, accessibility and UX, who gave me the green light. The other two, also developers, went through the flow in the Figma prototype.</p>

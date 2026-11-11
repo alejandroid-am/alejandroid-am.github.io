@@ -39,6 +39,9 @@
   }
   if ((store.get("lang") || store.get("lang_ctx", sessionStorage)) === "en") {
     document.querySelectorAll("a[data-href-en]").forEach((a) => { a.href = a.dataset.hrefEn; });
+    /* Bilingual labels on one-language pages (_includes/label.html) */
+    document.querySelectorAll("[data-en]").forEach((el) => { el.textContent = el.dataset.en; el.lang = "en"; });
+    document.querySelectorAll("img[data-caption-en]").forEach((img) => { img.dataset.caption = img.dataset.captionEn; });
   }
 
   /* 3. Copy the email ------------------------------------------ */

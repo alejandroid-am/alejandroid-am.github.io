@@ -2,14 +2,17 @@
   One image with an optional caption.
   {% include case/figure.html src="/assets/img/p/home.webp" w=2400 h=1500 alt="..." caption="..." %}
   Options: narrow=true (small images: never wider than 560 px), bleed=true (full width of the screen), priority=true (first image),
+  tag="before" / tag="after" (visible "Avant / Before" or "Après / After" label in a corner),
   sizes="..." (override), zoom=false (no lightbox), float=true (cut-out on a transparent
   background, PNG/WebP with alpha: no frame, no background, soft drop-shadow, so it floats).
   Caption: 1 or 2 short sentences.
   On layout C pages the image opens in the lightbox (a link to the file without JS).
 {%- endcomment -%}
 {%- assign _zoom = false -%}{%- if page.case_layout and include.zoom != false and include.priority != true -%}{%- assign _zoom = true -%}{%- endif %}
+{%- assign _cap = include.caption -%}{%- assign _cap_en = "" -%}
+{%- if include.tag -%}{%- assign _k = "case_" | append: include.tag -%}{%- assign _plain = include.caption | default: include.alt | strip_html -%}{%- assign _cap = site.data.i18n.fr[_k] | append: " : " | append: _plain -%}{%- assign _cap_en = site.data.i18n.en[_k] | append: ": " | append: _plain -%}{%- endif %}
 <figure class="case-fig{% if include.bleed %} is-bleed{% endif %}{% if include.narrow %} is-narrow{% endif %}{% if include.float %} float{% endif %}">
-  {% if _zoom %}<a class="zoom-trigger" href="{{ include.src | uri_escape }}">{% endif %}{% include case/img.html src=include.src alt=include.alt w=include.w h=include.h priority=include.priority sizes=include.sizes caption=include.caption %}{% if _zoom %}</a>{% endif %}
+  {% if include.tag %}<div class="case-shot is-{{ include.tag }}">{% endif %}{% if _zoom %}<a class="zoom-trigger" href="{{ include.src | uri_escape }}">{% endif %}{% include case/img.html src=include.src alt=include.alt w=include.w h=include.h priority=include.priority sizes=include.sizes caption=_cap caption_en=_cap_en %}{% if _zoom %}</a>{% endif %}{% if include.tag %}{% include label.html key=_k class="shot-tag" %}</div>{% endif %}
   {%- if include.caption and include.caption != "" %}
   <figcaption>{{ include.caption }}</figcaption>
   {%- endif %}

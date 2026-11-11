@@ -4,7 +4,8 @@
   added to srcset (phones download the light one). Spaces are encoded.
   Params: src, alt, w, h (original size, from tools/optimize-images.sh),
           priority (true for the first image of the page), sizes, class,
-          caption (plain text for the lightbox)
+          caption (plain text for the lightbox), caption_en (English lightbox text,
+          swapped in by site.js when the visitor browses in English)
 {%- endcomment -%}
 {%- assign _ext = include.src | split: "." | last -%}
 {%- assign _dot = "." | append: _ext -%}
@@ -16,5 +17,6 @@
   {%- if include.w %} width="{{ include.w }}" height="{{ include.h }}"{% endif %}
   {%- if _found and include.w %} srcset="{{ _v | uri_escape }} 960w, {{ include.src | uri_escape }} {{ include.w }}w" sizes="{{ _sizes }}"{% endif %}
   {%- if include.caption and include.caption != "" %} data-caption="{{ include.caption | strip_html | escape }}"{% endif %}
+  {%- if include.caption_en and include.caption_en != "" %} data-caption-en="{{ include.caption_en | strip_html | escape }}"{% endif %}
   {%- if include.class %} class="{{ include.class }}"{% endif %}
   {%- if include.priority %} fetchpriority="high" decoding="async"{% else %} loading="lazy" decoding="async"{% endif %}>

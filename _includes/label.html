@@ -1,0 +1,7 @@
+{%- comment -%}
+  Small bilingual label for pages written in one language (case studies):
+  rendered in French (lang="fr"), swapped to English by site.js when the
+  visitor browses in English (same rule as the data-href-en links).
+  {% include label.html key="case_before" class="shot-tag" %}
+{%- endcomment -%}
+<span{% if include.class %} class="{{ include.class }}"{% endif %} lang="fr" data-en="{{ site.data.i18n.en[include.key] | escape }}">{{ site.data.i18n.fr[include.key] }}</span>

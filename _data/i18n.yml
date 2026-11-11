@@ -40,6 +40,10 @@ fr:
   copy_fail: "Copie impossible. Sélectionnez l'adresse à la main."
   locked_label: Étude de cas sur demande
   soon_label: Bientôt
+  # Case pages (English text): small labels shown in FR by default and swapped
+  # to EN by site.js when the visitor browses in English (data-en).
+  case_before: Avant
+  case_after: Après
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -80,5 +84,7 @@ en:
   copy_fail: "Could not copy. Select the address by hand."
   locked_label: Case study on request
   soon_label: Coming soon
+  case_before: Before
+  case_after: After
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"

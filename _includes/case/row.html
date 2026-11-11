@@ -3,12 +3,19 @@
     screens_before:
       - { src: /assets/img/p/s1.webp, alt: "...", w: 1080, h: 2400 }
   {% include case/row.html items=page.screens_before caption="1 or 2 short sentences." %}
+  Option: tag="before" or tag="after" puts a visible "Avant / Before" or
+  "Après / After" label in the corner of every image (and in the lightbox caption).
 {%- endcomment -%}
 {%- if include.items %}
+{%- if include.tag %}{% assign _k = "case_" | append: include.tag %}{% assign _lfr = site.data.i18n.fr[_k] %}{% assign _len = site.data.i18n.en[_k] %}{% endif %}
 <figure class="case-fig case-row" style="--n: {{ include.items.size }}">
   <div class="case-row-items">
     {%- for i in include.items %}
-    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 33vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
+    {%- if include.tag %}{% assign _cfr = _lfr | append: " : " | append: i.alt %}{% assign _cen = _len | append: ": " | append: i.alt %}{% else %}{% assign _cfr = i.caption %}{% assign _cen = "" %}{% endif %}
+    <div class="case-shot{% if include.tag %} is-{{ include.tag }}{% endif %}">
+    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=_cfr caption_en=_cen sizes="(max-width: 767px) 33vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
+    {%- if include.tag %}{% include label.html key=_k class="shot-tag" %}{% endif %}
+    </div>
     {%- endfor %}
   </div>
   {%- if include.caption and include.caption != "" %}

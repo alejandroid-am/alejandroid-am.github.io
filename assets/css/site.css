@@ -457,6 +457,10 @@ body:not(.is-legacy) .lightbox-next { right: 12px; top: 50%; transform: translat
 body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-size: 15px; padding: 0 60px; text-align: center; }
 .case-c .zoom-trigger { display: block; cursor: zoom-in; }
 .case-row-items .zoom-trigger { min-width: 0; }
+/* Before / after label in a corner of a screenshot (row.html, figure.html tag=) */
+.case-shot { position: relative; min-width: 0; }
+.shot-tag { position: absolute; top: 8px; left: 8px; z-index: 1; font-size: 13px; font-weight: 700; line-height: 1; padding: 6px 9px; background: var(--bg); color: var(--ink); border: 1px solid var(--ink); pointer-events: none; }
+.case-shot.is-after .shot-tag { background: var(--ink); color: var(--y); } /* 15:1, same as .case-tag.is-new */
 
 /* Layout C "Gallery with captions" (front matter case_layout: c) */
 .case-c { overflow-x: clip; padding-bottom: 0; }
