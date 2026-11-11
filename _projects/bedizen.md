@@ -72,7 +72,7 @@ logos:
 
 <h2>Brand Guidelines</h2>
 
-{% include case/palette.html colors=page.palette style="stripes" %}
+{% include case/palette.html colors=page.palette %}
 
 {% include case/type-scale.html family="Poppins" rows=page.type_scale %}
 
