@@ -3,7 +3,7 @@
   site.js: shared behaviour (every page). Progressive enhancement:
   without JS every text and link is already in the HTML.
    1. Language: remember the choice, EN paths on English-only pages
-   2. FR / EN: sliding line + scramble effect, then navigate
+   2. (FR / EN are plain links: the active one is underlined in CSS)
    3. Copy the email
    4. Home H1: interchangeable last word
    5. Words that light up with the scroll
@@ -40,75 +40,6 @@
   }
   if ((store.get("lang") || store.get("lang_ctx", sessionStorage)) === "en") {
     document.querySelectorAll("a[data-href-en]").forEach((a) => { a.href = a.dataset.hrefEn; });
-  }
-
-  /* 2. FR / EN: line + scramble ---------------------------------
-     Only after a click on FR / EN: the menu and the H1 run through random
-     letters (~350 ms), then the browser navigates; the new page plays the
-     effect backwards (flag in sessionStorage). Each letter keeps the width
-     of the real one, so nothing moves. The real text is always in the HTML. */
-  const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#%&*+=/<>";
-  const rnd = () => CHARS[(Math.random() * CHARS.length) | 0];
-  const targets = () => [...document.querySelectorAll(".site-header [data-scramble], main h1[data-scramble]")];
-  const split = (el) => {
-    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    const spans = [];
-    nodes.forEach((n) => {
-      const frag = document.createDocumentFragment();
-      for (const ch of n.textContent) {
-        if (/\s/.test(ch)) { frag.append(ch); continue; }
-        const s = document.createElement("span");
-        s.className = "sc-ch"; s.textContent = ch; s.dataset.ch = ch;
-        frag.append(s); spans.push(s);
-      }
-      n.replaceWith(frag);
-    });
-    spans.forEach((s) => { s.style.width = s.getBoundingClientRect().width + "px"; });
-    return spans;
-  };
-  const scramble = (dir, done) => {
-    const els = targets();
-    const all = els.map((el) => split(el));
-    const t0 = performance.now(), D = 350;
-    const frame = (now) => {
-      const p = clamp((now - t0) / D);
-      all.forEach((spans) => spans.forEach((s, i) => {
-        const k = i / Math.max(1, spans.length);
-        const real = dir === "out" ? k > p : k < p;
-        s.textContent = real ? s.dataset.ch : rnd();
-      }));
-      if (p < 1) return requestAnimationFrame(frame);
-      // Put the real text nodes back (the elements themselves are kept)
-      if (dir === "in") all.forEach((spans, k) => { spans.forEach((s) => s.replaceWith(s.dataset.ch)); els[k].normalize(); });
-      done && done();
-    };
-    requestAnimationFrame(frame);
-  };
-  if (root.classList.contains("scramble-pending")) {
-    store.del("scramble-in", sessionStorage);
-    root.classList.remove("scramble-pending");
-    if (!reduce) scramble("in");
-  }
-  const pick = document.querySelector(".lang-pick");
-  if (pick) {
-    const line = pick.querySelector(".lang-line");
-    const place = (el) => {
-      line.style.width = el.offsetWidth + "px";
-      line.style.transform = "translateX(" + el.offsetLeft + "px)";
-    };
-    pick.classList.add("has-line");
-    place(pick.querySelector(".is-active"));
-    pick.querySelectorAll("a.lang-opt").forEach((a) => a.addEventListener("click", (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-      e.preventDefault();
-      if (reduce) { location.href = a.href; return; }
-      place(a);
-      store.set("scramble-in", "1", sessionStorage);
-      scramble("out", () => { location.href = a.href; });
-    }));
-    addEventListener("resize", () => place(pick.querySelector(".is-active")), { passive: true });
   }
 
   /* 3. Copy the email ------------------------------------------ */

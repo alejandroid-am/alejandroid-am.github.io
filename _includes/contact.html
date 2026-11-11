@@ -1,7 +1,7 @@
 {%- assign ct = site.data.contact[page.lang] | default: site.data.contact.fr -%}
 {%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
 <header class="page-head">
-  <h1 class="display" data-scramble>{{ ct.title }}</h1>
+  <h1 class="display">{{ ct.title }}</h1>
   <p class="lead" style="margin-top:20px">{{ ct.reply }}
     {%- if site.cal_url != "" %} {{ ct.cal_text }} <a href="{{ site.cal_url }}" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% endif %}
   </p>

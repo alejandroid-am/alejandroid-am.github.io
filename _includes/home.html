@@ -5,7 +5,7 @@
 
 <!-- Hero: the last word of the H1 is interchangeable (site.js). Without JS the first word stays. -->
 <section class="home-hero" aria-labelledby="home-h1">
-  <h1 class="display hero-h1 hero-in" id="home-h1" data-scramble>{{ h.h1.before }} <span class="h1-swap" data-words='{{ h.h1.words | jsonify | replace: "'", "&#39;" }}'><span class="h1-word">{{ h.h1.words | first }}</span></span>{{ h.h1.after }}</h1>
+  <h1 class="display hero-h1 hero-in" id="home-h1">{{ h.h1.before }} <span class="h1-swap" data-words='{{ h.h1.words | jsonify | replace: "'", "&#39;" }}'><span class="h1-word">{{ h.h1.words | first }}</span></span>{{ h.h1.after }}</h1>
   <p class="h1-tools hero-in"><span class="h1-hint" aria-hidden="true">{{ h.h1.hint }}</span></p>
   <p class="value hero-in">{{ h.value }}</p>
   <p class="btn-row hero-in">

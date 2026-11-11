@@ -117,17 +117,6 @@ a.lang-opt { color: var(--ink); }
 a.lang-opt:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--mute); text-underline-offset: 6px; text-decoration-thickness: 2px; }
 .lang-opt.is-active { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
 .lang-sep { color: var(--mute); font-weight: 400; }
-.lang-line { display: none; }
-/* With JS the underline of the active language is a line that can slide */
-.js .lang-pick.has-line .lang-opt.is-active { text-decoration: none; }
-.js .lang-pick.has-line .lang-line {
-  display: block; position: absolute; left: 0; bottom: 3px; height: 2px; width: 0;
-  background: var(--ink); transition: transform 180ms var(--ease), width 180ms var(--ease);
-}
-
-/* Scramble effect: each letter keeps the width of the real one */
-.sc-ch { display: inline-block; text-align: center; white-space: pre; overflow: visible; }
-html.scramble-pending [data-scramble] { visibility: hidden; }
 
 /* Language hint (only when no choice is saved and the browser language differs) */
 .lang-hint { display: none; background: var(--ink); color: var(--bg); font: 500 15px/1.4 var(--font); }
@@ -595,7 +584,6 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
   .hero-in, .h1-word.is-in { animation: none; }
-  .js .lang-pick.has-line .lang-line { transition: none; }
   .rail-media img, .prow-media img, .orow-head, .o-arrow, .tl-item { transition: none; }
   .js .signature.sig-armed .signature-text { clip-path: none; }
 }
