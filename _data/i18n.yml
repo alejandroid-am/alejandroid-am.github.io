@@ -47,6 +47,20 @@ fr:
   logo_official: "Logo officiel de l'entreprise"
   logo_app: "Logo de l'application"
   live_project: Voir le projet en ligne
+  # Cinéville process steps (same order as the old 19-slide carousel)
+  cv_flow: Le processus
+  cv_brief: Brief et mission
+  cv_codes: Les codes du surréalisme
+  cv_direction: Direction artistique et moodboard
+  cv_type: Typographie
+  cv_type_title: Titres
+  cv_type_text: Texte
+  cv_palette: Palette
+  cv_sketches: Croquis
+  cv_proposals: "Propositions d'affiche"
+  cv_drafts: Brouillons
+  cv_refs: Références
+  cv_action: "L'affiche en situation"
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -92,5 +106,18 @@ en:
   logo_official: Official company logo
   logo_app: App logo
   live_project: See the live project
+  cv_flow: The process
+  cv_brief: Brief and mission
+  cv_codes: The codes of surrealism
+  cv_direction: Art direction and moodboard
+  cv_type: Typography
+  cv_type_title: Titles
+  cv_type_text: Text
+  cv_palette: Palette
+  cv_sketches: Sketches
+  cv_proposals: Poster proposals
+  cv_drafts: Drafts
+  cv_refs: References
+  cv_action: The poster in action
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"

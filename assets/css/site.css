@@ -409,10 +409,11 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-fig.float > figcaption { text-align: center; margin-inline: auto; }
 .case-video { position: relative; background: var(--bg-2); }
 .case-video video { width: 100%; height: auto; display: block; }
-.case-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 0 0 48px; list-style: none; padding: 0; }
-.case-swatch { border: 1px solid var(--line); }
-.case-swatch-color { aspect-ratio: 4 / 3; }
-.case-swatch p { padding: 10px 12px; font-size: 14px; display: grid; gap: 2px; }
+.case-palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(140px, 40%), 180px)); gap: clamp(16px, 2.5vw, 32px); margin: 0 0 48px; list-style: none; padding: 0; }
+/* Separate squares, name and hex underneath */
+.case-swatch { min-width: 0; }
+.case-swatch-color { aspect-ratio: 1 / 1; box-shadow: inset 0 0 0 1px var(--line); }
+.case-swatch p { padding: 10px 0 0; font-size: 14px; display: grid; gap: 2px; }
 .case-swatch code { font-family: ui-monospace, monospace; font-size: 13px; color: var(--mute); }
 .case-type { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; margin: 0 0 48px; }
 .case-type > p.case-type-sample { margin: 0; font-size: clamp(48px, 8vw, 120px); line-height: 1; letter-spacing: -.02em; overflow-wrap: anywhere; }
@@ -515,8 +516,27 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .c-poster img { width: 100%; height: auto; }
 .c-body > .c-cta { margin: 0 0 clamp(56px, 8vw, 100px); }
 .c-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.c-body > .c-refs { list-style: none; padding: 0; margin: 0 0 clamp(56px, 8vw, 100px); display: grid; gap: 12px; max-width: 70ch; }
+.c-refs { list-style: none; padding: 0; display: grid; gap: 16px; max-width: 75ch; }
+.c-body > .c-refs { margin: 0 0 clamp(56px, 8vw, 100px); }
 .c-refs li { padding-left: 18px; border-left: 3px solid var(--ink); }
+/* Cinéville process (replaces the 19-slide carousel): numbered steps */
+.c-body > .cv-flow-wrap { margin: 0 0 clamp(56px, 8vw, 100px); }
+.cv-flow { list-style: none; padding: 0; margin: 24px 0 0; counter-reset: cv; display: grid; }
+.cv-step { counter-increment: cv; display: grid; grid-template-columns: minmax(160px, 280px) minmax(0, 1fr); gap: 12px clamp(20px, 4vw, 56px); padding: clamp(24px, 3.5vw, 40px) 0; border-top: 1px solid var(--line-strong); }
+.cv-step > h3 { grid-column: 1; grid-row: 1 / span 3; margin: 0; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.15; font-weight: 750; }
+.cv-step > h3::before { content: counter(cv, decimal-leading-zero); display: block; font-size: 14px; font-weight: 600; color: var(--mute); margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+.cv-step > :not(h3) { grid-column: 2; min-width: 0; margin: 0; }
+.cv-step-body p { max-width: 68ch; }
+.cv-step-body p + p { margin-top: 12px; }
+.cv-step .case-palette, .cv-step .case-fig, .cv-step .c-refs { margin: 0; }
+.cv-codes { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.cv-codes li { padding: 14px 16px; background: var(--bg-2); font-size: 15px; }
+.cv-codes strong { display: block; margin-bottom: 4px; }
+.cv-type { display: grid; gap: 0; margin: 0; }
+.cv-type > div { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 24px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.cv-type dt { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.01em; }
+.cv-type dd { margin: 0; color: var(--mute); font-size: 15px; }
+@media (max-width: 767px) { .cv-step { grid-template-columns: 1fr; } .cv-step > h3, .cv-step > :not(h3) { grid-column: 1; grid-row: auto; } }
 .c-closing { font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; line-height: 1.2; border-left: 4px solid var(--y); padding-left: 18px; }
 .c-next { display: block; text-decoration: none; background: var(--ink); color: var(--bg); padding: clamp(48px, 8vw, 96px) var(--pad); margin-top: clamp(40px, 6vw, 72px); }
 .c-next-label { display: block; font-size: 13px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #c3bfb3; }

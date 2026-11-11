@@ -37,18 +37,15 @@ palette:
   - { name: Violet, hex: "#7952B3" }
   - { name: Yellow, hex: "#FFC107" }
   - { name: Light gray, hex: "#E0E0E0" }
+# Image slots of the process (Ale exports them from Canva). Empty list = nothing
+# shown, no placeholder. Format: - { src: /assets/img/Cineville/x.webp, alt: "...", w: 1600, h: 1000 }
+flow_sketches: []
+flow_proposals: []
+flow_drafts: []
+flow_action: []
 logos:
   - { src: /assets/img/Cineville/cineville-title.webp, alt: "CinéVille title lettering", w: 750, h: 469, bg: dark, caption: "Title lettering" }
 ---
-<h2>Two references</h2>
-
-<p>After looking at several works by Dalí and Magritte, I took obvious references from them and carried them over to cinema: theater seats, a film reel, text forming an arch, etc.</p>
-
-<ul class="c-refs">
-  <li>Salvador Dalí, <a href="https://en.wikipedia.org/wiki/The_Persistence_of_Memory" target="_blank" rel="noopener noreferrer"><em>La Persistance de la mémoire</em></a>: the melting film reel, like the clocks in <em>The Persistence of Memory</em>.</li>
-  <li>René Magritte, <em>Les idées claires</em> (<a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte" target="_blank" rel="noopener noreferrer">René Magritte on Wikipedia</a>): the cloud under the reel.</li>
-</ul>
-
 {% include case/figure.html src="/assets/img/Cineville/zoning.webp" w=1000 h=464 alt="Ten thumbnail layout sketches exploring where the title, baseline, date and central artwork could sit on the poster" caption="Layout thumbnails." %}
 
 {% include case/row.html items=page.drafts caption="Two drafts in Photoshop." %}
@@ -57,43 +54,77 @@ logos:
 
 <figure class="case-fig c-poster"><a class="zoom-trigger" href="/assets/img/Cineville/cineville_poster-fina-aprouved.webp"><img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="Final Cinéville festival poster, surrealist film reel melting over theater seats in a cloudy sky" class="cv-final-poster" width="1272" height="1800" srcset="/assets/img/Cineville/cineville_poster-fina-aprouved-840w.webp 840w, /assets/img/Cineville/cineville_poster-fina-aprouved.webp 1272w" sizes="(max-width: 767px) 92vw, 1272px" loading="lazy" decoding="async"></a></figure>
 
-{% include case/palette.html colors=page.palette %}
-
-{% include case/figure.html src="/assets/img/Cineville/pagina-7.webp" w=2000 h=1414 alt="Process deck: typography, Neworn Uniquen for the title and DM Sans for the text" caption="Typography: Neworn Uniquen for the title and DM Sans for the text." %}
-
 {% include case/logo.html items=page.logos %}
-
 
 <h2>Mockups</h2>
 
 {% include case/pair.html a="/assets/img/Cineville/pagina-21.webp" a_alt="Mockup of the Cinéville poster on a street billboard at night" a_w=2000 a_h=1414 a_caption="Mockup: street billboard at night" b="/assets/img/Cineville/pagina-23.webp" b_alt="Mockup of the Cinéville poster at a seaside bus stop" b_w=2000 b_h=1414 b_caption="Mockup: seaside bus stop" %}
 
-<div class="document-carousel-container">
-    <button class="carousel-btn prev-btn" aria-label="Previous slide">&lt;</button>
-    <div class="document-carousel">
-      <img src="/assets/img/Cineville/pagina-1.webp" alt="Process deck cover: Cinéville poster proposal, Festival de cinéma du monde, 2024" class="carousel-slide active-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-1-960w.webp 960w, /assets/img/Cineville/pagina-1.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-2.webp" alt="Process deck: the brief, next to a photo of a cinema marquee" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-2-960w.webp 960w, /assets/img/Cineville/pagina-2.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-3.webp" alt="Process deck: the mission, create a poster using the references of 1920s–1930s surrealism" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-3-960w.webp 960w, /assets/img/Cineville/pagina-3.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-4.webp" alt="Process deck: the codes of surrealism, with a photo of the surrealism and typography books" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-4-960w.webp 960w, /assets/img/Cineville/pagina-4.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-5.webp" alt="Process deck: section divider, art direction" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-5-960w.webp 960w, /assets/img/Cineville/pagina-5.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-6.webp" alt="Process deck: moodboard with surrealist film posters, Dalí's melting clocks and Magritte paintings" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-6-960w.webp 960w, /assets/img/Cineville/pagina-6.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-7.webp" alt="Process deck: typography, Neworn Uniquen for the title and DM Sans for the text" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-7-960w.webp 960w, /assets/img/Cineville/pagina-7.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-8.webp" alt="Process deck: color palette, dark gray #343A40, violet #7952B3, yellow #FFC107 and light gray #E0E0E0" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-8-960w.webp 960w, /assets/img/Cineville/pagina-8.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-9.webp" alt="Process deck: section divider, sketches" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-9-960w.webp 960w, /assets/img/Cineville/pagina-9.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-10.webp" alt="Process deck: ten layout thumbnails testing where the title, baseline and artwork sit" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-10-960w.webp 960w, /assets/img/Cineville/pagina-10.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-11.webp" alt="Process deck: rougher poster sketches, including a figure with a film reel for a head" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-11-960w.webp 960w, /assets/img/Cineville/pagina-11.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-12.webp" alt="Process deck: the chosen pencil sketch, with the reel, clouds and theater seats" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-12-960w.webp 960w, /assets/img/Cineville/pagina-12.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-13.webp" alt="Process deck: section divider, poster proposal" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-13-960w.webp 960w, /assets/img/Cineville/pagina-13.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-14.webp" alt="Process deck: two digital drafts, one with a melting cloth on a branch and one with the reel over violet seats" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-14-960w.webp 960w, /assets/img/Cineville/pagina-14.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-15.webp" alt="Process deck: the final poster, with the arched title, dates, melting reel, cloud and violet seats" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-15-960w.webp 960w, /assets/img/Cineville/pagina-15.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-16.webp" alt="Process deck: section divider, references" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-16-960w.webp 960w, /assets/img/Cineville/pagina-16.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-17.webp" alt="Process deck: the melting reel next to Dalí's The Persistence of Memory, with an explanation" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-17-960w.webp 960w, /assets/img/Cineville/pagina-17.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-18.webp" alt="Process deck: the cloud next to Magritte's Les idées claires, with an explanation" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-18-960w.webp 960w, /assets/img/Cineville/pagina-18.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/pagina-19.webp" alt="Process deck: theater seats under a starry sky, with an explanation" class="carousel-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-19-960w.webp 960w, /assets/img/Cineville/pagina-19.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
+<section class="cv-flow-wrap" aria-labelledby="cv-flow-title">
+<h2 id="cv-flow-title">{% include label.html key="cv_flow" %}</h2>
+<ol class="cv-flow">
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_brief" %}</h3>
+    <div class="cv-step-body" lang="fr">
+      <p>CinéVille organise un festival annuel de cinéma, qui célèbre les œuvres cinématographiques indépendantes et internationales. Le festival se veut <strong>éclectique</strong> et <strong>accessible à tous</strong>, avec une atmosphère qui combine le <strong>chic et le décontracté</strong>, et il cherche à attirer des spectateurs de <strong>tous horizons</strong>. L'affiche doit <strong>refléter l'énergie</strong> de la <strong>diversité culturelle</strong> et <strong>l'audace créative</strong> du cinéma indépendant.</p>
+      <p class="cv-mission"><strong>Mission&nbsp;:</strong> créer une affiche qui capte l'esprit unique de ce festival de cinéma, en utilisant des références culturelles et visuelles du <strong>surréalisme</strong> des années 1920-1930.</p>
     </div>
-    <button class="carousel-btn next-btn" aria-label="Next slide">&gt;</button>
-    <div class="carousel-counter" aria-live="polite">1 / 19</div>
-  </div>
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_codes" %}</h3>
+    <ul class="cv-codes" lang="fr">
+      <li><strong>Les images oniriques</strong> Représentations d'éléments de rêve et d'états subconscients.</li>
+      <li><strong>La juxtaposition</strong> Placer des objets et des éléments dans des contextes inattendus.</li>
+      <li><strong>La métamorphose</strong> Transformations et changements de forme.</li>
+      <li><strong>Automatisme</strong> Création d'art sans intervention consciente.</li>
+      <li><strong>Symbolisme</strong> Utilisation de symboles pour représenter des idées et des émotions profondes.</li>
+    </ul>
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_direction" %}</h3>
+    <div class="cv-step-body"><p>The moodboard gathered surrealist film posters, paintings by Dalí and Magritte, and a display type specimen.</p></div>
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_type" %}</h3>
+    <dl class="cv-type">
+      <div><dt>Neworn Uniquen</dt><dd>{% include label.html key="cv_type_title" %}</dd></div>
+      <div><dt>DM Sans</dt><dd>{% include label.html key="cv_type_text" %}</dd></div>
+    </dl>
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_palette" %}</h3>
+    {% include case/palette.html colors=page.palette %}
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_sketches" %}</h3>
+    <div class="cv-step-body"><p>I did several sketches until I settled on the composition that convinced me most.</p></div>
+    {%- if page.flow_sketches.size > 0 %}{% include case/row.html items=page.flow_sketches %}{% endif %}
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_proposals" %}</h3>
+    <div class="cv-step-body"><p>Then I went to Photoshop and started there.</p></div>
+    {%- if page.flow_proposals.size > 0 %}{% include case/row.html items=page.flow_proposals %}{% endif %}
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_drafts" %}</h3>
+    <div class="cv-step-body"><p>Two drafts in Photoshop.</p></div>
+    {%- if page.flow_drafts.size > 0 %}{% include case/row.html items=page.flow_drafts %}{% endif %}
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_refs" %}</h3>
+    <ul class="c-refs">
+      <li>Salvador Dalí, <a href="https://en.wikipedia.org/wiki/The_Persistence_of_Memory" target="_blank" rel="noopener noreferrer"><em>La Persistance de la mémoire</em></a>. <span lang="fr">La bobine de film fondue fait référence au tableau «&nbsp;La persistance de la mémoire&nbsp;» de Salvador Dali. Dans l'affiche du festival, il représente <strong>l'audace</strong> du cinéma international et la capacité à remettre en question les perceptions conventionnelles du temps et de la réalité.</span></li>
+      <li>René Magritte, <em>Les idées claires</em> (<a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte" target="_blank" rel="noopener noreferrer">René Magritte on Wikipedia</a>). <span lang="fr">Les nuages de René Magritte cherchent à exprimer les <strong>rêves</strong> et leur nature intangible, souvent dans des endroits inattendus, symbolisant l'éphémère et le mystérieux. Dans l'affiche, il représente l'imagination et la <strong>créativité</strong>.</span></li>
+      <li lang="fr">Les sièges de cinéma sous le ciel étoilé évoquent non seulement une atmosphère <strong>magique et onirique</strong>, mais symbolisent également un espace ouvert et accessible à <strong>tous les types de publics</strong>, car il n'y a <strong>pas de frontières</strong> au firmament.</li>
+    </ul>
+  </li>
+  <li class="cv-step">
+    <h3>{% include label.html key="cv_action" %}</h3>
+    <div class="cv-step-body"><p>The poster in mockups of urban settings.</p></div>
+    {%- if page.flow_action.size > 0 %}{% include case/row.html items=page.flow_action %}{% endif %}
+  </li>
+</ol>
+</section>
 
 {% capture long %}
 <h3>At the library: surrealism and typography</h3>
