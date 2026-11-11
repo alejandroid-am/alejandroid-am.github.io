@@ -10,7 +10,7 @@ lang: fr
 cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
 instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
 siret: "108 337 783 00014"  # SIREN 108 337 783
-address: ""        # Left empty on purpose (decision 2026-11-10): never rendered while empty.
+address: "67 rue de Saint-Dié, 67100 Strasbourg"  # TEMPORARY: current home address, shown ONLY on the legal notice (mentions-legales.html). Replace when the business address changes (domiciliation). Never use it elsewhere (no footer, no JSON-LD, no meta).
 # CV downloads on À propos / About. Empty = no button. Put the PDFs in
 # assets/docs/ and write the path, e.g. "/assets/docs/cv-alejandro-amaro-fr.pdf".
 cv_pdf_fr: ""
