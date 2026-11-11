@@ -5,6 +5,169 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# RESUMEN TANDA 4 (modo nocturno, 12/11/2026)
+
+1. Hecho: los 26 puntos de la tanda 4, un commit por punto (lista abajo). Rama `mejoras-clientes` subida; `main` sin tocar, sin force push, sin reescribir historial.
+2. Global: ya no hay marcadores visibles en ninguna página (vídeo, tipografía, paleta y logos no muestran nada si falta el archivo). La pregunta repetida de tu historia está borrada.
+3. Spin: título antes de la comparación, etiquetas Avant/Après en cada pantalla y lo de "Le détail" subido a los huecos.
+4. WorkPics: tres logos sin repetir ni mockups, enlace al proyecto en línea, "Composition".
+5. Cinéville: cabecera con el título en negro, Dalí y Magritte solo citados en texto, carrusel sustituido por el proceso en HTML (10 pasos, con tus textos del dossier).
+6. Keep Breathing: etiqueta "Maquette Figma" en el menú, la pausa y el game over. BEDiZEN: logo negro, hero listo para vídeo, paleta en cuadros, tipografía nueva, galería bento.
+7. In-House Tools: tarjeta "Bientôt" (solo nombre y tipo). El caso no queda en ninguna otra parte del sitio; sigue en el historial de git público.
+8. Pendiente (lo tienes que dar tú): imágenes y vídeos de "TODO visuales"; textos marcados "necesita texto de Ale"; versiones de logo de Spin.
+9. Decidido por mí: el título de Cinéville es el recorte del afiche en negro, no un SVG; "Festival de cinéma du monde" debajo del título; Magritte enlaza a su página; borré la línea de In-House en `llms.txt`.
+10. Decidido por mí (2): etiquetas FR por defecto que pasan a EN según el idioma de navegación; borré del repo las imágenes del carrusel y los dos cuadros; detalles en "Decisiones" abajo.
+
+# Tanda 4, 12/11/2026
+
+## Commits (en orden)
+
+- `6986c06` Global 1. À propos: borrada la primera línea de la historia ("Am I the right person for your project? Let's find out."). Tu historia solo existe en inglés: no había versión FR que borrar.
+- `870c28b` Global (regla general). Sin marcadores visibles: los bloques vídeo, tipografía, paleta y logo no pintan nada sin archivo; quitadas las llamadas con marcador de todos los casos.
+- Global 2. Contenedor del Lottie: ya estaba vacío y comentado en el pie de todas las páginas (`_layouts/default.html`, `.footer-lottie`, oculto si está vacío). Sin cambios, sin commit.
+- `b5163f6` Spin 1. `h2.case-compare-title` antes de la primera fila.
+- `9461200` Spin 2. Etiquetas Avant/Before y Après/After en cada pantalla, también en el pie de la lightbox.
+- `b8ede78` Spin 3. Suben al flujo principal: el vídeo promocional, Brand Evolution y UI Evolution (texto y pares antes/después).
+- Spin 4: solo NOTAS (abajo, "TODO visuales").
+- `100741a` WorkPics 1. La frase del croquis va encima de la imagen.
+- `62c6baa` WorkPics 2. El mockup de logo junto a "Open → Shoot → Done" se sustituye por la imagen de la cámara.
+- `a4d66d9` WorkPics 3. Tres versiones de logo, sin repeticiones ni mockups, con etiquetas y la frase sobre la empresa.
+- `992bdb8` WorkPics 4. Enlace "Voir le projet en ligne / See the live project".
+- `73f8853` WorkPics 5. "Geometry" pasa a "Composition", dentro de Le détail.
+- `5445cba` Cinéville 1. Cabecera nueva.
+- `612227f` Cinéville 2. Sin cuadros de Dalí ni Magritte.
+- `a817c57` Cinéville 3. Proceso en HTML/CSS en lugar del carrusel.
+- `ed1d4d9` Keep Breathing 1. Etiqueta Figma.
+- `2e850f8` a `e79a427` BEDiZEN 1 a 6. BEDiZEN 7 (`figure.float`) ya estaba listo desde la tanda 3: sin cambios.
+- `e077b11`, `08ff8cc`, `0756f9f` In-House 1, 2 y 3. In-House 4: solo NOTAS (abajo).
+- `73a2dd3` Ajuste tras la verificación: espaciado de párrafos y h3 que ahora están en el flujo del caso.
+
+## Decisiones que tomé yo (modo nocturno)
+
+**Idioma de las etiquetas nuevas**
+- Los casos están en inglés y tienen una sola URL. No había forma de cambiar el texto según el idioma, solo los enlaces (`data-href-en`).
+- Añadí `_includes/label.html`: la etiqueta sale en francés (`lang="fr"`) y `site.js` la cambia a inglés si el visitante navega en inglés, con la misma regla que ya usaban los enlaces.
+- Los textos están en `_data/i18n.yml` (`case_before`, `case_after`, `logo_official`, `logo_app`, `live_project`, `kb_figma`, `ts_*`, `cv_*`).
+
+**Spin**
+- Etiqueté las filas de pantallas y los tres pares antes/después: logo, paleta e interfaz.
+- Las imágenes de la galería de Le détail no llevan etiqueta: todas son tu rediseño.
+
+**WorkPics**
+- Puse un h2 "Logo" sobre los tres logos.
+- Mantuve "Proposal A" (texto existente, solo en inglés) para `workpics1`.
+- La frase nueva sale de lo que me dijiste: "The company will add more features beyond photos, so the company identity uses the official company logo, while the app keeps its own logo."
+- Borré el título "Project Gallery" de Le détail y su frase ("Mockups of the screens and the logo in use."), porque solo presentaban los mockups que había que quitar.
+- `25.webp`, que tenía el pie "Settings & Profile Flow", era en realidad un mockup del logo en una pantalla de inicio de móvil.
+
+**Cinéville**
+- El arco no se puede copiar fielmente en SVG: son letras deformadas a mano. Usé el recorte del afiche (`cineville-title.webp`) pasado a negro: `cineville-title-black.webp`.
+- El afiche dice **"Festival de cinéma du monde"** (no "du cinéma"), y está **encima** del título. Copié el texto tal cual y lo puse **debajo**, como pedías.
+- Fondo claro: `#F2F1F0`.
+
+**Cinéville, referencias**
+- *Les idées claires* no tiene artículo en Wikipedia (ni EN ni FR). El enlace va a la página de René Magritte.
+- Dalí enlaza a *The Persistence of Memory* (EN).
+- Las explicaciones de cómo aparecen en el afiche son tus textos del dossier (páginas 17, 18 y 19), en francés con `lang="fr"`.
+
+**Cinéville, orden del carrusel frente a tu lista**
+- El carrusel no tenía una diapositiva separada de "borradores": los dos borradores (pág. 14) estaban dentro de "Proposition d'affiche" (pág. 13), seguidos del afiche final (pág. 15) y luego las referencias (16 a 19).
+- Mantuve el orden y separé "Propositions d'affiche" y "Brouillons" como en tu lista, sin cambiar el orden.
+- "L'affiche en situation" no estaba en el carrusel: va al final.
+
+**Cinéville, contenido de los pasos**
+- Tipografía: Neworn Uniquen y DM Sans no están en el repo y no conozco su licencia, así que salen solo como texto, sin muestra viva.
+- Moodboard: no se muestra (son obras ajenas: carteles de cine, Dalí, Magritte y un especimen tipográfico). El paso lleva una frase que lo describe.
+- Textos de los pasos: brief, misión y códigos del surrealismo copiados de tu dossier en francés. Croquis: "I did several sketches until I settled on the composition that convinced me most.". Propuestas: "Then I went to Photoshop and started there.". Borradores: "Two drafts in Photoshop.". En situación: "The poster in mockups of urban settings.". Todo es texto tuyo ya existente.
+
+**Cinéville, archivos e imágenes**
+- Borré del repo `research-dali.webp`, `research-magritte.webp` y `pagina-1` a `pagina-19` (con sus `-960w`), porque ya no se usan y las páginas 6, 17 y 18 tenían obras ajenas. Siguen en el historial de git.
+- Las imágenes del caso que no venían del carrusel siguen igual: croquis, borradores, bobina, nube, afiche final, mockups 21 a 24 y el título amarillo.
+
+**Keep Breathing**
+- Etiqueté el menú principal (hero y la imagen de Le détail), la pausa y el game over como maqueta Figma.
+- La captura con la máscara en el suelo y las barras de salud y oxígeno no la etiqueté: parece una captura del juego (3D). Si también es Figma, dímelo.
+
+**BEDiZEN**
+- `bedizen_black.svg` es el SVG blanco con `#F2F1F0` cambiado por Horizon Noir `#1A1B1C`. Es vectorial y sale limpio.
+- Probé el hero con un vídeo de prueba: se reproduce solo sin "reduced motion" y se queda en el póster, con controles, cuando hay "reduced motion". Sin vídeo, sale el logo.
+- Tipografía: escribí "Sans-serif géométrique / Geometric sans-serif" como clasificación de Poppins.
+- No borré los `page1` a `page34.webp` del repo: ya no salen en la página, pero sirven de fuente del PDF.
+
+**In-House Tools**
+- `llms.txt` describía el caso ("a social post generator and a rental contract generator in daily use at the shop where Alejandro works…"). La regla de SEO decía no tocar `llms.txt`, pero la tanda 4 pide quitar el caso de todas partes: borré solo esa línea.
+- La oferta "Outil web sur mesure" ya no enlaza al caso (quité `case_url` y la etiqueta `case_link`). **Su texto sigue diciendo "Par exemple : générateur de posts, de contrats, calculateur…" / "a post generator, a contract generator…"**: es texto de tu oferta y no lo borré, pero se parece mucho a lo que hacen las herramientas. Decide si lo cambias.
+- En À propos sigue la competencia "Création d'outils internes avec l'IA / Building internal tools with AI": es genérica, la dejé.
+- La tarjeta "Bientôt" muestra el nombre en grande dentro de su recuadro, para que no sea una caja vacía. Esto vale para todas las tarjetas "Bientôt".
+- Grep de `In-House` / `in-house` en `_site`: solo aparece en la tarjeta (home FR/EN y /projets/ FR/EN). No hay página, ni entrada en el sitemap, ni JSON-LD, ni imágenes.
+
+## In-House 4. Historial público
+
+- El caso completo (texto e imágenes: generador de posts, generador de contratos, capturas saneadas) **sigue visible en el historial de git** del repositorio público, y también en `_pendientes/in-house-tools/`, que se publica en GitHub aunque Jekyll no lo construya.
+- Si decides que no debe verse en absoluto, hay que **reescribir el historial** (por ejemplo con `git filter-repo`) y forzar el push. Lo haría solo con tu OK explícito, porque cambia los hashes de todos los commits.
+- Alternativa más simple: sacar `_pendientes/in-house-tools/` del repo y guardarlo fuera. Aun así, lo que ya está en el historial sigue ahí.
+- Para volver a publicarlo: mueve `_pendientes/in-house-tools/in-house-tools.md` a `_projects/`, mueve `_pendientes/in-house-tools/img/` a `assets/img/tools/`, borra su entrada de `_data/proximamente.yml` y, si quieres, vuelve a poner `case_url: /projects/in-house-tools/` en la oferta "outil" de `_data/offers.yml`.
+
+## TODO visuales (por proyecto)
+
+Formato webp, salvo que se indique otro. Cada imagen se pasa por `tools/optimize-images.sh`.
+
+**Spin App** (`assets/img/Spin_app/`)
+- Spin 4: versiones de logo creadas por ti. Faltan la versión a una tinta (`spin-logo-mono.webp`, 1600×1000) y el icono de app (`spin-app-icon.webp`, 1024×1024). Van en la sección "The brand and the screens", como lista de logos (`case/logo.html`). **Necesita material de Ale.**
+- Spin 4: el logo original con tus sugerencias de corrección (`spin-logo-original-notes.webp`, 2400×1500). Iría junto al par logo antes/después. **Necesita material y texto de Ale.**
+- Tipografía de la app: nombre de la fuente y pesos. **Necesita texto de Ale.**
+- Vídeo corto en bucle, si quieres uno distinto del promocional: 1920×1080, 10 a 15 s, mp4.
+
+**WorkPics** (`assets/img/Workpics/`)
+- La imagen de la cámara (`workpicks_ui_mockups.webp`) sale **dos veces** en la página: en el hero y junto a "Open → Shoot → Done". Ideal: una captura sola de la pantalla de la cámara (`workpics-camera.webp`, 1600×1000 o vertical 1080×2400) para el bloque "Open → Shoot → Done".
+- `workpics1.webp` y `workpics2.webp` solo existen a 532 px: mejor en SVG o a 1600 px.
+- Tipografía de la app. **Necesita texto de Ale.**
+- Vídeo corto del flujo: 1920×1080, 10 a 15 s, mp4.
+
+**Cinéville** (`assets/img/Cineville/`, exportadas de Canva)
+- Cada imagen se añade en la lista del front matter: `- { src: ..., alt: "...", w: ..., h: ... }`.
+- Croquis: `cv-croquis-1.webp` y siguientes, 1600×1000 (o el formato del croquis). Van en `flow_sketches`.
+- Propuestas de afiche: `cv-propuesta-1.webp`…, vertical 1000×1414. Van en `flow_proposals`.
+- Borradores: `cv-borrador-1.webp`…, vertical 1000×1414. Van en `flow_drafts`.
+- Afiche en situación: `cv-situacion-1.webp`…, 1600×1000. Van en `flow_action`.
+- Título en arco en SVG (`cineville-title.svg`), si lo tienes. Ahora es un recorte de 750 px.
+- Moodboard propio, sin obras ajenas, si quieres mostrarlo. **Necesita material de Ale.**
+- `research-paradiso.webp` (especimen de la tipografía "Cinema Paradiso", en Le détail) también es una imagen ajena (un producto comercial). La dejé; decide si la quitas.
+
+**Keep Breathing** (`assets/img/KeepBreathing/`)
+- Logo del título del juego (`kb-title-logo.webp`, 1600×1000, o SVG).
+- Paleta del juego (hex y nombres) y tipografía. **Necesita texto de Ale.**
+- Vídeo corto de gameplay: 1920×1080, 10 a 15 s, sin audio, mp4.
+
+**BEDiZEN** (`assets/img/BEDiZEN/`)
+- Vídeo del hero, con las especificaciones del brief:
+  - 1920×1080, de 10 a 15 s, sin audio;
+  - mp4 (H.264) y webm (VP9), menos de 3 MB cada uno;
+  - póster webp de 1920×1080;
+  - nombres sugeridos: `bedizen-hero.mp4`, `bedizen-hero.webm`, `bedizen-hero-poster.webp`;
+  - se rellenan `hero_video`, `hero_video_webm` y `hero_video_poster` en `_projects/bedizen.md`.
+- Recortes sobre fondo transparente para `figure.float`: logo separado, líneas de construcción y espaciado, rehechos en limpio (webp con alfa, 1600 px de ancho).
+- El icono suelto (SVG).
+- El PDF de la guía de marca sigue siendo la versión generada desde las imágenes (ver tanda anterior).
+
+**In-House Tools**: no hace falta nada mientras esté en "Bientôt".
+
+## Necesita texto de Ale
+
+- Cinéville: confirma la frase del paso "Direction artistique et moodboard": "The moodboard gathered surrealist film posters, paintings by Dalí and Magritte, and a display type specimen." La escribí describiendo tu diapositiva 6.
+- Cinéville: los pasos "Propositions d'affiche" y "Brouillons" usan frases tuyas que ya existían en el caso. Si quieres explicar en qué se diferencian las propuestas de los borradores, hace falta tu texto.
+- WorkPics: confirma la frase sobre el logo de la empresa y el de la app.
+
+## Verificación
+
+- Build limpio (solo el aviso conocido "Empty slug").
+- 594 referencias internas comprobadas en `_site`: 0 rotas.
+- Enlaces externos nuevos: WorkPics y Wikipedia, todos responden 200.
+- Capturas de los 6 casos a 390, 1440 y 1920 px, con y sin JS: 0 desbordes y 0 errores de consola propios (los de Vimeo y Cloudflare dentro del iframe no cuentan).
+- Las otras 12 páginas (home, proyectos, servicios, à propos, contacto en FR y EN, mentions légales y 404), a las mismas anchuras, con y sin JS: 0 desbordes y 0 errores.
+- Sin cajas vacías: 0 `case-placeholder` en `_site`. La tarjeta "Bientôt" muestra el nombre en su recuadro.
+- `In-House` en `_site`: solo en la tarjeta.
+
 # Tanda 3 (revisión de Ale), 11/11/2026
 
 ## A. Layout de escritorio: causa (medida con Playwright antes de arreglar)
