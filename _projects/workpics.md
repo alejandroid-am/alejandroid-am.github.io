@@ -87,7 +87,7 @@ palette:
 <h4>4 - Logo: The Placeholder Won</h4>
 <p>I made several logo proposals, each based on research into a different visual idea for the app. The team chose none of them. They picked a placeholder I had made in five minutes.</p>
 <p>The lesson: <strong>a simple mark that already works can beat a polished exploration.</strong></p>
-{% include case/pair.html a="/assets/img/Workpics/5.webp" a_alt="Logo construction breakdown showing W + P + checkmark geometry" a_w=1920 a_h=1080 a_caption="Geometry / Composition" b="/assets/img/Workpics/19.webp" b_alt="Logo construction showing negative space usage" b_w=1920 b_h=1080 b_caption="Geometry / Composition" %}
+{% include case/pair.html a="/assets/img/Workpics/5.webp" a_alt="Logo construction breakdown showing W + P + checkmark geometry" a_w=1920 a_h=1080 a_caption="Composition" b="/assets/img/Workpics/19.webp" b_alt="Logo construction showing negative space usage" b_w=1920 b_h=1080 b_caption="Composition" %}
 
 {% endcapture %}
 {% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}
