@@ -12,4 +12,7 @@
 #     order: 1
 #
 # Empty list = nothing shown.
-items: []
+items:
+  - name: "In-House Tools"
+    type: { fr: "Outils web", en: "Web tools" }
+    order: 1

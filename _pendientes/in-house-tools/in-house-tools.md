@@ -1,4 +1,6 @@
 ---
+# BIENTÔT (2026-11-12): moved out of _projects/. Images in ./img/ (were
+# /assets/img/tools/): put them back there before publishing again (NOTAS).
 layout: project
 title: In-House Tools
 description: A post generator and a contract generator in daily use at the shop where I work. Before, only 2 people could make a contract. Now even the interns can.
