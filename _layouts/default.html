@@ -148,6 +148,8 @@
   <script src="/assets/js/site.js" defer></script>
   {%- if legacy %}
   <script src="/assets/js/main.js" defer></script>
+  {%- endif %}
+  {%- if page.collection == 'projects' %}
   <script src="/assets/js/zoom.js" defer></script>
   {%- endif %}
   {%- for s in page.scripts %}

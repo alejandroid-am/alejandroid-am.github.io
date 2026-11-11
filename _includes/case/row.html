@@ -8,7 +8,7 @@
 <figure class="case-fig case-row" style="--n: {{ include.items.size }}">
   <div class="case-row-items">
     {%- for i in include.items %}
-    {% include case/img.html src=i.src alt=i.alt w=i.w h=i.h sizes="(max-width: 767px) 33vw, 400px" %}
+    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 33vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
     {%- endfor %}
   </div>
   {%- if include.caption and include.caption != "" %}

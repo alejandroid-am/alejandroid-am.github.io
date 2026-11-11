@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // B. Bento gallery links (.zoom-trigger)
-    const bentoLinks = Array.from(document.querySelectorAll('.bento-gallery .zoom-trigger'));
+    // B. Bento gallery links (.zoom-trigger), and layout C figures (_includes/case/)
+    const bentoLinks = Array.from(document.querySelectorAll('.bento-gallery .zoom-trigger, .case-c .zoom-trigger'));
     const bentoImages = bentoLinks.map(link => link.querySelector('img'));
     bentoLinks.forEach((link, index) => {
         if (!link.hasAttribute('aria-label') && bentoImages[index]) {
