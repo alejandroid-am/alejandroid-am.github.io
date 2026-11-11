@@ -4,6 +4,8 @@ title: Page not found
 lang: en
 permalink: /404.html
 sitemap: false
+robots: noindex
+description: "This page does not exist or has moved. Links to the home page, services, projects, about and contact."
 ---
 
 <style>
@@ -61,22 +63,35 @@ sitemap: false
   margin-bottom: 48px;
   max-width: 500px;
 }
+.error-eye { display: block; }
+.error-links ul { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
+.error-links a { color: var(--ink); text-underline-offset: 4px; }
 </style>
 
 <section class="error-section">
-  <div class="error-title">
-    <span>4</span>
-    <div class="error-zero" id="eye-container">
-      <div class="error-eye" id="eye-pupil"></div>
-    </div>
-    <span>4</span>
-  </div>
+  <h1 class="error-title" aria-label="404, page not found">
+    <span aria-hidden="true">4</span>
+    <span class="error-zero" id="eye-container" aria-hidden="true">
+      <span class="error-eye" id="eye-pupil"></span>
+    </span>
+    <span aria-hidden="true">4</span>
+  </h1>
   <p class="error-quote">"Not all those who wander are lost..."</p>
   <p class="error-subtitle">But it seems you might be. The page you're looking for doesn't exist or has been moved.</p>
   <div style="display:flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
-    <a href="/" class="btn">Return home</a>
+    <a href="/" class="btn" data-href-en="/en/">Return home</a>
     <a href="/projets/" class="btn btn-ghost" data-href-en="/en/projects/">See the projects</a>
   </div>
+  <nav class="error-links" aria-label="Main pages">
+    <ul>
+      <li><a href="/services/" data-href-en="/en/services/">Services</a></li>
+      <li><a href="/projets/" data-href-en="/en/projects/">Projects</a></li>
+      <li><a href="/a-propos/" data-href-en="/en/about/">About</a></li>
+      <li><a href="/contact/" data-href-en="/en/contact/">Contact</a></li>
+      <li><a href="/" lang="fr" hreflang="fr">Accueil (FR)</a></li>
+      <li><a href="/en/" hreflang="en">Home (EN)</a></li>
+    </ul>
+  </nav>
 </section>
 
 <script>
