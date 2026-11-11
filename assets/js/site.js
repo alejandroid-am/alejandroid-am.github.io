@@ -174,6 +174,12 @@
   }
 
   /* Case videos: no autoplay with reduced motion (controls instead) */
+  /* Hero video (case layout): no autoplay attribute, so it never starts before
+     this check; with reduced motion it stays on its poster, with controls. */
+  document.querySelectorAll("video[data-hero-video]").forEach((v) => {
+    if (reduce) { v.controls = true; return; }
+    v.play().catch(() => { v.controls = true; });
+  });
   if (reduce) document.querySelectorAll("video[data-case-video]").forEach((v) => { v.pause(); v.removeAttribute("autoplay"); v.controls = true; });
 
   /* 9. Open the <details> targeted by the hash -------------------- */

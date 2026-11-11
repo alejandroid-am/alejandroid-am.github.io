@@ -23,6 +23,13 @@ hero_w: 720
 hero_h: 158
 hero_alt: BEDiZEN logo, geometric wordmark with red accent dot
 hero_bg: "#F2F1F0"
+# Hero video, when Ale delivers it (specs in NOTAS: 1920x1080, 10 to 15 s, no audio,
+# mp4 + webm, under 3 MB, webp poster). Empty = the logo above is shown.
+hero_video: ""
+hero_video_webm: ""
+hero_video_poster: ""
+hero_video_w: 1920
+hero_video_h: 1080
 load_poppins: true   # Poppins is the brand typeface (type specimen below)
 # Colours, names and hex from the brand guidelines (page 25).
 palette:
