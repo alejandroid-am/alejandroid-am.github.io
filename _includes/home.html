@@ -1,269 +1,61 @@
-
 {%- assign h = site.data.home[page.lang] | default: site.data.home.fr -%}
-<!-- ============================================
-  HERO SECTION - Word Carousel
-============================================= -->
-<section class="hero" aria-label="{{ h.hero_label }}">
-  <!-- Status bar: Strasbourg time (filled by hero-status.js, width reserved), availability, email with copy -->
-  <div class="hero-status" role="group" aria-label="{{ h.status_label }}">
-    <p class="status-cell status-time"><span>{{ h.status_city }}</span> <time class="status-clock" data-tz="Europe/Paris" data-locale="{% if page.lang == 'en' %}en-GB{% else %}fr-FR{% endif %}" aria-label="{{ h.status_time }}"></time></p>
-    <p class="status-cell status-avail"><span class="status-dot" aria-hidden="true"></span>{{ h.status_avail }}</p>
-    <p class="status-cell status-mail">
-      <a href="mailto:ale.amaro.m@proton.me" class="status-mail-link">ale.amaro.m@proton.me</a>
-      <button type="button" class="status-copy" data-copy="ale.amaro.m@proton.me" data-ok="{{ h.copied }}" data-fail="{{ h.copy_fail }}" aria-label="{{ h.copy_label }}" hidden>{{ h.copy_btn }}</button>
-      <span class="status-feedback" role="status" aria-live="polite"></span>
-    </p>
-  </div>
-
-  <div class="hero-intro">
-    <p class="hero-tagline">{{ h.tagline }}</p>
-  </div>
-
-  {%- if page.lang == 'en' -%}{%- assign h1_name = "Alejandro Amaro, web and UI designer in Strasbourg" -%}{%- else -%}{%- assign h1_name = "Alejandro Amaro, designer web et UI à Strasbourg" -%}{%- endif %}
-  <h1 class="hero-title" style="--h1-fit: {{ h.h1_fit }}">
-    <span class="sr-only">{{ h1_name }}</span>
-    <!-- Interactive word carousel: decorative for assistive tech, the stable name is above -->
-    <div aria-hidden="true">
-    {%- for line in h.h1 %}
-    <div class="line-wrapper">
-      <span class="static-text">{{ line.static }}</span>
-      <div class="carousel" id="{{ line.id }}">
-        <ul>
-          {%- for w in line.words %}
-          <li{% if forloop.first %} class="is-visible"{% endif %} data-key="{{ w.key }}"><span class="h1-word"><span class="h1-group">{{ w.label | split: "|" | join: '</span> <span class="h1-group">' }}</span></span></li>
-          {%- endfor %}
-        </ul>
-      </div>
-    </div>
-    {%- endfor %}
-    </div>
-  </h1>
-
-  <div class="hero-offer">
-    <div class="hero-offer-text">
-      <p class="hero-value">{{ h.value }}</p>
-      <div class="hero-actions">
-        <a href="{{ h.offers_url }}" class="submit-btn btn-solid">{{ h.offers_btn }}</a>
-        <a href="{{ h.cv_url }}" class="submit-btn">{{ h.cv_btn }}</a>
-      </div>
-    </div>
-    <!-- Reserved slot for Ale's 3D render. Drop an <img> (with width/height) or a muted,
-         looping <video> with a poster inside this div; keep it static on mobile and with
-         reduced motion. Until then: a sober static placeholder, hidden from assistive tech. -->
-    <div class="hero-media" data-slot="hero-3d" aria-hidden="true"></div>
-  </div>
-
-  <div class="scroll-indicator" aria-hidden="true">
-    <span></span>
-  </div>
-</section>
-
-<!-- Text ribbon: static by default (no JS, reduced motion). ribbon.js starts the
-     scroll and shows the pause button; hover and focus also pause it. -->
-<section class="ribbon" aria-label="{{ h.ribbon_label }}">
-  <div class="ribbon-window">
-    <div class="ribbon-track">
-      <ul class="ribbon-list" role="list">{% for r in h.ribbon %}<li{% if r == "English" %} lang="en"{% elsif r == "Español" %} lang="es"{% elsif r == "Français" %} lang="fr"{% endif %}>{{ r }}</li>{% endfor %}</ul>
-      <ul class="ribbon-list ribbon-copy" role="list" aria-hidden="true">{% for r in h.ribbon %}<li>{{ r }}</li>{% endfor %}</ul>
-    </div>
-  </div>
-  <button type="button" class="ribbon-toggle" aria-pressed="false" data-pause="{{ h.ribbon_pause }}" data-play="{{ h.ribbon_play }}" hidden>{{ h.ribbon_pause }}</button>
-</section>
-
-<!-- ============================================
-  WHAT I DO FOR YOU - 3 offers (full list on /services/)
-============================================= -->
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
 {%- assign ui = site.data.offers.ui[page.lang] | default: site.data.offers.ui.fr -%}
-{%- assign home_offers = site.data.offers.list | where: "home", true -%}
-<section id="offers" class="section reveal" aria-labelledby="offers-title">
-  <h2 class="section-title" id="offers-title">{{ h.what_title }}</h2>
-  <div class="offer-list offer-list--home">
+{%- assign ct = site.data.contact[page.lang] | default: site.data.contact.fr -%}
+
+<!-- Hero: the last word of the H1 is interchangeable (site.js). Without JS the first word stays. -->
+<section class="home-hero" aria-labelledby="home-h1">
+  <h1 class="display hero-h1 hero-in" id="home-h1" data-scramble>{{ h.h1.before }} <span class="h1-swap" data-words='{{ h.h1.words | jsonify | replace: "'", "&#39;" }}'><span class="h1-word">{{ h.h1.words | first }}</span></span>{{ h.h1.after }}</h1>
+  <p class="h1-tools hero-in"><span class="h1-hint" aria-hidden="true">{{ h.h1.hint }}</span><button type="button" class="h1-next" hidden>{{ h.h1.other }}</button></p>
+  <p class="value hero-in">{{ h.value }}</p>
+  <p class="btn-row hero-in">
+    <a href="{{ ui.services }}" class="btn">{{ h.offers_btn }}</a>
+    <a href="{{ t.about_url }}" class="btn btn-ghost">{{ h.about_btn }}</a>
+  </p>
+</section>
+
+<!-- One scene: the sentence stays in place while its words light up (max ~1.5 screens) -->
+<section class="scene" aria-labelledby="scene-label">
+  <p class="chap" id="scene-label">{{ h.scene_label }}</p>
+  <p class="big lit">{% include lit.html text=h.scene %}</p>
+</section>
+
+<!-- Three offers; the full list, details and process are on /services/ -->
+{%- assign home_offers = site.data.offers.list | where: "home", true %}
+<section class="home-offers" aria-labelledby="offers-title">
+  <h2 class="h2" id="offers-title">{{ h.what_title }}</h2>
+  <ul class="olist">
     {%- for o in home_offers %}
     {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
-    {% include offer-card.html offer=o lang=page.lang num=num mode="home" %}
+    {% include offer-row.html offer=o lang=page.lang num=num mode="home" %}
     {%- endfor %}
-  </div>
-  <p class="offers-footer">
-    <a href="{{ ui.services }}" class="submit-btn">{{ h.what_all }}</a>
-    <span class="vat-note">{{ h.vat }}</span>
-  </p>
+  </ul>
+  <p class="after"><a href="{{ ui.services }}" class="link-arrow">{{ h.what_all }}<span aria-hidden="true"> →</span></a><span>{{ h.vat }}</span></p>
 </section>
 
-<!-- ============================================
-  PROJECTS / CASE STUDIES SECTION
-============================================= -->
-<section id="projects" class="section rail" aria-labelledby="projects-title" data-rail>
-  <!-- Horizontal rail. Default (no JS, phones, reduced motion): a native horizontal
-       scroller with scroll-snap. With JS on wide screens, rail.js pins the block
-       (position: sticky) and moves the track with the vertical scroll. Never hijacks
-       the wheel; focus moves the page so the focused card is in view. -->
+<!-- Projects rail: projects with home_order (not hide_from_home), first rail_limit,
+     then a card to /projets/. Native scroller by default; pinned on wide screens. -->
+{%- assign rail_projects = site.projects | where_exp: "p", "p.home_order" | where_exp: "p", "p.hide_from_home != true" | sort: "home_order" %}
+<section class="rail" aria-labelledby="projects-title" data-rail>
   <div class="rail-sticky">
-    <h2 class="section-title" id="projects-title">{{ h.projects_title }}</h2>
-    <ul class="rail-track" role="list">
-      {%- assign featured_projects = site.projects | where_exp: "p", "p.home_order" | sort: "home_order" %}
-      {%- for project in featured_projects %}
-      <li class="rail-item">
-        <a href="{{ project.url }}" class="project-card{% if project.thumb_hover_image %} project-card--hover-swap{% endif %}" aria-label="{{ h.case_label | replace: '%s', project.title }}">
-          <img src="{{ project.thumb_image | default: project.cover_image }}" alt="{{ h.cover_alt | replace: '%s', project.title }}" loading="lazy" decoding="async" width="800" height="500">
-          {% if project.thumb_hover_image %}<img src="{{ project.thumb_hover_image }}" alt="" class="card-img-hover" loading="lazy" decoding="async" width="800" height="500" aria-hidden="true">{% endif %}
-          <div class="card-overlay"{% if page.lang != 'en' %} lang="en"{% endif %}>
-            <span class="card-meta">{{ project.role_short | default: project.role }} · {{ project.year }}</span>
-            <h3 class="card-title">{{ project.title }}</h3>
-            <p class="card-desc">{{ project.description }}</p>
-          </div>
-        </a>
-        <p class="rail-caption" aria-hidden="true"><span class="rail-index">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span> {{ project.title }}</p>
-      </li>
+    <div class="rail-head">
+      <h2 class="h2" id="projects-title">{{ h.projects_title }}</h2>
+      <a href="{{ t.projects_url }}" class="link-arrow">{{ h.projects_all }}<span aria-hidden="true"> →</span></a>
+    </div>
+    <ul class="rail-track">
+      {%- for p in rail_projects limit: h.rail_limit %}
+      {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+      {% include project-card.html project=p lang=page.lang num=num %}
       {%- endfor %}
       <li class="rail-item rail-item--all">
-        <a href="/portfolio.html" class="rail-all"{% if page.lang != 'en' %} hreflang="en"{% endif %}><span>{{ h.projects_all }}</span><span class="rail-all-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="{{ t.projects_url }}" class="rail-all"><span>{{ h.projects_all }}</span><span class="arrow" aria-hidden="true">→</span></a>
       </li>
     </ul>
   </div>
 </section>
 
-{% include testimonials.html title=h.testimonials_title %}
-
-<!-- ============================================
-  PROCESS - 4 steps
-============================================= -->
-<section id="process" class="section" aria-labelledby="process-title">
-  <h2 class="section-title" id="process-title">{{ h.process_title }}</h2>
-  <!-- Numbered chapters. All text is fully readable by default; with JS (and motion
-       allowed) the chapter in the middle of the screen is lit, the others dimmed. -->
-  <ol class="process-steps">
-    {%- for step in h.process %}
-    <li class="process-step">
-      <span class="process-num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
-      <p>{{ step }}</p>
-    </li>
-    {%- endfor %}
-  </ol>
+<section class="home-contact" aria-labelledby="contact-title">
+  <h2 class="display" id="contact-title">{{ ct.title }}</h2>
+  <p class="lead">{{ ct.reply }}</p>
+  <p class="btn-row"><a href="{{ t.contact_url }}" class="btn">{{ h.contact_btn }}</a></p>
 </section>
-
-<!-- ============================================
-  ABOUT SECTION
-============================================= -->
-<section id="about" class="section reveal" aria-labelledby="about-title">
-  <h2 class="section-title" id="about-title">{{ h.about_title }}</h2>
-  
-  <div class="about-grid">
-    <div>
-      <img src="/assets/img/profile.webp" alt="{{ h.photo_alt }}" class="about-photo" width="160" height="160" loading="lazy">
-    </div>
-    <div class="about-text"{% if page.lang != 'en' %} lang="en"{% endif %}>
-      <!-- TODO: Ale reescribe el About a mano -->
-      <p>
-        <strong>Am I the right person for your project?</strong><br>
-        Let's find out.
-      </p>
-      <p>
-        I don't have a standard background, and honestly? That's my biggest asset.
-        My design process is shaped by a life of constant reinvention. I learned <strong>resilience</strong> in Cuba, 
-        <strong>business strategy</strong> in Chile where I co-founded 
-        <a class="about-link" href="https://somosarte.cl/" target="_blank" rel="noopener noreferrer"><em>Somos Arte</em></a> 
-        and built a community of 10,000+ people from scratch, and <strong>adaptability</strong> in France, 
-        where I moved for love and mastered a third language.
-      </p>
-      <p>
-        <strong>Why does this matter to you?</strong><br>
-        Because I don't look at a project and just see colors and typography. Thanks to my entrepreneurial roots, 
-        I see business goals, constraints, and user needs.
-      </p>
-      <p>
-        I also code prototypes, model in Blender and define brand identities.
-      </p>
-    </div>
-  </div>
-  <p class="about-more"><a href="{{ h.cv_url }}" class="submit-btn">{{ h.cv_link }}</a></p>
-</section>
-
-<!-- ============================================
-  CONTACT SECTION
-============================================= -->
-{%- assign ct = site.data.contact[page.lang] | default: site.data.contact.fr -%}
-<section id="contact" class="section reveal" aria-labelledby="contact-title">
-  <h2 class="section-title" id="contact-title">{{ ct.title }}</h2>
-  <p class="section-subtitle">{{ ct.reply }}
-    {%- if site.cal_url != "" %} {{ ct.cal_text }} <a href="{{ site.cal_url }}" class="about-link" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% endif %}
-  </p>
-
-  <div class="contact-grid">
-    <ul class="contact-info reveal">
-      <li><a href="mailto:ale.amaro.m@proton.me" class="email-link" data-u="ale.amaro.m" data-d="proton.me" aria-label="{{ ct.email_label }}, ale.amaro.m@proton.me">
-        <span aria-hidden="true">ale.amaro.m@proton.me</span>
-      </a></li>
-      <li><a href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      {%- if site.instagram_url != "" %}
-      <li><a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-      {%- endif %}
-    </ul>
-
-    <div class="contact-form-wrap reveal">
-      <form action="https://formspree.io/f/xqayldza" method="POST" class="contact-form" id="contact-form" aria-labelledby="contact-title"
-            data-sending="{{ ct.sending }}">
-        <p class="form-note">{{ ct.required_note }}</p>
-
-        <div class="form-group">
-          <label for="cf-name">{{ ct.name }}</label>
-          <input type="text" id="cf-name" name="name" required autocomplete="name" aria-describedby="cf-name-error"
-                 data-msg-empty="{{ ct.name_err }}">
-          <p class="form-error" id="cf-name-error" hidden></p>
-        </div>
-
-        <div class="form-group">
-          <label for="cf-email">{{ ct.email }}</label>
-          <input type="email" id="cf-email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" aria-describedby="cf-email-error"
-                 data-msg-empty="{{ ct.email_err }}" data-msg-format="{{ ct.email_err_format }}">
-          <p class="form-error" id="cf-email-error" hidden></p>
-        </div>
-
-        <div class="form-group">
-          <label for="cf-demande">{{ ct.demande }}</label>
-          <select id="cf-demande" name="demande" required aria-describedby="cf-demande-error" data-msg-empty="{{ ct.demande_err }}">
-            <option value="">{{ ct.demande_placeholder }}</option>
-            {%- for d in ct.demandes %}
-            <option value="{{ d.value }}">{{ d.label }}</option>
-            {%- endfor %}
-          </select>
-          <p class="form-error" id="cf-demande-error" hidden></p>
-        </div>
-
-        <div class="form-group">
-          <label for="cf-offre">{{ ct.offre }}</label>
-          <select id="cf-offre" name="offre">
-            <option value="ne-sais-pas">{{ ct.offre_unknown }}</option>
-            {%- for o in site.data.offers.list %}
-            {%- assign oc = o[page.lang] | default: o.fr %}
-            <option value="{{ o.id }}" data-demande="{% if o.block == 'agences' %}agence{% else %}projet{% endif %}">{{ oc.title | strip_html }}</option>
-            {%- endfor %}
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="cf-message">{{ ct.message }}</label>
-          <textarea id="cf-message" name="message" required aria-describedby="cf-message-error" data-msg-empty="{{ ct.message_err }}"></textarea>
-          <p class="form-error" id="cf-message-error" hidden></p>
-        </div>
-
-        <!-- Spam trap: hidden from everyone, bots fill it in and Formspree drops the message -->
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
-        <input type="hidden" name="_subject" value="{{ ct.subject }}">
-        <input type="hidden" name="langue" value="{{ page.lang }}">
-
-        <button type="submit" class="submit-btn btn-solid form-submit">{{ ct.submit }}</button>
-      </form>
-
-      <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"
-           data-success="{{ ct.success | escape }}" data-error="{{ ct.error | escape }}"></div>
-
-      <p class="form-privacy">{{ ct.privacy }}</p>
-    </div>
-  </div>
-</section>
-
-<script src="/assets/js/home-interaction.js"></script>
-<script src="/assets/js/hero-status.js"></script>
-<script src="/assets/js/rail.js"></script>
-<script src="/assets/js/home-motion.js"></script>
-<script src="/assets/js/contact-form.js"></script>

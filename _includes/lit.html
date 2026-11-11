@@ -1,0 +1,7 @@
+{%- comment -%}
+  Sentence whose words light up one by one while scrolling (site.js).
+  Plain text only. Without JS or with reduced motion: fully visible.
+  Params: include.text
+{%- endcomment -%}
+{%- assign ws = include.text | split: " " -%}
+<span class="w">{{ ws | join: '</span> <span class="w">' }}</span>

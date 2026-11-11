@@ -1,131 +1,53 @@
-# Home page copy for the new client-facing blocks (FR is the source text).
-# Existing blocks (H1 carousel, About, case studies) stay in English, untouched.
+# Home page copy (FR is the source text). Everything here is editable.
+# The process ("Comment ça se passe") now lives on /services/ (services_page.yml).
 
 fr:
-  # Longest H1 line in em (static + widest word + gap): the desktop font
-  # shrinks only when that line would not fit.
-  h1_fit: 14.2
-  # H1 carousel: data-key stays the same in both languages (home-interaction.js
-  # matches on keys), only the visible text changes. "|" splits a word into
-  # groups that never break inside (article + noun stay together on mobile).
+  # H1: fixed start + one interchangeable last word + end. The first word is the
+  # one in the HTML (no JS, search engines). Hover (mouse), click on the word or
+  # the "autre combinaison" button shows the next one.
   h1:
-    - id: carousel-transformo
-      static: Je conçois
-      words:
-        - {key: interfaces, label: des interfaces}
-        - {key: visuals, label: des visuels}
-        - {key: experiences, label: des expériences}
-        - {key: identities, label: des identités}
-    - id: carousel-en
-      static: pour
-      words:
-        - {key: enhance usability, label: "faciliter|l'usage"}
-        - {key: simplify journeys, label: simplifier|les parcours}
-        - {key: elevate brands, label: valoriser|les marques}
-        - {key: build trust, label: inspirer|confiance}
-    - id: carousel-para
-      static: guidé par
-      words:
-        - {key: curiosity, label: la curiosité}
-        - {key: creativity, label: la créativité}
-        - {key: storytelling, label: le récit}
-        - {key: empathy, label: "l'empathie"}
-  tagline: Designer produit et visuel
-  hero_label: Présentation
-  value: "Votre boutique en ligne, belle, à jour et qui vend. Designer web &amp; e&#8209;commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
+    before: Je conçois des boutiques en ligne
+    words: [claires, rassurantes, simples à utiliser]
+    after: "."
+    hint: Survolez ou cliquez le dernier mot.
+    other: Autre combinaison
+  value: "Designer web &amp; e&#8209;commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
   offers_btn: Voir les offres
-  offers_url: /services/
-  cv_btn: "Recruteurs&nbsp;: CV et parcours"
-  cv_url: /cv/
-  availability: 1 projet à la fois.
-  status_label: État
-  status_city: Strasbourg
-  status_time: Heure locale à Strasbourg
-  status_avail: 1 projet à la fois
-  copy_btn: Copier
-  copy_label: "Copier l'adresse email"
-  copied: Adresse copiée.
-  copy_fail: "Copie impossible. Sélectionnez l'adresse à la main."
-  ribbon_label: En bref
-  ribbon: [Revue UX, Refonte UX, Site vitrine, PrestaShop, WordPress, Strasbourg, Français, English, Español]
-  ribbon_pause: Mettre en pause
-  ribbon_play: Reprendre
+  about_btn: Parcours et compétences
+  # One scene: a sentence that lights up word by word while scrolling.
+  # [[BORRADOR]] Draft written from the offers: rewrite it.
+  scene_label: Le point de départ
+  scene: "Une boutique peut être belle et perdre ses ventes entre la fiche produit, le panier et la commande."
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
   vat: "TVA non applicable, art. 293 B du CGI."
-  testimonials_title: Ils m'ont fait confiance
   projects_title: Projets
   projects_all: Voir tous les projets
+  # How many projects the home rail shows (by home_order); the last card links to /projets/
+  rail_limit: 4
   case_label: "Voir l'étude de cas %s"
   cover_alt: "Couverture du projet %s"
-  photo_alt: "Photo d'Alejandro Amaro Mendoza"
-  about_title: À propos
-  cv_link: Parcours et compétences
-  process_title: Comment ça se passe
-  process:
-    - "Un premier échange gratuit de 20 minutes, en visio ou par écrit, selon votre préférence."
-    - "Devis et cahier des charges clairs&nbsp;: ce qui est inclus et ce qui ne l'est pas."
-    - Réalisation avec 2 tours de retours inclus.
-    - "Livraison et prise en main, puis suite possible selon vos besoins."
+  contact_btn: Écrire via le formulaire
 
 en:
-  h1_fit: 13.8
   h1:
-    - id: carousel-transformo
-      static: I design
-      words:
-        - {key: interfaces, label: interfaces}
-        - {key: visuals, label: visuals}
-        - {key: experiences, label: experiences}
-        - {key: identities, label: identities}
-    - id: carousel-en
-      static: made to
-      words:
-        - {key: enhance usability, label: enhance|usability}
-        - {key: simplify journeys, label: simplify|journeys}
-        - {key: elevate brands, label: elevate|brands}
-        - {key: build trust, label: build|trust}
-    - id: carousel-para
-      static: driven by
-      words:
-        - {key: curiosity, label: curiosity}
-        - {key: creativity, label: creativity}
-        - {key: storytelling, label: storytelling}
-        - {key: empathy, label: empathy}
-  tagline: Product &amp; Visual Designer
-  hero_label: Introduction
-  value: "Your online shop: beautiful, up to date, and selling. Web &amp; e&#8209;commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
+    before: I design online shops that are
+    words: [clear, reassuring, easy to use]
+    after: "."
+    hint: Hover over or click the last word.
+    other: Another combination
+  value: "Web &amp; e&#8209;commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
   offers_btn: See the offers
-  offers_url: /en/services/
-  cv_btn: "Recruiters: CV and background"
-  cv_url: /en/cv/
-  availability: 1 project at a time.
-  status_label: Status
-  status_city: Strasbourg
-  status_time: Local time in Strasbourg
-  status_avail: 1 project at a time
-  copy_btn: Copy
-  copy_label: Copy the email address
-  copied: Address copied.
-  copy_fail: "Could not copy. Select the address by hand."
-  ribbon_label: In short
-  ribbon: [UX review, UX redesign, Showcase website, PrestaShop, WordPress, Strasbourg, Français, English, Español]
-  ribbon_pause: Pause
-  ribbon_play: Play
+  about_btn: Background and skills
+  # [[BORRADOR]] Translation of the FR draft.
+  scene_label: The starting point
+  scene: "A shop can look beautiful and still lose sales between the product page, the cart and the checkout."
   what_title: What I do for you
   what_all: See all offers
   vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."
-  testimonials_title: What clients say
   projects_title: Selected Work
   projects_all: View all projects
+  rail_limit: 4
   case_label: "View %s case study"
   cover_alt: "%s project cover"
-  photo_alt: Photo of Alejandro Amaro Mendoza
-  about_title: About
-  cv_link: Background and skills
-  process_title: How it works
-  process:
-    - "A free 20-minute first conversation, by video call or in writing, as you prefer."
-    - "A clear quote and specification: what is included and what is not."
-    - "The work itself, with 2 rounds of feedback included."
-    - "Delivery and handover, then further work if you need it."
+  contact_btn: Write through the form

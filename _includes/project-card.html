@@ -1,0 +1,31 @@
+{%- comment -%}
+  One project in the home rail. Params: include.project, include.lang, include.num
+  locked: true → padlock card, no image, links to Contact with a prefilled subject.
+  Image: rail_image, then thumb_image, then cover_image (front matter).
+{%- endcomment -%}
+{%- assign p = include.project -%}
+{%- assign h = site.data.home[include.lang] | default: site.data.home.fr -%}
+{%- assign t = site.data.i18n[include.lang] | default: site.data.i18n.fr -%}
+<li class="rail-item">
+  {%- if p.locked %}
+  <a class="rail-card is-locked" href="{{ t.contact_url }}?projet={{ p.title | url_encode }}">
+    <span class="lock-media">{% include lock-icon.html %}</span>
+    <span class="rail-cap">
+      <span class="rail-num" aria-hidden="true">{{ include.num }}</span>
+      <span class="rail-title">{{ p.title }}</span>
+      <span class="rail-meta">{{ p.category | default: p.role_short }}</span>
+      <span class="rail-go lock-label">{% include lock-icon.html %}{{ t.locked_label }}</span>
+    </span>
+  </a>
+  {%- else %}
+  <a class="rail-card" href="{{ p.url }}"{% if include.lang != 'en' %} hreflang="en"{% endif %}>
+    <span class="rail-media"><img src="{{ p.rail_image | default: p.thumb_image | default: p.cover_image }}" alt="{{ h.cover_alt | replace: '%s', p.title }}" width="800" height="500" loading="lazy" decoding="async"></span>
+    <span class="rail-cap">
+      <span class="rail-num" aria-hidden="true">{{ include.num }}</span>
+      <span class="rail-title">{{ p.title }}</span>
+      <span class="rail-meta"{% if include.lang != 'en' %} lang="en"{% endif %}>{{ p.role_short | default: p.role }}{% if p.year %} · {{ p.year }}{% endif %}</span>
+      <span class="rail-go" aria-hidden="true">→</span>
+    </span>
+  </a>
+  {%- endif %}
+</li>
