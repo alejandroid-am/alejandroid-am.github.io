@@ -5,6 +5,147 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# Tanda antes de publicar + SEO, 11/11/2026
+
+## Commits (uno por punto)
+
+Antes de publicar:
+- `37c9cc4` BEDiZEN: guía en PDF, páginas de logo, construcción y espaciado, tipografía viva, franjas de color y frase nueva.
+- `7d935d9` Menciones de IA: À propos (FR/EN) y mentions légales.
+- `2c2437f` CV: PDFs antiguos borrados; `cv_pdf_fr` / `cv_pdf_en`.
+- `b6f3582` Dirección en las mentions légales (temporal).
+- `2825c9c` Formulario: `form_enabled` (false).
+- `d557968` Contact sin formulario: la nota de privacidad va debajo del email.
+
+SEO:
+- `d36d42c` robots.txt.
+- `b535191` Mentions légales fuera del sitemap, con noindex.
+- `ae698b5` `<head>`: títulos, descripciones, Open Graph, imagen OG, JSON-LD.
+- `cfcb603` Frase factual en la home y en À propos; FAQ en Services.
+- `67a0aeb` 404.
+
+## 1. BEDiZEN
+
+- **Carrusel quitado.**
+- **Guía en PDF:** el original no estaba en el repo, así que lo he generado yo: `assets/docs/bedizen-charte-graphique.pdf`.
+  - 34 páginas en orden, 3,8 MB, sacado de `page1.webp` a `page34.webp` con Pillow.
+  - Son 34 y no 32: el carrusel antiguo se saltaba las dos últimas.
+  - **Sustitúyelo por tu PDF original** (mismo nombre, o cambia `brand_pdf` en el front matter). Si el peso cambia, ajusta el texto del botón ("3.8 MB").
+- **Páginas mostradas:**
+  - 11: el logo en tres partes, Beyond / Digital / Zenith;
+  - 15: construcción del logotipo;
+  - 14: espacio protegido.
+  - Pies escritos por mí, en una línea y resumiendo cada página: confírmalos.
+  - El bloque de logos con placeholders ya no se muestra (el front matter `logos` sigue ahí).
+- **Tipografía viva en Poppins**, con la jerarquía de la página 22:
+  - Title (Bold): "Beyond Digital Zenith";
+  - Subtitle (SemiBold): el título del vídeo en francés;
+  - Text (Medium): la primera frase del caso.
+  - Ningún texto es nuevo.
+- **Colores en franjas** con nombre y hex de la página 25. El uso (Primaire / Accentuation) sale de la página 26.
+- **Frase de cierre (MÁRCALA):**
+  - Antes: "On this project I really was full stack, even if it was only once."
+  - Ahora: "It was a school project, done with the school's methodology. For version 2 I used Tailwind, with AI help in VS Code. The plugins, the WordPress back office and the theme over FTP I did by hand, with AI where it could step in."
+  - No repite que la v1 fue en HTML y CSS ni lo de los tests de usuario, porque el caso ya lo dice justo antes.
+- **Verificado:** 1440, 390 y 320 px sin desbordes; sin JS se ve completo; los únicos errores son los de Vimeo, que ya existían.
+
+## 2. Menciones de IA
+
+- À propos: tu párrafo, debajo de la historia (FR en /a-propos/, EN en /en/about/).
+- Mentions légales: la frase FR, en "Propriété intellectuelle".
+- No hay versión EN de las mentions légales, así que la frase EN no se usa.
+
+## 3. CV
+
+- `git rm` de los dos PDFs. No había ningún enlace a ellos.
+- **Ojo:** siguen en el historial de git (con teléfono y dirección). Borrarlos del historial obliga a reescribirlo y hacer force push; no lo he hecho. Dime si lo quieres.
+- Botón "Télécharger mon CV" / "Download my CV" en À propos (columna de idiomas), solo si `cv_pdf_fr` / `cv_pdf_en` tienen ruta.
+- Ejemplo: `cv_pdf_fr: "/assets/docs/cv-alejandro-amaro-fr.pdf"`.
+
+## 4. Dirección y email
+
+- `address` en `_config.yml`, con un comentario que dice que es temporal hasta cambiar el domicilio.
+- Solo se muestra en `/mentions-legales.html`, en texto normal.
+- Comprobado en _site: la calle y "67100" solo aparecen en esa página. No hay teléfono.
+- **Decisión mía:** las mentions légales tienen ahora `noindex, follow` y salen del sitemap, para que la dirección no aparezca en buscadores. El pie de todas las páginas sigue enlazándolas. Si prefieres que se indexen, borra `robots` y `sitemap` de su front matter.
+- **Email:** el único que aparece es ale.amaro.m@proton.me (32 apariciones). Los otros dos son ejemplos de formato del formulario (nom@domaine.fr / name@domain.com) y el copyright de una fuente. Sin diferencias.
+
+## 5. Formulario
+
+- `form_enabled: false` en `_config.yml`. Con false:
+  - Contact muestra el email grande con "Copier" y un botón mailto.
+  - Un proyecto bloqueado (`?projet=`) rellena el asunto del mailto.
+  - Los textos "Écrire via le formulaire" pasan a "Me contacter" (pie, home, Services).
+  - En las mentions légales desaparecen el párrafo de Formspree y la línea "Formulaire".
+  - No sale ni una mención a Formspree en el HTML generado.
+- Con true, todo vuelve como antes.
+- **No he enviado nada al endpoint.** El identificador `xqayldza` (en `_includes/contact.html`) puede no ser tuyo. No lo reutilices sin comprobar en tu cuenta de Formspree que te pertenece.
+
+## SEO y visibilidad
+
+1. **robots.txt:**
+   - Todo permitido: `*` y, explícitamente, Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot y GPTBot.
+   - Antes bloqueaba /tools/ (venía de la primera versión del sitio); ya no.
+   - Incluye el comentario para bloquear solo los bots de entrenamiento (GPTBot, ClaudeBot, CCBot, Google-Extended).
+   - El sitemap se declara con `site.url` (https://www.alejandro-is.me/sitemap.xml): el dominio real lleva www (CNAME), no https://alejandro-is.me como decía el brief.
+2. **Sitemap** (jekyll-sitemap):
+   - Fuera: 404, redirecciones, /tools/ y mentions légales.
+   - Proyectos bloqueados: no hay ninguno ahora. El layout les pone noindex solo; la plantilla ya recuerda añadir `sitemap: false` (el plugin no puede filtrarlos solo).
+   - El PDF de BEDiZEN entra en el sitemap (normal).
+   - hreflang FR/EN + x-default hacia FR en todas las páginas bilingües (ya existía, comprobado).
+3. **`<head>`:**
+   - Títulos de 60 caracteres o menos; las dos homes tienen `seo_title` propio.
+   - Descripciones de 155 o menos: he acortado Services y À propos. Todas son únicas.
+   - Canonical, lang, Open Graph y Twitter card.
+   - **La imagen OG por defecto no existía** (`og-default.webp` daba 404). Nueva: `assets/img/og-default.png`, 1200x630, genérica: "alejandro-is.me / Design web & e-commerce / Strasbourg · PrestaShop · WordPress · FR / EN / ES".
+   - Los casos usan su portada.
+   - jekyll-seo-tag sigue en el Gemfile, pero el layout escribe sus propias etiquetas (así ya estaba); no lo he activado para no duplicar.
+4. **JSON-LD:** un solo script por página, todos validados con `json.loads`.
+   - WebSite + Person: nombre, puesto, url, email y LinkedIn en `sameAs`; Instagram entra solo si rellenas `instagram_url`.
+   - ProfessionalService en home y Services: areaServed Strasbourg, Alsace y France; ofertas con su precio leído de `_data/offers.yml` (home: las 3 de la home; Services: todas).
+   - CreativeWork en los casos.
+   - BreadcrumbList en las páginas internas.
+   - Sin dirección ni teléfono: he quitado también el `addressLocality` que llevaba Person.
+5. **Texto claro:**
+   - Home: la frase bajo el H1 es ahora "Alejandro Amaro Mendoza, designer web & e-commerce à Strasbourg. Je travaille pour les petites boutiques en ligne et les PME, sur PrestaShop et WordPress. En français, in English, en español." (y su EN).
+   - À propos, bajo el H1: "Je suis Alejandro Amaro Mendoza, designer web et e-commerce à Strasbourg. Je conçois des boutiques en ligne, des sites et des identités visuelles pour les petites boutiques en ligne et les PME." (y su EN). **Revísalas.**
+   - Services: FAQ visible con 5 preguntas: precio (la lista se genera desde las ofertas), qué incluye, cómo funciona, plazo de respuesta e idiomas. Sin schema FAQPage.
+   - **Falta:** una respuesta sobre el plazo de realización. No existe en la web y no la he inventado (`[[A CONFIRMAR]]` en `services_page.yml`, no visible).
+6. **HTML semántico:**
+   - Un h1 por página, sin saltos de nivel, con header, nav, main y footer en todas.
+   - Todas las imágenes tienen alt, y los enlaces que son solo imagen llevan alt descriptivo.
+   - La 404 no tenía h1: ahora sí.
+7. **404:** h1 real ("404, page not found"), enlaces a Services, Projects, About, Contact y a las dos homes, y noindex. Revisado: ninguna página importante tiene noindex; lo tienen la 404, las redirecciones y las mentions légales.
+8. **llms.txt:** ya existía y no lo he tocado. Ojo: tiene guiones largos y alguna descripción antigua.
+9. **Verificación:**
+   - Build limpio.
+   - Rastreo: 23 páginas y 222 URLs, sin 404 salvo los 2 falsos positivos de audita11y.
+   - Greps en _site: `[[A ` 0, "+33" 0, "Lucky" 0, calle solo en mentions légales.
+   - robots.txt y sitemap.xml existen.
+   - 390 y 1440 px sin desbordes ni errores en las páginas tocadas (con y sin JS).
+
+## Ver el sitio desde el móvil
+
+- El contenedor `portfolio-jekyll` escucha ahora en toda la red local (puerto 4000 abierto en 0.0.0.0).
+- Con el móvil en la misma wifi, abre **http://192.168.1.37:4000/**.
+- Si no carga, la IP del ordenador puede haber cambiado (`hostname -I`) o el cortafuegos bloquea el puerto (`sudo ufw allow 4000/tcp`).
+- En local los enlaces canonical apuntan a 0.0.0.0. Es normal: en producción usan www.alejandro-is.me.
+
+## Checklist para ti (a mano)
+
+- [ ] **Google Search Console:**
+  - añadir la propiedad de dominio alejandro-is.me (verificación DNS);
+  - enviar `https://www.alejandro-is.me/sitemap.xml`;
+  - inspeccionar la home FR y EN.
+- [ ] **Bing Webmaster Tools:** importar desde Search Console. Bing alimenta también a ChatGPT Search y Copilot.
+- [ ] **Perfiles con el mismo nombre exacto**, "Alejandro Amaro Mendoza", y el mismo puesto: LinkedIn, Malt si vuelves, Behance/Dribbble si los usas, Google Business Profile solo si quieres aparecer en Maps (pide dirección; puedes ocultarla y marcar zona de servicio). Añade la URL del sitio en todos.
+- [ ] **Si creas Instagram**, rellena `instagram_url`: entra en `sameAs` y en Contact.
+- [ ] **Backlinks reales:** la ficha de la CCI Campus Alsace / promoción, la Global Game Jam (página del juego en globalgamejam.org con enlace), Le Shadok, Somos Arte, el sitio de BEDiZEN apuntando a tu portfolio, y la ficha de WorkPics en Google Play (web del diseñador).
+- [ ] **Sustituir el PDF de BEDiZEN** por el original.
+- [ ] **Decidir:** si los PDFs del CV se borran también del historial de git.
+- [ ] **Decidir:** si las mentions légales se indexan.
+- [ ] **Decidir:** la respuesta FAQ sobre plazos.
+
 # Tanda final de casos: limpieza de escritura + maquetación C, 11/11/2026
 
 ## Una línea por caso y paso
