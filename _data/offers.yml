@@ -21,7 +21,6 @@ ui:
     request: Demander cette offre
     featured: Point de départ conseillé
     see_offer: Voir l'offre
-    case_link: Voir le cas In-House Tools
     example: Exemple
     contact: /contact/
     services: /services/
@@ -34,7 +33,6 @@ ui:
     request: Request this offer
     featured: Recommended starting point
     see_offer: See the offer
-    case_link: See the In-House Tools case study
     example: Example
     contact: /en/contact/
     services: /en/services/
@@ -101,7 +99,6 @@ list:
   - id: outil
     validated: false  # true shows "Pour qui" and "Non inclus" (drafts)
     block: projet
-    case_url: /projects/in-house-tools/
     fr:
       title: Outil web sur mesure
       short: Une page-outil qui résout un problème précis.
