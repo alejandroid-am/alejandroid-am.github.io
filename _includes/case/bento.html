@@ -1,0 +1,21 @@
+{%- comment -%}
+  Bento gallery: a grid with small gaps and varied spans, a caption under each
+  piece. Items from the front matter:
+    gallery:
+      - { src: /assets/img/p/a.webp, alt: "...", w: 4000, h: 3000, caption: "...", cols: 4, rows: 3 }
+  cols: 1 to 6 (out of 6), rows: number of row units (default 2 x 3).
+  On phones: one column, images uncropped.
+  {% include case/bento.html items=page.gallery %}
+{%- endcomment -%}
+{%- if include.items %}
+<ul class="case-bento">
+  {%- for i in include.items %}
+  <li style="--c: {{ i.cols | default: 2 }}; --r: {{ i.rows | default: 3 }}">
+    <figure>
+      {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 100vw, 900px" %}{% if page.case_layout %}</a>{% endif %}
+      {%- if i.caption %}<figcaption>{{ i.caption }}</figcaption>{% endif %}
+    </figure>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endif %}

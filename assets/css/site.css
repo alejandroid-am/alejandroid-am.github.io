@@ -519,6 +519,15 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .c-poster img { width: 100%; height: auto; }
 .c-body > .c-cta { margin: 0 0 clamp(56px, 8vw, 100px); }
 .c-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+/* Bento gallery (case/bento.html) */
+.case-bento { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(80px, 13vw, 200px); grid-auto-flow: dense; gap: 8px; }
+.c-body > .case-bento { margin: 0 0 clamp(56px, 8vw, 100px); }
+.case-bento > li { grid-column: span var(--c, 2); grid-row: span var(--r, 3); min-width: 0; }
+.case-bento figure { height: 100%; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.case-bento .zoom-trigger { flex: 1; min-height: 0; overflow: hidden; }
+.case-bento img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.case-bento figcaption { font-size: 14px; color: var(--mute); }
+@media (max-width: 767px) { .case-bento { grid-template-columns: 1fr; grid-auto-rows: auto; } .case-bento > li { grid-column: auto; grid-row: auto; } .case-bento img { height: auto; } }
 .c-refs { list-style: none; padding: 0; display: grid; gap: 16px; max-width: 75ch; }
 .c-body > .c-refs { margin: 0 0 clamp(56px, 8vw, 100px); }
 .c-refs li { padding-left: 18px; border-left: 3px solid var(--ink); }

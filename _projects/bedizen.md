@@ -43,6 +43,14 @@ type_scale:
   - { role: title, key: ts_title, weight: 700, label: "Poppins Bold" }
   - { role: subtitle, key: ts_subtitle, weight: 600, label: "Poppins SemiBold" }
   - { role: text, key: ts_text, weight: 500, label: "Poppins Medium" }
+# Mockups, in one bento gallery (6-column grid: cols / rows per piece).
+gallery:
+  - { src: /assets/img/BEDiZEN/bedizen_mockup_2.webp, alt: "BEDiZEN logo on a modern building facade at night", w: 4000, h: 3000, caption: "Exterior branding, building facade", cols: 4, rows: 3 }
+  - { src: /assets/img/BEDiZEN/mockup-cap-bedizen-4.webp, alt: "BEDiZEN logo embroidered on a black cap", w: 4004, h: 5334, caption: "Branded merchandise, cap", cols: 2, rows: 3 }
+  - { src: /assets/img/BEDiZEN/bedizen_mockup_3.webp, alt: "BEDiZEN mobile interface showing AR product viewer", w: 3284, h: 4166, caption: "Mobile AR interface", cols: 2, rows: 3 }
+  - { src: /assets/img/BEDiZEN/bedizen_mockup_1.webp, alt: "BEDiZEN branding on a Meta Quest VR headset", w: 5334, h: 4004, caption: "VR headset branding", cols: 4, rows: 3 }
+  - { src: /assets/img/BEDiZEN/flyer.jpg, alt: "BEDiZEN promotional flyer design featuring brand colors and AR imagery", w: 1500, h: 1125, caption: "Promotional flyer for events", cols: 4, rows: 3 }
+  - { src: /assets/img/BEDiZEN/carte-visite-mockup.jpg, alt: "BEDiZEN business cards showing front and back design", w: 1000, h: 1250, caption: "Business card design", cols: 2, rows: 3 }
 brand_pdf: /assets/docs/bedizen-charte-graphique.pdf
 logos:
   - { src: /assets/img/BEDiZEN/bedizen_black.svg, alt: "BEDiZEN logo, black version on light", bg: light, caption: "Logo" }
@@ -78,9 +86,11 @@ logos:
 
 <p class="c-cta"><a class="btn" href="{{ page.brand_pdf }}" download>Download the brand guidelines (PDF, 34 pages, 3.8 MB)</a></p>
 
-{% include case/pair.html a="/assets/img/BEDiZEN/flyer.jpg" a_alt="BEDiZEN promotional flyer design featuring brand colors and AR imagery" a_w=1500 a_h=1125 a_caption="Promotional flyer for events" b="/assets/img/BEDiZEN/carte-visite-mockup.jpg" b_alt="BEDiZEN business cards showing front and back design" b_w=1000 b_h=1250 b_caption="Business card design" %}
+<h2>Project Gallery</h2>
 
-{% include case/figure.html src="/assets/img/BEDiZEN/bedizen_mockup_2.webp" w=4000 h=3000 alt="BEDiZEN logo on a modern building facade at night" caption="Exterior branding, building facade" %}
+<p>Mockups of the BEDiZEN brand in use.</p>
+
+{% include case/bento.html items=page.gallery %}
 
 {% capture long %}
 <h3>Version 1: coded by hand</h3>
@@ -124,9 +134,5 @@ logos:
 <h3>Brand Guidelines</h3>
 <p>The full brand guidelines I wrote for BEDiZEN: <a href="{{ page.brand_pdf }}" download>PDF, 34 pages</a>.</p>
 
-<h3>Project Gallery</h3>
-<p>Mockups of the BEDiZEN brand in use.</p>
-{% include case/pair.html a="/assets/img/BEDiZEN/mockup-cap-bedizen-4.webp" a_alt="BEDiZEN logo embroidered on a black cap" a_w=4004 a_h=5334 a_caption="Branded merchandise, cap" b="/assets/img/BEDiZEN/bedizen_mockup_3.webp" b_alt="BEDiZEN mobile interface showing AR product viewer" b_w=3284 b_h=4166 b_caption="Mobile AR interface" %}
-{% include case/figure.html src="/assets/img/BEDiZEN/bedizen_mockup_1.webp" w=5334 h=4004 alt="BEDiZEN branding on a Meta Quest VR headset" caption="VR headset branding" %}
 {% endcapture %}
 {% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}
