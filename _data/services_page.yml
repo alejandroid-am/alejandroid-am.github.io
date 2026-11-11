@@ -20,6 +20,21 @@ fr:
     - "Devis et cahier des charges clairs&nbsp;: ce qui est inclus et ce qui ne l'est pas."
     - Réalisation avec 2 tours de retours inclus.
     - "Livraison et prise en main, puis suite possible selon vos besoins."
+  # Visible FAQ (no FAQPage schema). Answers only reuse what the site already
+  # says. The price answer lists the offers from offers.yml automatically.
+  # [[A CONFIRMAR]] No answer about project duration yet: add one when decided.
+  faq_title: Questions fréquentes
+  faq_price_q: "Combien coûte un projet&nbsp;?"
+  faq_price_a: "Le prix est annoncé avant de commencer."
+  faq:
+    - q: "Qu'est-ce qui est inclus&nbsp;?"
+      a: "Chaque offre ci-dessus liste ce qui est inclus. Le devis et le cahier des charges disent clairement ce qui est inclus et ce qui ne l'est pas. 2 tours de retours sont inclus."
+    - q: "Comment ça se passe&nbsp;?"
+      a: "Un premier échange gratuit de 20 minutes, en visio ou par écrit. Puis un devis et un cahier des charges clairs, la réalisation avec 2 tours de retours inclus, la livraison et la prise en main. Le détail est dans <a href=\"#process\">Comment ça se passe</a>."
+    - q: "Sous quel délai répondez-vous&nbsp;?"
+      a: "Sous 48&nbsp;h ouvrées."
+    - q: "Dans quelles langues travaillez-vous&nbsp;?"
+      a: "En français, in English, en español."
 en:
   title: Offers and prices
   lead: "Price agreed before work starts. 2 rounds of feedback included. Reply within 48 working hours."
@@ -39,3 +54,15 @@ en:
     - "A clear quote and specification: what is included and what is not."
     - "The work itself, with 2 rounds of feedback included."
     - "Delivery and handover, then further work if you need it."
+  faq_title: Frequently asked questions
+  faq_price_q: How much does a project cost?
+  faq_price_a: "The price is agreed before work starts."
+  faq:
+    - q: What is included?
+      a: "Each offer above lists what is included. The quote and the specification say clearly what is included and what is not. 2 rounds of feedback are included."
+    - q: How does it work?
+      a: "A free 20-minute first conversation, by video call or in writing. Then a clear quote and specification, the work itself with 2 rounds of feedback included, delivery and handover. The details are in <a href=\"#process\">How it works</a>."
+    - q: How fast do you reply?
+      a: "Within 48 working hours."
+    - q: Which languages do you work in?
+      a: "En français, in English, en español."

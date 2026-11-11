@@ -59,6 +59,30 @@
   </ol>
 </section>
 
+<!-- Visible FAQ, built from what the page already says (no FAQPage schema) -->
+<section class="section faq" aria-labelledby="faq-title">
+  <h2 class="h2" id="faq-title">{{ sp.faq_title }}</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>{{ sp.faq_price_q }}</h3>
+      <p>{{ sp.faq_price_a }}</p>
+      <ul>
+        {%- for o in site.data.offers.list %}
+        {%- assign oc = o[lang] | default: o.fr %}
+        <li>{{ oc.title | strip_html }}&nbsp;: {{ oc.price }}</li>
+        {%- endfor %}
+      </ul>
+      <p>{{ sp.vat }}</p>
+    </div>
+    {%- for f in sp.faq %}
+    <div class="faq-item">
+      <h3>{{ f.q }}</h3>
+      <p>{{ f.a }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
 <section class="svc-end" aria-labelledby="services-end-title">
   <h2 class="h2" id="services-end-title">{{ sp.end_title }}</h2>
   <p class="lead">{{ sp.end_text }}</p>

@@ -2,6 +2,9 @@
 {%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
 <header class="page-head">
   <h1 class="display" data-scramble>{{ a.title }}</h1>
+  {%- if a.intro %}
+  <p class="lead" style="margin-top:20px">{{ a.intro }}</p>
+  {%- endif %}
 </header>
 
 <section class="about-top" aria-label="{{ a.title }}">

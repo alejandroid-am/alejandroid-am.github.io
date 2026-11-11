@@ -11,7 +11,8 @@ fr:
     after: "."
     hint: Survolez ou cliquez le dernier mot.
     other: Autre combinaison
-  value: "Designer web &amp; e&#8209;commerce à Strasbourg, sur PrestaShop et WordPress. En français, in English, en español."
+  # Factual sentence (who, what, where, for whom), visible for visitors and search engines.
+  value: "Alejandro Amaro Mendoza, designer web &amp; e&#8209;commerce à Strasbourg. Je travaille pour les petites boutiques en ligne et les PME, sur PrestaShop et WordPress. En français, in English, en español."
   offers_btn: Voir les offres
   about_btn: Parcours et compétences
   # One scene: a sentence that lights up word by word while scrolling.
@@ -37,7 +38,7 @@ en:
     after: "."
     hint: Hover over or click the last word.
     other: Another combination
-  value: "Web &amp; e&#8209;commerce designer in Strasbourg, working with PrestaShop and WordPress. En français, in English, en español."
+  value: "Alejandro Amaro Mendoza, web &amp; e&#8209;commerce designer in Strasbourg. I work for small online shops and SMEs, with PrestaShop and WordPress. En français, in English, en español."
   offers_btn: See the offers
   about_btn: Background and skills
   # [[BORRADOR]] Translation of the FR draft.
