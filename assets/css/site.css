@@ -37,7 +37,13 @@
   --y: #FFEE00;
   --on-y: #151514;
   --font: 'Bricolage Grotesque', 'Bricolage Fallback', system-ui, sans-serif;
-  --pad: max(20px, calc((100vw - 1280px) / 2));
+  /* ONE container system for the whole site: content at most --maxw wide
+     (gutters included), centred, with a fluid gutter. Every section, the header,
+     the footer and the case pages use padding-inline: var(--pad); nothing else
+     sets its own max-width + auto margins on top of it. */
+  --maxw: 1440px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --pad: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
   --header-h: 64px;
   --ease: cubic-bezier(.16, 1, .3, 1);
 }
@@ -463,7 +469,7 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 
 /* Layout C "Gallery with captions" (front matter case_layout: c) */
 .case-c { overflow-x: clip; padding-bottom: 0; }
-.case-c-wrap { max-width: 1240px; margin: 0 auto; padding-inline: var(--pad); }
+.case-c-wrap { padding-inline: var(--pad); }  /* no max-width here: --pad already centres (the old max-width + margin doubled the margin) */
 .case-crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 28px 0 0; margin: 0; font-size: 14px; color: var(--mute); }
 .case-crumbs li + li::before { content: "/"; margin-right: 6px; }
 .case-crumbs a { color: var(--ink); }
@@ -474,7 +480,9 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 .c-meta dt { font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--mute); margin-bottom: 4px; }
 .c-meta dd { margin: 0; }
 .c-hero { margin-top: clamp(32px, 5vw, 56px); background: var(--bg-2); }
-.c-hero img { width: 100%; height: auto; max-height: 86vh; object-fit: cover; display: block; }
+/* The hero may be wider than the container (up to 1920 px) and is never cropped:
+   the whole image shows, centred, at most 86vh tall. */
+.c-hero img { display: block; width: auto; max-width: min(100%, 1920px); height: auto; max-height: 86vh; margin: 0 auto; }
 .c-hero.is-art { padding: clamp(48px, 9vw, 120px) var(--pad); }
 .c-hero.is-art img { width: min(100%, var(--art-w), 720px); max-height: none; margin: 0 auto; object-fit: contain; }
 /* Document carousel (zoom.js) on layout C */
