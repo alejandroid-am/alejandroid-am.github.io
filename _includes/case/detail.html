@@ -1,0 +1,9 @@
+{%- comment -%}
+  Long text folded by default ("Le détail").
+  {% capture long %}<p>...</p><p>...</p>{% endcapture %}
+  {% include case/detail.html summary="The detail" content=long %}
+{%- endcomment -%}
+<details class="case-detail">
+  <summary>{{ include.summary | default: "The detail" }}</summary>
+  <div class="case-detail-body">{{ include.content }}</div>
+</details>

@@ -1,0 +1,16 @@
+{%- comment -%}
+  Colour palette from the front matter:
+    palette:
+      - { name: Violet nuit, hex: "#2B1B5A", use: Fond principal }
+  {% include case/palette.html colors=page.palette %}
+{%- endcomment -%}
+{%- if include.colors %}
+<ul class="case-palette">
+  {%- for c in include.colors %}
+  <li class="case-swatch">
+    <div class="case-swatch-color" style="background: {{ c.hex }}" aria-hidden="true"></div>
+    <p><strong>{{ c.name }}</strong><code>{{ c.hex }}</code>{% if c.use %}<span>{{ c.use }}</span>{% endif %}</p>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endif %}

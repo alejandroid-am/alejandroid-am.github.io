@@ -1,0 +1,15 @@
+{%- comment -%}
+  Logo and its variants, from the front matter:
+    logos:
+      - { src: /assets/img/p/logo.svg, alt: "Logo, main version", bg: light }
+      - { src: /assets/img/p/logo-white.svg, alt: "Logo on dark", bg: dark }
+  bg: light (default), dark or accent.
+  {% include case/logo.html items=page.logos %}
+{%- endcomment -%}
+{%- if include.items %}
+<ul class="case-logos">
+  {%- for l in include.items %}
+  <li class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% endif %}"><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}" loading="lazy" decoding="async"></li>
+  {%- endfor %}
+</ul>
+{%- endif %}

@@ -1,0 +1,9 @@
+{%- comment -%}
+  Two images side by side (stacked on phones).
+  {% include case/pair.html a="/assets/img/p/a.webp" a_alt="..." a_w=1200 a_h=900
+     b="/assets/img/p/b.webp" b_alt="..." b_w=1200 b_h=900 a_caption="" b_caption="" %}
+{%- endcomment -%}
+<div class="case-pair">
+  {% include case/figure.html src=include.a alt=include.a_alt w=include.a_w h=include.a_h caption=include.a_caption sizes="(max-width: 767px) 100vw, 600px" %}
+  {% include case/figure.html src=include.b alt=include.b_alt w=include.b_w h=include.b_h caption=include.b_caption sizes="(max-width: 767px) 100vw, 600px" %}
+</div>

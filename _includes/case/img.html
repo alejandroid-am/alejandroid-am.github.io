@@ -1,0 +1,18 @@
+{%- comment -%}
+  <img> with automatic srcset. Internal: used by figure, hero, pair.
+  Convention: if "<name>-960w.webp" exists next to "<name>.webp", it is
+  added to srcset (phones download the light one). Spaces are encoded.
+  Params: src, alt, w, h (original size, from tools/optimize-images.sh),
+          priority (true for the first image of the page), sizes, class
+{%- endcomment -%}
+{%- assign _ext = include.src | split: "." | last -%}
+{%- assign _dot = "." | append: _ext -%}
+{%- assign _stem = include.src | replace: _dot, "" -%}
+{%- capture _v %}{{ _stem }}-960w.webp{% endcapture -%}
+{%- assign _found = site.static_files | where: "path", _v | first -%}
+{%- assign _sizes = include.sizes | default: "(max-width: 767px) 100vw, 1200px" -%}
+<img src="{{ include.src | uri_escape }}" alt="{{ include.alt }}"
+  {%- if include.w %} width="{{ include.w }}" height="{{ include.h }}"{% endif %}
+  {%- if _found and include.w %} srcset="{{ _v | uri_escape }} 960w, {{ include.src | uri_escape }} {{ include.w }}w" sizes="{{ _sizes }}"{% endif %}
+  {%- if include.class %} class="{{ include.class }}"{% endif %}
+  {%- if include.priority %} fetchpriority="high" decoding="async"{% else %} loading="lazy" decoding="async"{% endif %}>

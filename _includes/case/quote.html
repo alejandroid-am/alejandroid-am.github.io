@@ -1,0 +1,10 @@
+{%- comment -%}
+  A short real quote (user test, client, jury). Never invented.
+  {% include case/quote.html text="..." by="Name, role" %}
+{%- endcomment -%}
+<blockquote class="case-quote">
+  <p>{{ include.text }}</p>
+  {%- if include.by %}
+  <footer>{{ include.by }}</footer>
+  {%- endif %}
+</blockquote>

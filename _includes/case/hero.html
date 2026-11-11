@@ -1,0 +1,6 @@
+{%- comment -%}
+  Opening image of a case, full width, loaded first (good LCP).
+  {% include case/hero.html src="/assets/img/p/hero.webp" w=2400 h=1350 alt="..." %}
+  Tip: also set preload_image (and preload_srcset / preload_sizes) in the front matter.
+{%- endcomment -%}
+{% include case/figure.html src=include.src alt=include.alt w=include.w h=include.h caption=include.caption bleed=true priority=true sizes="100vw" %}

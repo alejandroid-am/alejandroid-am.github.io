@@ -1,0 +1,12 @@
+{%- comment -%}
+  One image with an optional caption.
+  {% include case/figure.html src="/assets/img/p/home.webp" w=2400 h=1500 alt="..." caption="..." %}
+  Options: bleed=true (full width of the screen), priority=true (first image),
+  sizes="..." (override). Caption: 1 or 2 short sentences.
+{%- endcomment -%}
+<figure class="case-fig{% if include.bleed %} is-bleed{% endif %}">
+  {% include case/img.html src=include.src alt=include.alt w=include.w h=include.h priority=include.priority sizes=include.sizes %}
+  {%- if include.caption and include.caption != "" %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

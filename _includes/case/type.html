@@ -1,0 +1,10 @@
+{%- comment -%}
+  Type specimen.
+  {% include case/type.html family="Poppins" sample="Aa Bb 0123" weights="400, 600, 700" note="Titles and UI" %}
+  The font must be available on the page (self-hosted @font-face), otherwise
+  the sample shows in the fallback font.
+{%- endcomment -%}
+<figure class="case-type">
+  <p class="case-type-sample" style="font-family: '{{ include.family }}', system-ui, sans-serif">{{ include.sample | default: "Aa Bb Cc 0123" }}</p>
+  <figcaption class="case-type-meta"><strong>{{ include.family }}</strong>{% if include.weights %}<span>{{ include.weights }}</span>{% endif %}{% if include.note %}<span>{{ include.note }}</span>{% endif %}</figcaption>
+</figure>

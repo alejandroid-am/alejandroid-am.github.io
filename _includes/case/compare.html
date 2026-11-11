@@ -1,0 +1,10 @@
+{%- comment -%}
+  Before / after. Write each side in a capture, then include:
+  {% capture before %}<p>...</p>{% endcapture %}
+  {% capture after %}<p>...</p>{% endcapture %}
+  {% include case/compare.html before_title="Before" before=before after_title="After" after=after %}
+{%- endcomment -%}
+<div class="case-compare">
+  <div><h3>{{ include.before_title | default: "Before" }}</h3>{{ include.before }}</div>
+  <div><h3>{{ include.after_title | default: "After" }}</h3>{{ include.after }}</div>
+</div>

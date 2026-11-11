@@ -255,6 +255,9 @@
     io.observe(sig);
   }
 
+  /* Case videos: no autoplay with reduced motion (controls instead) */
+  if (reduce) document.querySelectorAll("video[data-case-video]").forEach((v) => { v.pause(); v.removeAttribute("autoplay"); v.controls = true; });
+
   /* 9. Open the <details> targeted by the hash -------------------- */
   const openHash = () => {
     const el = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));
