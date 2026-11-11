@@ -72,12 +72,6 @@ logos:
 
 <h2>Brand Guidelines</h2>
 
-{% include case/figure.html src="/assets/img/BEDiZEN/page11.webp" w=2339 h=1654 alt="The BEDiZEN logo split in three: BE, DI and ZEN, for Beyond, Digital and Zenith" caption="The name in three parts: Beyond, Digital, Zenith." %}
-
-{% include case/figure.html src="/assets/img/BEDiZEN/page15.webp" w=2339 h=1654 alt="Construction of the BEDiZEN logotype: red guide lines and proportion circles over the letters" caption="Construction of the logotype: a modular grid, and circles that set the red dot." %}
-
-{% include case/figure.html src="/assets/img/BEDiZEN/page14.webp" w=2339 h=1654 alt="Clear space around the BEDiZEN logotype and icon, measured in X modules" caption="Clear space: one X module around the logotype and the icon." %}
-
 {% include case/palette.html colors=page.palette style="stripes" %}
 
 {% include case/type-scale.html family="Poppins" rows=page.type_scale %}
