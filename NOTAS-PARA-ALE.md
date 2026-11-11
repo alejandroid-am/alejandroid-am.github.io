@@ -5,6 +5,84 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# Implementación de la propuesta C, 11/11/2026
+
+## Una línea por bloque
+
+- `320911d` Bloque 1: arquitectura (Services, Projets, À propos, Contact como páginas reales FR y /en/), cabecera y pie comunes, selector FR / EN con línea y descifrado, view transitions 200 ms, redirecciones (/cv/, /portfolio.html, /about.html, /contact.html), fuente Bricolage Grotesque alojada (OFL). Quitados: barra de estado, hora de Strasbourg, "1 projet à la fois", listón de palabras, hueco 3D, cursor propio, botón "volver arriba", barra CTA móvil.
+- `dbc4b73` Bloque 2: home breve (H1 con palabra intercambiable, una escena con frase que se enciende, 3 ofertas, carril de 4 proyectos + tarjeta "Voir tous les projets", contacto).
+- `d459b03` Bloque 3: Services en filas con "Inclus" desplegable, proceso una sola vez (`#process`), "dès X €" + "précisé dans le devis", fila recomendada en amarillo.
+- `d25c50f` Bloque 4: À propos con la trayectoria del CV (línea que se dibuja con el scroll, años grandes, entradas que se iluminan), idiomas y habilidades.
+- `0663f6b` Bloque 5: página Projets y componente de proyecto bloqueado.
+- `a3a8233` Bloque 6: firma manuscrita (Mrs Saint Delafield, OFL, alojada; revelado izquierda a derecha una vez).
+- `0cbb66a` Parte 2: `_includes/case/`, `tools/optimize-images.sh`, `_plantillas/proyecto.md`.
+- `dd2e199` Parte 3: `_propuestas/casos.html` (3 maquetaciones con Spin App).
+
+## Añadir un proyecto (10 líneas)
+
+1. Crea `assets/img/<proyecto>/` (minúsculas, sin espacios).
+2. Por cada imagen: `tools/optimize-images.sh ruta/imagen.png assets/img/<proyecto>`.
+3. El script crea `.webp` (máx. 2400 px) y `-960w.webp`, e imprime ancho, alto y la línea para pegar.
+4. Copia `_plantillas/proyecto.md` a `_projects/<proyecto>.md`.
+5. Rellena el front matter: título, descripción, rol, año, herramientas, resultado, `cover_image`.
+6. Para que salga en el carril de la home: `home_order: N` (1 = primero). `hide_from_home: true` lo quita.
+7. Escribe el cuerpo con los bloques `{% include case/... %}` (cada uno está comentado en la plantilla).
+8. Proyecto bajo NDA: `locked: true`, `sitemap: false`, cuerpo vacío, nada privado en el repo.
+9. Mira http://127.0.0.1:4000/projets/ y la home: aparece solo, sin tocar otros archivos.
+10. Commit en la rama, revisa, y solo entonces merge.
+
+## Cómo presenta Steven Hanley sus proyectos (entré en Saronic y 7-Eleven)
+
+- Cabecera tipo ficha: dos celdas con borde fino, CLIENT y ROLE, en mono pequeña y mayúsculas; luego SUMMARY.
+- Un único párrafo de resumen grande (32 px), en tercera persona, antes de cualquier imagen.
+- Después, casi todo es imagen: 7 a 9 bloques a todo el ancho de la columna, sin columnas de texto.
+- Texto mínimo entre imágenes: una frase de 14 px, como pie, que explica el siguiente grupo.
+- Vídeos cortos en bucle (autoplay, muted, loop) del mismo ancho que las imágenes; sin controles.
+- Sistema visual mostrado como piezas propias: paleta en franjas con nombres, muestra tipográfica grande con texto que la describe.
+- Fondo de cada imagen trabajado (gris claro, color de marca), nunca la captura "suelta".
+- Sin capítulos ni "problema / solución"; el proceso no se cuenta, se enseña.
+- Al final, la lista "SELECTED WORK" con los otros proyectos como navegación siguiente.
+- Lo que no hay que copiar: su retícula de celdas con bordes, la tipografía mono de etiquetas y el reloj de cabecera.
+
+## Cómo abrir `_propuestas/casos.html`
+
+Doble clic en el archivo (se abre en el navegador; todas las rutas son relativas). Arriba: botones A / B / C y un recuadro de 3 líneas con pros, contras y para qué casos sirve. No está en el servidor de vista previa (no se publica): ábrelo siempre desde el archivo.
+
+## Assets que faltan para Spin App, por maquetación
+
+- Todas: vídeo corto en bucle (6 a 10 s, mp4 sin audio, 1920x1080, menos de 3 MB) + póster .webp; logo monocromo; icono de la app; nombre y pesos de la tipografía de la app; valores hex reales de la paleta (los que puse están muestreados de las imágenes, aproximados).
+- A (Capítulos): 4 imágenes a sangre, una por capítulo, en formato apaisado ancho (2400x1350); falta una para "Problem" (por ejemplo, la pantalla de la ruleta con la calavera) y otra para "Result" (foto o captura del test con el prototipo).
+- B (Texto fijo y galería): 6 a 8 imágenes del mismo formato (mejor todas 4:3 o todas 16:10); ahora mezclan 16:9, 4:3 y 1,33.
+- C (Galería con pies): una imagen de cabecera pensada para recortarse a lo ancho (hoy uso el mosaico de pantallas) y una secuencia antes / después pantalla por pantalla (old_spin_app1-3 y new_spin-ui1-3 ya existen, pero sin -960w).
+
+## Verificación
+
+- Build limpio (solo el aviso de siempre "Empty slug"). `grep "[[A "` en `_site`: 0. Sin guiones largos en el HTML generado.
+- Rastreo de enlaces internos desde / y /en/: 23 páginas, 212 URLs, 0 enlaces rotos. (Dos falsos positivos dentro del JS minificado de `tools/audita11y/`, que no he tocado.)
+- 390 y 1440 px: sin desbordamiento horizontal en las 20 páginas revisadas; sin errores de consola salvo en BEDiZEN, que vienen del vídeo de Vimeo incrustado (401 en el navegador de pruebas, ya estaba así).
+- Las 7 URLs de casos responden y se ven con la cabecera nueva: /projects/in-house-tools/, /projects/keepBreathing/, /projects/bedizen/, /projects/spin_app/, /projects/workpics/, /projects/cineville/, /projects/zz_others/.
+- Probado en navegador: palabra del H1 (hover, clic, botón), copiar email, carril fijado, escena, línea de tiempo, firma, FR / EN con descifrado de salida y de entrada, detalles de Services abiertos por ancla, proyecto bloqueado (con un archivo temporal, borrado antes del commit): el cuerpo no se publica y el formulario llega con el asunto escrito.
+
+## Lo que no hice o dejé a medias
+
+- No convertí ningún caso a los nuevos bloques (esperando tu elección A / B / C).
+- Métricas de la fuente de reserva de Bricolage (`size-adjust`, `ascent`) estimadas, no medidas: si ves un salto al cargar, avísame.
+- `style.css` aún tiene CSS muerto de la home y del CV antiguos (solo se carga en los casos); limpiarlo es otra tanda.
+- La firma es texto con fuente; está preparada para cambiarla por un SVG trazado (comentario en `_includes/signature.html`).
+- El selector FR / EN solo aparece en páginas bilingües (los casos están solo en inglés).
+- BEDiZEN sigue en el carril de la home porque su `home_order: 3` ya existía; no he escrito "BEDiZEN" en contenido nuevo. Si no lo quieres en la home: `hide_from_home: true`.
+- `llms.txt` conserva guiones largos en líneas antiguas que no toqué.
+
+## Textos en borrador (escritos por mí, revísalos)
+
+- Escena de la home (FR/EN): "Une boutique peut être belle et perdre ses ventes entre la fiche produit, le panier et la commande."
+- Frase de À propos (EN): "I learned resilience in Cuba, business strategy in Chile, and adaptability in France."
+- Pie: "Un projet, une question ?" / "A project, a question?"; "Écrire via le formulaire" / "Write through the form".
+- Pista y botón del H1: "Survolez ou cliquez le dernier mot." / "Autre combinaison" (y EN).
+- Botón "Parcours et compétences", etiqueta "Le point de départ", títulos de las entradas de la trayectoria.
+- Meta descriptions nuevas de Projets, À propos y Contact (FR y EN).
+- La historia de À propos son tus 4 párrafos tal cual: sigue pendiente reescribirla.
+
 # Fase 0, 11/11/2026: análisis y 3 propuestas de estilo
 
 No he tocado el sitio real. Solo existe la carpeta nueva `_propuestas/`, que Jekyll ignora por empezar con guion bajo, así que no se publica. También he actualizado este archivo.
