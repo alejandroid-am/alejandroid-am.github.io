@@ -49,7 +49,7 @@ logos:
 
 {% capture before %}<p><strong>Open App → Spin the Wheel → Top Up</strong></p>{% endcapture %}
 {% capture after %}<p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>{% endcapture %}
-{% include case/compare.html title="So: the wheel comes after paying" before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
+{% include case/compare.html title="The wheel comes after paying" before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
 
 {% include case/row.html items=page.screens_after caption="I replaced the cluttered list view with cards." %}
 
@@ -69,10 +69,10 @@ logos:
 <h3>There were few purchases</h3>
 <p>Spin App let users spin a wheel for a reward <em>before</em> paying for a top-up. I knew there were few purchases.</p>
 
-<h3>But: I didn't have the data</h3>
+<h3>I didn't have the data</h3>
 <p>I didn't know it from data: it was just intuition. (I know, in UX there's no intuition, there's user feedback.) The back-end developer was the one with access to those numbers.</p>
 
-<h3>So: the wheel comes after paying</h3>
+<h3>The wheel comes after paying</h3>
 <p>Flipping the flow was my idea: the wheel, after paying.</p>
 <p>I based it on conventions already established in similar apps, which were part of my research, to see if we could attract customers from the competition and keep the learning curve gentle.</p>
 <h4>Before: Spin, then pay</h4>
