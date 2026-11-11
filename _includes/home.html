@@ -6,7 +6,7 @@
 <!-- Hero: the last word of the H1 is interchangeable (site.js). Without JS the first word stays. -->
 <section class="home-hero" aria-labelledby="home-h1">
   <h1 class="display hero-h1 hero-in" id="home-h1" data-scramble>{{ h.h1.before }} <span class="h1-swap" data-words='{{ h.h1.words | jsonify | replace: "'", "&#39;" }}'><span class="h1-word">{{ h.h1.words | first }}</span></span>{{ h.h1.after }}</h1>
-  <p class="h1-tools hero-in"><span class="h1-hint" aria-hidden="true">{{ h.h1.hint }}</span><button type="button" class="h1-next" hidden>{{ h.h1.other }}</button></p>
+  <p class="h1-tools hero-in"><span class="h1-hint" aria-hidden="true">{{ h.h1.hint }}</span></p>
   <p class="value hero-in">{{ h.value }}</p>
   <p class="btn-row hero-in">
     <a href="{{ ui.services }}" class="btn">{{ h.offers_btn }}</a>
@@ -16,8 +16,11 @@
 
 <!-- One scene: the sentence stays in place while its words light up (max ~1.5 screens) -->
 <section class="scene" aria-labelledby="scene-label">
-  <p class="chap" id="scene-label">{{ h.scene_label }}</p>
-  <p class="big lit">{% include lit.html text=h.scene %}</p>
+  <!-- Label and sentence share ONE sticky box, so they stick and leave together (no overlap) -->
+  <div class="scene-pin">
+    <p class="chap" id="scene-label">{{ h.scene_label }}</p>
+    <p class="big lit">{% include lit.html text=h.scene %}</p>
+  </div>
 </section>
 
 <!-- Three offers; the full list, details and process are on /services/ -->

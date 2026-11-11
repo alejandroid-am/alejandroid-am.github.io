@@ -212,11 +212,6 @@ html.lang-hint-on .lang-hint { display: block; }
 .h1-word.is-in { animation: h1-in .45s var(--ease) both; }
 @keyframes h1-in { from { opacity: .01; transform: translateY(.18em); } }
 .h1-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: 15px; color: var(--mute); }
-.h1-next {
-  font: 600 14px/1 var(--font); background: transparent; color: var(--ink);
-  border: 1.5px solid var(--ink); border-radius: 999px; padding: 7px 13px; cursor: pointer;
-}
-.h1-next:hover { background: var(--y); border-color: var(--y); }
 .home-hero .value { max-width: 48ch; color: var(--mute); font-size: 19px; }
 .hero-in { animation: hero-in .8s var(--ease) both; }
 .hero-in:nth-child(2) { animation-delay: .08s; }
@@ -225,8 +220,7 @@ html.lang-hint-on .lang-hint { display: block; }
 @keyframes hero-in { from { opacity: .01; transform: translateY(14px); } }
 
 .scene { min-height: 150vh; padding: 14vh var(--pad); border-top: 1px solid var(--line); }
-.scene .big { position: sticky; top: 30vh; }
-.scene .chap { position: sticky; top: calc(30vh - 44px); }
+.scene-pin { position: sticky; top: calc(30vh - 44px); }
 
 .home-offers { padding: 104px var(--pad) 88px; border-top: 1px solid var(--line); }
 .home-offers .after { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 28px; font-size: 15px; color: var(--mute); }
@@ -259,9 +253,12 @@ html.lang-hint-on .lang-hint { display: block; }
 .rail-all .arrow { font-size: 1.4em; transition: transform .3s var(--ease); }
 .rail-all:hover { background: var(--y); color: var(--on-y); }
 .rail-all:hover .arrow { transform: translateX(10px); }
-.rail.is-pinned .rail-sticky { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow: clip; display: flex; flex-direction: column; justify-content: center; }
+.rail.is-pinned .rail-sticky { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow: clip; display: flex; flex-direction: column; justify-content: safe center; }
+/* Pinned: cards are sized by the screen height too, so the heading never gets
+   clipped under the header on short screens (16:10 image + ~200 px of text). */
 .rail.is-pinned .rail-track { overflow: visible; scroll-snap-type: none; will-change: transform; }
-.rail.is-pinned .rail-item { flex-basis: min(62vw, 64vh * 1.6, 980px); }
+.rail.is-pinned .rail-item { flex-basis: min(62vw, 980px, calc((100vh - var(--header-h) - 250px) * 1.6)); }
+.rail.is-pinned .rail-item--all { flex-basis: min(60vw, 520px, calc((100vh - var(--header-h) - 250px) * 1.6)); }
 
 .home-contact { padding: 112px var(--pad); border-top: 1px solid var(--line); }
 .home-contact .display { margin-bottom: 20px; }

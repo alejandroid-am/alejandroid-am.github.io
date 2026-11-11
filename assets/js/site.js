@@ -132,14 +132,12 @@
   }
 
   /* 4. Home H1: interchangeable last word ------------------------
-     Mouse hover (after 120 ms), a click on the word, or the button show
-     the next word. The H1 height is reserved for the longest word. */
+     Mouse hover (after 120 ms) or a click on the word shows the next word. The H1 height is reserved for the longest word. */
   const swap = document.querySelector(".h1-swap");
   if (swap) {
     const h1 = swap.closest("h1");
     const word = swap.querySelector(".h1-word");
     const words = JSON.parse(swap.dataset.words || "[]");
-    const next = document.querySelector(".h1-next");
     let i = 0, timer = 0;
     const show = (n) => {
       i = (n + words.length) % words.length;
@@ -165,7 +163,6 @@
       });
       swap.addEventListener("pointerleave", () => clearTimeout(timer));
       swap.addEventListener("click", () => { clearTimeout(timer); show(i + 1); });
-      if (next) { next.hidden = false; next.addEventListener("click", () => show(i + 1)); }
     }
   }
 
@@ -185,6 +182,7 @@
   const track = rail?.querySelector(".rail-track");
   const wide = matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
   const FACTOR = 0.5; // vertical scroll per pixel of horizontal travel
+  const HOLD = 0.35;  // extra pinned scroll at the end (x viewport height): the last card stays in view
   let pinned = false, dist = 0;
   const measureRail = () => {
     if (!rail) return;
@@ -195,7 +193,7 @@
     }
     if (!pinned) return;
     dist = Math.max(0, track.scrollWidth - sticky.clientWidth);
-    rail.style.height = sticky.offsetHeight + dist * FACTOR + "px";
+    rail.style.height = sticky.offsetHeight + dist * FACTOR + innerHeight * HOLD + "px";
   };
   const stickyTop = () => parseFloat(getComputedStyle(sticky).top) || 0;
   const moveRail = () => {
