@@ -35,10 +35,14 @@ palette:
   - { name: Active controls, hex: "#4300FF" }
   - { name: Upload check icon, hex: "#08CB00" }
   - { name: Alerts, hex: "#FF6600" }
+# Official logo of the case and of the site: workpics2.webp (Ale, 2026-11-11).
+# The logo the app shipped with (the team's placeholder) goes in "Final version".
 logos:
-  - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "WorkPics final logo", caption: "Final logo" }
+  - { src: /assets/img/Workpics/workpics2.webp, alt: "WorkPics logo", w: 532, h: 532, caption: "WorkPics logo" }
   - { src: /assets/img/Workpics/14.webp, alt: "WorkPics logo on dark background", w: 1920, h: 1080, bg: full, caption: "Logo Variant on Dark Background" }
   - { src: /assets/img/Workpics/27.webp, alt: "WorkPics logo on light background", w: 1920, h: 1080, bg: full, caption: "Logo Variant on Light Background" }
+final_logo:
+  - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "Logo of the published WorkPics app, the placeholder chosen by the team, orange and white app icon", caption: "Placeholder (Team's Choice)" }
 ---
 {% include case/figure.html src="/assets/img/Workpics/sketch_ui_workpics.webp" w=2400 h=1710 alt="Hand-drawn paper sketch of WorkPics UI zoning" caption="I started with a pencil sketch of the mobile interface and removed every non-essential element." %}
 
@@ -55,6 +59,10 @@ logos:
 {% include case/type.html placeholder="Typeface to come" %}
 
 {% include case/logo.html items=page.logos %}
+
+<h2>Final version</h2>
+
+{% include case/logo.html items=page.final_logo %}
 
 {% include case/video.html src="" w=16 h=9 placeholder="Short loop video to come" label="" %}
 
