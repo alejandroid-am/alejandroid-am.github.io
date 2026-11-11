@@ -2,56 +2,68 @@
 {%- assign sp = site.data.services_page[lang] -%}
 {%- assign ui = site.data.offers.ui[lang] -%}
 {%- assign t = site.data.i18n[lang] -%}
+{%- assign ct = site.data.contact[lang] -%}
 {%- assign recurrent = site.data.offers.list | where: "block", "recurrent" -%}
 {%- assign projets = site.data.offers.list | where: "block", "projet" -%}
-{%- assign agence = site.data.offers.list | where: "block", "agences" | first -%}
-{%- capture contact_href %}{{ ui.contact }}?offre=ne-sais-pas#contact{% endcapture -%}
-{%- if site.cal_url != "" -%}{%- assign cta_label = t.cta_call -%}{%- assign cta_href = site.cal_url -%}{%- else -%}{%- assign cta_label = t.cta_contact -%}{%- assign cta_href = contact_href -%}{%- endif -%}
+{%- assign agences = site.data.offers.list | where: "block", "agences" -%}
 
-<section class="section services-page" aria-labelledby="services-title">
-  <h1 class="hero-portfolio" id="services-title">{{ sp.title }}</h1>
-  <p class="section-subtitle services-lead">{{ sp.lead }}</p>
+<header class="page-head">
+  <h1 class="display" data-scramble>{{ sp.title }}</h1>
+  <p class="lead" style="margin-top:24px">{{ sp.lead }}</p>
+</header>
 
-  <section class="offer-block" aria-labelledby="block-projet">
-    <h2 class="offer-block-title" id="block-projet">{{ sp.projet }}</h2>
-    <p class="offer-block-sub">{{ sp.projet_sub }}</p>
-    <div class="offer-list">
-      {%- for o in projets %}
-      {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
-      {% include offer-card.html offer=o lang=lang num=num mode="services" %}
-      {%- endfor %}
-    </div>
-  </section>
+<!-- Offers as rows, numbered across blocks. "Inclus" opens below each row. -->
+<section class="svc-block" aria-labelledby="block-projet">
+  <div class="svc-block-head"><h2 id="block-projet">{{ sp.projet }}</h2><p>{{ sp.projet_sub }}</p></div>
+  <ul class="olist">
+    {%- for o in projets %}
+    {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+    {% include offer-row.html offer=o lang=lang num=num mode="services" %}
+    {%- endfor %}
+  </ul>
+</section>
 
-  <section class="offer-block" aria-labelledby="block-agences" id="{{ agence.id }}">
-    <h2 class="offer-block-title" id="block-agences">{{ sp.agences }}</h2>
-    <div class="agency-box">
-      <p>{{ agence[lang].short }}</p>
-      <p class="offer-price">{{ agence[lang].price }}</p>
-      <a href="{{ ui.contact }}?offre={{ agence.id }}#contact" class="submit-btn">{{ agence[lang].request }}</a>
-    </div>
-    {%- if sp.show_dev_note %}
-    <p class="dev-note">{{ sp.dev_note }}</p>
-    {%- endif %}
-  </section>
+<section class="svc-block" aria-labelledby="block-agences">
+  <div class="svc-block-head"><h2 id="block-agences">{{ sp.agences }}</h2></div>
+  <ul class="olist">
+    {%- for o in agences %}
+    {%- assign n = projets.size | plus: forloop.index -%}
+    {%- capture num %}{{ n | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+    {% include offer-row.html offer=o lang=lang num=num mode="services" %}
+    {%- endfor %}
+  </ul>
+  {%- if sp.show_dev_note %}
+  <p class="lead" style="margin-top:20px">{{ sp.dev_note }}</p>
+  {%- endif %}
+</section>
 
-  <section class="offer-block" aria-labelledby="block-recurrent">
-    <h2 class="offer-block-title" id="block-recurrent">{{ sp.recurrent }}</h2>
-    <p class="offer-block-sub">{{ sp.recurrent_sub }}</p>
-    <div class="offer-list">
-      {%- for o in recurrent %}
-      {%- assign n = projets.size | plus: forloop.index -%}
-      {%- capture num %}{{ n | prepend: "0" | slice: -2, 2 }}{% endcapture %}
-      {% include offer-card.html offer=o lang=lang num=num mode="services" %}
-      {%- endfor %}
-    </div>
-  </section>
+<section class="svc-block" aria-labelledby="block-recurrent">
+  <div class="svc-block-head"><h2 id="block-recurrent">{{ sp.recurrent }}</h2><p>{{ sp.recurrent_sub }}</p></div>
+  <ul class="olist">
+    {%- for o in recurrent %}
+    {%- assign n = projets.size | plus: agences.size | plus: forloop.index -%}
+    {%- capture num %}{{ n | prepend: "0" | slice: -2, 2 }}{% endcapture %}
+    {% include offer-row.html offer=o lang=lang num=num mode="services" %}
+    {%- endfor %}
+  </ul>
+</section>
+<p class="vat-note" style="padding-top:20px">{{ sp.vat }}</p>
 
-  <section class="services-end" aria-labelledby="services-end-title">
-    <h2 class="offer-block-title" id="services-end-title">{{ sp.end_title }}</h2>
-    <p>{{ sp.end_text }}</p>
-    <a href="{{ cta_href }}" class="submit-btn btn-solid">{{ cta_label }}</a>
-  </section>
+<!-- The process, once for every offer -->
+<section class="section" id="process" aria-labelledby="process-title">
+  <h2 class="h2" id="process-title">{{ sp.process_title }}</h2>
+  <ol class="process">
+    {%- for step in sp.process %}
+    <li><span class="process-n" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span><p>{{ step }}</p></li>
+    {%- endfor %}
+  </ol>
+</section>
 
-  <p class="vat-note">{{ sp.vat }}</p>
+<section class="svc-end" aria-labelledby="services-end-title">
+  <h2 class="h2" id="services-end-title">{{ sp.end_title }}</h2>
+  <p class="lead">{{ sp.end_text }}</p>
+  <p class="btn-row">
+    {%- if site.cal_url != "" %}<a href="{{ site.cal_url }}" class="btn" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% endif %}
+    <a href="{{ ui.contact }}?offre=ne-sais-pas" class="btn{% if site.cal_url != '' %} btn-ghost{% endif %}">{{ site.data.home[lang].contact_btn }}</a>
+  </p>
 </section>

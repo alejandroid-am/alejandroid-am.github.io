@@ -13,6 +13,13 @@ fr:
   end_title: "Vous hésitez entre deux offres&nbsp;?"
   end_text: "Décrivez votre besoin en quelques lignes. Je vous réponds sous 48&nbsp;h ouvrées avec l'offre la plus adaptée."
   vat: "Prix en euros. TVA non applicable, art. 293 B du CGI."
+  # Shown once on /services/ (moved from the home page)
+  process_title: Comment ça se passe
+  process:
+    - "Un premier échange gratuit de 20 minutes, en visio ou par écrit, selon votre préférence."
+    - "Devis et cahier des charges clairs&nbsp;: ce qui est inclus et ce qui ne l'est pas."
+    - Réalisation avec 2 tours de retours inclus.
+    - "Livraison et prise en main, puis suite possible selon vos besoins."
 en:
   title: Offers and prices
   lead: "Price agreed before work starts. 2 rounds of feedback included. Reply within 48 working hours."
@@ -26,3 +33,9 @@ en:
   end_title: Not sure which offer fits?
   end_text: "Describe what you need in a few lines. I'll reply within 48 working hours with the best fit."
   vat: "Prices in euros. VAT not applicable, art. 293 B of the French tax code (CGI)."
+  process_title: How it works
+  process:
+    - "A free 20-minute first conversation, by video call or in writing, as you prefer."
+    - "A clear quote and specification: what is included and what is not."
+    - "The work itself, with 2 rounds of feedback included."
+    - "Delivery and handover, then further work if you need it."

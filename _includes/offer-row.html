@@ -1,0 +1,50 @@
+{%- comment -%}
+  One offer as a row. Params: include.offer, include.lang, include.num, include.mode
+  - mode "home": the whole row is one link to /services/#id.
+  - mode "services": a <details> row; "Inclus" (and the drafts "Pour qui" /
+    "Non inclus", only with validated: true) open below, with the CTA.
+  Price: an amount starting with "dès" / "from" gets "précisé dans le devis".
+  The recommended offer (featured: true) is an inverted row (yellow).
+{%- endcomment -%}
+{%- assign o = include.offer -%}
+{%- assign c = o[include.lang] | default: o.fr -%}
+{%- assign ui = site.data.offers.ui[include.lang] | default: site.data.offers.ui.fr -%}
+{%- assign p3 = c.price | slice: 0, 4 -%}
+{%- assign p5 = c.price | slice: 0, 5 -%}
+{%- if p3 == "dès " or p5 == "from " -%}{%- assign note = ui.price_note -%}{%- else -%}{%- assign note = "" -%}{%- endif -%}
+{%- capture head_inner -%}
+  <span class="o-num" aria-hidden="true">{{ include.num }}</span>
+  <span class="o-title">{{ c.title }}{% if o.featured %}<span class="o-badge">{{ ui.featured }}</span>{% endif %}</span>
+  <span class="o-short">{{ c.short }}</span>
+  <span class="o-price">{{ c.price }}{% if note != "" %}<small>{{ note }}</small>{% endif %}</span>
+  <span class="o-arrow" aria-hidden="true">{% if include.mode == "home" %}→{% endif %}</span>
+{%- endcapture -%}
+{%- if include.mode == "home" %}
+<li class="orow{% if o.featured %} is-featured{% endif %}">
+  <a class="orow-head" href="{{ ui.services }}#{{ o.id }}">{{ head_inner }}</a>
+</li>
+{%- else %}
+{%- capture href %}{{ ui.contact }}?offre={{ o.id }}{% endcapture -%}
+<li>
+<details class="orow{% if o.featured %} is-featured{% endif %}" id="{{ o.id }}">
+  <summary class="orow-head">{{ head_inner }}</summary>
+  <div class="orow-body">
+    <dl>
+      {%- if c.includes %}
+      <div><dt>{{ ui.includes }}</dt><dd><ul>{% for i in c.includes %}<li>{{ i }}</li>{% endfor %}</ul></dd></div>
+      {%- endif %}
+      {%- if o.validated == true and c.for %}
+      <div><dt>{{ ui.for }}</dt><dd>{{ c.for }}</dd></div>
+      {%- endif %}
+      {%- if o.validated == true and c.excludes %}
+      <div><dt>{{ ui.excludes }}</dt><dd><ul>{% for i in c.excludes %}<li>{{ i }}</li>{% endfor %}</ul></dd></div>
+      {%- endif %}
+      {%- if o.case_url %}
+      <div><dt>{{ ui.example }}</dt><dd><a href="{{ o.case_url }}"{% if include.lang != 'en' %} hreflang="en"{% endif %}>{{ ui.case_link }}</a></dd></div>
+      {%- endif %}
+    </dl>
+    <p class="orow-cta"><a class="btn" href="{{ href }}">{{ c.request | default: ui.request }}<span class="sr-only"> : {{ c.title }}</span></a></p>
+  </div>
+</details>
+</li>
+{%- endif -%}
