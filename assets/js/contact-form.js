@@ -13,6 +13,15 @@
 =================================================================
 */
 (() => {
+  /* Form switched off (form_enabled: false): a locked project link
+     (?projet=<title>) only fills the subject of the mailto button. */
+  const mailto = document.getElementById("contact-mailto");
+  const projetMail = new URLSearchParams(window.location.search).get("projet");
+  if (mailto && projetMail && mailto.dataset.lockedSubject) {
+    const line = mailto.dataset.lockedSubject.replace("%s", projetMail.slice(0, 120));
+    mailto.href = "mailto:ale.amaro.m@proton.me?subject=" + encodeURIComponent(line);
+  }
+
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   if (!form || !status || !window.fetch) return;

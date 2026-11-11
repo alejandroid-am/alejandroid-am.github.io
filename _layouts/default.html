@@ -136,7 +136,7 @@
     <div class="footer-main">
       <p class="footer-title">{{ t.footer_title }}</p>
       {% include copy-email.html t=t class="footer-mail" %}
-      <p><a href="{{ nav_t.contact_url }}"{% if swap_nav %} data-href-en="{{ nav_en.contact_url }}"{% endif %} class="link-arrow">{{ t.footer_contact }}<span aria-hidden="true"> →</span></a></p>
+      <p><a href="{{ nav_t.contact_url }}"{% if swap_nav %} data-href-en="{{ nav_en.contact_url }}"{% endif %} class="link-arrow">{% if site.form_enabled %}{{ t.footer_contact }}{% else %}{{ t.footer_contact_mail }}{% endif %}<span aria-hidden="true"> →</span></a></p>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Alejandro Amaro Mendoza</p>

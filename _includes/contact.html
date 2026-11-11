@@ -7,15 +7,19 @@
   </p>
 </header>
 
-<div class="contact-grid">
+<div class="contact-grid{% unless site.form_enabled %} is-mail-only{% endunless %}">
   <div class="contact-info">
     {% include copy-email.html t=t %}
+    {%- unless site.form_enabled %}
+    <p><a class="btn" id="contact-mailto" href="mailto:ale.amaro.m@proton.me" data-locked-subject="{{ t.locked_subject | replace: '&nbsp;', ' ' }}">{{ ct.email_label }}</a></p>
+    {%- endunless %}
     <p><a class="link-arrow" href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true"> →</span></a></p>
     {%- if site.instagram_url != "" %}
     <p><a class="link-arrow" href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram<span aria-hidden="true"> →</span></a></p>
     {%- endif %}
   </div>
 
+  {%- if site.form_enabled %}
   <div>
     <form action="https://formspree.io/f/xqayldza" method="POST" class="contact-form" id="contact-form" aria-labelledby="contact-form-title"
           data-sending="{{ ct.sending }}" data-locked-subject="{{ t.locked_subject | replace: '&nbsp;', ' ' }}">
@@ -75,4 +79,9 @@
          data-success="{{ ct.success | escape }}" data-error="{{ ct.error | escape }}"></div>
     <p class="form-privacy" style="margin-top:20px">{{ ct.privacy }}</p>
   </div>
+  {%- else %}
+  <div>
+    <p class="form-privacy">{{ ct.privacy }}</p>
+  </div>
+  {%- endif %}
 </div>

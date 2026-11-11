@@ -28,6 +28,7 @@ fr:
   case_label: "Voir l'étude de cas %s"
   cover_alt: "Couverture du projet %s"
   contact_btn: Écrire via le formulaire
+  contact_btn_mail: Me contacter      # used while form_enabled is false
 
 en:
   h1:
@@ -51,3 +52,4 @@ en:
   case_label: "View %s case study"
   cover_alt: "%s project cover"
   contact_btn: Write through the form
+  contact_btn_mail: Get in touch      # used while form_enabled is false

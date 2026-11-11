@@ -57,5 +57,5 @@
 <section class="home-contact" aria-labelledby="contact-title">
   <h2 class="display" id="contact-title">{{ ct.title }}</h2>
   <p class="lead">{{ ct.reply }}</p>
-  <p class="btn-row"><a href="{{ t.contact_url }}" class="btn">{{ h.contact_btn }}</a></p>
+  <p class="btn-row"><a href="{{ t.contact_url }}" class="btn">{% if site.form_enabled %}{{ h.contact_btn }}{% else %}{{ h.contact_btn_mail }}{% endif %}</a></p>
 </section>

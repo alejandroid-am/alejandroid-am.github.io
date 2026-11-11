@@ -21,7 +21,9 @@ last_modified_at: 2026-11-11
     Adresse&nbsp;: {{ site.address }}<br>
     {%- endif %}
     Email&nbsp;: <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a><br>
+    {%- if site.form_enabled %}
     Formulaire&nbsp;: <a href="/contact/">formulaire de contact</a><br>
+    {%- endif %}
     Directeur de la publication&nbsp;: Alejandro Amaro Mendoza.
   </p>
   <p>TVA non applicable, art. 293 B du CGI.</p>
@@ -46,6 +48,7 @@ last_modified_at: 2026-11-11
     Ce site <strong>ne dépose aucun cookie</strong> et n'utilise <strong>aucun outil de mesure d'audience ni de suivi</strong>.
     Les polices de caractères sont hébergées sur ce site&nbsp;: aucune donnée n'est transmise à un service tiers pour les afficher.
   </p>
+  {%- if site.form_enabled %}
   <p>
     <strong>Formulaire de contact.</strong> Les données saisies (nom, email, type de demande, offre choisie, message)
     servent uniquement à répondre à votre demande. Elles sont transmises par le service
@@ -53,6 +56,7 @@ last_modified_at: 2026-11-11
     puis conservées 12 mois à compter du dernier échange, et supprimées ensuite.
     Elles ne sont ni revendues ni utilisées à d'autres fins.
   </p>
+  {%- endif %}
   <p>
     Conformément au RGPD, vous pouvez demander l'accès à vos données, leur rectification ou leur suppression
     en écrivant à ale.amaro.m@proton.me. Vous pouvez aussi adresser une réclamation à la
@@ -61,7 +65,7 @@ last_modified_at: 2026-11-11
 
   <h2>Contact</h2>
   <p>
-    Pour toute question relative à ce site, vous pouvez utiliser le <a href="/contact/">formulaire de contact</a>
-    ou écrire à ale.amaro.m@proton.me.
+    Pour toute question relative à ce site, {% if site.form_enabled %}vous pouvez utiliser le <a href="/contact/">formulaire de contact</a>
+    ou écrire à ale.amaro.m@proton.me{% else %}écrivez à <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a>{% endif %}.
   </p>
 </section>

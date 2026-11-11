@@ -64,6 +64,6 @@
   <p class="lead">{{ sp.end_text }}</p>
   <p class="btn-row">
     {%- if site.cal_url != "" %}<a href="{{ site.cal_url }}" class="btn" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% endif %}
-    <a href="{{ ui.contact }}?offre=ne-sais-pas" class="btn{% if site.cal_url != '' %} btn-ghost{% endif %}">{{ site.data.home[lang].contact_btn }}</a>
+    <a href="{{ ui.contact }}?offre=ne-sais-pas" class="btn{% if site.cal_url != '' %} btn-ghost{% endif %}">{% if site.form_enabled %}{{ site.data.home[lang].contact_btn }}{% else %}{{ site.data.home[lang].contact_btn_mail }}{% endif %}</a>
   </p>
 </section>

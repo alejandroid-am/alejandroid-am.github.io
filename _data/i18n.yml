@@ -31,6 +31,7 @@ fr:
   hint_stay: Rester en français
   footer_title: Un projet, une question&nbsp;?
   footer_contact: Écrire via le formulaire
+  footer_contact_mail: Me contacter   # used while form_enabled is false
   footer_tools: Outils
   footer_legal: Mentions légales
   copy_btn: Copier
@@ -69,6 +70,7 @@ en:
   hint_stay: Stay in English
   footer_title: A project, a question?
   footer_contact: Write through the form
+  footer_contact_mail: Get in touch   # used while form_enabled is false
   footer_tools: Tools
   footer_legal: Mentions légales
   copy_btn: Copy

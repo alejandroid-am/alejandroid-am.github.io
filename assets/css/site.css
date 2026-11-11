@@ -366,6 +366,8 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 56px; padding: 16px var(--pad) 112px; }
 .contact-info { display: grid; gap: 20px; align-content: start; }
 .contact-info .copy-email { font-size: clamp(20px, 2.2vw, 28px); font-weight: 600; letter-spacing: -.015em; }
+.contact-grid.is-mail-only .contact-info .copy-email { font-size: clamp(24px, 3.4vw, 44px); }
+.contact-grid.is-mail-only .form-privacy { max-width: 52ch; color: var(--mute); }
 .contact-form { display: grid; gap: 22px; }
 .form-note { font-size: 14px; color: var(--mute); }
 .form-group { display: grid; gap: 6px; }
