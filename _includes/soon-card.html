@@ -1,6 +1,7 @@
 {%- comment -%}
   "Bientôt / Coming soon" project (from _data/proximamente.yml): disabled card,
-  name + type + tag only. No link, no image, no page.
+  name + type + tag only. No link, no image, no page. The media area is not an
+  empty box: it shows the name in large type (decorative, aria-hidden).
   Params: include.item, include.lang, include.mode ("rail" or "row"), include.num
 {%- endcomment -%}
 {%- assign it = include.item -%}
@@ -8,7 +9,7 @@
 {%- assign kind = it.type[include.lang] | default: it.type.fr -%}
 {%- if include.mode == "row" %}
 <li class="prow is-soon" aria-disabled="true">
-  <span class="prow-media soon-media" aria-hidden="true"></span>
+  <span class="prow-media soon-media" aria-hidden="true"><span class="soon-word">{{ it.name }}</span></span>
   <div>
     <h2 class="prow-title">{{ it.name }}</h2>
     <span class="prow-meta">{{ kind }}</span>
@@ -19,7 +20,7 @@
 {%- else %}
 <li class="rail-item is-soon">
   <div class="rail-card is-soon" aria-disabled="true">
-    <span class="rail-media soon-media" aria-hidden="true"></span>
+    <span class="rail-media soon-media" aria-hidden="true"><span class="soon-word">{{ it.name }}</span></span>
     <span class="rail-cap">
       <span class="rail-num" aria-hidden="true">{{ include.num }}</span>
       <span class="rail-title">{{ it.name }}</span>

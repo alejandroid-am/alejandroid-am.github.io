@@ -323,7 +323,8 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .lock-media { display: grid; place-items: center; aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, var(--bg-2) 0 14px, var(--bg) 14px 28px); color: var(--ink); }
 .lock-media svg { width: 44px; height: 44px; }
 /* "Bientôt / Coming soon" cards: neutral block, no link, no hover */
-.soon-media { display: block; aspect-ratio: 16 / 10; background: var(--bg-2); }
+.soon-media { display: grid; place-items: end start; aspect-ratio: 16 / 10; background: var(--bg-2); padding: clamp(12px, 3%, 32px); overflow: hidden; container-type: inline-size; }
+.soon-word { font-size: clamp(20px, 13cqi, 140px); font-weight: 800; line-height: .9; letter-spacing: -.04em; color: var(--mute); overflow-wrap: anywhere; }
 .rail-card.is-soon { cursor: default; }
 .rail-card.is-soon .rail-title, .prow.is-soon .prow-title { color: var(--mute); text-decoration: none; }
 .soon-tag { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
