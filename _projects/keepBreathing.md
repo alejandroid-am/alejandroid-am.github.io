@@ -31,13 +31,13 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 </section>
 
 <section>
-  <h2>But: big ideas, and everyone had the same ones</h2>
+  <h2>Big ideas, and everyone had the same ones</h2>
   <p>The others got carried away with very good ideas, but in my opinion they were too complicated for just 48 hours.</p>
   <p>I also went around the other tables to see what the other teams were doing, and I noticed a very repetitive pattern, one that was happening in my team too: everyone was thinking of the same ideas, RPGs, Venetian masks, Japanese masks, etc. Very cliché.</p>
 </section>
 
 <section>
-  <h2>So: one carriage and a gas mask</h2>
+  <h2>One carriage and a gas mask</h2>
   <p>I said no to a lot of things and proposed something simple, inspired by casual games like Subway Surfers: a short, simple game tree, a clean game loop, easy to replay and almost addictive.</p>
   <p>Since it was first person, I thought of <em>Platform 8</em>, where every carriage is the same one and very strange things happen. That let us reuse the same level again and again, just by changing the mechanic: in this case, finding a gas mask that lets you survive longer.</p>
   <p>The cliché pattern is what led me to the gas mask, which seemed more original, and easy to make with the survival idea.</p>
@@ -82,12 +82,12 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 </section>
 
 <section>
-  <h2>But: the build wouldn't compile</h2>
+  <h2>The build wouldn't compile</h2>
   <p>In the last hours, when we put everything together, it wouldn't compile properly. That left us with the game split across 3 PCs.</p>
 </section>
 
 <section>
-  <h2>So: a Figma prototype in 10 minutes</h2>
+  <h2>A Figma prototype in 10 minutes</h2>
   <p>To make up for the game being split across 3 PCs, I made an interactive prototype in Figma, in 10 minutes, because the jury was coming to our table. That way we could show "how it would be" if the game worked: the flow from the start screen to the end, including the pause menu and a message before starting. Just by reading the line "The air is toxic, find a mask to survive", we tell the player what to do, through storytelling.</p>
   <a href="https://www.figma.com/proto/QSs8reDgssWakM8UEdcsEc/UI-Game-Keep-Breathing?page-id=0%3A1&node-id=1-2&p=f&viewport=419%2C342%2C0.08&t=fi78lM3WjjGiSLXA-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A2" target="_blank" rel="noopener noreferrer" class="submit-btn" style="margin-top: 1rem; display: inline-block;">
     Try the Figma prototype &rarr;
@@ -95,7 +95,7 @@ cover_image: /assets/img/KeepBreathing/keep-breathing-cover.webp
 </section>
 
 <section>
-  <h2>Result: Best Technical Achievement</h2>
+  <h2>Best Technical Achievement</h2>
   <p>Best Technical Achievement. Honestly, it didn't feel stressful, except for the last hours.</p>
 
   <div class="bento-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0;">
