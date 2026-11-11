@@ -38,11 +38,11 @@ palette:
   - { name: Rouge Pionnier, hex: "#E13C30", text: "#1A1B1C", use: Accentuation }
 # "use" from the colour hierarchy (guidelines page 26). Type hierarchy from page 22:
 # Titre = Poppins Bold, Sous-Titre = Poppins SemiBold, text = Poppins Medium.
-# Sample texts are taken from the case and the guidelines (page 23), nothing new.
+# Each row shows the role written in its own style (no sample text).
 type_scale:
-  - { role: Title, weight: 700, label: "Poppins Bold", text: "Beyond Digital Zenith" }
-  - { role: Subtitle, weight: 600, label: "Poppins SemiBold", text: "La Réalité Augmentée native pour l'e-commerce", lang: fr }
-  - { role: Text, weight: 500, label: "Poppins Medium", text: "BEDiZEN is a WebAR studio concept that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers." }
+  - { role: title, key: ts_title, weight: 700, label: "Poppins Bold" }
+  - { role: subtitle, key: ts_subtitle, weight: 600, label: "Poppins SemiBold" }
+  - { role: text, key: ts_text, weight: 500, label: "Poppins Medium" }
 brand_pdf: /assets/docs/bedizen-charte-graphique.pdf
 logos:
   - { src: /assets/img/BEDiZEN/bedizen_black.svg, alt: "BEDiZEN logo, black version on light", bg: light, caption: "Logo" }
@@ -74,7 +74,7 @@ logos:
 
 {% include case/palette.html colors=page.palette %}
 
-{% include case/type-scale.html family="Poppins" rows=page.type_scale %}
+{% include case/type-scale.html family="Poppins" class_key="ts_geometric_sans" rows=page.type_scale %}
 
 <p class="c-cta"><a class="btn" href="{{ page.brand_pdf }}" download>Download the brand guidelines (PDF, 34 pages, 3.8 MB)</a></p>
 

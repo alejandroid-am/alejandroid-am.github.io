@@ -434,13 +434,12 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-stripes code { font-family: ui-monospace, monospace; font-size: 14px; }
 .case-stripes span { margin-left: auto; }
 .case-typescale { border-top: 1px solid var(--line); }
-.case-typescale-row { display: grid; grid-template-columns: minmax(130px, 200px) 1fr; gap: 8px 32px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--line); }
-.case-typescale-meta { margin: 0; display: grid; gap: 2px; font-family: var(--font, inherit); font-size: 14px; color: var(--mute); }
-.case-typescale-meta strong { color: var(--ink, inherit); font-weight: 600; }
-.case-typescale-sample { margin: 0; line-height: 1.15; overflow-wrap: anywhere; }
-.case-typescale-row.is-title .case-typescale-sample { font-size: clamp(34px, 5.5vw, 72px); line-height: 1.02; letter-spacing: -.01em; }
-.case-typescale-row.is-subtitle .case-typescale-sample { font-size: clamp(22px, 2.8vw, 34px); }
-.case-typescale-row.is-text .case-typescale-sample { font-size: 17px; line-height: 1.6; max-width: 62ch; }
+.case-typescale-row { display: grid; grid-template-columns: minmax(150px, 240px) 1fr; gap: 8px 32px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.case-typescale-meta { margin: 0; display: grid; gap: 2px; font-size: 13px; color: var(--mute); }
+.case-typescale-sample { margin: 0; line-height: 1.1; overflow-wrap: anywhere; }
+.case-typescale-row.is-title .case-typescale-sample { font-size: clamp(40px, 6vw, 80px); letter-spacing: -.01em; }
+.case-typescale-row.is-subtitle .case-typescale-sample { font-size: clamp(26px, 3.2vw, 40px); }
+.case-typescale-row.is-text .case-typescale-sample { font-size: 18px; line-height: 1.6; }
 @media (max-width: 600px) { .case-typescale-row { grid-template-columns: 1fr; } .case-stripes span { margin-left: 0; flex-basis: 100%; } }
 .case-row-items { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: clamp(8px, 2vw, 24px); }
 .case-row-items img { width: 100%; height: auto; display: block; }

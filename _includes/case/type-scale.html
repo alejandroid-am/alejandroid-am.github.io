@@ -1,16 +1,18 @@
 {%- comment -%}
-  Live type hierarchy (real text, no image). Rows from the front matter:
+  Live type hierarchy: on the left, small and muted, the font, its weight and its
+  classification; on the right, the role ("Titre", "Sous-titre", "Texte") written
+  in that very style. No sample text. Rows from the front matter:
     type_scale:
-      - { role: Title, weight: 700, label: "Poppins Bold", text: "Beyond Digital Zenith" }
-  {% include case/type-scale.html family="Poppins" rows=page.type_scale %}
-  Optional per row: lang (when the sample is not in English).
+      - { role: title, key: ts_title, weight: 700, label: "Poppins Bold" }
+  {% include case/type-scale.html family="Poppins" class_key="ts_geometric_sans" rows=page.type_scale %}
+  key and class_key are _data/i18n.yml keys (bilingual, label.html).
   The font must be self-hosted on the page (load_poppins: true for Poppins).
 {%- endcomment -%}
-<div class="case-typescale" style="font-family: '{{ include.family }}', system-ui, sans-serif">
+<div class="case-typescale">
   {%- for r in include.rows %}
   <div class="case-typescale-row is-{{ r.role | slugify }}">
-    <p class="case-typescale-meta"><strong>{{ r.role }}</strong><span>{{ r.label }}</span></p>
-    <p class="case-typescale-sample" style="font-weight: {{ r.weight }}"{% if r.lang %} lang="{{ r.lang }}"{% endif %}>{{ r.text }}</p>
+    <p class="case-typescale-meta"><span>{{ r.label }}</span><span>{{ r.weight }}{% if include.class_key %} · {% include label.html key=include.class_key %}{% endif %}</span></p>
+    <p class="case-typescale-sample" style="font-family: '{{ include.family }}', system-ui, sans-serif; font-weight: {{ r.weight }}">{% include label.html key=r.key %}</p>
   </div>
   {%- endfor %}
 </div>
