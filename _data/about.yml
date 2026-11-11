@@ -10,6 +10,7 @@ fr:
   phrase_lang: en
   photo_alt: "Photo d'Alejandro Amaro Mendoza"
   story_lang: en
+  ai_note: "Je travaille avec l'IA, surtout Claude pour écrire le code. Le regard, le goût, les tests avec de vraies personnes et la responsabilité du résultat restent les miens."
   timeline_title: Trajectoire
   timeline:
     - year: "2009"
@@ -42,6 +43,7 @@ en:
   phrase_lang: en
   photo_alt: Photo of Alejandro Amaro Mendoza
   story_lang: en
+  ai_note: "I work with AI, mostly Claude for writing code. The judgment, the taste, the testing with real people and the responsibility for the result stay with me."
   timeline_title: Background
   timeline:
     - year: "2009"

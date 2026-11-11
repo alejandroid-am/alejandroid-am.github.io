@@ -13,6 +13,9 @@
       <p>{{ para }}</p>
       {%- endfor %}
     </div>
+    {%- if a.ai_note %}
+    <p class="about-ai">{{ a.ai_note }}</p>
+    {%- endif %}
   </div>
 </section>
 
