@@ -27,17 +27,17 @@ cover_image: /assets/img/bedizen-view.webp
 </section>
 
 <section>
-  <h2>But: users couldn't tell what was clickable</h2>
+  <h2>Users couldn't tell what was clickable</h2>
   <p>Then came the user tests: <strong>7 people with different profiles</strong> took the test. Users couldn't tell which buttons were clickable, and they didn't know where they were on the site.</p>
 </section>
 
 <section>
-  <h2>So: a grid that holds the whole site</h2>
+  <h2>A grid that holds the whole site</h2>
   <p>I did a thorough review of the brand identity and of how I wanted BEDiZEN to be different. I used AI to develop a website based on a consistent grid that would convey structure (both of work and of sustainability), seriousness and modernity, but that would be easy to use.</p>
 </section>
 
 <section>
-  <h2>But: I had to correct the AI</h2>
+  <h2>I had to correct the AI</h2>
   <p>At first, the AI started out with its rounded borders and cards. The brand is more brutalist and solid, so: square corners, no rounding, none of that.</p>
   <p>I looked at groundbreaking sites, because I want to revolutionize the XR market on the web, so I went to sites like Awwwards. I asked it to create a 4-column grid that repeats across the whole site. I also had to correct the order of some things and how each column was used.</p>
   <p>The AI also helped me fix repeated code, where I could have used variables to reuse things and end up with fewer lines of code.</p>
