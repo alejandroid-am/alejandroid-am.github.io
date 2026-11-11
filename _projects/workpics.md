@@ -48,7 +48,7 @@ final_logo:
 
 {% include case/figure.html src="/assets/img/Workpics/sketch_ui_workpics.webp" w=2400 h=1710 alt="Hand-drawn paper sketch of WorkPics UI zoning" %}
 
-{% include case/figure.html src="/assets/img/Workpics/13.webp" w=1920 h=1080 alt="WorkPics dashboard overview screen" caption="I kept the screens to the minimum: <em>&quot;Open → Shoot → Done&quot;</em>." %}
+{% include case/figure.html src="/assets/img/Workpics/workpicks_ui_mockups.webp" w=2400 h=1696 alt="WorkPics camera screen with the shutter button, the photo grid and the settings screen" caption="I kept the screens to the minimum: <em>&quot;Open → Shoot → Done&quot;</em>." %}
 
 <p class="c-cta"><a class="btn" href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer">Try Figma Prototype &rarr;</a></p>
 
