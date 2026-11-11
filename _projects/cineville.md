@@ -40,7 +40,14 @@ palette:
 logos:
   - { src: /assets/img/Cineville/cineville-title.webp, alt: "CinéVille title lettering", w: 750, h: 469, bg: dark, caption: "Title lettering" }
 ---
-{% include case/pair.html a="/assets/img/Cineville/research-dali.webp" a_alt="La Persistance de la mémoire by Salvador Dalí, melting clocks draped over a desert landscape" a_w=900 a_h=684 a_caption="Salvador Dalí, <em>La Persistance de la mémoire</em>." b="/assets/img/Cineville/research-magritte.webp" b_alt="Les idées claires by René Magritte, a stone floating beneath a cloud above the sea" b_w=900 b_h=891 b_caption="René Magritte, <em>Les idées claires</em>." %}
+<h2>Two references</h2>
+
+<p>After looking at several works by Dalí and Magritte, I took obvious references from them and carried them over to cinema: theater seats, a film reel, text forming an arch, etc.</p>
+
+<ul class="c-refs">
+  <li>Salvador Dalí, <a href="https://en.wikipedia.org/wiki/The_Persistence_of_Memory" target="_blank" rel="noopener noreferrer"><em>La Persistance de la mémoire</em></a>: the melting film reel, like the clocks in <em>The Persistence of Memory</em>.</li>
+  <li>René Magritte, <em>Les idées claires</em> (<a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte" target="_blank" rel="noopener noreferrer">René Magritte on Wikipedia</a>): the cloud under the reel.</li>
+</ul>
 
 {% include case/figure.html src="/assets/img/Cineville/zoning.webp" w=1000 h=464 alt="Ten thumbnail layout sketches exploring where the title, baseline, date and central artwork could sit on the poster" caption="Layout thumbnails." %}
 
