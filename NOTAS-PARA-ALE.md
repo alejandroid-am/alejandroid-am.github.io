@@ -26,6 +26,113 @@ Causa: dos sistemas de centrado sumados.
 - A 1280 el gutter era solo 20 px.
 - El caso In-House Tools (estilo antiguo) usa su propia columna fija de 1000 px: no se encoge; no lo toco.
 
+## A. Arreglo (`a757ba4`, `53a66ce`)
+
+**Un solo sistema de contenedor**, en `assets/css/site.css`:
+- `--maxw: 1440px` (gutters incluidos);
+- `--gutter: clamp(1rem, 4vw, 3rem)`;
+- `--pad: max(gutter, (100vw - maxw) / 2 + gutter)`.
+- Todo (cabecera, secciones, pie, casos) usa `padding-inline: var(--pad)`. Nada más pone max-width + margin auto encima.
+
+**Medidas después:**
+
+| Ventana | Gutter | Contenido | Figura a ancho completo en el caso |
+|---|---|---|---|
+| 390 | 16 | 358 | 358 |
+| 1280 | 48 | 1184 | 1184 |
+| 1440 | 48 | 1344 | 1344 |
+| 1920 | 288 | 1344 | 1344 |
+| 2560 | 608 | 1344 | 1344 |
+
+- **Hero de los casos:** ya no se recorta. Puede ser más ancho que el contenedor (hasta 1920 px), se ve entera, centrada y con 86vh de alto como máximo. Esto arregla también el hero de WorkPics.
+- **Vídeos de BEDiZEN:** tienen ahora su propio contexto de apilamiento, para que el iframe de Vimeo nunca pinte por encima de la cabecera fija.
+
+## B. Home (`15e42d4`)
+
+1. **"Le point de départ":** la etiqueta y la frase eran dos sticky distintos. La frase, más alta, llegaba antes al final de la sección y subía atravesando la etiqueta, que seguía fija. Ahora comparten una sola caja sticky (`.scene-pin`) y se van juntas.
+2. **"Projets" cortado:** el carril fijado centraba su contenido en una caja de 100vh menos la cabecera, con `overflow: clip`. En pantallas bajas el contenido era más alto que la caja y el H2 se cortaba bajo la línea. Ahora se centra con `safe center` y las tarjetas se dimensionan también por la altura de pantalla. A 1280x720 se ven título, imagen y pie completos.
+3. **Final del carril:** 35vh extra de recorrido fijado al final (`HOLD = 0.35` en `site.js`); la última tarjeta y "Voir tous les projets" se quedan a la vista. Sin cambios en el modo nativo con scroll-snap (móvil, o con movimiento reducido).
+4. **"Autre combinaison" / "Another combination":** eliminado (HTML, JS, CSS, textos). No había cambio automático de palabra: sigue el cambio al pasar el ratón o al hacer clic en la palabra. He dejado la pista "Survolez ou cliquez le dernier mot.".
+
+## C. Idioma y firma
+
+- **C1 (`c9e0561`):**
+  - FR/EN son enlaces normales.
+  - Fuera el efecto de letras aleatorias: JS, el flag en sessionStorage, el script en `<head>`, el CSS y los `data-scramble`.
+  - La línea del idioma activo es ahora el subrayado CSS (antes era una línea que se deslizaba con JS).
+  - Se queda `lang_ctx` en sessionStorage, que sí hace falta: recuerda el idioma de contexto para los enlaces de las páginas solo en inglés.
+- **C2 (`7b22864`):**
+  - Firma eliminada: include, `signature: true`, CSS, JS, la fuente Mrs Saint Delafield y su licencia (nadie más la usaba).
+  - En el pie queda `<div class="footer-lottie">` vacío, con comentario, a la derecha y unos píxeles por encima de "Un projet, une question ?". Vacío no se muestra.
+  - Está en todas las páginas; si lo quieres solo en algunas, dímelo.
+
+## D. À propos (`c5a84bd`)
+
+- La frase grande es ahora "Suis-je la bonne personne pour votre projet ? Voyons-le ensemble." (FR) / "Am I the right person for your project? Let's find out." (EN).
+- **Frases que venden el origen** (reportadas, no borradas): solo en la historia de À propos (`_data/about.yml`, `story`, segundo párrafo):
+  - "My design process is shaped by a life of constant reinvention."
+  - "I learned **resilience** in Cuba, **business strategy** in Chile where I co-founded Somos Arte [...], and **adaptability** in France, where I moved for love and mastered a third language."
+  - También "I don't have a standard background, and honestly? That's my biggest asset."
+  - En el resto del sitio no hay nada parecido. La línea de tiempo no menciona países.
+- **Ojo, duplicado:** el primer párrafo de la historia empieza con "Am I the right person for your project? Let's find out.", la misma pregunta que la frase grande. Al ser tu texto, no lo he tocado; seguramente quieras quitarla de la historia.
+
+## E. Proyectos "Bientôt / Coming soon" (`0330c9b`)
+
+- **La lista de proyectos listos estaba vacía.** Ningún proyecto ha cambiado de estado; solo existe el mecanismo. `_data/proximamente.yml` tiene `items: []`.
+- **Mecanismo** (probado en local con una entrada temporal y quitada después):
+  - una tarjeta desactivada en el carril de la home (tras los publicados) y una fila en /projets/;
+  - solo nombre, tipo y la etiqueta "Bientôt" / "Coming soon";
+  - bloque neutro sin imagen, sin enlace, con `aria-disabled`;
+  - sin página, sin sitemap y sin JSON-LD, porque no está en `_projects/`.
+  - `_pendientes/` está excluido del build.
+
+**Pasar un proyecto a "Bientôt":**
+1. Mover `_projects/<nombre>.md` a `_pendientes/<nombre>/<nombre>.md`, y sus imágenes de `assets/img/<Carpeta>/` a `_pendientes/<nombre>/img/`.
+2. Añadir en `_data/proximamente.yml`:
+   `- { name: "Nombre", type: { fr: "Site web", en: "Website" }, order: 1 }`
+
+**Volver a publicarlo (uno a uno):**
+1. Mover `_pendientes/<nombre>/<nombre>.md` a `_projects/<nombre>.md`.
+2. Mover `_pendientes/<nombre>/img/*` a `assets/img/<Carpeta>/`, la misma carpeta que usan las rutas del .md.
+3. Borrar su línea de `_data/proximamente.yml`.
+4. Construir y comprobar que la URL `/projects/<nombre>/` vuelve a existir.
+
+**AVISO:** el repositorio de GitHub es público. Lo que esté en `_pendientes/`, y todo lo que haya pasado alguna vez por el historial de git (incluidos los PDFs antiguos del CV), se puede leer en GitHub aunque no se publique en la web. Para algo privado de verdad: repo privado aparte, o no subirlo.
+
+## F. Casos
+
+- **F1 WorkPics (`5acb9e4`):**
+  - El hero ya se ve entero (arreglo A).
+  - `workpics2.webp` es el logo del caso (bloque de logos).
+  - El logo con el que salió la app (el placeholder del equipo, `logo-worpics-client-choice.svg`) va en una sección nueva, "Final version". **Ese título lo he escrito yo; confírmalo.**
+  - El archivo `workpics2.webp` existe, pero solo a 532x532. Si tienes el SVG o una versión grande, mándala.
+  - La miniatura de la web (`workpics-view.webp`) no la he cambiado.
+- **F2 (`5f3f09c`):**
+  - Nuevo `figure.float`: `{% include case/figure.html ... float=true %}`. Para recortes PNG/WebP con fondo transparente: sin marco ni fondo, con una sombra suave que sigue la forma.
+  - Documentado en `_plantillas/proyecto.md`.
+  - BEDiZEN sigue con sus imágenes actuales hasta que entregues los recortes (gorra, casco VR, móvil, flyer, tarjetas).
+  - El hero de Cinéville no se toca.
+
+### F3. Imágenes que debes entregar (webp)
+
+Tamaños: hero 2400 px de ancho, detalles 1600 px, miniatura 16:10 de 1600x1000. Las portadas actuales de todos los casos son de 500x400 (5:4) y se usan también como imagen al compartir en redes, que pide 1200x630: con la miniatura 1600x1000 se arregla.
+
+- **Spin App:** miniatura 1600x1000; vídeo en bucle (mp4 sin audio, 6 a 10 s, menos de 3 MB) + póster 1600 px; logo monocromo (SVG); icono 1024x1024; hero actual de 4549 px, reexportar a 2400.
+- **WorkPics:** miniatura 1600x1000; logo `workpics2` en SVG o a 1600 px; vídeo en bucle "Open → Shoot → Done" + póster 1600 px; nombre de la tipografía.
+- **Keep Breathing:** miniatura 1600x1000; hero 2400 px (el actual es de 1920); vídeo en bucle de juego + póster 1600 px; logo del título en PNG transparente o SVG; paleta (hex) y tipografía.
+- **Cinéville:** miniatura 1600x1000; título "CinéVille" a 2400 px o en SVG (el actual es de 750 px); vídeo en bucle opcional.
+- **BEDiZEN:** miniatura 1600x1000; logo oscuro sobre claro e icono (SVG); recortes con fondo transparente a 1600 px (gorra, casco VR, interfaz móvil, flyer, tarjetas) para `figure.float`; PDF original de la guía.
+- **In-House Tools:** si un día se convierte a la maquetación C, 3 o 4 capturas de detalle a 1600 px. La miniatura actual (1680x1150) sirve.
+- **Other Works:** miniatura 1600x1000; nada más imprescindible.
+
+## Verificación tanda 3
+
+- **Capturas** antes y después a 390, 1280, 1440, 1920 y 2560 px de la home y de BEDiZEN, revisadas.
+- **Sin desbordes ni errores nuevos**, con y sin JS: home FR/EN, /projets/, Services, À propos, Contact, BEDiZEN, WorkPics, Cinéville, In-House Tools y 404. Solo aparecen los errores de Vimeo, que ya existían.
+- **Build limpio.** Rastreo: 23 páginas y 222 URLs; sin 404 salvo los 2 falsos positivos de audita11y.
+- **Greps:** `[[A ` 0, Delafield 0, scramble 0; `_pendientes` no se publica; sin guiones largos en lo nuevo.
+- **Probadas sobre todo en Chromium** (Playwright). El centrado `safe center` necesita un navegador reciente; en uno antiguo se comporta como el centrado normal.
+
 # Tanda antes de publicar + SEO, 11/11/2026
 
 ## Commits (uno por punto)
