@@ -469,6 +469,12 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 .case-c .carousel-slide[role="button"] { cursor: zoom-in; }
 html.no-js .case-c .carousel-slide { display: block; margin-bottom: 12px; }
 html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display: none; }
+.case-c .video-duo { display: grid; grid-template-columns: 2fr 1fr; gap: clamp(16px, 3vw, 32px); align-items: start; margin: 0 0 clamp(56px, 8vw, 100px); }
+.case-c .video-duo-item h3 { font-size: 16px; font-weight: 700; margin: 0 0 10px; }
+.case-c .video-frame { position: relative; background: #151514; }
+.case-c .video-frame.ratio-16-9 { aspect-ratio: 16 / 9; }
+.case-c .video-frame.ratio-9-16 { aspect-ratio: 9 / 16; max-width: 360px; }
+.case-c .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .c-body { padding-top: clamp(56px, 8vw, 110px); }
 .c-body > .case-fig, .c-body > .case-compare-wrap, .c-body > .case-pair, .c-body > .case-palette, .c-body > .case-type, .c-body > .case-logos { margin-bottom: clamp(56px, 8vw, 100px); }
 .c-body .case-fig > figcaption { font-size: 16px; color: var(--ink); max-width: 52ch; }
@@ -547,6 +553,7 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
   .process li { grid-template-columns: 64px minmax(0, 1fr); gap: 16px; }
   .case-pair, .case-compare, .c-title { grid-template-columns: 1fr; }
   .c-meta { grid-template-columns: 1fr 1fr; }
+  .case-c .video-duo { grid-template-columns: 1fr; }
   .case-c .document-carousel-container { flex-wrap: wrap; }
   .case-c .document-carousel { order: 1; flex-basis: 100%; }
   .case-c .carousel-counter { order: 2; position: static; transform: none; width: 100%; text-align: center; }

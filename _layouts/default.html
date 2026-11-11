@@ -57,7 +57,7 @@
   <link rel="preload" href="/assets/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   {%- endif %}
   <style>
-{% include fonts-site.css %}{% if legacy %}{% include fonts.css %}{% endif %}  </style>
+{% include fonts-site.css %}{% if legacy or page.load_poppins %}{% include fonts.css %}{% endif %}  </style>
   {%- if legacy %}
   <link rel="stylesheet" href="/assets/css/style.css">
   {%- endif %}
