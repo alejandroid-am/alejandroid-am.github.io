@@ -12,17 +12,22 @@ last_modified_at: 2026-11-11
 categories: illustration identity
 cover_image: /assets/img/cineville_view.webp
 theme: cineville
-preload_image: /assets/img/Cineville/cineville-title.webp
+preload_image: /assets/img/Cineville/cineville-title-black.webp
 
 # --- Layout C "Gallery with captions" (see _projects/spin_app.md) ---
 case_layout: c
 summary: After getting the brief, I went to the Médiathèque André Malraux in Strasbourg, my city.
 project_type: Festival poster
-hero_image: /assets/img/Cineville/cineville-title.webp
+# Hero: the arched wordmark cut from the poster, recoloured black (the arch is
+# hand-warped lettering: an SVG copy would not be faithful). Tagline copied from
+# the poster as written there ("de cinéma", above the title on the poster).
+hero_image: /assets/img/Cineville/cineville-title-black.webp
 hero_w: 750
 hero_h: 469
-hero_alt: CinéVille
-hero_bg: "#232730"
+hero_alt: Cinéville, the festival name in arched lettering
+hero_bg: "#F2F1F0"
+hero_tagline: Festival de cinéma du monde
+hero_tagline_lang: fr
 drafts:
   - { src: /assets/img/Cineville/brouillon-1.webp, alt: "An abandoned draft poster built around a wishbone-and-cloth motif", w: 500, h: 707 }
   - { src: /assets/img/Cineville/brouillon-2.webp, alt: "The draft poster with the reel floating over theater seats under a starry sky, the direction that was kept", w: 500, h: 707 }

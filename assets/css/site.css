@@ -480,6 +480,7 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 .c-hero img { display: block; width: auto; max-width: min(100%, 1920px); height: auto; max-height: 86vh; margin: 0 auto; }
 .c-hero.is-art { padding: clamp(48px, 9vw, 120px) var(--pad); }
 .c-hero.is-art img { width: min(100%, var(--art-w), 720px); max-height: none; margin: 0 auto; object-fit: contain; }
+.c-hero-tagline { margin: clamp(16px, 2.5vw, 28px) auto 0; text-align: center; font-size: clamp(18px, 2.4vw, 30px); font-weight: 400; letter-spacing: .01em; color: #000; }
 /* Document carousel (zoom.js) on layout C */
 .case-c .document-carousel-container { display: flex; align-items: center; gap: 16px; margin: 0 0 clamp(56px, 8vw, 100px); position: relative; }
 .case-c .document-carousel { flex: 1; min-width: 0; }

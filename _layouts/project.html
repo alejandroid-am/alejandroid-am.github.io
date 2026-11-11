@@ -17,7 +17,8 @@ layout: default
   image, then the body (case/ includes), then the next project.
   Front matter used: title, summary (or description), role, year, project_type,
   context, team, award (optional), tools, result, hero_image / hero_w / hero_h / hero_alt,
-  hero_bg (optional: artwork shown whole and centered on that colour, e.g. a title lettering).
+  hero_bg (optional: artwork shown whole and centered on that colour, e.g. a title lettering),
+  hero_tagline / hero_tagline_lang (optional: one line under the hero artwork).
 {%- endcomment -%}
 {%- assign ordered = site.projects | where_exp: "p", "p.home_order" | where_exp: "p", "p.locked != true" | sort: "home_order" -%}
 {%- assign next_p = nil -%}{%- assign ni = nil -%}
@@ -50,6 +51,9 @@ layout: default
   {%- if page.hero_image %}
   <div class="c-hero{% if page.hero_bg %} is-art{% endif %}"{% if page.hero_bg %} style="background: {{ page.hero_bg }}; --art-w: {{ page.hero_w }}px"{% endif %}>
     {% include case/img.html src=page.hero_image alt=page.hero_alt w=page.hero_w h=page.hero_h priority=true sizes="100vw" %}
+    {%- if page.hero_tagline %}
+    <p class="c-hero-tagline"{% if page.hero_tagline_lang %} lang="{{ page.hero_tagline_lang }}"{% endif %}>{{ page.hero_tagline }}</p>
+    {%- endif %}
   </div>
   {%- endif %}
   <div class="case-c-wrap c-body">
