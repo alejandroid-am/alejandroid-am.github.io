@@ -12,7 +12,14 @@
 {%- if page.collection == 'projects' and page.case_layout == nil -%}{%- assign legacy = true -%}{%- else -%}{%- assign legacy = false -%}{%- endif -%}
 {%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- assign swap_nav = false -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- assign swap_nav = true -%}{%- endif -%}
 {%- assign nav_en = site.data.i18n.en -%}
-{%- if page.title and page.title != 'Home' -%}{%- capture full_title %}{{ page.title }} - {{ site_title }}{% endcapture -%}{%- else -%}{%- assign full_title = site_title -%}{%- endif -%}
+{%- comment -%} Title: seo_title if set; else "Page - site title" when it fits in 60 characters, else "Page - Alejandro Amaro". {%- endcomment -%}
+{%- if page.seo_title -%}{%- assign full_title = page.seo_title -%}
+{%- elsif page.title and page.title != 'Home' -%}
+{%- capture full_title %}{{ page.title }} - {{ site_title }}{% endcapture -%}
+{%- if full_title.size > 60 -%}{%- capture full_title %}{{ page.title }} - Alejandro Amaro{% endcapture -%}{%- endif -%}
+{%- else -%}{%- assign full_title = site_title -%}{%- endif -%}
+{%- assign meta_desc = page.description | default: site.description | strip_html | strip_newlines | truncate: 155 -%}
+{%- assign og_image = page.cover_image | default: page.image | default: '/assets/img/og-default.png' -%}
 <html class="no-js" lang="{{ page_lang }}">
 <head>
   <meta charset="utf-8">
@@ -23,7 +30,7 @@
   <script>(function(){try{var d=document.documentElement,p="{{ page_lang }}",b=(navigator.language||"").toLowerCase(),fr=b.indexOf("fr")===0;if(!localStorage.getItem("lang")&&b&&(p==="fr"?!fr:fr))d.classList.add("lang-hint-on");if(sessionStorage.getItem("scramble-in")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("scramble-pending");setTimeout(function(){d.classList.remove("scramble-pending")},1500);}}catch(e){}})();</script>
   {%- endif %}
   <title>{{ full_title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description | strip_html | truncate: 160 }}">
+  <meta name="description" content="{{ meta_desc }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   {%- if page.alt_url %}
   {%- if page_lang == 'fr' %}{% assign url_fr = page.url %}{% assign url_en = page.alt_url %}{% else %}{% assign url_fr = page.alt_url %}{% assign url_en = page.url %}{% endif %}
@@ -33,19 +40,26 @@
   {%- endif %}
   {%- if page.robots %}
   <meta name="robots" content="{{ page.robots }}">
+  {%- elsif page.locked %}
+  <meta name="robots" content="noindex">
   {%- endif %}
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{% if page.collection == 'projects' %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{{ full_title }}">
-  <meta property="og:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
+  <meta property="og:description" content="{{ meta_desc }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
-  <meta property="og:site_name" content="{{ site_title }}">
+  <meta property="og:image" content="{{ og_image | absolute_url }}">
+  {%- if og_image == '/assets/img/og-default.png' %}
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {%- endif %}
+  <meta property="og:image:alt" content="{% if page.cover_image %}{{ page.title }}{% else %}alejandro-is.me{% endif %}">
+  <meta property="og:site_name" content="alejandro-is.me">
   <meta property="og:locale" content="{{ t.locale }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ full_title }}">
-  <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
-  <meta name="twitter:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
+  <meta name="twitter:description" content="{{ meta_desc }}">
+  <meta name="twitter:image" content="{{ og_image | absolute_url }}">
 
   {%- if page.preload_image %}
   <link rel="preload" as="image" href="{{ page.preload_image }}"{% if page.preload_srcset %} imagesrcset="{{ page.preload_srcset }}" imagesizes="{{ page.preload_sizes }}"{% endif %} fetchpriority="high">
@@ -64,18 +78,7 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Alejandro Amaro Mendoza",
-    "url": "https://www.alejandro-is.me",
-    "jobTitle": "Web and e-commerce designer",
-    "sameAs": ["https://www.linkedin.com/in/alejandro-a-mendoza/"],
-    "knowsAbout": ["UX Design", "UI Design", "Visual Identity", "Web & e-commerce", "Product Design"],
-    "address": { "@type": "PostalAddress", "addressLocality": "Strasbourg", "addressCountry": "FR" }
-  }
-  </script>
+  {% include jsonld.html %}
 </head>
 
 <body class="page-{{ page.page_id | default: page.title | downcase | slugify }}{% if legacy %} is-legacy{% endif %}">

@@ -37,7 +37,7 @@ defaults:
       path: ""
     values:
       layout: default
-      image: /assets/img/og-default.webp
+      image: /assets/img/og-default.png
   - scope:
       path: "tools"
     values:

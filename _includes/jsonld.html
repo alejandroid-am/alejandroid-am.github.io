@@ -1,0 +1,109 @@
+{%- comment -%}
+  One JSON-LD script per page (in <head>), as a @graph:
+  - every page: WebSite + Person
+  - home and services: ProfessionalService (areaServed only, offers = the ones
+    visible on that page, prices read from _data/offers.yml)
+  - case studies (not locked): CreativeWork
+  - inner pages: BreadcrumbList
+  NEVER put the postal address or a phone number here (nor in any meta tag).
+  Strings go through jsonify (valid JSON escaping).
+{%- endcomment -%}
+{%- assign page_lang = page.lang | default: site.lang | default: 'fr' -%}
+{%- assign base = site.url -%}
+{%- if page_lang == 'en' -%}{%- assign job = "Web and e-commerce designer" -%}{%- assign home_name = "Home" -%}{%- assign home_url = "/en/" -%}{%- else -%}{%- assign job = "Designer web et e-commerce" -%}{%- assign home_name = "Accueil" -%}{%- assign home_url = "/" -%}{%- endif -%}
+{%- assign is_home = false -%}{%- if page.url == "/" or page.url == "/en/" -%}{%- assign is_home = true -%}{%- endif -%}
+{%- assign is_services = false -%}{%- if page.url == "/services/" or page.url == "/en/services/" -%}{%- assign is_services = true -%}{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ base }}/#website",
+      "url": "{{ base }}/",
+      "name": "alejandro-is.me",
+      "inLanguage": ["fr", "en"],
+      "publisher": { "@id": "{{ base }}/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ base }}/#person",
+      "name": "Alejandro Amaro Mendoza",
+      "jobTitle": {{ job | jsonify }},
+      "url": "{{ base }}/",
+      "email": "mailto:{{ site.author.email }}",
+      "sameAs": [{{ site.author.linkedin | jsonify }}{% if site.instagram_url != "" %}, {{ site.instagram_url | jsonify }}{% endif %}],
+      "knowsAbout": ["UX design", "UI design", "E-commerce", "PrestaShop", "WordPress", "Visual identity"]
+    }
+    {%- if is_home or is_services %},
+    {
+      "@type": "ProfessionalService",
+      "@id": "{{ base }}/#service",
+      "name": {% if page_lang == 'en' %}"Alejandro Amaro, web and e-commerce design"{% else %}"Alejandro Amaro, design web et e-commerce"{% endif %},
+      "url": "{{ page.url | absolute_url }}",
+      "description": {{ page.description | strip_html | jsonify }},
+      "founder": { "@id": "{{ base }}/#person" },
+      "email": "{{ site.author.email }}",
+      "areaServed": [
+        { "@type": "City", "name": "Strasbourg" },
+        { "@type": "AdministrativeArea", "name": "Alsace" },
+        { "@type": "Country", "name": "France" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": {% if page_lang == 'en' %}"Offers"{% else %}"Offres"{% endif %},
+        "itemListElement": [
+        {%- if is_home %}{% assign shown = site.data.offers.list | where: "home", true %}{% else %}{% assign shown = site.data.offers.list %}{% endif %}
+        {%- for o in shown %}
+        {%- assign oc = o[page_lang] | default: o.fr %}
+        {%- assign raw = o.fr.price | replace: "&nbsp;", "" | replace: " ", "" | downcase %}
+        {%- assign amount = raw | remove: "dès" | split: "€" | first %}
+        {%- assign unit = "" %}{% if raw contains "/mois" %}{% assign unit = "MON" %}{% elsif raw contains "/jour" %}{% assign unit = "DAY" %}{% endif %}
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": {{ oc.title | strip_html | jsonify }} },
+            "priceSpecification": {
+              "@type": "{% if unit != "" %}UnitPriceSpecification{% else %}PriceSpecification{% endif %}",
+              {% if raw contains "dès" %}"minPrice"{% else %}"price"{% endif %}: {{ amount }},
+              "priceCurrency": "EUR"{% if unit != "" %},
+              "unitCode": "{{ unit }}"{% endif %}
+            }
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+        ]
+      }
+    }
+    {%- endif %}
+    {%- if page.collection == 'projects' and page.locked != true %},
+    {
+      "@type": "CreativeWork",
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.description | strip_html | jsonify }},
+      "url": "{{ page.url | absolute_url }}",
+      {%- if page.cover_image %}
+      "image": "{{ page.cover_image | absolute_url }}",
+      {%- endif %}
+      {%- if page.year and page.year != "" %}
+      "dateCreated": "{{ page.year }}",
+      {%- endif %}
+      "inLanguage": "en",
+      "creator": { "@id": "{{ base }}/#person" }
+    }
+    {%- endif %}
+    {%- unless is_home or page.url == "/404.html" %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": {% if page.collection == 'projects' %}"Home"{% else %}{{ home_name | jsonify }}{% endif %}, "item": "{{ home_url | absolute_url }}" },
+        {%- if page.collection == 'projects' %}
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "{{ '/projets/' | absolute_url }}" },
+        { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ page.url | absolute_url }}" }
+        {%- else %}
+        { "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }}, "item": "{{ page.url | absolute_url }}" }
+        {%- endif %}
+      ]
+    }
+    {%- endunless %}
+  ]
+}
+</script>
