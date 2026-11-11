@@ -44,7 +44,9 @@ logos:
 final_logo:
   - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "Logo of the published WorkPics app, the placeholder chosen by the team, orange and white app icon", caption: "Placeholder (Team's Choice)" }
 ---
-{% include case/figure.html src="/assets/img/Workpics/sketch_ui_workpics.webp" w=2400 h=1710 alt="Hand-drawn paper sketch of WorkPics UI zoning" caption="I started with a pencil sketch of the mobile interface and removed every non-essential element." %}
+<p>I started with a pencil sketch of the mobile interface and removed every non-essential element.</p>
+
+{% include case/figure.html src="/assets/img/Workpics/sketch_ui_workpics.webp" w=2400 h=1710 alt="Hand-drawn paper sketch of WorkPics UI zoning" %}
 
 {% include case/figure.html src="/assets/img/Workpics/13.webp" w=1920 h=1080 alt="WorkPics dashboard overview screen" caption="I kept the screens to the minimum: <em>&quot;Open → Shoot → Done&quot;</em>." %}
 
