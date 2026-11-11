@@ -132,11 +132,12 @@
   </main>
 
   <footer class="site-footer">
-    {%- if page.signature %}
-    {% include signature.html %}
-    {%- endif %}
     <div class="footer-main">
       <p class="footer-title">{{ t.footer_title }}</p>
+      <!-- LOTTIE: Ale's animated name goes here (right of "Un projet, une question ?",
+           a few px above it). Keep it empty until the Lottie file exists: an empty
+           .footer-lottie is not displayed. -->
+      <div class="footer-lottie" aria-hidden="true"></div>
       {% include copy-email.html t=t class="footer-mail" %}
       <p><a href="{{ nav_t.contact_url }}"{% if swap_nav %} data-href-en="{{ nav_en.contact_url }}"{% endif %} class="link-arrow">{% if site.form_enabled %}{{ t.footer_contact }}{% else %}{{ t.footer_contact_mail }}{% endif %}<span aria-hidden="true"> →</span></a></p>
     </div>

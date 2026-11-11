@@ -9,7 +9,6 @@
    5. Words that light up with the scroll
    6. Projects rail (pinned, short vertical distance per card)
    7. Timeline (About)
-   8. Signature
    9. Open the <details> targeted by the URL hash (/services/#revue-ux)
 =================================================================
 */
@@ -169,19 +168,6 @@
     document.fonts && document.fonts.ready.then(() => { measureRail(); onScroll(); });
     addEventListener("load", () => { measureRail(); onScroll(); });
     onScroll();
-  }
-
-  /* 8. Signature: written left to right once, when it enters the screen */
-  const sig = document.querySelector("[data-signature]");
-  if (sig && !reduce && "IntersectionObserver" in window) {
-    sig.classList.add("sig-armed");
-    const ready = document.fonts ? document.fonts.load('1em "Mrs Saint Delafield"').catch(() => {}) : Promise.resolve();
-    const io = new IntersectionObserver((entries) => {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      ready.then(() => requestAnimationFrame(() => sig.classList.add("sig-on")));
-    }, { threshold: 0.6 });
-    io.observe(sig);
   }
 
   /* Case videos: no autoplay with reduced motion (controls instead) */

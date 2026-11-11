@@ -1,5 +1,4 @@
-/* Bricolage Grotesque (variable, 200 to 800, optical sizes) and Mrs Saint Delafield
-   (signature), self-hosted. SIL Open Font License 1.1: /assets/fonts/OFL-*.txt */
+/* Bricolage Grotesque (variable, 200 to 800, optical sizes), self-hosted. SIL Open Font License 1.1: /assets/fonts/OFL-*.txt */
 @font-face {
   font-family: 'Bricolage Grotesque';
   font-style: normal;
@@ -16,11 +15,4 @@
   ascent-override: 93%;
   descent-override: 26%;
   line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'Mrs Saint Delafield';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/assets/fonts/mrs-saint-delafield-latin.woff2') format('woff2');
 }

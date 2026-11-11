@@ -10,7 +10,7 @@
    2. Base (new pages only)
    3. Page transitions
    4. Header, menu and FR / EN
-   5. Footer, email copy, signature
+   5. Footer, email copy
    6. Shared pieces (headings, buttons, lit words, reveal)
    7. Home (hero, scene, offers, rail, contact)
    8. Offer rows (home + /services/)
@@ -126,14 +126,19 @@ html.lang-hint-on .lang-hint { display: block; }
 .lang-hint a, .lang-hint a:hover { color: var(--bg); font-weight: 700; }
 .lang-hint button { background: none; border: 1px solid currentColor; color: inherit; border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; }
 
-/* 5. Footer, email copy, signature ----------------------------- */
+/* 5. Footer, email copy ---------------------------------------- */
 .site-footer {
   margin: 0; border-top: 1px solid var(--line);
   padding: 72px var(--pad) 28px;
   font-family: var(--font); color: var(--ink); background: var(--bg);
 }
 .site-footer a, .site-footer a:hover { color: var(--ink); }
-.footer-main { display: grid; gap: 14px; margin-bottom: 56px; }
+.footer-main { display: grid; gap: 14px; margin-bottom: 56px; grid-template-columns: minmax(0, 1fr) auto; }
+.footer-main > :not(.footer-lottie) { grid-column: 1; }
+/* Empty slot for Ale's future Lottie (name animation): right column, top row,
+   a few px above the title. Has no size while empty, so nothing shows. */
+.footer-lottie { grid-column: 2; grid-row: 1 / span 3; align-self: start; margin-top: -8px; }
+.footer-lottie:empty { display: none; }
 .footer-title { font-size: clamp(28px, 3.6vw, 48px); font-weight: 800; letter-spacing: -.035em; line-height: 1; margin: 0; }
 .footer-mail { font-size: clamp(18px, 2vw, 24px); font-weight: 600; letter-spacing: -.01em; }
 .footer-bottom { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 14px; color: var(--mute); border-top: 1px solid var(--line); padding-top: 18px; }
@@ -156,13 +161,6 @@ html.lang-hint-on .lang-hint { display: block; }
 .link-arrow { font-weight: 600; text-underline-offset: 5px; text-decoration-thickness: 1.5px; }
 .link-arrow:hover { text-decoration-color: var(--y); text-decoration-thickness: 4px; }
 
-.signature { margin: 0 0 40px; line-height: 1; overflow: visible; }
-.signature-text {
-  display: inline-block; white-space: nowrap; font-family: "Mrs Saint Delafield", cursive; font-weight: 400;
-  font-size: min(128px, calc((100vw - 2 * var(--pad)) / 9)); line-height: 1.25; padding: 0 .3em 0 .05em; color: var(--ink);
-}
-.js .signature.sig-armed .signature-text { clip-path: inset(-0.4em 100% -0.4em -0.4em); }
-.js .signature.sig-armed.sig-on .signature-text { clip-path: inset(-0.4em -0.4em -0.4em -0.4em); transition: clip-path 2.4s cubic-bezier(.55, .1, .35, 1); }
 
 /* 6. Shared pieces --------------------------------------------- */
 .page-head { padding: 72px var(--pad) 40px; }
@@ -585,7 +583,6 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
   .hero-in, .h1-word.is-in { animation: none; }
   .rail-media img, .prow-media img, .orow-head, .o-arrow, .tl-item { transition: none; }
-  .js .signature.sig-armed .signature-text { clip-path: none; }
 }
 
 /* Services FAQ (visible, plain text) */
