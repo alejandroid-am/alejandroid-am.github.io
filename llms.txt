@@ -4,9 +4,12 @@
 
 ## Site Structure
 
-- **Homepage** (`/`): Single-page landing with hero, about, skills, experience, projects, education, and contact sections.
-- **Portfolio** (`/portfolio.html`): Filterable grid of all case studies.
-- **Projects** (`/projects/`): Individual case study pages:
+- **Homepage** (`/`, English at `/en/`): short landing with hero, three offers, a projects rail and contact.
+- **Services** (`/services/`, `/en/services/`): offers with prices and how a project works.
+- **Projects** (`/projets/`, `/en/projects/`): list of all case studies.
+- **About** (`/a-propos/`, `/en/about/`): background, timeline, languages and skills.
+- **Contact** (`/contact/`, `/en/contact/`): contact form and email.
+- **Case studies** (`/projects/<name>/`, in English):
   - In-House Tools — A social post generator and a rental contract generator in daily use at the shop where Alejandro works as in-house designer. Alejandro defines the problem, behavior and rules; Claude writes the code
   - Keep Breathing — Survival FPS made in 48 hours at Global Game Jam 2026; Alejandro was project lead, game designer, 3D artist and UI designer. Best Technical Achievement
   - BEDiZEN — Final project for the CCI Campus Alsace Web UX/UI Designer certification. Brand and UX/UI; v1 coded by hand, v2 built with AI on a 4-column grid Alejandro defined; database, hosting and WordPress set up by Alejandro

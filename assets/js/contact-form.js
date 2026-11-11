@@ -5,6 +5,7 @@
   Without JS the form posts to Formspree as a normal HTML form.
   With JS:
   - the offer (and request type) is preselected from ?offre=<id>
+  - ?projet=<title> (locked project) prefills the message and subject
   - fields are trimmed, errors appear next to the field in plain words
   - sends with fetch, the button switches to "Envoi…" at once
   - success / failure is announced in an aria-live region, and the
@@ -33,6 +34,16 @@
       offre.value = wanted;
       if (demande && !demande.value) demande.value = option.dataset.demande || "projet";
     }
+  }
+  /* --- Case study on request (?projet=<title>, from a locked project) ---
+     Prefills the message and the email subject; the visitor can edit both. */
+  const projet = new URLSearchParams(window.location.search).get("projet");
+  const message = form.querySelector("#cf-message");
+  if (projet && message && !message.value && form.dataset.lockedSubject) {
+    const line = form.dataset.lockedSubject.replace("%s", projet.slice(0, 120));
+    message.value = line + "\n\n";
+    const subject = form.querySelector('input[name="_subject"]');
+    if (subject) subject.value += " · " + line;
   }
   /* Picking an offer also classifies the request, if not chosen yet */
   if (offre && demande) {

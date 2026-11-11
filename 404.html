@@ -14,14 +14,15 @@ sitemap: false
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: var(--space-xl) var(--space-md);
+  padding: 48px 24px;
 }
 .error-title {
   font-size: clamp(5.5rem, 26vw, 16.5rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 0.8;
-  color: var(--text);
-  margin-bottom: var(--space-md);
+  letter-spacing: -.05em;
+  color: var(--ink);
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +33,7 @@ sitemap: false
   position: relative;
   width: clamp(3.2rem, 15vw, 9.5rem);
   height: clamp(4.2rem, 20vw, 12.5rem);
-  background: var(--text);
+  background: var(--ink);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -50,19 +51,19 @@ sitemap: false
 .error-quote {
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: 500;
-  color: var(--accent);
-  margin-bottom: var(--space-lg);
+  color: var(--ink);
+  margin-bottom: 32px;
   font-style: italic;
 }
 .error-subtitle {
   font-size: 1.1rem;
-  color: var(--text-muted);
-  margin-bottom: var(--space-xl);
+  color: var(--mute);
+  margin-bottom: 48px;
   max-width: 500px;
 }
 </style>
 
-<section class="error-section reveal">
+<section class="error-section">
   <div class="error-title">
     <span>4</span>
     <div class="error-zero" id="eye-container">
@@ -72,9 +73,9 @@ sitemap: false
   </div>
   <p class="error-quote">"Not all those who wander are lost..."</p>
   <p class="error-subtitle">But it seems you might be. The page you're looking for doesn't exist or has been moved.</p>
-  <div style="display:flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center;">
-    <a href="/" class="submit-btn">Return home</a>
-    <a href="/portfolio.html" class="submit-btn">See the projects</a>
+  <div style="display:flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+    <a href="/" class="btn">Return home</a>
+    <a href="/projets/" class="btn btn-ghost" data-href-en="/en/projects/">See the projects</a>
   </div>
 </section>
 

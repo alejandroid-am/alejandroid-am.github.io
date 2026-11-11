@@ -4,6 +4,9 @@
 # are intentionally absent until CGV and RC Pro are settled:
 # [[A COMPLETAR: CGV / RC Pro]]
 #
+# Price: an amount starting with "dès" / "from" gets the note "précisé dans le devis".
+# The Revue UX price is closed (no "dès").
+#
 # "for" (Pour qui) and "excludes" (Non inclus) are drafts written from the brief.
 # They are never rendered until the offer has validated: true. Order of this list
 # = order on /services/ (inside each block) and on the home cards (home: true).
@@ -13,27 +16,27 @@ ui:
     for: Pour qui
     includes: Inclus
     excludes: Non inclus
-    delay: Délai
-    delay_text: Délai précisé dans le devis.
+    price_note: précisé dans le devis
+    details: Détails
     request: Demander cette offre
     featured: Point de départ conseillé
     see_offer: Voir l'offre
     case_link: Voir le cas In-House Tools
     example: Exemple
-    contact: /
+    contact: /contact/
     services: /services/
   en:
     for: Who it's for
     includes: Included
     excludes: Not included
-    delay: Timeline
-    delay_text: Timeline set out in the quote.
+    price_note: set out in the quote
+    details: Details
     request: Request this offer
     featured: Recommended starting point
     see_offer: See the offer
     case_link: See the In-House Tools case study
     example: Example
-    contact: /en/
+    contact: /en/contact/
     services: /en/services/
 
 list:

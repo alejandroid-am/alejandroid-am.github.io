@@ -1,0 +1,20 @@
+---
+layout: none
+---
+{%- comment -%} Simple redirect: meta refresh + a visible link (works without JS). Front matter: redirect_to {%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'fr' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: "Redirection" }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">
+  <style>body{margin:0;padding:64px 24px;font:400 18px/1.5 system-ui,sans-serif;background:#f2f0ea;color:#151514}a{color:inherit;font-weight:600}</style>
+</head>
+<body>
+  <p>{{ t.redirect_text }} <a href="{{ page.redirect_to }}">{{ page.redirect_to | absolute_url }}</a></p>
+</body>
+</html>

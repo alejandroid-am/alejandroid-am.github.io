@@ -2,23 +2,26 @@
 {%- assign page_lang = page.lang | default: site.lang | default: 'fr' -%}
 {%- assign t = site.data.i18n[page_lang] | default: site.data.i18n.fr -%}
 {%- assign site_title = t.site_title | default: site.title -%}
-{%- comment -%} Bilingual pages link to their own language. English-only pages (case studies, portfolio) link to the default FR paths; main.js swaps them to data-href-en when the visitor chose English or came from the English home. {%- endcomment -%}
-{%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- assign swap_nav = false -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- assign swap_nav = true -%}{%- assign nav_en = site.data.i18n.en -%}{%- endif -%}
-{%- if site.cal_url != "" -%}{%- assign cta_label = t.cta_call -%}{%- assign cta_url = site.cal_url -%}{%- else -%}{%- assign cta_label = t.cta_contact -%}{%- assign cta_url = nav_t.contact_url -%}{%- assign cta_url_en = site.data.i18n.en.contact_url -%}{%- endif -%}
+{%- comment -%}
+  Case studies (collection "projects") keep their own stylesheet (style.css) and
+  scripts untouched; every page gets the shared chrome (site.css + site.js).
+  English-only pages (case studies, 404) link the menu to the FR paths; site.js
+  swaps them to data-href-en when the visitor chose English.
+{%- endcomment -%}
+{%- if page.collection == 'projects' -%}{%- assign legacy = true -%}{%- else -%}{%- assign legacy = false -%}{%- endif -%}
+{%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- assign swap_nav = false -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- assign swap_nav = true -%}{%- endif -%}
+{%- assign nav_en = site.data.i18n.en -%}
+{%- if page.title and page.title != 'Home' -%}{%- capture full_title %}{{ page.title }} - {{ site_title }}{% endcapture -%}{%- else -%}{%- assign full_title = site_title -%}{%- endif -%}
 <html class="no-js" lang="{{ page_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- JS is available: drop the no-JS fallback before first paint (no flash of hidden content) -->
-  <script>document.documentElement.classList.remove('no-js');</script>
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
   {%- if page.alt_url %}
-  <!-- Language hint decided before first paint (no layout shift): shown only when no choice is saved and the browser language differs from the page -->
-  <script>(function(){try{var d=document.documentElement,p="{{ page_lang }}",b=(navigator.language||"").toLowerCase(),fr=b.indexOf("fr")===0;if(!localStorage.getItem("lang")&&b&&(p==="fr"?!fr:fr))d.classList.add("lang-hint-on");}catch(e){}})();</script>
+  <!-- Language hint decided before first paint (no layout shift) -->
+  <script>(function(){try{var d=document.documentElement,p="{{ page_lang }}",b=(navigator.language||"").toLowerCase(),fr=b.indexOf("fr")===0;if(!localStorage.getItem("lang")&&b&&(p==="fr"?!fr:fr))d.classList.add("lang-hint-on");if(sessionStorage.getItem("scramble-in")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("scramble-pending");setTimeout(function(){d.classList.remove("scramble-pending")},1500);}}catch(e){}})();</script>
   {%- endif %}
-  <!-- Title -->
-  <title>{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}</title>
-
-  <!-- SEO Meta -->
+  <title>{{ full_title }}</title>
   <meta name="description" content="{{ page.description | default: site.description | strip_html | truncate: 160 }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   {%- if page.alt_url %}
@@ -27,150 +30,127 @@
   <link rel="alternate" hreflang="en" href="{{ url_en | absolute_url }}">
   <link rel="alternate" hreflang="x-default" href="{{ url_fr | absolute_url }}">
   {%- endif %}
+  {%- if page.robots %}
+  <meta name="robots" content="{{ page.robots }}">
+  {%- endif %}
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}">
+  <meta property="og:title" content="{{ full_title }}">
   <meta property="og:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
   <meta property="og:site_name" content="{{ site_title }}">
   <meta property="og:locale" content="{{ t.locale }}">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} - {{ site_title }}{% else %}{{ site_title }}{% endif %}">
+  <meta name="twitter:title" content="{{ full_title }}">
   <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
   <meta name="twitter:image" content="{{ page.cover_image | default: page.image | default: '/assets/img/og-default.webp' | absolute_url }}">
 
-  <!-- Content Security Policy (Removed for local development compatibility) -->
-
-  <!-- Fonts: Poppins self-hosted (latin + latin-ext, 400 to 700, swap). No third-party request. -->
   {%- if page.preload_image %}
   <link rel="preload" as="image" href="{{ page.preload_image }}"{% if page.preload_srcset %} imagesrcset="{{ page.preload_srcset }}" imagesizes="{{ page.preload_sizes }}"{% endif %} fetchpriority="high">
   {%- endif %}
+  <!-- Fonts: all self-hosted, no third-party request. Licences in /assets/fonts/ -->
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  {%- if legacy %}
   <link rel="preload" href="/assets/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  {%- endif %}
   <style>
-{% include fonts.css %}  </style>
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
-  <!-- Favicon -->
+{% include fonts-site.css %}{% if legacy %}{% include fonts.css %}{% endif %}  </style>
+  {%- if legacy %}
+  <link rel="stylesheet" href="/assets/css/style.css">
+  {%- endif %}
+  <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
-  <!-- JSON-LD Person Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Alejandro Amaro Mendoza",
     "url": "https://www.alejandro-is.me",
-    "jobTitle": "Product & Visual Designer",
-    "sameAs": [
-      "https://www.linkedin.com/in/alejandro-a-mendoza/"
-    ],
+    "jobTitle": "Web and e-commerce designer",
+    "sameAs": ["https://www.linkedin.com/in/alejandro-a-mendoza/"],
     "knowsAbout": ["UX Design", "UI Design", "Visual Identity", "Web & e-commerce", "Product Design"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Strasbourg",
-      "addressCountry": "FR"
-    }
+    "address": { "@type": "PostalAddress", "addressLocality": "Strasbourg", "addressCountry": "FR" }
   }
   </script>
 </head>
 
-<body class="{{ page.title | downcase | slugify }}-page">
-
-  <!-- Skip Link -->
+<body class="page-{{ page.page_id | default: page.title | downcase | slugify }}{% if legacy %} is-legacy{% endif %}">
   <a href="#main-content" class="skip-link">{{ t.skip }}</a>
 
   {%- if page.alt_url %}
-  <!-- Language hint: visibility set by the inline script in <head>. Never redirects. -->
-  {%- assign alt_t = site.data.i18n[t.switch_lang] %}
-  <div class="lang-hint" id="lang-hint" role="region" aria-label="{{ alt_t.hint_label }}" lang="{{ t.switch_lang }}" data-page-lang="{{ page_lang }}">
-    <div class="container lang-hint-inner">
+  {%- if page_lang == 'fr' %}{% assign other_lang = 'en' %}{% else %}{% assign other_lang = 'fr' %}{% endif %}
+  {%- assign alt_t = site.data.i18n[other_lang] %}
+  <div class="lang-hint" id="lang-hint" role="region" aria-label="{{ alt_t.hint_label }}" lang="{{ other_lang }}">
+    <div class="lang-hint-inner">
       <p>{{ alt_t.hint_text }}</p>
-      <a href="{{ page.alt_url }}" class="lang-switch lang-hint-go" hreflang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}">{{ alt_t.hint_go }}</a>
+      <a href="{{ page.alt_url }}" class="lang-hint-go" hreflang="{{ other_lang }}" data-lang="{{ other_lang }}">{{ alt_t.hint_go }}</a>
       <button type="button" class="lang-hint-stay" lang="{{ page_lang }}" data-lang="{{ page_lang }}">{{ t.hint_stay }}</button>
     </div>
   </div>
   {%- endif %}
 
-  <!-- Custom Cursor (progressive enhancement, hidden until JS loads) -->
-  <div class="custom-cursor" aria-hidden="true"></div>
-
-  <!-- Header -->
-  <header role="banner">
-    <div class="container header-content">
-      <a href="{{ nav_t.home }}"{% if swap_nav %} data-href-en="{{ nav_en.home }}"{% endif %} class="logo" aria-label="{{ t.logo_label }}">alejandro a.m.</a>
-
-      <nav id="desktop-menu" class="desktop-nav" aria-label="{{ t.nav_label }}">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="{{ nav_t.home }}"{% if swap_nav %} data-href-en="{{ nav_en.home }}"{% endif %} class="site-logo" aria-label="{{ t.logo_label }}"><span data-scramble>Alejandro A.M.</span></a>
+      <nav class="site-nav" aria-label="{{ t.nav_label }}">
         <ul>
           {%- for item in t.nav %}
-          <li><a href="{{ nav_t.nav[forloop.index0].url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if page.url == nav_t.nav[forloop.index0].url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {%- assign url = nav_t.nav[forloop.index0].url %}
+          {%- assign current = false %}
+          {%- if page.url == url %}{% assign current = true %}{% endif %}
+          {%- if forloop.index0 == 1 and page.collection == 'projects' %}{% assign current = true %}{% endif %}
+          <li><a href="{{ url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if current %} aria-current="page"{% endif %}><span data-scramble>{{ item.label }}</span></a></li>
           {%- endfor %}
-          <li><a href="{{ cta_url }}"{% if swap_nav and cta_url_en %} data-href-en="{{ cta_url_en }}"{% endif %} class="submit-btn header-cta{% if page.home %} is-quiet{% endif %}">{{ cta_label }}</a></li>
-          {%- if page.alt_url %}
-          <li><a href="{{ page.alt_url }}" class="lang-switch" hreflang="{{ t.switch_lang }}" lang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}"><span aria-hidden="true">{{ t.switch_code }}</span><span class="sr-only">{{ t.switch_label }}</span></a></li>
-          {%- endif %}
         </ul>
       </nav>
-
-      <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="{{ t.menu_toggle }}">
-        <svg id="icon-menu" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="icon-close" class="icon hidden-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-
-      <nav id="menu" class="nav-menu" aria-label="{{ t.nav_mobile_label }}">
-        <ul>
-          {%- for item in t.nav %}
-          <li><a href="{{ nav_t.nav[forloop.index0].url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if page.url == nav_t.nav[forloop.index0].url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
-          {%- endfor %}
-          <li><a href="{{ cta_url }}"{% if swap_nav and cta_url_en %} data-href-en="{{ cta_url_en }}"{% endif %}>{{ cta_label }}</a></li>
-          {%- if page.alt_url %}
-          <li><a href="{{ page.alt_url }}" class="lang-switch" hreflang="{{ t.switch_lang }}" lang="{{ t.switch_lang }}" data-lang="{{ t.switch_lang }}">{{ t.switch_label }}</a></li>
-          {%- endif %}
-        </ul>
-      </nav>
+      {%- if page.alt_url %}
+      <!-- FR / EN at once: the active one is underlined; the line slides to the chosen one -->
+      <div class="lang-pick" role="group" aria-label="{{ t.lang_label }}">
+        {%- if page_lang == 'fr' %}
+        <span class="lang-opt is-active" lang="fr" aria-current="true" title="{{ t.lang_fr }}">FR</span>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a class="lang-opt" href="{{ page.alt_url }}" hreflang="en" lang="en" data-lang="en" aria-label="{{ t.lang_en }}">EN</a>
+        {%- else %}
+        <a class="lang-opt" href="{{ page.alt_url }}" hreflang="fr" lang="fr" data-lang="fr" aria-label="{{ t.lang_fr }}">FR</a>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <span class="lang-opt is-active" lang="en" aria-current="true" title="{{ t.lang_en }}">EN</span>
+        {%- endif %}
+        <span class="lang-line" aria-hidden="true"></span>
+      </div>
+      {%- endif %}
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     {{ content }}
   </main>
 
-  <!-- Mobile call-to-action bar (hidden on desktop, over the home hero and over the contact section) -->
-  <div class="mobile-cta-bar{% if page.home %} is-hidden{% endif %}" id="mobile-cta-bar">
-    <a href="{{ cta_url }}" class="submit-btn btn-solid">{{ cta_label }}</a>
-  </div>
-
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <div class="container footer-container">
+  <footer class="site-footer">
+    {%- if page.signature %}
+    {% include signature.html %}
+    {%- endif %}
+    <div class="footer-main">
+      <p class="footer-title">{{ t.footer_title }}</p>
+      {% include copy-email.html t=t class="footer-mail" %}
+      <p><a href="{{ nav_t.contact_url }}"{% if swap_nav %} data-href-en="{{ nav_en.contact_url }}"{% endif %} class="link-arrow">{{ t.footer_contact }}<span aria-hidden="true"> →</span></a></p>
     </div>
     <div class="footer-bottom">
-      <p id="copyright">© 2026 Alejandro Amaro Mendoza - Web &amp; e-commerce</p>
-      <span class="legal-link" aria-hidden="true">·</span>
-      <a href="{{ nav_t.contact_url }}" class="legal-link">{{ t.footer_contact }}</a>
-      <span class="legal-link" aria-hidden="true">·</span>
-      <a href="/tools/" class="legal-link"{% if page_lang != 'en' %} hreflang="en"{% endif %}>{{ t.footer_tools }}</a>
-      <span class="legal-link" aria-hidden="true">·</span>
-      <a href="/mentions-legales.html" class="legal-link" lang="fr">{{ t.footer_legal }}</a>
+      <p>© 2026 Alejandro Amaro Mendoza</p>
+      <a href="/tools/"{% if page_lang != 'en' %} hreflang="en"{% endif %}>{{ t.footer_tools }}</a>
+      <a href="/mentions-legales.html" lang="fr">{{ t.footer_legal }}</a>
     </div>
   </footer>
 
-  <!-- Back to Top -->
-  <a href="#" id="back-to-top" class="back-to-top-btn" title="{{ t.back_to_top }}" aria-label="{{ t.back_to_top }}">&gt;</a>
-
-  <!-- Scripts -->
-  <script src="/assets/js/main.js"></script>
-  <script src="/assets/js/zoom.js"></script>
-  <script src="/assets/js/cursor.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  {%- if legacy %}
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/zoom.js" defer></script>
+  {%- endif %}
+  {%- for s in page.scripts %}
+  <script src="/assets/js/{{ s }}" defer></script>
+  {%- endfor %}
 </body>
 </html>

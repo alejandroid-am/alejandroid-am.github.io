@@ -1,12 +1,23 @@
 ---
 layout: default
 ---
+{%- if page.locked -%}
+{%- comment -%} Locked project: nothing of the body is ever rendered. {%- endcomment -%}
+{%- assign t = site.data.i18n.en -%}
+<div class="case-study-container">
+  <header class="project-header">
+    <h1 class="project-title">{{ page.title }}</h1>
+    <p class="project-subtitle">{{ page.category }}</p>
+    <p><a href="/contact/?projet={{ page.title | url_encode }}" data-href-en="/en/contact/?projet={{ page.title | url_encode }}" class="submit-btn">{{ t.locked_label }}</a></p>
+  </header>
+</div>
+{%- else -%}
 <div class="case-study-container{% if page.theme %} theme-{{ page.theme }}{% endif %}">
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <ol>
-      <li><a href="/">Home</a></li>
-      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/" data-href-en="/en/">Home</a></li>
+      <li><a href="/projets/" data-href-en="/en/projects/">Projects</a></li>
       <li aria-current="page">{{ page.title }}</li>
     </ol>
   </nav>
@@ -31,7 +42,7 @@ layout: default
   </article>
 
   <nav class="project-nav" aria-label="Project navigation">
-    <a href="/#projects" class="back-link">&larr; Back to all projects</a>
+    <a href="/projets/" data-href-en="/en/projects/" class="back-link">&larr; Back to all projects</a>
   </nav>
 
 </div>
@@ -57,3 +68,4 @@ layout: default
   }
 }
 </script>
+{%- endif -%}

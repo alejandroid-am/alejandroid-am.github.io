@@ -1,0 +1,9 @@
+{%- comment -%}
+  Email + copy button. Without JS (or without the Clipboard API) only the
+  mailto link shows. Params: include.t (i18n strings), include.class
+{%- endcomment -%}
+<p class="copy-email {{ include.class }}">
+  <a href="mailto:ale.amaro.m@proton.me">ale.amaro.m@proton.me</a>
+  <button type="button" class="copy-btn" data-copy="ale.amaro.m@proton.me" data-ok="{{ include.t.copied }}" data-fail="{{ include.t.copy_fail }}" aria-label="{{ include.t.copy_label }}" hidden>{{ include.t.copy_btn }}</button>
+  <span class="copy-out" role="status" aria-live="polite"></span>
+</p>

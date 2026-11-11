@@ -1,0 +1,78 @@
+{%- assign ct = site.data.contact[page.lang] | default: site.data.contact.fr -%}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+<header class="page-head">
+  <h1 class="display" data-scramble>{{ ct.title }}</h1>
+  <p class="lead" style="margin-top:20px">{{ ct.reply }}
+    {%- if site.cal_url != "" %} {{ ct.cal_text }} <a href="{{ site.cal_url }}" target="_blank" rel="noopener noreferrer">{{ ct.cal_link }}</a>{% endif %}
+  </p>
+</header>
+
+<div class="contact-grid">
+  <div class="contact-info">
+    {% include copy-email.html t=t %}
+    <p><a class="link-arrow" href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true"> →</span></a></p>
+    {%- if site.instagram_url != "" %}
+    <p><a class="link-arrow" href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram<span aria-hidden="true"> →</span></a></p>
+    {%- endif %}
+  </div>
+
+  <div>
+    <form action="https://formspree.io/f/xqayldza" method="POST" class="contact-form" id="contact-form" aria-labelledby="contact-form-title"
+          data-sending="{{ ct.sending }}" data-locked-subject="{{ t.locked_subject | replace: '&nbsp;', ' ' }}">
+      <h2 class="sr-only" id="contact-form-title">{{ ct.title }}</h2>
+      <p class="form-note">{{ ct.required_note }}</p>
+
+      <div class="form-group">
+        <label for="cf-name">{{ ct.name }}</label>
+        <input type="text" id="cf-name" name="name" required autocomplete="name" aria-describedby="cf-name-error" data-msg-empty="{{ ct.name_err }}">
+        <p class="form-error" id="cf-name-error" hidden></p>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-email">{{ ct.email }}</label>
+        <input type="email" id="cf-email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" aria-describedby="cf-email-error"
+               data-msg-empty="{{ ct.email_err }}" data-msg-format="{{ ct.email_err_format }}">
+        <p class="form-error" id="cf-email-error" hidden></p>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-demande">{{ ct.demande }}</label>
+        <select id="cf-demande" name="demande" required aria-describedby="cf-demande-error" data-msg-empty="{{ ct.demande_err }}">
+          <option value="">{{ ct.demande_placeholder }}</option>
+          {%- for d in ct.demandes %}
+          <option value="{{ d.value }}">{{ d.label }}</option>
+          {%- endfor %}
+        </select>
+        <p class="form-error" id="cf-demande-error" hidden></p>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-offre">{{ ct.offre }}</label>
+        <select id="cf-offre" name="offre">
+          <option value="ne-sais-pas">{{ ct.offre_unknown }}</option>
+          {%- for o in site.data.offers.list %}
+          {%- assign oc = o[page.lang] | default: o.fr %}
+          <option value="{{ o.id }}" data-demande="{% if o.block == 'agences' %}agence{% else %}projet{% endif %}">{{ oc.title | strip_html }}</option>
+          {%- endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-message">{{ ct.message }}</label>
+        <textarea id="cf-message" name="message" required aria-describedby="cf-message-error" data-msg-empty="{{ ct.message_err }}"></textarea>
+        <p class="form-error" id="cf-message-error" hidden></p>
+      </div>
+
+      <!-- Spam trap: hidden from everyone, bots fill it in and Formspree drops the message -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+      <input type="hidden" name="_subject" value="{{ ct.subject }}">
+      <input type="hidden" name="langue" value="{{ page.lang }}">
+
+      <button type="submit" class="btn form-submit">{{ ct.submit }}</button>
+    </form>
+
+    <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"
+         data-success="{{ ct.success | escape }}" data-error="{{ ct.error | escape }}"></div>
+    <p class="form-privacy" style="margin-top:20px">{{ ct.privacy }}</p>
+  </div>
+</div>

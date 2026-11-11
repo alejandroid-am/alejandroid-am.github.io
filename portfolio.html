@@ -1,49 +1,8 @@
 ---
-layout: default
-title: Portfolio
-description: "UX/UI, visual identity, motion and 3D case studies by Alejandro Amaro: product and visual design across interfaces, brand, video, and games."
-lang: en
-last_modified_at: 2026-09-18
+layout: redirect
+title: Projets
+lang: fr
+permalink: /portfolio.html
+redirect_to: /projets/
+sitemap: false
 ---
-<section class="section portfolio-page reveal" aria-label="Portfolio">
-  <h1 class="hero-portfolio">Portfolio</h1>
-
-  <div class="filter-container">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="identity">Visual Identity</button>
-    <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
-    <button class="filter-btn" data-filter="tools">Tools & Systems</button>
-    <button class="filter-btn" data-filter="illustration">Illustration</button>
-    <button class="filter-btn" data-filter="motion">Motion & Video</button>
-    <button class="filter-btn" data-filter="3d-art">3D</button>
-    <button class="filter-btn" data-filter="game-dev">Game Dev</button>
-  </div>
-
-  <div class="portfolio-grid">
-    {% assign sorted_projects = site.projects | sort: "year" | reverse %}
-    {% for project in sorted_projects %}
-      {% unless project.slug == 'zz_others' %}
-      <a href="{{ project.url }}" class="portfolio-item reveal" data-category="{{ project.categories | join: ' ' }}">
-        <img src="{{ project.cover_image }}" alt="{{ project.title }} project cover" {% if forloop.index <= 2 %}loading="eager"{% if forloop.first %} fetchpriority="high"{% endif %}{% else %}loading="lazy"{% endif %} width="800" height="500" />
-        <div class="overlay">
-          <h2>{{ project.title }}</h2>
-          <p>{{ project.description }}</p>
-        </div>
-      </a>
-      {% endunless %}
-    {% endfor %}
-
-    <!-- Other Works at the end -->
-    {% for project in site.projects %}
-      {% if project.slug == 'zz_others' %}
-      <a href="{{ project.url }}" class="portfolio-item reveal" data-category="{{ project.categories | join: ' ' }}">
-        <img src="{{ project.cover_image }}" alt="{{ project.title }} project cover" loading="lazy" width="800" height="500" />
-        <div class="overlay">
-          <h2>{{ project.title }}</h2>
-          <p>{{ project.description }}</p>
-        </div>
-      </a>
-      {% endif %}
-    {% endfor %}
-  </div>
-</section>

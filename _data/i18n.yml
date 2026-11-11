@@ -1,69 +1,80 @@
 # Interface strings for the site chrome (header, footer, shared UI).
 # Pages declare `lang: fr` or `lang: en`. Bilingual pages also declare
 # `alt_url` (URL of the same page in the other language).
+# Menu: each entry goes straight to its own page (no anchors).
 
 fr:
   locale: fr_FR
-  site_title: Alejandro Amaro | Designer produit et visuel
+  site_title: Alejandro Amaro | Designer web et e-commerce
   home: /
   skip: Aller au contenu principal
   logo_label: Alejandro A.M., accueil
   nav_label: Navigation principale
-  nav_mobile_label: Navigation mobile
-  menu_toggle: Ouvrir ou fermer le menu
   nav:
-    - label: projets
-      url: /#projects
-    - label: services
+    - label: Services
       url: /services/
-    - label: cv
-      url: /cv/
-    - label: à propos
-      url: /#about
-  contact_url: /#contact
-  cta_call: Échanger 20 min
-  cta_contact: Me contacter
-  switch_code: EN
-  switch_lang: en
-  switch_label: English version
+    - label: Projets
+      url: /projets/
+    - label: À propos
+      url: /a-propos/
+    - label: Contact
+      url: /contact/
+  projects_url: /projets/
+  about_url: /a-propos/
+  contact_url: /contact/
+  lang_label: Langue
+  lang_fr: Français
+  lang_en: English
   hint_label: Langue du site
   hint_text: Ce site existe aussi en français.
   hint_go: Passer en français
   hint_stay: Rester en français
-  footer_contact: Contact
+  footer_title: Un projet, une question&nbsp;?
+  footer_contact: Écrire via le formulaire
   footer_tools: Outils
   footer_legal: Mentions légales
-  back_to_top: Retour en haut
+  copy_btn: Copier
+  copy_label: "Copier l'adresse email"
+  copied: Adresse copiée.
+  copy_fail: "Copie impossible. Sélectionnez l'adresse à la main."
+  locked_label: Étude de cas sur demande
+  locked_subject: "Étude de cas sur demande&nbsp;: %s"
+  redirect_text: "Cette page a déménagé&nbsp;:"
 
 en:
   locale: en_US
-  site_title: Alejandro Amaro | Product & Visual Designer
+  site_title: Alejandro Amaro | Web and e-commerce designer
   home: /en/
   skip: Skip to main content
   logo_label: Alejandro A.M., Home
   nav_label: Main navigation
-  nav_mobile_label: Mobile navigation
-  menu_toggle: Toggle navigation menu
   nav:
-    - label: projects
-      url: /en/#projects
-    - label: services
+    - label: Services
       url: /en/services/
-    - label: cv
-      url: /en/cv/
-    - label: about
-      url: /en/#about
-  contact_url: /en/#contact
-  cta_call: Book a 20-min call
-  cta_contact: Contact me
-  switch_code: FR
-  switch_lang: fr
-  switch_label: Version française
+    - label: Projects
+      url: /en/projects/
+    - label: About
+      url: /en/about/
+    - label: Contact
+      url: /en/contact/
+  projects_url: /en/projects/
+  about_url: /en/about/
+  contact_url: /en/contact/
+  lang_label: Language
+  lang_fr: Français
+  lang_en: English
   hint_label: Site language
   hint_text: This site is also available in English.
   hint_go: Switch to English
   hint_stay: Stay in English
-  footer_contact: Contact
+  footer_title: A project, a question?
+  footer_contact: Write through the form
   footer_tools: Tools
   footer_legal: Mentions légales
-  back_to_top: Back to top
+  copy_btn: Copy
+  copy_label: Copy the email address
+  copied: Address copied.
+  copy_fail: "Could not copy. Select the address by hand."
+  locked_label: Case study on request
+  locked_subject: "Case study on request: %s"
+  redirect_text: "This page has moved:"
