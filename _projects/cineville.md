@@ -8,154 +8,56 @@ role_short: Art Direction
 tools: Photoshop, Illustrator
 year: 2024
 home_order: 6
-last_modified_at: 2026-10-20
+last_modified_at: 2026-11-11
 categories: illustration identity
 cover_image: /assets/img/cineville_view.webp
 theme: cineville
 preload_image: /assets/img/Cineville/cineville-title.webp
+
+# --- Layout C "Gallery with captions" (see _projects/spin_app.md) ---
+case_layout: c
+summary: After getting the brief, I went to the Médiathèque André Malraux in Strasbourg, my city.
+project_type: Festival poster
+hero_image: /assets/img/Cineville/cineville-title.webp
+hero_w: 750
+hero_h: 469
+hero_alt: CinéVille
+hero_bg: "#232730"
+drafts:
+  - { src: /assets/img/Cineville/brouillon-1.webp, alt: "An abandoned draft poster built around a wishbone-and-cloth motif", w: 500, h: 707 }
+  - { src: /assets/img/Cineville/brouillon-2.webp, alt: "The draft poster with the reel floating over theater seats under a starry sky, the direction that was kept", w: 500, h: 707 }
+# Colours and names from the process deck (slide 8).
+palette:
+  - { name: Dark gray, hex: "#343A40" }
+  - { name: Violet, hex: "#7952B3" }
+  - { name: Yellow, hex: "#FFC107" }
+  - { name: Light gray, hex: "#E0E0E0" }
+logos:
+  - { src: /assets/img/Cineville/cineville-title.webp, alt: "CinéVille title lettering", w: 750, h: 469, bg: dark, caption: "Title lettering" }
 ---
+{% include case/pair.html a="/assets/img/Cineville/research-dali.webp" a_alt="La Persistance de la mémoire by Salvador Dalí, melting clocks draped over a desert landscape" a_w=900 a_h=684 a_caption="Salvador Dalí, <em>La Persistance de la mémoire</em>." b="/assets/img/Cineville/research-magritte.webp" b_alt="Les idées claires by René Magritte, a stone floating beneath a cloud above the sea" b_w=900 b_h=891 b_caption="René Magritte, <em>Les idées claires</em>." %}
 
-<div class="cv-hero">
-  <div class="cv-starfield" aria-hidden="true">
-    <span class="cv-star" style="top:8%;left:6%;animation-duration:3.2s;animation-delay:0s;"></span>
-    <span class="cv-star violet" style="top:14%;left:32%;animation-duration:4s;animation-delay:.6s;"></span>
-    <span class="cv-star" style="top:6%;left:58%;animation-duration:3.6s;animation-delay:1.2s;"></span>
-    <span class="cv-star" style="top:20%;left:78%;animation-duration:2.8s;animation-delay:.3s;"></span>
-    <span class="cv-star violet" style="top:30%;left:15%;animation-duration:3.4s;animation-delay:1.6s;"></span>
-    <span class="cv-star" style="top:42%;left:45%;animation-duration:3.9s;animation-delay:.9s;"></span>
-    <span class="cv-star" style="top:36%;left:68%;animation-duration:3.1s;animation-delay:2s;"></span>
-    <span class="cv-star violet" style="top:50%;left:88%;animation-duration:4.2s;animation-delay:.2s;"></span>
-    <span class="cv-star" style="top:60%;left:25%;animation-duration:3.5s;animation-delay:1.1s;"></span>
-    <span class="cv-star" style="top:65%;left:55%;animation-duration:2.9s;animation-delay:1.8s;"></span>
-    <span class="cv-star" style="top:12%;left:90%;animation-duration:3.7s;animation-delay:.5s;"></span>
-    <span class="cv-star violet" style="top:55%;left:8%;animation-duration:3.3s;animation-delay:1.4s;"></span>
-    <span class="cv-star" style="top:25%;left:60%;animation-duration:4.1s;animation-delay:.8s;"></span>
-    <span class="cv-star" style="top:4%;left:20%;animation-duration:3s;animation-delay:1s;"></span>
-  </div>
-  <div class="cv-hero-content">
-    <img src="/assets/img/Cineville/cineville-title.webp" alt="CinéVille" class="cv-title-img" width="750" height="469" fetchpriority="high">
-    <p class="cv-hero-tagline">Festival de Cinéma du Monde</p>
-    <div class="scroll-indicator" aria-hidden="true"><span></span></div>
-  </div>
-</div>
+{% include case/figure.html src="/assets/img/Cineville/zoning.webp" w=1000 h=464 alt="Ten thumbnail layout sketches exploring where the title, baseline, date and central artwork could sit on the poster" caption="Layout thumbnails." %}
 
-<p class="case-hook reveal">After getting the brief, I went to the Médiathèque André Malraux in Strasbourg, my city.</p>
+{% include case/row.html items=page.drafts caption="Two drafts in Photoshop." %}
 
-<section class="reveal">
-  <h2>At the library: surrealism and typography</h2>
-  <p>There I took out books on surrealism to understand the concept and the art movement academically: where it comes from and who its main figures were. That's where Dalí and Magritte came from. I also took out books on typography, to find out which one would suit the poster best.</p>
-  <div class="cv-research-grid">
-    <figure class="cv-research-item reveal">
-      <img src="/assets/img/Cineville/research-dali.webp" alt="La Persistance de la mémoire by Salvador Dalí, melting clocks draped over a desert landscape" width="900" height="684" loading="lazy" decoding="async">
-      <figcaption>Salvador Dalí, <em>La Persistance de la mémoire</em>.</figcaption>
-    </figure>
-    <figure class="cv-research-item reveal">
-      <img src="/assets/img/Cineville/research-magritte.webp" alt="Les idées claires by René Magritte, a stone floating beneath a cloud above the sea" width="900" height="891" loading="lazy" decoding="async">
-      <figcaption>René Magritte, <em>Les idées claires</em>.</figcaption>
-    </figure>
-    <figure class="cv-research-item reveal">
-      <img src="/assets/img/Cineville/research-paradiso.webp" alt="Cinema Paradiso display typeface specimen, an ornate arched wordmark over a tropical illustration" width="735" height="427" loading="lazy" decoding="async">
-      <figcaption>A display type specimen, a reference for the arched lettering.</figcaption>
-    </figure>
-    <figure class="cv-research-item reveal">
-      <img src="/assets/img/Cineville/research-books.webp" alt="Reference books on Surrealism and on typographic choice, stacked on a desk" width="400" height="491" loading="lazy" decoding="async">
-      <figcaption>A book on surrealism and a guide to choosing type.</figcaption>
-    </figure>
-  </div>
-</section>
+{% include case/figure.html src="/assets/img/Cineville/melting-reel.webp" w=605 h=760 narrow=true alt="The melting film reel illustration created for the Cinéville poster, inspired by Dalí's soft clocks" caption="I used AI to generate a film reel in a position I liked, so I could give it that melting effect, like the clocks in <em>The Persistence of Memory</em>." %}
 
-<section class="reveal">
-  <h2>From the paintings to the cinema</h2>
-  <p>After looking at several works by Dalí and Magritte, I took obvious references from them and carried them over to cinema: theater seats, a film reel, text forming an arch, etc.</p>
-  <p>I did several sketches until I settled on the composition that convinced me most. Then I went to Photoshop and started there.</p>
+<figure class="case-fig c-poster"><a class="zoom-trigger" href="/assets/img/Cineville/cineville_poster-fina-aprouved.webp"><img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="Final Cinéville festival poster, surrealist film reel melting over theater seats in a cloudy sky" class="cv-final-poster" width="1272" height="1800" srcset="/assets/img/Cineville/cineville_poster-fina-aprouved-840w.webp 840w, /assets/img/Cineville/cineville_poster-fina-aprouved.webp 1272w" sizes="(max-width: 767px) 92vw, 1272px" loading="lazy" decoding="async"></a></figure>
 
-  <figure class="cv-sketch reveal">
-    <img src="/assets/img/Cineville/zoning.webp" alt="Ten thumbnail layout sketches exploring where the title, baseline, date and central artwork could sit on the poster" width="1000" height="464" loading="lazy" decoding="async">
-    <figcaption>Layout thumbnails.</figcaption>
-  </figure>
+{% include case/palette.html colors=page.palette %}
 
-  <figure class="cv-sketch reveal">
-    <img src="/assets/img/Cineville/sketches.webp" alt="Eight rougher sketches, including a figure with a film reel for a head wearing a bowler hat, and early clapperboard and film-strip motifs" width="900" height="707" loading="lazy" decoding="async">
-    <figcaption>Rougher sketches.</figcaption>
-  </figure>
+{% include case/figure.html src="/assets/img/Cineville/pagina-7.webp" w=2000 h=1414 alt="Process deck: typography, Neworn Uniquen for the title and DM Sans for the text" caption="Typography: Neworn Uniquen for the title and DM Sans for the text." %}
 
-  <figure class="cv-sketch cv-sketch-small reveal">
-    <img src="/assets/img/Cineville/final-sketch.webp" alt="A more finished pencil sketch of the Cinéville poster, already showing the melting reel, clouds and theater seats silhouette facing an audience" width="420" height="648" loading="lazy" decoding="async">
-    <figcaption>The composition I chose.</figcaption>
-  </figure>
+{% include case/logo.html items=page.logos %}
 
-  <figure class="cv-sketch reveal">
-    <div class="cv-brouillon-pair">
-      <img src="/assets/img/Cineville/brouillon-1.webp" alt="An abandoned draft poster built around a wishbone-and-cloth motif" width="500" height="707" loading="lazy" decoding="async">
-      <img src="/assets/img/Cineville/brouillon-2.webp" alt="The draft poster with the reel floating over theater seats under a starry sky, the direction that was kept" width="500" height="707" loading="lazy" decoding="async">
-    </div>
-    <figcaption>Two drafts in Photoshop.</figcaption>
-  </figure>
-</section>
+{% include case/video.html src="" w=16 h=9 placeholder="Short loop video to come" label="" %}
 
-<section class="reveal">
-  <h2>The reel came from AI</h2>
-  <div class="cv-duo">
-    <img src="/assets/img/Cineville/melting-reel.webp" alt="The melting film reel illustration created for the Cinéville poster, inspired by Dalí's soft clocks" class="cv-reel-img" width="605" height="760" loading="lazy" decoding="async">
-    <div class="cv-duo-text">
-      <p>I used AI to generate a film reel in a position I liked, so I could give it that melting effect, like the clocks in <em>The Persistence of Memory</em>.</p>
-    </div>
-  </div>
-</section>
+<h2>Mockups</h2>
 
-<section class="reveal">
-  <h2>The decisions</h2>
-  <div class="cv-duo">
-    <div class="cv-duo-text">
-      <ul>
-        <li>I put a cloud behind it so the film wouldn't be resting on thin air.</li>
-        <li>The seats are violet instead of red: more mysterious.</li>
-        <li>A starry indigo sky.</li>
-        <li>The festival name forms the arch, with the dates and the time.</li>
-      </ul>
-    </div>
-    <img src="/assets/img/Cineville/dream-cloud.webp" alt="The floating cloud illustration created for the Cinéville poster" class="cv-cloud-img" width="900" height="436" loading="lazy" decoding="async">
-  </div>
-  <img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="Final Cinéville festival poster, surrealist film reel melting over theater seats in a cloudy sky" class="cv-final-poster" width="1272" height="1800" srcset="/assets/img/Cineville/cineville_poster-fina-aprouved-840w.webp 840w, /assets/img/Cineville/cineville_poster-fina-aprouved.webp 1272w" sizes="(max-width: 767px) 92vw, 1272px" loading="lazy" decoding="async">
-</section>
+{% include case/pair.html a="/assets/img/Cineville/pagina-21.webp" a_alt="Mockup of the Cinéville poster on a street billboard at night" a_w=2000 a_h=1414 a_caption="Mockup: street billboard at night" b="/assets/img/Cineville/pagina-23.webp" b_alt="Mockup of the Cinéville poster at a seaside bus stop" b_w=2000 b_h=1414 b_caption="Mockup: seaside bus stop" %}
 
-<section class="reveal">
-  <h2>The delivery</h2>
-  <p>Everything ready for print in CMYK, with the right image quality and size, and the layers organized in case of changes later.</p>
-</section>
-
-<section class="reveal">
-  <h2>Mockups</h2>
-  <p>The poster in mockups of urban settings.</p>
-</section>
-
-<section class="bento-gallery reveal">
-  <div class="bento-item" style="grid-column: span 2; grid-row: span 2;">
-    <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Cineville/pagina-21.webp" alt="Mockup of the Cinéville poster on a street billboard at night" data-caption="Mockup: street billboard at night" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-21-960w.webp 960w, /assets/img/Cineville/pagina-21.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-    </a>
-  </div>
-  <div class="bento-item">
-    <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Cineville/pagina-22.webp" alt="Mockup of the Cinéville poster at a tram stop" data-caption="Mockup: tram stop" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-22-960w.webp 960w, /assets/img/Cineville/pagina-22.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-    </a>
-  </div>
-  <div class="bento-item">
-    <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Cineville/pagina-24.webp" alt="Mockup of the Cinéville poster on a large format billboard" data-caption="Mockup: large format billboard" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-24-960w.webp 960w, /assets/img/Cineville/pagina-24.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-    </a>
-  </div>
-  <div class="bento-item" style="grid-column: span 2;">
-    <a href="javascript:void(0)" class="zoom-trigger">
-      <img src="/assets/img/Cineville/pagina-23.webp" alt="Mockup of the Cinéville poster at a seaside bus stop" data-caption="Mockup: seaside bus stop" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-23-960w.webp 960w, /assets/img/Cineville/pagina-23.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
-    </a>
-  </div>
-</section>
-
-<p class="case-closing reveal">And a presentation at the end that explains how I worked and justifies each of my decisions.</p>
-
-<section class="reveal">
-  <div class="document-carousel-container">
+<div class="document-carousel-container">
     <button class="carousel-btn prev-btn" aria-label="Previous slide">&lt;</button>
     <div class="document-carousel">
       <img src="/assets/img/Cineville/pagina-1.webp" alt="Process deck cover: Cinéville poster proposal, Festival de cinéma du monde, 2024" class="carousel-slide active-slide" width="2000" height="1414" srcset="/assets/img/Cineville/pagina-1-960w.webp 960w, /assets/img/Cineville/pagina-1.webp 2000w" sizes="(max-width: 767px) 92vw, 2000px" loading="lazy" decoding="async">
@@ -181,4 +83,38 @@ preload_image: /assets/img/Cineville/cineville-title.webp
     <button class="carousel-btn next-btn" aria-label="Next slide">&gt;</button>
     <div class="carousel-counter" aria-live="polite">1 / 19</div>
   </div>
-</section>
+
+{% capture long %}
+<h3>At the library: surrealism and typography</h3>
+<p>After getting the brief, I went to the Médiathèque André Malraux in Strasbourg, my city.</p>
+<p>There I took out books on surrealism to understand the concept and the art movement academically: where it comes from and who its main figures were. That's where Dalí and Magritte came from. I also took out books on typography, to find out which one would suit the poster best.</p>
+{% include case/pair.html a="/assets/img/Cineville/research-paradiso.webp" a_alt="Cinema Paradiso display typeface specimen, an ornate arched wordmark over a tropical illustration" a_w=735 a_h=427 a_caption="A display type specimen, a reference for the arched lettering." b="/assets/img/Cineville/research-books.webp" b_alt="Reference books on Surrealism and on typographic choice, stacked on a desk" b_w=400 b_h=491 b_caption="A book on surrealism and a guide to choosing type." %}
+
+<h3>From the paintings to the cinema</h3>
+<p>After looking at several works by Dalí and Magritte, I took obvious references from them and carried them over to cinema: theater seats, a film reel, text forming an arch, etc.</p>
+<p>I did several sketches until I settled on the composition that convinced me most. Then I went to Photoshop and started there.</p>
+<figure class="case-fig c-narrow"><a class="zoom-trigger" href="/assets/img/Cineville/final-sketch.webp"><img src="/assets/img/Cineville/final-sketch.webp" alt="A more finished pencil sketch of the Cinéville poster, already showing the melting reel, clouds and theater seats silhouette facing an audience" width="420" height="648" loading="lazy" decoding="async" data-caption="The composition I chose."></a><figcaption>The composition I chose.</figcaption></figure>
+{% include case/figure.html src="/assets/img/Cineville/sketches.webp" w=900 h=707 alt="Eight rougher sketches, including a figure with a film reel for a head wearing a bowler hat, and early clapperboard and film-strip motifs" caption="Rougher sketches." %}
+
+<h3>The reel came from AI</h3>
+<p>I used AI to generate a film reel in a position I liked, so I could give it that melting effect, like the clocks in <em>The Persistence of Memory</em>.</p>
+
+<h3>The decisions</h3>
+<ul>
+  <li>I put a cloud behind it so the film wouldn't be resting on thin air.</li>
+  <li>The seats are violet instead of red: more mysterious.</li>
+  <li>A starry indigo sky.</li>
+  <li>The festival name forms the arch, with the dates and the time.</li>
+</ul>
+{% include case/figure.html src="/assets/img/Cineville/dream-cloud.webp" w=900 h=436 alt="The floating cloud illustration created for the Cinéville poster" %}
+
+<h3>The delivery</h3>
+<p>Everything ready for print in CMYK, with the right image quality and size, and the layers organized in case of changes later.</p>
+
+<h3>Mockups</h3>
+<p>The poster in mockups of urban settings.</p>
+{% include case/pair.html a="/assets/img/Cineville/pagina-22.webp" a_alt="Mockup of the Cinéville poster at a tram stop" a_w=2000 a_h=1414 a_caption="Mockup: tram stop" b="/assets/img/Cineville/pagina-24.webp" b_alt="Mockup of the Cinéville poster on a large format billboard" b_w=2000 b_h=1414 b_caption="Mockup: large format billboard" %}
+
+<p class="c-closing">And a presentation at the end that explains how I worked and justifies each of my decisions.</p>
+{% endcapture %}
+{% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}
