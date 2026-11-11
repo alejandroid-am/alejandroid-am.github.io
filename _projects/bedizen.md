@@ -16,11 +16,13 @@ cover_image: /assets/img/bedizen-view.webp
 case_layout: c
 summary: The AI started out with its rounded borders and cards, but the brand is more brutalist and solid.
 project_type: Brand and website
-hero_image: /assets/img/BEDiZEN/bedizen_white.svg
+# Black logo: bedizen_black.svg is bedizen_white.svg with the white (#F2F1F0)
+# swapped for Horizon Noir (#1A1B1C); the red dot is unchanged.
+hero_image: /assets/img/BEDiZEN/bedizen_black.svg
 hero_w: 720
 hero_h: 158
 hero_alt: BEDiZEN logo, geometric wordmark with red accent dot
-hero_bg: "#1A1B1C"
+hero_bg: "#F2F1F0"
 load_poppins: true   # Poppins is the brand typeface (type specimen below)
 # Colours, names and hex from the brand guidelines (page 25).
 palette:
@@ -36,7 +38,7 @@ type_scale:
   - { role: Text, weight: 500, label: "Poppins Medium", text: "BEDiZEN is a WebAR studio concept that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers." }
 brand_pdf: /assets/docs/bedizen-charte-graphique.pdf
 logos:
-  - { src: /assets/img/BEDiZEN/bedizen_white.svg, alt: "BEDiZEN logo, white version on dark", bg: dark, caption: "Logo on dark" }
+  - { src: /assets/img/BEDiZEN/bedizen_black.svg, alt: "BEDiZEN logo, black version on light", bg: light, caption: "Logo" }
 ---
 <p class="c-cta"><a class="btn" href="http://alejandro.am.servd16161.odns.fr/" target="_blank" rel="noopener noreferrer">Visit the Live Site &rarr;</a></p>
 
