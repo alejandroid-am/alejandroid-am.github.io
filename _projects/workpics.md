@@ -8,6 +8,7 @@ year: 2025
 categories: ux-ui identity
 cover_image: /assets/img/workpics-view.webp
 home_order: 5
+hide_from_home: true   # recommendation 2026-11-11, see NOTAS
 last_modified_at: 2026-11-11
 
 # --- Layout C "Gallery with captions" (see _projects/spin_app.md) ---

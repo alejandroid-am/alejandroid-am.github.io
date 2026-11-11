@@ -8,6 +8,7 @@ result: Full redesign; never implemented, for lack of funding.
 tools: Figma, Illustrator, Photoshop
 year: 2025
 home_order: 4
+hide_from_home: true   # recommendation 2026-11-11, see NOTAS
 last_modified_at: 2026-11-11
 categories: ux-ui identity motion
 cover_image: /assets/img/spin_view.webp
