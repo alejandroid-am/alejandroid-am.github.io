@@ -7,9 +7,9 @@ fr:
   title: À propos
   # Factual sentence under the H1 (who, what, where, for whom).
   intro: "Je suis Alejandro Amaro Mendoza, designer web et e-commerce à Strasbourg. Je conçois des boutiques en ligne, des sites et des identités visuelles pour les petites boutiques en ligne et les PME."
-  # [[BORRADOR]] Big sentence that lights up while scrolling (summary of the story below).
-  phrase: "I learned resilience in Cuba, business strategy in Chile, and adaptability in France."
-  phrase_lang: en
+  # Big sentence that lights up while scrolling.
+  phrase: "Suis-je la bonne personne pour votre projet&nbsp;? Voyons-le ensemble."
+  phrase_lang: fr
   photo_alt: "Photo d'Alejandro Amaro Mendoza"
   story_lang: en
   ai_note: "Je travaille avec l'IA, surtout Claude pour écrire le code. Le regard, le goût, les tests avec de vraies personnes et la responsabilité du résultat restent les miens."
@@ -43,7 +43,7 @@ fr:
 en:
   title: About
   intro: "I'm Alejandro Amaro Mendoza, a web and e-commerce designer in Strasbourg. I design online shops, websites and visual identities for small online shops and SMEs."
-  phrase: "I learned resilience in Cuba, business strategy in Chile, and adaptability in France."
+  phrase: "Am I the right person for your project? Let's find out."
   phrase_lang: en
   photo_alt: Photo of Alejandro Amaro Mendoza
   story_lang: en
