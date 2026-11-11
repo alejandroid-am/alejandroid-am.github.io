@@ -5,6 +5,149 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# Tanda final de casos: limpieza de escritura + maquetación C, 11/11/2026
+
+## Una línea por caso y paso
+
+Paso 1 (limpieza de títulos):
+- `a22bc3b` Spin App · `6ca58e3` Keep Breathing · `ecf264d` In-House Tools · `b52e4e0` BEDiZEN · `854ab68` Cinéville.
+- WorkPics y Other Works: sin andamiaje, sin commit.
+
+Paso 2 (maquetación C):
+- `8871fb4` WorkPics (incluye: lightbox en la maquetación C, que también devuelve a Spin App el lightbox que perdió en `7d9685d`).
+- In-House Tools: **no convertido** (ver abajo).
+- `a4a7dbb` Keep Breathing · `22b9e1e` Cinéville · `99422ca` BEDiZEN · `1e24e85` Other Works.
+- `5b7b4f5` Selección de home (`hide_from_home` en Spin App y WorkPics).
+
+## Paso 1: antes y después
+
+Solo títulos. Ningún párrafo tocado. Para revertir un caso: `git revert <hash>`.
+
+### Spin App (`_projects/spin_app.md`)
+| Dónde | Antes | Después | Duda |
+|---|---|---|---|
+| h3 en "Le détail" | But: I didn't have the data | I didn't have the data | no |
+| h3 en "Le détail" + título del bloque Before/After | So: the wheel comes after paying | The wheel comes after paying | no |
+| pie y alt de la galería | Streamlined Contacts / streamlined contacts list | (sin cambio) | sí: "streamlined" suena genérico, pero es un pie corto y descriptivo |
+
+### Keep Breathing (`_projects/keepBreathing.md`)
+| Dónde | Antes | Después | Duda |
+|---|---|---|---|
+| h2 | But: big ideas, and everyone had the same ones | Big ideas, and everyone had the same ones | no |
+| h2 | So: one carriage and a gas mask | One carriage and a gas mask | no |
+| h2 | But: the build wouldn't compile | The build wouldn't compile | no |
+| h2 | So: a Figma prototype in 10 minutes | A Figma prototype in 10 minutes | no |
+| h2 | Result: Best Technical Achievement | Best Technical Achievement | sí: "Result:" no estaba en tu lista, pero es la misma etiqueta de esquema; el párrafo siguiente repite "Best Technical Achievement." |
+
+### In-House Tools (`_projects/in-house-tools.md`)
+| Dónde | Antes | Después | Duda |
+|---|---|---|---|
+| h2 | But: the posts have to stay consistent when I'm not there | The posts have to stay consistent when I'm not there | no |
+| h2 | So: how I work with Claude | How I work with Claude | no |
+| h2 | But: what went wrong | What went wrong | no |
+| h2 | So: what changed | What changed | no |
+| h2 | What I decided: the post generator / What I decided: the contract generator | (sin cambio) | sí: etiqueta con dos puntos, pero informa (no es esquema) |
+| h2 | How it was checked: Claude ran the tests | (sin cambio) | sí: mismo caso |
+| h2 | And with the time saved | (sin cambio) | sí: empieza por "And", pero suena a persona |
+
+### BEDiZEN (`_projects/bedizen.md`)
+| Dónde | Antes | Después | Duda |
+|---|---|---|---|
+| h2 | But: users couldn't tell what was clickable | Users couldn't tell what was clickable | no |
+| h2 | So: a grid that holds the whole site | A grid that holds the whole site | no |
+| h2 | But: I had to correct the AI | I had to correct the AI | no |
+| cierre | On this project I really was full stack, even if it was only once. | (sin cambio) | sí: es tu texto, pero choca con la regla antigua de no describirte como "full-stack" |
+
+### Cinéville (`_projects/cineville.md`)
+| Dónde | Antes | Después | Duda |
+|---|---|---|---|
+| h2 | So: from the paintings to the cinema | From the paintings to the cinema | no |
+| h2 | But: the reel came from AI | The reel came from AI | no |
+| h2 | So: the decisions | The decisions | no |
+
+### WorkPics y Other Works
+| Archivo | Línea | Antes | Después | Duda |
+|---|---|---|---|---|
+| workpics.md | párrafo | The lesson: a simple mark that already works can beat a polished exploration. | (sin cambio) | sí: "The lesson:" es una etiqueta, pero no del esquema problema/solución |
+| zz_others.md | description | A curated collection of personal experiments, ... | (sin cambio) | sí: "curated" suena a IA; es la descripción (sale en /projets/ y en Google) |
+
+## Paso 2: notas por caso
+
+Común a todos:
+- Cabecera: título + resumen, fila de metadatos y luego la imagen.
+- Visible: 64 a 89 palabras, todo copiado del texto existente (pies de imagen incluidos, la mayoría eran ya `data-caption` o `figcaption`).
+- Resto: íntegro en "Le détail", cerrado.
+- Lightbox en todas las imágenes del cuerpo.
+- Front matter anterior intacto (solo añadidos + `last_modified_at`).
+- `-960w` generados con `tools/optimize-images.sh` (copiando solo las variantes).
+
+- **WorkPics:**
+  - Paleta real del caso (4 colores con su función como nombre).
+  - Logo final + variantes sobre oscuro y claro.
+  - Botón del prototipo Figma.
+  - Placeholders: tipografía y vídeo en bucle.
+  - Campos míos: `project_type: Logo and app screens` (de la descripción) y `result: WorkPics is published on Google Play.` (frase del caso).
+- **In-House Tools, no convertido:**
+  - Unas 1.400 palabras y solo 3 imágenes distintas.
+  - Lo que vende el caso (decisiones, cifras, qué cambió) es texto. En C quedaría todo en "Le détail" detrás de 3 capturas: lo empeora.
+  - Sigue con el estilo antiguo; solo tiene la limpieza del paso 1.
+- **Keep Breathing:**
+  - Pantallas del juego y fotos del equipo y del jurado; botón del prototipo Figma.
+  - La fila de metadatos muestra también Team (ahora el layout C enseña `context`, `team` y `award` si existen).
+  - Placeholders: paleta, tipografía, logo del título, vídeo de juego.
+  - Campos míos: `project_type: Survival FPS, game jam`, y el alt de la captura de juego (antes no se usaba esa imagen).
+- **Cinéville:**
+  - El título "CinéVille" sobre el azul noche del festival como cabecera; así se mantiene el `preload_image` existente.
+  - Paleta y tipografía reales, sacadas de la diapositiva 8 y de la 7 del deck.
+  - Carrusel de 19 diapositivas conservado (sin JS se ven todas).
+  - Se pierde la animación de estrellas de la cabecera antigua (era CSS de `style.css`).
+  - Campos míos: `project_type: Festival poster`, y el pie "Typography: Neworn Uniquen for the title and DM Sans for the text." (reformulado del alt de la diapositiva).
+- **BEDiZEN:**
+  - Logo blanco sobre Horizon Noir como cabecera.
+  - Version 1 / Version 2 con el include compare; los dos vídeos de Vimeo, tal cual.
+  - Paleta real (nombres y hex de la página 25 de la guía); Poppins real (páginas 20-21), con muestra en Poppins alojada.
+  - Carrusel de la guía (32 páginas, ahora con srcset).
+  - Placeholders: logo sobre claro e icono.
+  - Campo mío: `project_type: Brand and website`.
+  - **Aviso:** los alt de las páginas del carrusel no corresponden a lo que muestran (ej. "logo specifications" es un texto de presentación). Ya estaba así; no lo he tocado. Conviene reescribirlos mirando cada página.
+- **Other Works:**
+  - Solo galería: la descripción como resumen y los pies existentes.
+  - Sin "Le détail" (no hay más texto) y sin bloques de paleta / tipografía / logo / vídeo (no tienen sentido en piezas sueltas).
+  - No tiene `year` ni `home_order`; su "Next project" lleva al primero.
+
+## Assets que faltan por proyecto
+
+- **Spin App:** vídeo en bucle (mp4 sin audio, 6 a 10 s, 1920x1080, menos de 3 MB) + póster; logo monocromo; icono de la app 1024x1024; nombre y pesos de la tipografía; hex reales de la paleta (los actuales están muestreados).
+- **WorkPics:** vídeo en bucle del flujo "Open → Shoot → Done" + póster; nombre de la tipografía de la app.
+- **Keep Breathing:** vídeo en bucle de juego (6 a 10 s) + póster; logo del título del juego como archivo aparte (PNG transparente o SVG); paleta (hex) y tipografía del juego.
+- **Cinéville:** vídeo en bucle (opcional, por ejemplo el póster con el carrete moviéndose); nada más imprescindible.
+- **BEDiZEN:** logo oscuro sobre claro (SVG); icono suelto (SVG); alt correctos para las 32 páginas de la guía.
+- **Other Works:** año(s) de las piezas si quieres que salga en la fila de metadatos.
+- **In-House Tools:** si un día quieres convertirlo, 3 o 4 capturas más (por ejemplo el generador de contratos entero, el botón de pánico, una plantilla en los 3 formatos).
+
+## Home: qué mostrar
+
+- **Recomiendo** (y ya está aplicado, `5b7b4f5`): In-House Tools, Keep Breathing, BEDiZEN, Cinéville. Son los más completos y con material real.
+  - In-House Tools es el más útil para tiendas online.
+  - Cinéville y BEDiZEN, los que mejor han quedado en C (paleta, tipografía y carrusel reales).
+  - Keep Breathing tiene premio y fotos.
+- **Ocultos de la home** con `hide_from_home: true` (siguen en /projets/):
+  - Spin App: muchos placeholders, nunca se construyó.
+  - WorkPics: colaboración informal, con placeholders.
+- Para revertir, borra la línea `hide_from_home` en cada archivo.
+- **Aviso:** BEDiZEN en la home choca con la regla antigua de no usar "BEDiZEN" en contenido nuevo. Si sigue vigente, ponle también `hide_from_home: true` y entra WorkPics o Spin App.
+
+## Verificación
+
+- Build limpio (solo "Empty slug"). 0 `[[A `; 0 guiones largos en los casos.
+- Rastreo: 23 páginas y 279 URLs. Sin 404 salvo los 2 falsos positivos conocidos del JS de audita11y.
+- Los 6 casos convertidos, a 1440, 390 y 320 px:
+  - sin desbordamiento, sin imágenes rotas, sin saltos de nivel en los títulos;
+  - lightbox funcionando;
+  - completos sin JS.
+- Consola sin errores, salvo los 401 de Vimeo en BEDiZEN (ya existían).
+- Carruseles de Cinéville y BEDiZEN probados (botones y lightbox). In-House Tools responde igual que antes.
+
 # Spin App en la maquetación C, 11/11/2026
 
 Un solo commit (hash en el mensaje de entrega; `git log --oneline -1 -- _projects/spin_app.md`). Ningún otro caso convertido.
