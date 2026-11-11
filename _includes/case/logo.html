@@ -3,6 +3,7 @@
     logos:
       - { src: /assets/img/p/logo.svg, alt: "Logo, main version", bg: light, caption: "Main logo" }
       - { src: /assets/img/p/logo-white.svg, alt: "Logo on dark", bg: dark }
+  label: an _data/i18n.yml key instead of caption, for a bilingual caption (label.html).
   Items without src are skipped (no placeholder box); with no src at all, nothing is rendered.
   bg: light (default), dark, accent, or full (image already has its background: shown edge to edge).
   {% include case/logo.html items=page.logos %}
@@ -13,7 +14,7 @@
   {%- for l in _logos %}
   <li>
     <div class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% elsif l.bg == 'full' %} is-full{% endif %}"><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}"{% if l.w %} width="{{ l.w }}" height="{{ l.h }}"{% endif %} loading="lazy" decoding="async"></div>
-    {%- if l.caption %}<p class="case-logo-cap">{{ l.caption }}</p>{% endif %}
+    {%- if l.label %}<p class="case-logo-cap">{% include label.html key=l.label %}</p>{% elsif l.caption %}<p class="case-logo-cap">{{ l.caption }}</p>{% endif %}
   </li>
   {%- endfor %}
 </ul>

@@ -24,10 +24,12 @@ preload_image: /assets/img/Workpics/workpicks_ui_mockups.webp
 preload_srcset: "/assets/img/Workpics/workpicks_ui_mockups-960w.webp 960w, /assets/img/Workpics/workpicks_ui_mockups.webp 2400w"
 preload_sizes: "100vw"
 
-logo_proposals:
-  - { src: /assets/img/Workpics/workpics1.webp, alt: "WorkPics logo proposal A, camera shutter concept", w: 532, h: 532, caption: "Proposal A" }
-  - { src: /assets/img/Workpics/workpics2.webp, alt: "WorkPics logo proposal B, cloud sync concept", w: 532, h: 532, caption: "Proposal B" }
-  - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "WorkPics final logo, the five-minute placeholder chosen by the team, orange and white app icon", w: 512, h: 512, caption: "Placeholder (Team's Choice)" }
+# The three logo versions (Ale, 2026-11-12): workpics2 is the official company
+# logo, the team's choice is the app logo. No logo mockups on this page.
+logo_versions:
+  - { src: /assets/img/Workpics/workpics1.webp, alt: "WorkPics logo proposal, a W and a P whose shapes form a check mark", w: 532, h: 532, caption: "Proposal A" }
+  - { src: /assets/img/Workpics/workpics2.webp, alt: "WorkPics company logo, a W and a P built into a cube", w: 532, h: 532, label: logo_official }
+  - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "WorkPics app logo, an orange safety helmet over a black camera shutter", w: 512, h: 512, label: logo_app }
 
 # Colours and their roles come from the case text (Color Palette block).
 palette:
@@ -35,14 +37,6 @@ palette:
   - { name: Active controls, hex: "#4300FF" }
   - { name: Upload check icon, hex: "#08CB00" }
   - { name: Alerts, hex: "#FF6600" }
-# Official logo of the case and of the site: workpics2.webp (Ale, 2026-11-11).
-# The logo the app shipped with (the team's placeholder) goes in "Final version".
-logos:
-  - { src: /assets/img/Workpics/workpics2.webp, alt: "WorkPics logo", w: 532, h: 532, caption: "WorkPics logo" }
-  - { src: /assets/img/Workpics/14.webp, alt: "WorkPics logo on dark background", w: 1920, h: 1080, bg: full, caption: "Logo Variant on Dark Background" }
-  - { src: /assets/img/Workpics/27.webp, alt: "WorkPics logo on light background", w: 1920, h: 1080, bg: full, caption: "Logo Variant on Light Background" }
-final_logo:
-  - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "Logo of the published WorkPics app, the placeholder chosen by the team, orange and white app icon", caption: "Placeholder (Team's Choice)" }
 ---
 <p>I started with a pencil sketch of the mobile interface and removed every non-essential element.</p>
 
@@ -52,21 +46,17 @@ final_logo:
 
 <p class="c-cta"><a class="btn" href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer">Try Figma Prototype &rarr;</a></p>
 
-{% include case/row.html items=page.logo_proposals caption="They picked a placeholder I had made in five minutes." %}
+<h2>Logo</h2>
+
+{% include case/logo.html items=page.logo_versions %}
+
+<p>They picked a placeholder I had made in five minutes.</p>
+
+<p>The company will add more features beyond photos, so the company identity uses the official company logo, while the app keeps its own logo.</p>
 
 <h2>Color Palette</h2>
 
 {% include case/palette.html colors=page.palette %}
-
-
-{% include case/logo.html items=page.logos %}
-
-<h2>Final version</h2>
-
-{% include case/logo.html items=page.final_logo %}
-
-
-{% include case/pair.html a="/assets/img/Workpics/workpics_cap2.webp" a_alt="WorkPics branding on orange safety helmet" a_w=2400 a_h=1650 a_caption="High-Vis Helmet Branding" b="/assets/img/Workpics/workpics_cap_black.webp" b_alt="WorkPics branding on black manager helmet" b_w=2400 b_h=1650 b_caption="Manager Helmet Branding" %}
 
 {% capture long %}
 <h3>The Result</h3>
@@ -99,8 +89,5 @@ final_logo:
 <p>The lesson: <strong>a simple mark that already works can beat a polished exploration.</strong></p>
 {% include case/pair.html a="/assets/img/Workpics/5.webp" a_alt="Logo construction breakdown showing W + P + checkmark geometry" a_w=1920 a_h=1080 a_caption="Geometry / Composition" b="/assets/img/Workpics/19.webp" b_alt="Logo construction showing negative space usage" b_w=1920 b_h=1080 b_caption="Geometry / Composition" %}
 
-<h3>Project Gallery</h3>
-<p>Mockups of the screens and the logo in use.</p>
-{% include case/pair.html a="/assets/img/Workpics/25.webp" a_alt="WorkPics settings and profile flow" a_w=1920 a_h=1080 a_caption="Settings & Profile Flow" b="/assets/img/Workpics/workpics_bag.webp" b_alt="WorkPics branded tote bag mockup" b_w=2400 b_h=1800 b_caption="Brand application: Tote Bag" %}
 {% endcapture %}
 {% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}

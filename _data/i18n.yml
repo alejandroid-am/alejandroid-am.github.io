@@ -44,6 +44,8 @@ fr:
   # to EN by site.js when the visitor browses in English (data-en).
   case_before: Avant
   case_after: Après
+  logo_official: "Logo officiel de l'entreprise"
+  logo_app: "Logo de l'application"
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -86,5 +88,7 @@ en:
   soon_label: Coming soon
   case_before: Before
   case_after: After
+  logo_official: Official company logo
+  logo_app: App logo
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"
