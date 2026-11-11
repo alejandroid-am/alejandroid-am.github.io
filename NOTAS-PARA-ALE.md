@@ -5,6 +5,122 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# Fase 0, 11/11/2026: análisis y 3 propuestas de estilo
+
+No he tocado el sitio real. Solo existe la carpeta nueva `_propuestas/`, que Jekyll ignora por empezar con guion bajo, así que no se publica. También he actualizado este archivo.
+
+## Cómo abrir las propuestas
+
+- **Doble clic** en `_propuestas/index.html`, o en el navegador: `file:///home/ale/PROJECTS/Portfolio-Web/alejandroid-am.github.io/_propuestas/index.html`.
+- No hay ruta en http://127.0.0.1:4000/, porque Jekyll no sirve carpetas con guion bajo.
+- La barra gris de arriba cambia entre **A · Índice**, **B · Bloques** y **C · Relato**. También puedes añadir `#A`, `#B` o `#C` al final de la URL.
+- Debajo de cada propuesta hay un recuadro con 3 líneas de pros y contras.
+- Las fuentes se cargan de Google Fonts por `<link>`, como permitía el brief; sin conexión se ven las de reserva. Las imágenes vienen del repo con rutas relativas (`../assets/img/...`) y los enlaces de los casos apuntan a alejandro-is.me.
+- Los textos salen de `_data/*.yml` mediante `_propuestas/generar.py`. Si cambias un texto, `python3 _propuestas/generar.py` vuelve a generar el HTML. El CSS está en `estilos.css` y el JS en `script.js`; el generador los mete inline, así que `index.html` no depende de ellos.
+
+## Análisis de las referencias
+
+Abrí cada web con Chromium (Playwright) a 1440 px, medí los estilos calculados e hice capturas a varias alturas de scroll.
+
+**steven-hanley.com**
+- **Estructura:** una sola pantalla de índice: cabecera, «Selected work [05]» con 7 filas y «More» con About y Contact como filas. No hay páginas largas.
+- **Tipografía:** JetBrains Mono a 12 px / 16 px, todo en mayúsculas y sin tracking extra. Geist aparece solo en algún detalle, a 16 px.
+- **Filetes:** 1 px negro. Dos verticales enmarcan la columna de contenido (a unos 28 px del borde izquierdo y a unos 105 px del derecho, a 1440 px) y los horizontales cruzan todo el ancho, por fuera del marco.
+- **Ritmo:** filas de 40 px y grandes huecos vacíos entre bloques, unos 100 px.
+- **Hover:** la fila entera se rellena de un color plano distinto para cada proyecto (verde ácido, naranja, rojo, cian), el texto se subraya y el cambio es instantáneo.
+- **Detalles:** contador «[05]», icono pequeño a la izquierda de cada fila, «Click to copy» en el email, hora local, estado de disponibilidad con punto naranja y un interruptor de sonido. Usa GSAP, ScrambleText, Lenis y Howler.
+
+**vemvem.com** (tienda Shopify)
+- **Tipografía:** una sola familia, Instrument Sans 500 en mayúsculas, con tracking muy negativo en los titulares (-0,05 em). La escala medida es 86, 69, 44, 28 y 18 px, con interlineado igual al cuerpo (1,0).
+- **Filetes:** 3 px negros por todas partes: retícula, listas de producto y bordes de sección.
+- **Color:** papel #F2F2EB, negro y un rojo #E6260D en bloques planos (cabecera y listón).
+- **Ritmo:** cabecera fija con el bloque de color, titular centrado enorme y un listón en movimiento con una sola frase repetida («Travels worldwide, quietly.»). Después fotos a sangre de unos 900 px de alto, citas en dos columnas 50/50 y listas tipo tabla (título y precio) con filetes de 3 px.
+- **Carácter:** ruidosa y editorial, con pocas palabras y muy grandes.
+
+**manychat.com/report**
+- **No se pudo analizar:** Cloudflare devuelve «Performing security verification» al navegador automatizado. Lo dejo anotado y no he intentado saltarlo.
+
+**convodesign101.xyz** (Framer)
+- **Tipografía:** Apfel Grotezk 700, titulares de 180 px con interlineado 0,78 y en minúsculas. La escala medida es 180, 160, 100, 80, 40, 16 y 12 px.
+- **Color:** fondo cian plano #2CBDDA con nubes en 3D suave y texto negro.
+- **Scroll:** el relato avanza con el scroll en «olas» históricas (rigid logic, ...). Hay columnas separadas por filetes punteados verticales, varias capas sticky y objetos tipo sello o tarjeta.
+- **Recurso clave:** párrafos grandes cuyo texto pasa de gris claro a negro conforme haces scroll, frase a frase, y frases sueltas a pantalla completa («The new era is about...»). Mezcla una narración en orden cronológico con escenas.
+
+**nebulight.fr** (Jonas Woehrel)
+- **Estructura medida:**
+  1. hero con titular de 79 px Inter 900 y vídeo vertical en bucle;
+  2. presentación del estudio;
+  3. «derniers projets» con 4 proyectos sobre una órbita de líneas de colores y 2 vídeos;
+  4. servicios en un escenario sticky de unos 4300 px, donde cada palabra grande (Vidéo, Webdesign...) ocupa la escena con un vídeo de fondo;
+  5. trayectoria de 6 pasos en tarjetas apiladas sticky;
+  6. CTA final y pie.
+- **Tipografía:** Inter, titulares 900 de 64 a 88 px y cuerpo 200 (muy fino) en blanco al 55 %. Fondo negro puro y brillos de color.
+- **Por qué se percibe cualitativo:**
+  - el vídeo propio en el hero y dentro de los servicios demuestra el oficio sin explicarlo;
+  - el orden del relato va de quién soy a qué he hecho, qué hago y cómo trabajo, y termina con una invitación;
+  - en cada paso del proceso repite la fórmula «Ce qui vous rassure : ...», que responde a la objeción del cliente justo donde aparece;
+  - los textos son cortos y sin jerga, y hay un único interlocutor.
+- **Elementos distintivos que NO debes replicar:**
+  - la metáfora espacial: estrella, despegue, «trajectoire», «décoller», órbitas, brillos solares y «met les autres en lumière»;
+  - la fórmula «Ce qui vous rassure :» en cada paso;
+  - el título «La trajectoire de votre projet» y la estructura exacta de 6 pasos (premier rendez-vous, cadrage et devis, moodboard, production, retours, livraison et suivi);
+  - el escenario sticky de servicios con una palabra gigante por escena sobre vídeo;
+  - la órbita de proyectos con líneas de colores;
+  - el hero «Vidéo, webdesign, identité, graphisme ... vous fait décoller !»;
+  - el CTA «N'attendez pas, lancez-vous dans l'aventure !»;
+  - el negro puro con brillos degradados;
+  - el menú en píldora y el botón de volver arriba fijo.
+- **Coincidencias que ya tenías antes de hoy:** tus 4 pasos de proceso coinciden en espíritu, porque cualquier freelance tiene un primer contacto, un devis, la realización y la entrega. Esos textos ya existían en el sitio. En las propuestas aparecen una sola vez y con tus palabras, sin títulos ni fórmulas de Nebulight.
+
+## Las 3 propuestas
+
+Las tres respetan lo que ya decidiste:
+- selector «FR / EN» sin banderas, con FR marcado y EN como enlace;
+- sin hora, sin «1 projet à la fois», sin listón de palabras sueltas y sin 3D;
+- email con botón Copier;
+- ofertas en filas, con el proceso una sola vez;
+- Revue UX con precio cerrado y las demás con «dès X €» y «précisé dans le devis»;
+- la oferta recomendada como fila invertida en amarillo;
+- About con la trayectoria del CV (2009, 2019, RNCP 2024–2026, Global Game Jam 2026), idiomas y habilidades, sin «postes recherchés» ni búsqueda de empleo;
+- sin degradados, blobs, iconos genéricos ni emojis.
+
+**A · Índice de precisión**
+- **Fondo y marco:** fondo #0E0E0D con un marco de filetes verticales finos.
+- **Tipografía:** IBM Plex Mono a 12,5 px en mayúsculas; el titular y los textos largos van en IBM Plex Sans light.
+- **Filas:** todo son filas con la misma retícula: ofertas, proyectos, proceso, trayectoria, habilidades y contacto.
+- **Interacción:** el amarillo solo aparece en el hover, el foco y la oferta recomendada. Las ofertas se despliegan (`<details>`) para ver «Inclus». En escritorio, al pasar por un proyecto aparece una vista previa grande (unos 640 px); en móvil, una miniatura en la fila.
+
+**B · Bloques gruesos**
+- **Tipografía:** titulares en Anton (condensada, mayúsculas) a hasta 204 px; cuerpo en Archivo.
+- **Color y filetes:** papel #EFEBDD, negro y bloques amarillos planos. Filetes de 6 px negros y de 10 px amarillos en la sección de ofertas, que es negra.
+- **Listón:** una sola frase tuya («Votre boutique en ligne, belle, à jour et qui vend.») con botón Pause, quieta con reduced-motion.
+- **Imágenes:** foto a sangre de la Game Jam.
+- **50/50:** los proyectos van en 50/50 con una raya vertical de 10 px y la imagen ocupando media pantalla, alternando el lado. El About también va en 50/50.
+
+**C · Relato en scroll**
+- **Fondo y tipografía:** fondo #F2F0EA y Bricolage Grotesque; titular de hasta 136 px que entra por frases.
+- **Escenas:** dos escenas con una frase fijada que se enciende palabra a palabra con el scroll: «Le point de départ» y «Ce que je regarde». Después vienen el proceso (también se enciende) y el carril horizontal.
+- **Carril:** sticky + translateX con imágenes de hasta 1180 × 760 px. En móvil, con reduced-motion o sin JS es un carril nativo con scroll-snap.
+- **Ofertas y cierre:** ofertas en filas finas y About con una frase grande y la línea de tiempo en 4 columnas.
+
+**Decisiones mías que conviene que revises:**
+- Las frases de las escenas de C son mías, escritas a partir de las ofertas («Une boutique peut être belle et perdre ses ventes entre la fiche produit, le panier et la commande.» y «Je passe en revue ces trois pages...»). Y «I learned resilience in Cuba, business strategy in Chile, and adaptability in France.» es un resumen de tu About. Reescríbelas a tu gusto.
+- BEDiZEN no aparece en ningún carril, por la regla de no usar ese nombre en contenido nuevo. Los proyectos son In-House Tools, Keep Breathing, Spin App, WorkPics y Cinéville.
+- La trayectoria pone «Début du métier de designer» para 2009. El CV solo dice «17 ans de métier, depuis 2009»; si tu oficio en 2009 tenía otro nombre, cámbialo.
+- El título aparece como «Titre professionnel RNCP Concepteur designer UI, niveau 6», como pediste.
+- El relato del About sigue en inglés con `lang="en"` y los datos de la trayectoria van en francés.
+- El formulario de las maquetas no envía nada (`onsubmit="return false"`) y lo indica.
+- La foto a sangre de B es `jury-presentation.webp` (Keep Breathing). Se ven personas del equipo y del jurado: si vas a usar B, confirma que puedes mostrarla tan grande.
+
+**Comprobado:**
+- sin errores de consola;
+- sin desborde horizontal a 390 y 1440 px en las tres propuestas;
+- 0 guiones largos en el HTML;
+- se puede recorrer con teclado;
+- reduced-motion: sin entrada de C, el listón de B en pausa y el carril de C nativo con las palabras ya encendidas.
+
+**Siguiente paso:** elige A, B o C (o una mezcla concreta, por ejemplo «B con las ofertas de A»). No empiezo a tocar el sitio real hasta que me lo digas.
+
 # Sesión de cierre, 10/11/2026
 
 ## Una línea por tarea y etapa
