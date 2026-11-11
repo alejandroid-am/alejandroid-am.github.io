@@ -42,6 +42,10 @@
       <h2 class="h2" id="skills-title">{{ a.skills_title }}</h2>
       <h3>{{ a.languages_title }}</h3>
       <p>{{ a.languages }}</p>
+      {%- if page.lang == 'en' %}{% assign cv_pdf = site.cv_pdf_en %}{% else %}{% assign cv_pdf = site.cv_pdf_fr %}{% endif %}
+      {%- if cv_pdf and cv_pdf != "" %}
+      <p style="margin-top:20px"><a class="btn" href="{{ cv_pdf }}" download>{{ a.cv_button }}</a></p>
+      {%- endif %}
       <p style="margin-top:20px"><a class="link-arrow" href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">{{ a.linkedin }}<span aria-hidden="true"> →</span></a></p>
     </div>
     <div class="skills">

@@ -11,6 +11,10 @@ cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
 instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
 siret: "108 337 783 00014"  # SIREN 108 337 783
 address: ""        # Left empty on purpose (decision 2026-11-10): never rendered while empty.
+# CV downloads on À propos / About. Empty = no button. Put the PDFs in
+# assets/docs/ and write the path, e.g. "/assets/docs/cv-alejandro-amaro-fr.pdf".
+cv_pdf_fr: ""
+cv_pdf_en: ""
 
 author:
   name: Alejandro Amaro Mendoza

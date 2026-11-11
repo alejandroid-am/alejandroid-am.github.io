@@ -36,6 +36,7 @@ fr:
     - name: Outils
       tags: [Figma, Adobe Illustrator, Adobe Photoshop, Adobe Lightroom, Adobe InDesign, Adobe Premiere, After Effects, Blender, Audacity]
   linkedin: Profil LinkedIn
+  cv_button: Télécharger mon CV
 
 en:
   title: About
@@ -69,6 +70,7 @@ en:
     - name: Tools
       tags: [Figma, Adobe Illustrator, Adobe Photoshop, Adobe Lightroom, Adobe InDesign, Adobe Premiere, After Effects, Blender, Audacity]
   linkedin: LinkedIn profile
+  cv_button: Download my CV
 
 # The story (Ale's current About text, unchanged). Same English text on both
 # versions. [[BORRADOR]] Ale rewrites it by hand.
