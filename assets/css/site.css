@@ -508,6 +508,9 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .c-body > .case-fig, .c-body > .case-compare-wrap, .c-body > .case-pair, .c-body > .case-palette, .c-body > .case-type, .c-body > .case-logos, .c-body > .case-stripes, .c-body > .case-typescale { margin-bottom: clamp(56px, 8vw, 100px); }
 .c-body .case-fig > figcaption { font-size: 16px; color: var(--ink); max-width: 52ch; }
 .c-body > h2 { font-size: clamp(26px, 3vw, 38px); line-height: 1.1; font-weight: 750; letter-spacing: -.02em; margin: 0 0 24px; }
+.c-body > h2:not(:first-child) { margin-top: clamp(40px, 6vw, 80px); }
+.c-body > h3 { font-size: 20px; font-weight: 700; margin: 0 0 12px; }
+.c-body > p { max-width: 68ch; margin: 0 0 20px; }
 .c-body .case-detail-body { max-width: none; gap: 18px; }
 .c-body .case-detail-body > p, .c-body .case-detail-body > ul { max-width: 64ch; }
 .c-body .case-detail-body h3 { font-size: 20px; font-weight: 700; margin-top: 18px; }
