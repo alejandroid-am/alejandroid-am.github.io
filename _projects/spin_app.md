@@ -44,11 +44,13 @@ palette:
 logos:
   - { src: /assets/img/Spin_app/new_spin_logo.webp, alt: "Redesigned Spin logo", w: 1920, h: 1080, bg: full, caption: "Main logo" }
 ---
+<h2 class="case-compare-title">The wheel comes after paying</h2>
+
 {% include case/row.html items=page.screens_before caption="Spin App let users spin a wheel for a reward before paying for a top-up." %}
 
 {% capture before %}<p><strong>Open App → Spin the Wheel → Top Up</strong></p>{% endcapture %}
 {% capture after %}<p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>{% endcapture %}
-{% include case/compare.html title="The wheel comes after paying" before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
+{% include case/compare.html before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
 
 {% include case/row.html items=page.screens_after caption="I replaced the cluttered list view with cards." %}
 
