@@ -1,0 +1,21 @@
+<!-- JSON-LD CreativeWork Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "{{ page.title }}",
+  "description": "{{ page.description | strip_html | escape }}",
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ page.cover_image | absolute_url }}",
+  "dateCreated": "{{ page.year }}",
+  "author": {
+    "@type": "Person",
+    "name": "Alejandro Amaro Mendoza",
+    "url": "https://www.alejandro-is.me"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Alejandro Amaro Mendoza"
+  }
+}
+</script>

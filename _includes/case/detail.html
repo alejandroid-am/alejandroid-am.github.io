@@ -2,8 +2,9 @@
   Long text folded by default ("Le détail").
   {% capture long %}<p>...</p><p>...</p>{% endcapture %}
   {% include case/detail.html summary="The detail" content=long %}
+  Option: summary_lang="fr" when the label is in another language than the page.
 {%- endcomment -%}
 <details class="case-detail">
-  <summary>{{ include.summary | default: "The detail" }}</summary>
+  <summary{% if include.summary_lang %} lang="{{ include.summary_lang }}"{% endif %}>{{ include.summary | default: "The detail" }}</summary>
   <div class="case-detail-body">{{ include.content }}</div>
 </details>

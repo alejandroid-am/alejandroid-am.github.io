@@ -1,15 +1,23 @@
 {%- comment -%}
   Logo and its variants, from the front matter:
     logos:
-      - { src: /assets/img/p/logo.svg, alt: "Logo, main version", bg: light }
+      - { src: /assets/img/p/logo.svg, alt: "Logo, main version", bg: light, caption: "Main logo" }
       - { src: /assets/img/p/logo-white.svg, alt: "Logo on dark", bg: dark }
-  bg: light (default), dark or accent.
+      - { placeholder: "App icon to come", caption: "App icon" }   # asset missing
+  bg: light (default), dark, accent, or full (image already has its background: shown edge to edge).
   {% include case/logo.html items=page.logos %}
 {%- endcomment -%}
 {%- if include.items %}
 <ul class="case-logos">
   {%- for l in include.items %}
-  <li class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% endif %}"><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}" loading="lazy" decoding="async"></li>
+  <li>
+    {%- if l.src %}
+    <div class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% elsif l.bg == 'full' %} is-full{% endif %}"><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}"{% if l.w %} width="{{ l.w }}" height="{{ l.h }}"{% endif %} loading="lazy" decoding="async"></div>
+    {%- else %}
+    <div class="case-logo case-placeholder"><span>{{ l.placeholder | default: "Variant to come" }}</span></div>
+    {%- endif %}
+    {%- if l.caption %}<p class="case-logo-cap">{{ l.caption }}</p>{% endif %}
+  </li>
   {%- endfor %}
 </ul>
 {%- endif %}

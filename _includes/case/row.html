@@ -1,0 +1,18 @@
+{%- comment -%}
+  A row of 2 to 4 images of the same shape (e.g. phone screens), from the front matter:
+    screens_before:
+      - { src: /assets/img/p/s1.webp, alt: "...", w: 1080, h: 2400 }
+  {% include case/row.html items=page.screens_before caption="1 or 2 short sentences." %}
+{%- endcomment -%}
+{%- if include.items %}
+<figure class="case-fig case-row" style="--n: {{ include.items.size }}">
+  <div class="case-row-items">
+    {%- for i in include.items %}
+    {% include case/img.html src=i.src alt=i.alt w=i.w h=i.h sizes="(max-width: 767px) 33vw, 400px" %}
+    {%- endfor %}
+  </div>
+  {%- if include.caption and include.caption != "" %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>
+{%- endif %}

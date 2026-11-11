@@ -5,6 +5,35 @@ Rama: `mejoras-clientes`. Push solo de esta rama. No he tocado `main`, no hay me
 Vista previa: http://127.0.0.1:4000/ (`docker start portfolio-jekyll` si reinicias).
 Para deshacer una tarea concreta: `git revert <hash>`.
 
+# Spin App en la maquetación C, 11/11/2026
+
+Un solo commit (hash en el mensaje de entrega; `git log --oneline -1 -- _projects/spin_app.md`). Ningún otro caso convertido.
+
+## Qué cambió
+
+- `_projects/spin_app.md`: misma URL `/projects/spin_app/`, mismos campos de antes; se añaden `case_layout: c`, `summary`, `project_type`, `hero_*`, `preload_*`, `screens_before`, `screens_after`, `palette`, `logos`.
+- Orden de cabecera: título + frase de resumen, fila de metadatos (Role, Year, Type, Tools, Result) y DESPUÉS la imagen de cabecera.
+- Visible: unas 81 palabras, todas copiadas del texto actual (resumen = el antiguo "hook"; pies = frases del caso). El texto completo va íntegro y en su orden en "Le détail", cerrado por defecto, con todas las imágenes de antes (logos, paletas, UI antes/después, galería, vídeo promo).
+- Before / After: include `compare` con título "So: the wheel comes after paying" (h2), "Before" / "After" (h3) y las etiquetas "Spin, then pay" / "Pay, then spin".
+- Lo barato: el badge "Pay, then spin" ahora es amarillo sobre negro (15:1; el antiguo `.badge.new` ya no se usa en esta página); los títulos van h1 > h2 > h3 > h4 sin saltos; a 320 px no se sale nada (logo antiguo incluido, ahora dentro de un par que se apila).
+- El caso ya no carga `style.css` ni Poppins (solo `site.css`), así que se ve en claro como el resto del sitio. Los otros 6 casos siguen igual (`case_layout` ausente = estilo antiguo).
+- Includes (aditivos): nuevo `case/row.html` (fila de pantallas); `type` y `logo` aceptan placeholder; `compare` acepta `title` y etiquetas; `detail` acepta `summary_lang`; el JSON-LD de los casos pasa a `case/jsonld.html` (misma salida).
+- `-960w` generados con `tools/optimize-images.sh` para old_spin_app1-3 y new_spin-ui1-3 (copié solo las variantes; los originales no se recomprimieron). `iphone-mockup.webp` mide 500 px: no necesita variante.
+- `project_type: Mobile app redesign` lo escribí yo a partir de la descripción: revísalo.
+
+## Assets que faltan para esta maqueta (exactamente)
+
+1. Vídeo corto en bucle: mp4 H.264 sin audio, 6 a 10 s, 1920x1080 (16:9), menos de 3 MB, el flujo "Top Up → Payment confirmed → Spin the Wheel". Más su póster: un fotograma en .webp a 1920x1080. Nombres sugeridos: `assets/img/Spin_app/flow-loop.mp4` y `flow-loop-poster.webp`. Hoy hay un placeholder rayado.
+2. Logo en una tinta (monocromo), en SVG o PNG transparente. Placeholder "One-colour version to come".
+3. Icono de la app (el cuadrado de la tienda), 1024x1024. Placeholder "App icon to come".
+4. Nombre de la tipografía de la app y pesos usados (y el archivo .woff2 si su licencia permite alojarlo). Placeholder "Typeface to come".
+5. Hex reales de la paleta: los 5 que hay (#FED06A, #4C91E1, #FF696C, #5BB75A, #582B76) están muestreados de las imágenes y los nombres (Yellow, Blue...) son míos. Confírmalos en el front matter.
+6. Opcional: una imagen de cabecera pensada para esta maqueta (horizontal, 2400x1350). Ahora uso el mosaico de pantallas (4549x3475), que se recorta a 86 % de la altura de pantalla.
+
+## Verificación
+
+Build limpio (solo "Empty slug" de siempre). 0 enlaces internos rotos (salvo los 2 falsos positivos conocidos dentro del JS de audita11y). Spin App a 1440, 390 y 320 px: sin desbordamiento y sin errores de consola. Sin JS se ve completo ("Le détail" se abre con el `<details>` nativo). Las 12 imágenes de "Le détail" cargan al abrirlo. Los otros 6 casos responden y no cambian.
+
 # Implementación de la propuesta C, 11/11/2026
 
 ## Una línea por bloque

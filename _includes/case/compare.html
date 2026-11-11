@@ -3,8 +3,16 @@
   {% capture before %}<p>...</p>{% endcapture %}
   {% capture after %}<p>...</p>{% endcapture %}
   {% include case/compare.html before_title="Before" before=before after_title="After" after=after %}
+  Options: title="..." adds a section heading (h2) above, so the Before / After
+  headings (h3) never skip a level; before_tag / after_tag add a short label
+  (after_tag is highlighted).
 {%- endcomment -%}
-<div class="case-compare">
-  <div><h3>{{ include.before_title | default: "Before" }}</h3>{{ include.before }}</div>
-  <div><h3>{{ include.after_title | default: "After" }}</h3>{{ include.after }}</div>
+<div class="case-compare-wrap">
+  {%- if include.title %}
+  <h2 class="case-compare-title">{{ include.title }}</h2>
+  {%- endif %}
+  <div class="case-compare">
+    <div><h3>{{ include.before_title | default: "Before" }}{% if include.before_tag %} <span class="case-tag">{{ include.before_tag }}</span>{% endif %}</h3>{{ include.before }}</div>
+    <div><h3>{{ include.after_title | default: "After" }}{% if include.after_tag %} <span class="case-tag is-new">{{ include.after_tag }}</span>{% endif %}</h3>{{ include.after }}</div>
+  </div>
 </div>

@@ -11,6 +11,55 @@ layout: default
     <p><a href="/contact/?projet={{ page.title | url_encode }}" data-href-en="/en/contact/?projet={{ page.title | url_encode }}" class="submit-btn">{{ t.locked_label }}</a></p>
   </header>
 </div>
+{%- elsif page.case_layout == 'c' -%}
+{%- comment -%}
+  Layout C "Gallery with captions": title block, metadata row, THEN the hero
+  image, then the body (case/ includes), then the next project.
+  Front matter used: title, summary (or description), role, year, project_type,
+  tools, result, hero_image / hero_w / hero_h / hero_alt.
+{%- endcomment -%}
+{%- assign ordered = site.projects | where_exp: "p", "p.home_order" | where_exp: "p", "p.locked != true" | sort: "home_order" -%}
+{%- assign next_p = nil -%}
+{%- for p in ordered -%}{%- if p.url == page.url -%}{%- assign ni = forloop.index -%}{%- endif -%}{%- endfor -%}
+{%- if ni -%}{%- if ni >= ordered.size -%}{%- assign next_p = ordered.first -%}{%- else -%}{%- assign next_p = ordered[ni] -%}{%- endif -%}{%- endif -%}
+<article class="case-c" lang="en">
+  <div class="case-c-wrap">
+    <nav class="case-crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/" data-href-en="/en/">Home</a></li>
+        <li><a href="/projets/" data-href-en="/en/projects/">Projects</a></li>
+        <li aria-current="page">{{ page.title }}</li>
+      </ol>
+    </nav>
+    <header class="c-title">
+      <h1 class="display">{{ page.title }}</h1>
+      <p class="c-summary">{{ page.summary | default: page.description }}</p>
+    </header>
+    <dl class="c-meta">
+      {%- if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+      {%- if page.year %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
+      {%- if page.project_type %}<div><dt>Type</dt><dd>{{ page.project_type }}</dd></div>{% endif %}
+      {%- if page.tools %}<div><dt>Tools</dt><dd>{{ page.tools }}</dd></div>{% endif %}
+      {%- if page.result %}<div><dt>Result</dt><dd>{{ page.result }}</dd></div>{% endif %}
+    </dl>
+  </div>
+  {%- if page.hero_image %}
+  <div class="c-hero">
+    {% include case/img.html src=page.hero_image alt=page.hero_alt w=page.hero_w h=page.hero_h priority=true sizes="100vw" %}
+  </div>
+  {%- endif %}
+  <div class="case-c-wrap c-body">
+    {{ content }}
+  </div>
+  {%- if next_p %}
+  <a class="c-next" href="{{ next_p.url }}">
+    <span class="c-next-label">Next project</span>
+    <span class="c-next-title">{{ next_p.title }} <span aria-hidden="true">&rarr;</span></span>
+  </a>
+  {%- endif %}
+  <div class="case-c-wrap c-back"><a href="/projets/" data-href-en="/en/projects/">&larr; Back to all projects</a></div>
+</article>
+{%- include case/jsonld.html -%}
 {%- else -%}
 <div class="case-study-container{% if page.theme %} theme-{{ page.theme }}{% endif %}">
 
@@ -47,25 +96,5 @@ layout: default
 
 </div>
 
-<!-- JSON-LD CreativeWork Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "{{ page.title }}",
-  "description": "{{ page.description | strip_html | escape }}",
-  "url": "{{ page.url | absolute_url }}",
-  "image": "{{ page.cover_image | absolute_url }}",
-  "dateCreated": "{{ page.year }}",
-  "author": {
-    "@type": "Person",
-    "name": "Alejandro Amaro Mendoza",
-    "url": "https://www.alejandro-is.me"
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "Alejandro Amaro Mendoza"
-  }
-}
-</script>
+{%- include case/jsonld.html -%}
 {%- endif -%}

@@ -5,10 +5,11 @@
 {%- comment -%}
   Case studies (collection "projects") keep their own stylesheet (style.css) and
   scripts untouched; every page gets the shared chrome (site.css + site.js).
+  A case with case_layout in its front matter uses only the new system (site.css).
   English-only pages (case studies, 404) link the menu to the FR paths; site.js
   swaps them to data-href-en when the visitor chose English.
 {%- endcomment -%}
-{%- if page.collection == 'projects' -%}{%- assign legacy = true -%}{%- else -%}{%- assign legacy = false -%}{%- endif -%}
+{%- if page.collection == 'projects' and page.case_layout == nil -%}{%- assign legacy = true -%}{%- else -%}{%- assign legacy = false -%}{%- endif -%}
 {%- if page.alt_url or page_lang == 'fr' -%}{%- assign nav_t = t -%}{%- assign swap_nav = false -%}{%- else -%}{%- assign nav_t = site.data.i18n.fr -%}{%- assign swap_nav = true -%}{%- endif -%}
 {%- assign nav_en = site.data.i18n.en -%}
 {%- if page.title and page.title != 'Home' -%}{%- capture full_title %}{{ page.title }} - {{ site_title }}{% endcapture -%}{%- else -%}{%- assign full_title = site_title -%}{%- endif -%}
