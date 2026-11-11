@@ -322,6 +322,12 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 
 .lock-media { display: grid; place-items: center; aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, var(--bg-2) 0 14px, var(--bg) 14px 28px); color: var(--ink); }
 .lock-media svg { width: 44px; height: 44px; }
+/* "Bientôt / Coming soon" cards: neutral block, no link, no hover */
+.soon-media { display: block; aspect-ratio: 16 / 10; background: var(--bg-2); }
+.rail-card.is-soon { cursor: default; }
+.rail-card.is-soon .rail-title, .prow.is-soon .prow-title { color: var(--mute); text-decoration: none; }
+.soon-tag { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+.prow.is-soon:hover .prow-title { text-decoration: none; }
 .lock-label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; }
 .lock-label svg { width: 16px; height: 16px; flex: none; }
 

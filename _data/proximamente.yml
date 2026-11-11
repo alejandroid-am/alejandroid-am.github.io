@@ -1,0 +1,15 @@
+# "Bientôt / Coming soon" projects: shown in the home rail and on /projets/ as
+# disabled catalogue cards (name + type + "Bientôt" tag). No link, no page, no
+# sitemap entry, no JSON-LD, no image.
+#
+# A project listed here must NOT be in _projects/: keep its .md and its images
+# in _pendientes/ (excluded from the build). To publish it again, see
+# NOTAS-PARA-ALE.md ("Proyectos bientôt").
+#
+# Format (one entry per project; lower "order" comes first):
+#   - name: "Nom du projet"
+#     type: { fr: "Site web", en: "Website" }
+#     order: 1
+#
+# Empty list = nothing shown.
+items: []

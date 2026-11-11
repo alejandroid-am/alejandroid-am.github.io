@@ -1,0 +1,31 @@
+{%- comment -%}
+  "Bientôt / Coming soon" project (from _data/proximamente.yml): disabled card,
+  name + type + tag only. No link, no image, no page.
+  Params: include.item, include.lang, include.mode ("rail" or "row"), include.num
+{%- endcomment -%}
+{%- assign it = include.item -%}
+{%- assign t = site.data.i18n[include.lang] | default: site.data.i18n.fr -%}
+{%- assign kind = it.type[include.lang] | default: it.type.fr -%}
+{%- if include.mode == "row" %}
+<li class="prow is-soon" aria-disabled="true">
+  <span class="prow-media soon-media" aria-hidden="true"></span>
+  <div>
+    <h2 class="prow-title">{{ it.name }}</h2>
+    <span class="prow-meta">{{ kind }}</span>
+  </div>
+  <p class="prow-desc"><span class="soon-tag">{{ t.soon_label }}</span></p>
+  <p class="prow-year"></p>
+</li>
+{%- else %}
+<li class="rail-item is-soon">
+  <div class="rail-card is-soon" aria-disabled="true">
+    <span class="rail-media soon-media" aria-hidden="true"></span>
+    <span class="rail-cap">
+      <span class="rail-num" aria-hidden="true">{{ include.num }}</span>
+      <span class="rail-title">{{ it.name }}</span>
+      <span class="rail-meta">{{ kind }}</span>
+      <span class="rail-go soon-tag">{{ t.soon_label }}</span>
+    </span>
+  </div>
+</li>
+{%- endif %}

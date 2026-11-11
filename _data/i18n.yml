@@ -39,6 +39,7 @@ fr:
   copied: Adresse copiée.
   copy_fail: "Copie impossible. Sélectionnez l'adresse à la main."
   locked_label: Étude de cas sur demande
+  soon_label: Bientôt
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -78,5 +79,6 @@ en:
   copied: Address copied.
   copy_fail: "Could not copy. Select the address by hand."
   locked_label: Case study on request
+  soon_label: Coming soon
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"

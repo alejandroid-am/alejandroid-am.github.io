@@ -50,6 +50,7 @@ defaults:
       lang: en
 
 exclude:
+  - _pendientes   # unpublished projects (see _data/proximamente.yml)
   - bedizen_v2
   - node_modules
   - Gemfile

@@ -14,4 +14,6 @@
 <ul class="plist">
   {%- for p in ordered %}{% include project-row.html project=p lang=page.lang %}{% endfor %}
   {%- for p in others %}{% include project-row.html project=p lang=page.lang %}{% endfor %}
+  {%- assign soon = site.data.proximamente.items | sort: "order" %}
+  {%- for it in soon %}{% include soon-card.html item=it lang=page.lang mode="row" %}{% endfor %}
 </ul>
