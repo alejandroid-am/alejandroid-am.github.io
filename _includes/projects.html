@@ -1,0 +1,17 @@
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+{%- comment -%}
+  Every project of _projects/: first those with home_order (in that order),
+  then the others by year. Case studies are written in English.
+{%- endcomment -%}
+{%- assign ordered = site.projects | where_exp: "p", "p.home_order" | sort: "home_order" -%}
+{%- assign others = site.projects | where_exp: "p", "p.home_order == nil" | sort: "year", "last" | reverse -%}
+<header class="page-head">
+  <h1 class="display" data-scramble>{{ page.title }}</h1>
+  {%- if page.lang != 'en' %}
+  <p class="lead" style="margin-top:20px">{{ site.data.projects_page.fr.note }}</p>
+  {%- endif %}
+</header>
+<ul class="plist">
+  {%- for p in ordered %}{% include project-row.html project=p lang=page.lang %}{% endfor %}
+  {%- for p in others %}{% include project-row.html project=p lang=page.lang %}{% endfor %}
+</ul>

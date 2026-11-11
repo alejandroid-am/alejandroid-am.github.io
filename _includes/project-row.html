@@ -1,0 +1,26 @@
+{%- comment -%}
+  One project on /projets/ and /en/projects/. Params: include.project, include.lang
+  locked: true → padlock row (title, category, "Étude de cas sur demande"),
+  linked to Contact with a prefilled subject. Nothing private is ever rendered.
+{%- endcomment -%}
+{%- assign p = include.project -%}
+{%- assign h = site.data.home[include.lang] | default: site.data.home.fr -%}
+{%- assign t = site.data.i18n[include.lang] | default: site.data.i18n.fr -%}
+<li class="prow{% if p.locked %} is-locked{% endif %}">
+  {%- if p.locked %}
+  <span class="prow-media lock-media">{% include lock-icon.html %}</span>
+  <div>
+    <h2 class="prow-title"><a href="{{ t.contact_url }}?projet={{ p.title | url_encode }}">{{ p.title }}</a></h2>
+    <span class="prow-meta">{{ p.category | default: p.role_short }}</span>
+  </div>
+  <p class="prow-desc lock-label">{% include lock-icon.html %}{{ t.locked_label }}</p>
+  {%- else %}
+  <span class="prow-media"><img src="{{ p.thumb_image | default: p.cover_image }}" alt="{{ h.cover_alt | replace: '%s', p.title }}" width="800" height="500" loading="lazy" decoding="async"></span>
+  <div>
+    <h2 class="prow-title"><a href="{{ p.url }}"{% if include.lang != 'en' %} hreflang="en"{% endif %}>{{ p.title }}</a></h2>
+    <span class="prow-meta"{% if include.lang != 'en' %} lang="en"{% endif %}>{{ p.role_short | default: p.role }}</span>
+  </div>
+  <p class="prow-desc"{% if include.lang != 'en' %} lang="en"{% endif %}>{{ p.description }}</p>
+  {%- endif %}
+  <p class="prow-year">{{ p.year }}</p>
+</li>
