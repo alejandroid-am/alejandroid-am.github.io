@@ -24,8 +24,6 @@ hero_alt: Keep Breathing main menu, dark sci-fi corridor with the game title
 preload_image: /assets/img/KeepBreathing/keep-breathing-main-menu.webp
 preload_srcset: "/assets/img/KeepBreathing/keep-breathing-main-menu-960w.webp 960w, /assets/img/KeepBreathing/keep-breathing-main-menu.webp 1920w"
 preload_sizes: "100vw"
-logos:
-  - { placeholder: "Game title logo to come", caption: "Title logo" }
 ---
 {% include case/figure.html src="/assets/img/KeepBreathing/keep-breathing-gameplay-screen.webp" w=1920 h=1080 alt="Keep Breathing gameplay, first-person view with the gas mask on the floor and the oxygen and health bars" caption="The cliché pattern is what led me to the gas mask, which seemed more original, and easy to make with the survival idea." %}
 
@@ -33,15 +31,7 @@ logos:
 
 {% include case/pair.html a="/assets/img/KeepBreathing/keep-breathing-menu-pause.webp" a_alt="Keep Breathing pause menu overlay" a_w=1920 a_h=1080 a_caption="Pause Menu Overlay" b="/assets/img/KeepBreathing/keep-breathing-game-over.webp" b_alt="Keep Breathing game over screen" b_w=1920 b_h=1080 b_caption="Game Over Screen" %}
 
-{% include case/video.html src="" w=16 h=9 placeholder="Short gameplay loop to come" label="" %}
-
 <p class="c-cta"><a class="btn" href="https://www.figma.com/proto/QSs8reDgssWakM8UEdcsEc/UI-Game-Keep-Breathing?page-id=0%3A1&node-id=1-2&p=f&viewport=419%2C342%2C0.08&t=fi78lM3WjjGiSLXA-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A2" target="_blank" rel="noopener noreferrer">Try the Figma prototype &rarr;</a></p>
-
-{% include case/palette.html placeholder="Game palette to come" %}
-
-{% include case/type.html placeholder="Typeface to come" %}
-
-{% include case/logo.html items=page.logos %}
 
 <h2>Best Technical Achievement</h2>
 

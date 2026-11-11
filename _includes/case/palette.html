@@ -5,7 +5,7 @@
   {% include case/palette.html colors=page.palette %}
   style="stripes": full-width bands with the name and hex on the colour itself
   (add  text: "#FFFFFF"  to a colour when it needs light text).
-  Without colours: a sober placeholder, text in placeholder="..." (palette still to come).
+  Without colours: nothing is rendered (no placeholder box).
 {%- endcomment -%}
 {%- if include.colors and include.style == "stripes" %}
 <ul class="case-stripes">
@@ -22,6 +22,4 @@
   </li>
   {%- endfor %}
 </ul>
-{%- elsif include.placeholder %}
-<div class="case-placeholder case-palette-ph"><span>{{ include.placeholder }}</span></div>
 {%- endif %}

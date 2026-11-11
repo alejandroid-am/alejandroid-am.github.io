@@ -37,8 +37,6 @@ type_scale:
 brand_pdf: /assets/docs/bedizen-charte-graphique.pdf
 logos:
   - { src: /assets/img/BEDiZEN/bedizen_white.svg, alt: "BEDiZEN logo, white version on dark", bg: dark, caption: "Logo on dark" }
-  - { placeholder: "Dark version on light to come", caption: "Logo on light" }
-  - { placeholder: "Icon file to come", caption: "Icon" }
 ---
 <p class="c-cta"><a class="btn" href="http://alejandro.am.servd16161.odns.fr/" target="_blank" rel="noopener noreferrer">Visit the Live Site &rarr;</a></p>
 

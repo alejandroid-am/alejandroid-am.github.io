@@ -56,7 +56,6 @@ final_logo:
 
 {% include case/palette.html colors=page.palette %}
 
-{% include case/type.html placeholder="Typeface to come" %}
 
 {% include case/logo.html items=page.logos %}
 
@@ -64,7 +63,6 @@ final_logo:
 
 {% include case/logo.html items=page.final_logo %}
 
-{% include case/video.html src="" w=16 h=9 placeholder="Short loop video to come" label="" %}
 
 {% include case/pair.html a="/assets/img/Workpics/workpics_cap2.webp" a_alt="WorkPics branding on orange safety helmet" a_w=2400 a_h=1650 a_caption="High-Vis Helmet Branding" b="/assets/img/Workpics/workpics_cap_black.webp" b_alt="WorkPics branding on black manager helmet" b_w=2400 b_h=1650 b_caption="Manager Helmet Branding" %}
 

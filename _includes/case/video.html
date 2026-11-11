@@ -3,20 +3,19 @@
   {% include case/video.html src="/assets/img/p/flow.mp4" poster="/assets/img/p/flow-poster.webp"
      w=1920 h=1080 label="Short description of what the video shows" caption="" %}
   With reduced motion the video does not autoplay (site.js); controls stay available.
-  Without src: a sober placeholder keeps the space (asset still to come).
+  Without src: nothing is rendered (no placeholder box; the missing file goes in
+  NOTAS-PARA-ALE.md, "TODO visuales").
 {%- endcomment -%}
+{%- if include.src and include.src != "" %}
 <figure class="case-fig case-video{% if include.bleed %} is-bleed{% endif %}">
-  {%- if include.src and include.src != "" %}
   <video autoplay muted loop playsinline preload="metadata" data-case-video
     {%- if include.poster %} poster="{{ include.poster | uri_escape }}"{% endif %}
     {%- if include.w %} width="{{ include.w }}" height="{{ include.h }}"{% endif %}
     aria-label="{{ include.label }}">
     <source src="{{ include.src | uri_escape }}" type="video/mp4">
   </video>
-  {%- else %}
-  <div class="case-placeholder" style="aspect-ratio: {{ include.w | default: 16 }} / {{ include.h | default: 9 }}"><span>{{ include.placeholder | default: "Vidéo à venir" }}</span></div>
-  {%- endif %}
   {%- if include.caption and include.caption != "" %}
   <figcaption>{{ include.caption }}</figcaption>
   {%- endif %}
 </figure>
+{%- endif %}

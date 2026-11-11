@@ -43,8 +43,6 @@ palette:
   - { name: Purple, hex: "#582B76" }
 logos:
   - { src: /assets/img/Spin_app/new_spin_logo.webp, alt: "Redesigned Spin logo", w: 1920, h: 1080, bg: full, caption: "Main logo" }
-  - { placeholder: "One-colour version to come", caption: "One colour" }
-  - { placeholder: "App icon to come", caption: "App icon" }
 ---
 {% include case/row.html items=page.screens_before caption="Spin App let users spin a wheel for a reward before paying for a top-up." %}
 
@@ -56,13 +54,11 @@ logos:
 
 {% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" caption="Every spin wins something: cashback, points, or double recharge." %}
 
-{% include case/video.html src="" w=16 h=9 placeholder="Short loop video to come" label="" %}
 
 <h2>The brand and the screens</h2>
 
 {% include case/palette.html colors=page.palette %}
 
-{% include case/type.html placeholder="Typeface to come" %}
 
 {% include case/logo.html items=page.logos %}
 

@@ -51,7 +51,6 @@ logos:
 
 {% include case/logo.html items=page.logos %}
 
-{% include case/video.html src="" w=16 h=9 placeholder="Short loop video to come" label="" %}
 
 <h2>Mockups</h2>
 
