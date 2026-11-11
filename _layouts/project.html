@@ -20,9 +20,9 @@ layout: default
   hero_bg (optional: artwork shown whole and centered on that colour, e.g. a title lettering).
 {%- endcomment -%}
 {%- assign ordered = site.projects | where_exp: "p", "p.home_order" | where_exp: "p", "p.locked != true" | sort: "home_order" -%}
-{%- assign next_p = nil -%}
+{%- assign next_p = nil -%}{%- assign ni = nil -%}
 {%- for p in ordered -%}{%- if p.url == page.url -%}{%- assign ni = forloop.index -%}{%- endif -%}{%- endfor -%}
-{%- if ni -%}{%- if ni >= ordered.size -%}{%- assign next_p = ordered.first -%}{%- else -%}{%- assign next_p = ordered[ni] -%}{%- endif -%}{%- endif -%}
+{%- if ni == nil -%}{%- assign next_p = ordered.first -%}{%- elsif ni >= ordered.size -%}{%- assign next_p = ordered.first -%}{%- else -%}{%- assign next_p = ordered[ni] -%}{%- endif -%}
 <article class="case-c" lang="en">
   <div class="case-c-wrap">
     <nav class="case-crumbs" aria-label="Breadcrumb">
