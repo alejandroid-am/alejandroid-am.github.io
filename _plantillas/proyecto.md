@@ -78,6 +78,9 @@ logos:
 
 {% include case/figure.html src="/assets/img/mi-proyecto/pantalla.webp" w=2400 h=1500 alt="Describe la imagen" caption="Pie de 1 o 2 frases." %}
 
+{%- comment -%} Recorte sobre fondo transparente (PNG/WebP con alfa): sin marco ni fondo, sombra suave {%- endcomment -%}
+{% include case/figure.html src="/assets/img/mi-proyecto/recorte.webp" w=1600 h=1200 alt="Describe la imagen" caption="Pie de 1 frase." float=true %}
+
 {% include case/pair.html a="/assets/img/mi-proyecto/a.webp" a_alt="..." a_w=1200 a_h=900 b="/assets/img/mi-proyecto/b.webp" b_alt="..." b_w=1200 b_h=900 %}
 
 {% include case/video.html src="/assets/img/mi-proyecto/flujo.mp4" poster="/assets/img/mi-proyecto/flujo-poster.webp" w=1920 h=1080 label="Qué muestra el vídeo" caption="" %}

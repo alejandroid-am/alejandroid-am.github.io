@@ -402,6 +402,11 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-fig.is-bleed figcaption { padding-inline: var(--pad); }
 .case-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 48px; }
 .case-pair .case-fig { margin: 0; }
+/* figure.float: cut-outs on a transparent background. No frame or background;
+   drop-shadow follows the shape of the object, so it seems to float. */
+.case-fig.float, .case-fig.float .zoom-trigger { background: none; border: 0; }
+.case-fig.float img { width: auto; max-width: min(100%, 900px); margin: 0 auto; filter: drop-shadow(0 22px 28px rgba(21, 21, 20, .18)) drop-shadow(0 4px 8px rgba(21, 21, 20, .10)); }
+.case-fig.float > figcaption { text-align: center; margin-inline: auto; }
 .case-video { position: relative; background: var(--bg-2); }
 .case-video video { width: 100%; height: auto; display: block; }
 .case-placeholder { display: grid; place-items: center; background: repeating-linear-gradient(135deg, var(--bg-2) 0 14px, var(--bg) 14px 28px); border: 1px dashed var(--line); }
