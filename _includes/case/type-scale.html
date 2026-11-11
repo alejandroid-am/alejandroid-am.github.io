@@ -1,0 +1,16 @@
+{%- comment -%}
+  Live type hierarchy (real text, no image). Rows from the front matter:
+    type_scale:
+      - { role: Title, weight: 700, label: "Poppins Bold", text: "Beyond Digital Zenith" }
+  {% include case/type-scale.html family="Poppins" rows=page.type_scale %}
+  Optional per row: lang (when the sample is not in English).
+  The font must be self-hosted on the page (load_poppins: true for Poppins).
+{%- endcomment -%}
+<div class="case-typescale" style="font-family: '{{ include.family }}', system-ui, sans-serif">
+  {%- for r in include.rows %}
+  <div class="case-typescale-row is-{{ r.role | slugify }}">
+    <p class="case-typescale-meta"><strong>{{ r.role }}</strong><span>{{ r.label }}</span></p>
+    <p class="case-typescale-sample" style="font-weight: {{ r.weight }}"{% if r.lang %} lang="{{ r.lang }}"{% endif %}>{{ r.text }}</p>
+  </div>
+  {%- endfor %}
+</div>

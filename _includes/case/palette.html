@@ -3,9 +3,17 @@
     palette:
       - { name: Violet nuit, hex: "#2B1B5A", use: Fond principal }
   {% include case/palette.html colors=page.palette %}
+  style="stripes": full-width bands with the name and hex on the colour itself
+  (add  text: "#FFFFFF"  to a colour when it needs light text).
   Without colours: a sober placeholder, text in placeholder="..." (palette still to come).
 {%- endcomment -%}
-{%- if include.colors %}
+{%- if include.colors and include.style == "stripes" %}
+<ul class="case-stripes">
+  {%- for c in include.colors %}
+  <li style="background: {{ c.hex }}; color: {{ c.text | default: '#111' }}"><strong>{{ c.name }}</strong><code>{{ c.hex }}</code>{% if c.use %}<span>{{ c.use }}</span>{% endif %}</li>
+  {%- endfor %}
+</ul>
+{%- elsif include.colors %}
 <ul class="case-palette">
   {%- for c in include.colors %}
   <li class="case-swatch">

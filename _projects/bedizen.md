@@ -24,9 +24,17 @@ hero_bg: "#1A1B1C"
 load_poppins: true   # Poppins is the brand typeface (type specimen below)
 # Colours, names and hex from the brand guidelines (page 25).
 palette:
-  - { name: Horizon Noir, hex: "#1A1B1C" }
-  - { name: Lueur Blanche, hex: "#F2F1F0" }
-  - { name: Rouge Pionnier, hex: "#E13C30" }
+  - { name: Horizon Noir, hex: "#1A1B1C", text: "#F2F1F0", use: Primaire }
+  - { name: Lueur Blanche, hex: "#F2F1F0", text: "#1A1B1C", use: Primaire }
+  - { name: Rouge Pionnier, hex: "#E13C30", text: "#1A1B1C", use: Accentuation }
+# "use" from the colour hierarchy (guidelines page 26). Type hierarchy from page 22:
+# Titre = Poppins Bold, Sous-Titre = Poppins SemiBold, text = Poppins Medium.
+# Sample texts are taken from the case and the guidelines (page 23), nothing new.
+type_scale:
+  - { role: Title, weight: 700, label: "Poppins Bold", text: "Beyond Digital Zenith" }
+  - { role: Subtitle, weight: 600, label: "Poppins SemiBold", text: "La Réalité Augmentée native pour l'e-commerce", lang: fr }
+  - { role: Text, weight: 500, label: "Poppins Medium", text: "BEDiZEN is a WebAR studio concept that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers." }
+brand_pdf: /assets/docs/bedizen-charte-graphique.pdf
 logos:
   - { src: /assets/img/BEDiZEN/bedizen_white.svg, alt: "BEDiZEN logo, white version on dark", bg: dark, caption: "Logo on dark" }
   - { placeholder: "Dark version on light to come", caption: "Logo on light" }
@@ -57,51 +65,17 @@ logos:
 
 <h2>Brand Guidelines</h2>
 
-{% include case/palette.html colors=page.palette %}
+{% include case/figure.html src="/assets/img/BEDiZEN/page11.webp" w=2339 h=1654 alt="The BEDiZEN logo split in three: BE, DI and ZEN, for Beyond, Digital and Zenith" caption="The name in three parts: Beyond, Digital, Zenith." %}
 
-{% include case/type.html family="Poppins" sample="Aa Bb Cc 0123" weights="Bold, Medium" %}
+{% include case/figure.html src="/assets/img/BEDiZEN/page15.webp" w=2339 h=1654 alt="Construction of the BEDiZEN logotype: red guide lines and proportion circles over the letters" caption="Construction of the logotype: a modular grid, and circles that set the red dot." %}
 
-{% include case/logo.html items=page.logos %}
+{% include case/figure.html src="/assets/img/BEDiZEN/page14.webp" w=2339 h=1654 alt="Clear space around the BEDiZEN logotype and icon, measured in X modules" caption="Clear space: one X module around the logotype and the icon." %}
 
-<div class="document-carousel-container">
-    <button class="carousel-btn prev-btn" aria-label="Previous slide">&lt;</button>
-    <div class="document-carousel">
-      <img src="/assets/img/BEDiZEN/page1.webp" alt="BEDiZEN brand guidelines, cover page" class="carousel-slide active-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page1-960w.webp 960w, /assets/img/BEDiZEN/page1.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px">
-      <img src="/assets/img/BEDiZEN/page2.webp" alt="Brand guidelines, table of contents" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page2-960w.webp 960w, /assets/img/BEDiZEN/page2.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page3.webp" alt="Brand guidelines, brand overview" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page3-960w.webp 960w, /assets/img/BEDiZEN/page3.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page4.webp" alt="Brand guidelines, mission statement" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page4-960w.webp 960w, /assets/img/BEDiZEN/page4.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page5.webp" alt="Brand guidelines, logo specifications" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page5-960w.webp 960w, /assets/img/BEDiZEN/page5.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page6.webp" alt="Brand guidelines, logo clear space" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page6-960w.webp 960w, /assets/img/BEDiZEN/page6.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page7.webp" alt="Brand guidelines, color palette" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page7-960w.webp 960w, /assets/img/BEDiZEN/page7.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page8.webp" alt="Brand guidelines, typography system" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page8-960w.webp 960w, /assets/img/BEDiZEN/page8.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page9.webp" alt="Brand guidelines, typography usage" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page9-960w.webp 960w, /assets/img/BEDiZEN/page9.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page10.webp" alt="Brand guidelines, iconography" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page10-960w.webp 960w, /assets/img/BEDiZEN/page10.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page11.webp" alt="Brand guidelines, photography style" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page11-960w.webp 960w, /assets/img/BEDiZEN/page11.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page12.webp" alt="Brand guidelines, imagery guidelines" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page12-960w.webp 960w, /assets/img/BEDiZEN/page12.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page13.webp" alt="Brand guidelines, layout grid" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page13-960w.webp 960w, /assets/img/BEDiZEN/page13.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page14.webp" alt="Brand guidelines, business card design" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page14-960w.webp 960w, /assets/img/BEDiZEN/page14.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page15.webp" alt="Brand guidelines, stationery system" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page15-960w.webp 960w, /assets/img/BEDiZEN/page15.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page16.webp" alt="Brand guidelines, digital applications" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page16-960w.webp 960w, /assets/img/BEDiZEN/page16.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page17.webp" alt="Brand guidelines, social media templates" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page17-960w.webp 960w, /assets/img/BEDiZEN/page17.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page18.webp" alt="Brand guidelines, merchandise design" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page18-960w.webp 960w, /assets/img/BEDiZEN/page18.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page19.webp" alt="Brand guidelines, brand voice" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page19-960w.webp 960w, /assets/img/BEDiZEN/page19.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page20.webp" alt="Brand guidelines, tone of voice examples" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page20-960w.webp 960w, /assets/img/BEDiZEN/page20.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page21.webp" alt="Brand guidelines, web design system" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page21-960w.webp 960w, /assets/img/BEDiZEN/page21.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page22.webp" alt="Brand guidelines, UI components" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page22-960w.webp 960w, /assets/img/BEDiZEN/page22.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page23.webp" alt="Brand guidelines, responsive design" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page23-960w.webp 960w, /assets/img/BEDiZEN/page23.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page24.webp" alt="Brand guidelines, accessibility standards" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page24-960w.webp 960w, /assets/img/BEDiZEN/page24.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page25.webp" alt="Brand guidelines, motion guidelines" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page25-960w.webp 960w, /assets/img/BEDiZEN/page25.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page26.webp" alt="Brand guidelines, presentation templates" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page26-960w.webp 960w, /assets/img/BEDiZEN/page26.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page27.webp" alt="Brand guidelines, environmental design" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page27-960w.webp 960w, /assets/img/BEDiZEN/page27.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page28.webp" alt="Brand guidelines, signage system" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page28-960w.webp 960w, /assets/img/BEDiZEN/page28.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page29.webp" alt="Brand guidelines, brand do's and don'ts" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page29-960w.webp 960w, /assets/img/BEDiZEN/page29.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page30.webp" alt="Brand guidelines, implementation checklist" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page30-960w.webp 960w, /assets/img/BEDiZEN/page30.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page31.webp" alt="Brand guidelines, contact information" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page31-960w.webp 960w, /assets/img/BEDiZEN/page31.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-      <img src="/assets/img/BEDiZEN/page32.webp" alt="Brand guidelines, back cover" class="carousel-slide" width="2339" height="1654" srcset="/assets/img/BEDiZEN/page32-960w.webp 960w, /assets/img/BEDiZEN/page32.webp 2339w" sizes="(max-width: 767px) 100vw, 1100px" loading="lazy" decoding="async">
-    </div>
-    <button class="carousel-btn next-btn" aria-label="Next slide">&gt;</button>
-    <div class="carousel-counter" aria-live="polite">1 / 32</div>
-  </div>
+{% include case/palette.html colors=page.palette style="stripes" %}
+
+{% include case/type-scale.html family="Poppins" rows=page.type_scale %}
+
+<p class="c-cta"><a class="btn" href="{{ page.brand_pdf }}" download>Download the brand guidelines (PDF, 34 pages, 3.8 MB)</a></p>
 
 {% include case/pair.html a="/assets/img/BEDiZEN/flyer.jpg" a_alt="BEDiZEN promotional flyer design featuring brand colors and AR imagery" a_w=1500 a_h=1125 a_caption="Promotional flyer for events" b="/assets/img/BEDiZEN/carte-visite-mockup.jpg" b_alt="BEDiZEN business cards showing front and back design" b_w=1000 b_h=1250 b_caption="Business card design" %}
 
@@ -144,10 +118,10 @@ logos:
 <p><em lang="fr">La Réalité Augmentée native pour l'e-commerce</em>: Landscape format, for YouTube and other horizontal placements.</p>
 <p><em lang="fr">L'Expérience Try-On en un Clic</em>: <span lang="fr">De la simple navigation à l'immersion totale : un aperçu vertical pensé pour les réseaux sociaux.</span></p>
 
-<p class="c-closing">On this project I really was full stack, even if it was only once.</p>
+<p class="c-closing">It was a school project, done with the school's methodology. For version 2 I used Tailwind, with AI help in VS Code. The plugins, the WordPress back office and the theme over FTP I did by hand, with AI where it could step in.</p>
 
 <h3>Brand Guidelines</h3>
-<p>The full brand guidelines I wrote for BEDiZEN:</p>
+<p>The full brand guidelines I wrote for BEDiZEN: <a href="{{ page.brand_pdf }}" download>PDF, 34 pages</a>.</p>
 
 <h3>Project Gallery</h3>
 <p>Mockups of the BEDiZEN brand in use.</p>
