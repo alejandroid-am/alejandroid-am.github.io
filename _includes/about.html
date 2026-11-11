@@ -1,0 +1,50 @@
+{%- assign a = site.data.about[page.lang] | default: site.data.about.fr -%}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.fr -%}
+<header class="page-head">
+  <h1 class="display" data-scramble>{{ a.title }}</h1>
+</header>
+
+<section class="about-top" aria-label="{{ a.title }}">
+  <img class="about-photo" src="/assets/img/profile.webp" alt="{{ a.photo_alt }}" width="1674" height="1672" loading="eager" decoding="async">
+  <div>
+    <p class="big lit"{% if a.phrase_lang != page.lang %} lang="{{ a.phrase_lang }}"{% endif %}>{% include lit.html text=a.phrase %}</p>
+    <div class="about-story"{% if a.story_lang != page.lang %} lang="{{ a.story_lang }}"{% endif %}>
+      {%- for para in site.data.about.story %}
+      <p>{{ para }}</p>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Timeline: the vertical line draws itself with the scroll and each entry
+     lights up in the middle of the screen (site.js). Without JS: all visible. -->
+<section class="section" aria-labelledby="tl-title">
+  <h2 class="h2" id="tl-title">{{ a.timeline_title }}</h2>
+  <div class="tl">
+  <span class="tl-progress" aria-hidden="true"></span>
+  <ol class="tl-list">
+    {%- for e in a.timeline %}
+    <li class="tl-item">
+      <p class="tl-year">{{ e.year }}</p>
+      <div><p class="tl-title">{{ e.title }}</p><p class="tl-text">{{ e.text }}</p></div>
+    </li>
+    {%- endfor %}
+  </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="skills-title">
+  <div class="facts">
+    <div>
+      <h2 class="h2" id="skills-title">{{ a.skills_title }}</h2>
+      <h3>{{ a.languages_title }}</h3>
+      <p>{{ a.languages }}</p>
+      <p style="margin-top:20px"><a class="link-arrow" href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">{{ a.linkedin }}<span aria-hidden="true"> →</span></a></p>
+    </div>
+    <div class="skills">
+      {%- for g in a.skills %}
+      <p><strong>{{ g.name }}</strong>{{ g.tags | join: ", " }}</p>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
