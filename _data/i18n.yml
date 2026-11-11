@@ -48,6 +48,7 @@ fr:
   logo_app: "Logo de l'application"
   live_project: Voir le projet en ligne
   # Cinéville process steps (same order as the old 19-slide carousel)
+  kb_figma: "Maquette Figma du parcours complet, réalisée pour le jury"
   cv_flow: Le processus
   cv_brief: Brief et mission
   cv_codes: Les codes du surréalisme
@@ -106,6 +107,7 @@ en:
   logo_official: Official company logo
   logo_app: App logo
   live_project: See the live project
+  kb_figma: Figma mockup of the full flow, made for the jury
   cv_flow: The process
   cv_brief: Brief and mission
   cv_codes: The codes of surrealism
