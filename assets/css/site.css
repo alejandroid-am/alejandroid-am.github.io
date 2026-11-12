@@ -710,3 +710,8 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .cc-dot[aria-current]::before { background: var(--ink); }
 .cc-btn:focus-visible, .cc-dot:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .case-credit { margin: 10px 0 0; font-size: 14px; color: var(--mute); text-align: center; }
+/* Pair of an image and a video on white: same height (the video cell stretches, video centred) */
+.case-pair.is-match { align-items: stretch; }
+.case-pair.is-match > .case-video { display: grid; align-items: center; background: #fff; margin: 0; }
+.case-pair.is-match .case-video-box { width: 100% !important; }
+.case-pair.is-match .case-video video { background: #fff; }

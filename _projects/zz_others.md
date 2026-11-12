@@ -28,7 +28,7 @@ hero_bg: "#FFFFFF"
 
 {% include case/pair.html a="/assets/img/others/charadesign-me.webp" a_alt="Character design sheet: a man drawn in ink from the front, the side and the back" a_w=1600 a_h=1131 b="/assets/img/others/charadesign-cat.webp" b_alt="Character design sheet: a winged cat drawn in ink from the front, the side and the back" b_w=1600 b_h=1131 %}
 
-<div class="case-pair">
+<div class="case-pair is-match">
 {% include case/figure.html src="/assets/img/others/caractere-poster.webp" w=605 h=816 alt="Caractère poster: the word in black geometric letters over yellow diagonal bands" sizes="(max-width: 767px) 100vw, 600px" %}
 {% include case/video.html src="/assets/img/others/other-musicians.mp4" webm="/assets/img/others/other-musicians.webm" poster="/assets/img/others/other-musicians-poster.webp" w=720 h=720 label="Short animation: ink-drawn musicians playing a double bass, a violin and a cello" %}
 </div>
