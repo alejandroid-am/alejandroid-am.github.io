@@ -17,12 +17,14 @@ cover_image: /assets/img/spin_view.webp
 case_layout: c
 summary: Showing a skull that tells you you lost on the wheel could put people off buying.
 project_type: Mobile app redesign
-hero_image: /assets/img/Spin_app/Spin_App_Mockups_image.webp
-hero_w: 4549
-hero_h: 3475
-hero_alt: SPIN App redesigned home screen dashboard
-preload_image: /assets/img/Spin_app/Spin_App_Mockups_image.webp
-preload_srcset: "/assets/img/Spin_app/Spin_App_Mockups_image-960w.webp 960w, /assets/img/Spin_app/Spin_App_Mockups_image.webp 4549w"
+# Hero: the same mockup on a transparent background (Hero-Muckup-phone-transparent.png, Ale).
+hero_image: /assets/img/Spin_app/spin-app-hero-mockup.webp
+hero_w: 2400
+hero_h: 1915
+hero_bg: "#F2F1F0"
+hero_alt: The redesigned Spin App home screen on a phone, in front of the amount, subscription, account and provider screens
+preload_image: /assets/img/Spin_app/spin-app-hero-mockup.webp
+preload_srcset: "/assets/img/Spin_app/spin-app-hero-mockup-960w.webp 960w, /assets/img/Spin_app/spin-app-hero-mockup.webp 2400w"
 preload_sizes: "100vw"
 
 screens_before:
