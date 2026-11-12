@@ -24,13 +24,11 @@ hero_alt: Keep Breathing main menu, dark sci-fi corridor with the game title
 preload_image: /assets/img/KeepBreathing/keep-breathing-main-menu.webp
 preload_srcset: "/assets/img/KeepBreathing/keep-breathing-main-menu-960w.webp 960w, /assets/img/KeepBreathing/keep-breathing-main-menu.webp 2400w"
 preload_sizes: "100vw"
-# The menu, pause, game over and gameplay images are Figma mockups made for the jury,
+# The menu, pause and game over images are Figma mockups made for the jury,
 # not captures of the game: each one carries the kb_figma label (Ale, 2026-11-12).
 # Sharp 2x exports from Figma-png-UI Game Keep Breathing.zip, same file names.
 hero_label: kb_figma
 ---
-{% capture kb_note %}{% include label.html key="kb_figma" %}{% endcapture %}
-{% include case/figure.html src="/assets/img/KeepBreathing/keep-breathing-gameplay-screen.webp" w=1600 h=900 alt="Keep Breathing gameplay, first-person view with the gas mask on the floor between wooden crates, the Equip Mask prompt and the health and oxygen bars" caption=kb_note %}
 
 <h2>What I made</h2>
 
@@ -79,8 +77,7 @@ hero_label: kb_figma
   <li>The audio also came from Envato, with a license. I edited some of it to get an imperceptible loop for the music and the effects, changing volume, pitch and speed so they wouldn't sound monotonous.</li>
 </ul>
 <p>The screens that made it into the game: main menu, an in-game HUD with oxygen and health bars, interaction prompts, a pause menu and game over.</p>
-{% capture kb_cap %}{% include label.html key="kb_figma" %}{% endcapture %}
-{% include case/figure.html src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" w=2400 h=1350 alt="Keep Breathing main menu UI with industrial aesthetic" caption=kb_cap %}
+{% include case/figure.html src="/assets/img/KeepBreathing/ggj-3d-level-blender.webp" w=1600 h=826 alt="Blender screenshot of the 3D living room level I modelled for the game" %}
 
 <h3>The build wouldn't compile</h3>
 <p>In the last hours, when we put everything together, it wouldn't compile properly. That left us with the game split across 3 PCs.</p>
