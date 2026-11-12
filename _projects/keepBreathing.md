@@ -34,7 +34,7 @@ hero_label: kb_figma
 
 <h2>What I made</h2>
 
-{% include case/pair.html a="/assets/img/KeepBreathing/keep-breathing-menu-pause.webp" a_alt="Keep Breathing pause menu: time passed, Resume, Settings and Exit, with the controls" a_w=1600 a_h=900 a_caption="Pause Menu Overlay" b="/assets/img/KeepBreathing/keep-breathing-game-over.webp" b_alt="Keep Breathing game over screen between two gas mask illustrations: Retry, Main Menu and Exit" b_w=1600 b_h=900 b_caption="Game Over Screen" %}
+{% include case/pair.html a="/assets/img/KeepBreathing/keep-breathing-menu-pause.webp" a_alt="Keep Breathing pause menu: time passed, Resume, Settings and Exit, with the controls" a_w=1600 a_h=900 b="/assets/img/KeepBreathing/keep-breathing-game-over.webp" b_alt="Keep Breathing game over screen between two gas mask illustrations: Retry, Main Menu and Exit" b_w=1600 b_h=900 %}
 
 <p class="c-note">{% include label.html key="kb_figma" %}</p>
 
@@ -44,9 +44,9 @@ hero_label: kb_figma
 
 <h2>Best Technical Achievement</h2>
 
-{% include case/pair.html a="/assets/img/KeepBreathing/team-firstjam.webp" a_alt="The Keep Breathing development team at Le Shadok" a_w=1291 a_h=1049 a_caption="The Team" b="/assets/img/KeepBreathing/ccicampus-team.webp" b_alt="CCI Campus Alsace students at Global Game Jam" b_w=906 b_h=733 b_caption="CCI Campus Alsace students" %}
+{% include case/pair.html a="/assets/img/KeepBreathing/team-firstjam.webp" a_alt="The Keep Breathing development team at Le Shadok" a_w=1291 a_h=1049 b="/assets/img/KeepBreathing/ccicampus-team.webp" b_alt="CCI Campus Alsace students at Global Game Jam" b_w=906 b_h=733 %}
 
-{% include case/figure.html src="/assets/img/KeepBreathing/jury-presentation.webp" w=1186 h=1320 alt="The team presenting Keep Breathing to the jury at Le Shadok" caption="Presentation to the jury" %}
+{% include case/figure.html src="/assets/img/KeepBreathing/jury-presentation.webp" w=1186 h=1320 alt="The team presenting Keep Breathing to the jury at Le Shadok" %}
 
 {% capture long %}
 <h3>Global Game Jam 2026: "Masks", 48 hours, all first-timers</h3>
@@ -79,7 +79,7 @@ hero_label: kb_figma
   <li>The audio also came from Envato, with a license. I edited some of it to get an imperceptible loop for the music and the effects, changing volume, pitch and speed so they wouldn't sound monotonous.</li>
 </ul>
 <p>The screens that made it into the game: main menu, an in-game HUD with oxygen and health bars, interaction prompts, a pause menu and game over.</p>
-{% capture kb_cap %}Main Menu Design. {% include label.html key="kb_figma" %}{% endcapture %}
+{% capture kb_cap %}{% include label.html key="kb_figma" %}{% endcapture %}
 {% include case/figure.html src="/assets/img/KeepBreathing/keep-breathing-main-menu.webp" w=2400 h=1350 alt="Keep Breathing main menu UI with industrial aesthetic" caption=kb_cap %}
 
 <h3>The build wouldn't compile</h3>

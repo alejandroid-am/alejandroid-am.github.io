@@ -57,23 +57,22 @@ palette:
 ---
 <h2 class="case-compare-title">The wheel comes after paying</h2>
 
-{% include case/row.html items=page.screens_before tag="before" caption="Spin App let users spin a wheel for a reward before paying for a top-up." %}
+{% include case/row.html items=page.screens_before tag="before" %}
 
 {% capture before %}<p><strong>Open App → Spin the Wheel → Top Up</strong></p>{% endcapture %}
 {% capture after %}<p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>{% endcapture %}
 {% include case/compare.html before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
 
-{% include case/row.html items=page.screens_after tag="after" caption="I replaced the cluttered list view with cards." %}
+{% include case/row.html items=page.screens_after tag="after" %}
 
 {% include case/video.html src="/assets/img/Spin_app/spin-figma-flow.mp4" webm="/assets/img/Spin_app/spin-figma-flow.webm" poster="/assets/img/Spin_app/spin-figma-flow-poster.webp" w=576 h=1280 tag="figma" label="The Spin App Figma prototype: home, top-up, provider, amount, payment, then the reward wheel" %}
 
-{% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" caption="Every spin wins something: cashback, points, or double recharge." %}
+{% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" %}
 
 <figure class="case-fig">
   <video controls muted playsinline preload="none" poster="/assets/img/spin_view.webp" width="1920" height="1080">
     <source src="/assets/img/Spin_app/spin_video.mp4" type="video/mp4">
   </video>
-  <figcaption>A promo video made for the redesign.</figcaption>
 </figure>
 
 <h2>The brand and the screens</h2>
@@ -84,7 +83,7 @@ palette:
 
 <p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
 
-{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original logo." b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a logo that suggests movement." %}
+{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 %}
 
 {% include case/figure.html src="/assets/img/Spin_app/spin-old-logo-corrections.webp" w=1920 h=1080 narrow=true alt="The original Spin logo with red guide lines and marks showing the alignment and spacing mistakes to fix" %}
 
@@ -92,13 +91,13 @@ palette:
 
 {% include case/figure.html src="/assets/img/Spin_app/spin-app-mascot.webp" w=1088 h=960 float=true narrow=true alt="The Spin mascot: a smiling reward wheel with arms and legs, waving" %}
 
-{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> clashing neon colors." b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a calmer palette that still feels playful." %}
+{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 %}
 
 <h3>UI Evolution</h3>
 
 <p>I replaced the cluttered list view with cards. "Top Up" is the most visible action. The country code is filled in from the contact's number, which removes one step from every transaction.</p>
 
-{% include case/pair.html a="/assets/img/Spin_app/old_spin ui.webp" a_alt="Original Spin UI, list view" a_w=2400 a_h=1696 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original list view." b="/assets/img/Spin_app/new_spin ui.webp" b_alt="Redesigned Spin UI, card layout with a prominent Top Up button" b_w=2400 b_h=1696 b_caption="<strong>After:</strong> cards, with &quot;Top Up&quot; as the most visible action." %}
+{% include case/pair.html a="/assets/img/Spin_app/old_spin ui.webp" a_alt="Original Spin UI, list view" a_w=2400 a_h=1696 a_tag="before" b_tag="after" b="/assets/img/Spin_app/new_spin ui.webp" b_alt="Redesigned Spin UI, card layout with a prominent Top Up button" b_w=2400 b_h=1696 %}
 
 {% capture long %}
 <h3>There were few purchases</h3>
@@ -133,9 +132,9 @@ palette:
 
 <h3>Project Gallery</h3>
 <p>The final screens and a promo video made for the redesign.</p>
-{% include case/pair.html a="/assets/img/Spin_app/spin1.webp" a_alt="SPIN App login screen with gradient background" a_w=2400 a_h=1800 a_caption="Login Screen" b="/assets/img/Spin_app/spin3.webp" b_alt="SPIN App streamlined contacts list" b_w=2400 b_h=1800 b_caption="Streamlined Contacts" %}
-{% include case/pair.html a="/assets/img/Spin_app/spin4.webp" a_alt="SPIN App user profile settings" a_w=2400 a_h=1800 a_caption="User Profile" b="/assets/img/Spin_app/spin-phone.webp" b_alt="SPIN App promotional marketing shot" b_w=4000 b_h=3000 b_caption="Promotional Material" %}
-<figure class="case-fig c-narrow"><img src="/assets/img/Spin_app/iphone-mockup.webp" alt="SPIN App home screen on iPhone in context" width="500" height="1000" loading="lazy" decoding="async"><figcaption>Mockup in context</figcaption></figure>
+{% include case/pair.html a="/assets/img/Spin_app/spin1.webp" a_alt="SPIN App login screen with gradient background" a_w=2400 a_h=1800 b="/assets/img/Spin_app/spin3.webp" b_alt="SPIN App streamlined contacts list" b_w=2400 b_h=1800 %}
+{% include case/pair.html a="/assets/img/Spin_app/spin4.webp" a_alt="SPIN App user profile settings" a_w=2400 a_h=1800 b="/assets/img/Spin_app/spin-phone.webp" b_alt="SPIN App promotional marketing shot" b_w=4000 b_h=3000 %}
+<figure class="case-fig c-narrow"><img src="/assets/img/Spin_app/iphone-mockup.webp" alt="SPIN App home screen on iPhone in context" width="500" height="1000" loading="lazy" decoding="async"></figure>
 {% include case/figure.html src="/assets/img/Spin_app/Spin_App_Mockups_presentation (1).webp" w=1920 h=1080 alt="SPIN App redesigned interface showing home screen and reward wheel" %}
 {% endcapture %}
 {% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}

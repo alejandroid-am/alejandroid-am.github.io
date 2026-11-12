@@ -45,12 +45,12 @@ type_scale:
   - { role: text, key: ts_text, weight: 500, label: "Poppins Medium" }
 # Mockups, in one bento gallery (6-column grid: cols / rows per piece).
 gallery:
-  - { src: /assets/img/BEDiZEN/bedizen_mockup_2.webp, alt: "BEDiZEN logo on a modern building facade at night", w: 4000, h: 3000, caption: "Exterior branding, building facade", cols: 4, rows: 3 }
-  - { src: /assets/img/BEDiZEN/mockup-cap-bedizen-4.webp, alt: "BEDiZEN logo embroidered on a black cap", w: 4004, h: 5334, caption: "Branded merchandise, cap", cols: 2, rows: 3 }
-  - { src: /assets/img/BEDiZEN/bedizen_mockup_3.webp, alt: "BEDiZEN mobile interface showing AR product viewer", w: 3284, h: 4166, caption: "Mobile AR interface", cols: 2, rows: 3 }
-  - { src: /assets/img/BEDiZEN/bedizen_mockup_1.webp, alt: "BEDiZEN branding on a Meta Quest VR headset", w: 5334, h: 4004, caption: "VR headset branding", cols: 4, rows: 3 }
-  - { src: /assets/img/BEDiZEN/flyer.jpg, alt: "BEDiZEN promotional flyer design featuring brand colors and AR imagery", w: 1500, h: 1125, caption: "Promotional flyer for events", cols: 4, rows: 3 }
-  - { src: /assets/img/BEDiZEN/carte-visite-mockup.jpg, alt: "BEDiZEN business cards showing front and back design", w: 1000, h: 1250, caption: "Business card design", cols: 2, rows: 3 }
+  - { src: /assets/img/BEDiZEN/bedizen_mockup_2.webp, alt: "BEDiZEN logo on a modern building facade at night", w: 4000, h: 3000, cols: 4, rows: 3 }
+  - { src: /assets/img/BEDiZEN/mockup-cap-bedizen-4.webp, alt: "BEDiZEN logo embroidered on a black cap", w: 4004, h: 5334, cols: 2, rows: 3 }
+  - { src: /assets/img/BEDiZEN/bedizen_mockup_3.webp, alt: "BEDiZEN mobile interface showing AR product viewer", w: 3284, h: 4166, cols: 2, rows: 3 }
+  - { src: /assets/img/BEDiZEN/bedizen_mockup_1.webp, alt: "BEDiZEN branding on a Meta Quest VR headset", w: 5334, h: 4004, cols: 4, rows: 3 }
+  - { src: /assets/img/BEDiZEN/flyer.jpg, alt: "BEDiZEN promotional flyer design featuring brand colors and AR imagery", w: 1500, h: 1125, cols: 4, rows: 3 }
+  - { src: /assets/img/BEDiZEN/carte-visite-mockup.jpg, alt: "BEDiZEN business cards showing front and back design", w: 1000, h: 1250, cols: 2, rows: 3 }
 brand_pdf: /assets/docs/bedizen-charte-graphique.pdf
 logos:
   - { src: /assets/img/BEDiZEN/bedizen_black.svg, alt: "BEDiZEN logo, black version on light", bg: light, caption: "Logo" }

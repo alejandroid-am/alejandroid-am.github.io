@@ -18,15 +18,13 @@ hero_h: 1626
 hero_alt: Nature Sport Gear logo design, mountain and compass emblem
 hero_bg: "#FFFFFF"
 ---
-<p class="c-hero-cap">Nature Sport Gear: Brand Identity</p>
+{% include case/pair.html a="/assets/img/others/revolution_love.webp" a_alt="Revolution Love poster, raised fist with heart motif" a_w=871 a_h=1220 b="/assets/img/others/dragons-world-copy (2).webp" b_alt="Fantasy photomontage of a dragon flying over a medieval landscape" b_w=1272 b_h=1800 %}
 
-{% include case/pair.html a="/assets/img/others/revolution_love.webp" a_alt="Revolution Love poster, raised fist with heart motif" a_w=871 a_h=1220 a_caption="Poster Design: 'Revolution is Love'" b="/assets/img/others/dragons-world-copy (2).webp" b_alt="Fantasy photomontage of a dragon flying over a medieval landscape" b_w=1272 b_h=1800 b_caption="Digital Art: Dragon's World" %}
+{% include case/pair.html a="/assets/img/others/portrait_2_Alejandro_CDUI24_2.webp" a_alt="Vector self-portrait illustration in geometric style" a_w=965 a_h=1049 b="/assets/img/others/apocalopsis.webp" b_alt="Surrealist photomontage of an apocalyptic city scene" b_w=1350 b_h=1800 %}
 
-{% include case/pair.html a="/assets/img/others/portrait_2_Alejandro_CDUI24_2.webp" a_alt="Vector self-portrait illustration in geometric style" a_w=965 a_h=1049 a_caption="Vector Illustration: Self Portrait" b="/assets/img/others/apocalopsis.webp" b_alt="Surrealist photomontage of an apocalyptic city scene" b_w=1350 b_h=1800 b_caption="Surrealism: The Apocalypse" %}
+{% include case/pair.html a="/assets/img/others/my_herzeleid_cover (2).webp" a_alt="Parody recreation of Rammstein's Herzeleid album cover" a_w=1254 a_h=1254 b="/assets/img/others/dios_singa_la_reina.webp" b_alt="Pop art illustration in Warhol style, political satire" b_w=948 b_h=1029 %}
 
-{% include case/pair.html a="/assets/img/others/my_herzeleid_cover (2).webp" a_alt="Parody recreation of Rammstein's Herzeleid album cover" a_w=1254 a_h=1254 a_caption="Parody: Rammstein's Herzeleid" b="/assets/img/others/dios_singa_la_reina.webp" b_alt="Pop art illustration in Warhol style, political satire" b_w=948 b_h=1029 b_caption="Pop Art Satire: 'God Save The Queen'" %}
-
-{% include case/figure.html src="/assets/img/others/diazka_warhol.webp" w=1172 h=1630 alt="Pop art political portrait in Andy Warhol style" caption="Pop Art Satire: Political Series" narrow=true %}
+{% include case/figure.html src="/assets/img/others/diazka_warhol.webp" w=1172 h=1630 alt="Pop art political portrait in Andy Warhol style" narrow=true %}
 
 {% include case/pair.html a="/assets/img/others/charadesign-me.webp" a_alt="Character design sheet: a man drawn in ink from the front, the side and the back" a_w=1600 a_h=1131 b="/assets/img/others/charadesign-cat.webp" b_alt="Character design sheet: a winged cat drawn in ink from the front, the side and the back" b_w=1600 b_h=1131 %}
 
