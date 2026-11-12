@@ -76,7 +76,7 @@ logos:
 
 <h2>Brand Guidelines</h2>
 
-{% include case/pair.html class="is-contain" a="/assets/img/BEDiZEN/bedizen-icon-clear-space.webp" a_w=1600 a_h=1532 a_alt="The BEDiZEN icon on a grid that shows the clear space around it" b="/assets/img/BEDiZEN/bedizen-wordmark-clear-space.webp" b_w=1600 b_h=681 b_alt="The BEDiZEN wordmark on a grid that shows the clear space around it" %}
+{% include case/pair.html class="is-contain" ratio="1600 / 681" a="/assets/img/BEDiZEN/bedizen-icon-clear-space.webp" a_w=1600 a_h=1532 a_alt="The BEDiZEN icon on a grid that shows the clear space around it" b="/assets/img/BEDiZEN/bedizen-wordmark-clear-space.webp" b_w=1600 b_h=681 b_alt="The BEDiZEN wordmark on a grid that shows the clear space around it" %}
 
 <div class="case-duo">
 <div>{% include case/palette.html colors=page.palette %}</div>
