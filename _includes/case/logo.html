@@ -5,15 +5,17 @@
       - { src: /assets/img/p/logo-white.svg, alt: "Logo on dark", bg: dark }
   label: an _data/i18n.yml key instead of caption, for a bilingual caption (label.html).
   Items without src are skipped (no placeholder box); with no src at all, nothing is rendered.
-  bg: light (default), dark, accent, or full (image already has its background: shown edge to edge).
+  Every logo sits in a white square box of the same size, centred, same inner margin.
+  scale: optional (e.g. 0.7) to even out the visual size of a logo that fills its file.
+  bg: light (default, white box), dark, accent, or full (image already has its background: shown edge to edge).
   {% include case/logo.html items=page.logos %}
 {%- endcomment -%}
 {%- assign _logos = "" | split: "" -%}{%- if include.items -%}{%- assign _logos = include.items | where_exp: "l", "l.src" -%}{%- endif -%}
 {%- if _logos.size > 0 %}
-<ul class="case-logos">
+<ul class="case-logos" style="--n: {{ _logos.size }}">
   {%- for l in _logos %}
   <li>
-    <div class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% elsif l.bg == 'full' %} is-full{% endif %}"><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}"{% if l.w %} width="{{ l.w }}" height="{{ l.h }}"{% endif %} loading="lazy" decoding="async"></div>
+    <div class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% elsif l.bg == 'full' %} is-full{% endif %}"{% if l.scale %} style="--s: {{ l.scale }}"{% endif %}><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}"{% if l.w %} width="{{ l.w }}" height="{{ l.h }}"{% endif %} loading="lazy" decoding="async"></div>
     {%- if l.label %}<p class="case-logo-cap">{% include label.html key=l.label %}</p>{% elsif l.caption %}<p class="case-logo-cap">{{ l.caption }}</p>{% endif %}
   </li>
   {%- endfor %}

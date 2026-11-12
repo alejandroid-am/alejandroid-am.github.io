@@ -418,7 +418,8 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-video { position: relative; }
 .case-video-box { position: relative; margin: 0 auto; max-height: 80vh; }
 .case-video video { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--bg-2); }
-.case-palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(140px, 40%), 180px)); gap: clamp(16px, 2.5vw, 32px); margin: 0 0 48px; list-style: none; padding: 0; }
+.case-palette { --gap: clamp(12px, 2vw, 32px); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap); margin: 0 0 48px; list-style: none; padding: 0; }
+.case-palette > .case-swatch { flex: 0 1 220px; }
 /* Separate squares, name and hex underneath */
 .case-swatch { min-width: 0; }
 .case-swatch-color { aspect-ratio: 1 / 1; box-shadow: inset 0 0 0 1px var(--line); }
@@ -427,11 +428,11 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-type { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; margin: 0 0 48px; }
 .case-type > p.case-type-sample { margin: 0; font-size: clamp(48px, 8vw, 120px); line-height: 1; letter-spacing: -.02em; overflow-wrap: anywhere; }
 .case-type-meta { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 15px; color: var(--mute); margin-top: 16px; }
-.case-logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(140px, 22vw, 280px), 1fr)); gap: 12px; margin: 0 0 48px; list-style: none; padding: 0; }
-.case-logo { display: grid; place-items: center; aspect-ratio: 3 / 2; padding: 24px; background: var(--bg-2); }
+.case-logos { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 320px)); justify-content: center; gap: clamp(12px, 2vw, 24px); margin: 0 0 48px; list-style: none; padding: 0; }
+.case-logo { display: grid; place-items: center; aspect-ratio: 1 / 1; padding: 14%; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
 .case-logo.on-dark { background: #151514; }
 .case-logo.on-accent { background: var(--y); }
-.case-logo img { max-height: 70%; width: auto; max-width: 100%; }
+.case-logo img { width: calc(100% * var(--s, 1)); height: calc(100% * var(--s, 1)); object-fit: contain; }
 .case-logos > li { min-width: 0; }
 .case-logo.is-full { padding: 0; overflow: hidden; }
 .case-logo.is-full img { width: 100%; height: 100%; max-height: none; object-fit: cover; }
@@ -451,7 +452,11 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-typescale-row.is-text .case-typescale-sample { font-size: 18px; line-height: 1.6; }
 @media (max-width: 600px) { .case-typescale-row { grid-template-columns: 1fr; } .case-stripes span { margin-left: 0; flex-basis: 100%; } }
 .case-row-items { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: clamp(8px, 2vw, 24px); }
-.case-row-items img { width: 100%; height: auto; display: block; }
+.case-row-items .case-shot { aspect-ratio: var(--ar, 9 / 16); overflow: hidden; background: var(--bg-2); }
+.case-row-items .zoom-trigger { height: 100%; }
+.case-row-items img, .case-row-items video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.case-row-title { margin: 0 0 12px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.case-row .row-tag { display: inline-block; margin: 0 0 10px; font-size: 13px; font-weight: 700; line-height: 1; padding: 6px 9px; background: var(--ink); color: var(--bg); }
 
 /* Lightbox (zoom.js) on layout C pages */
 body:not(.is-legacy) .lightbox { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(12, 12, 11, .96); justify-content: center; align-items: center; flex-direction: column; }
@@ -470,7 +475,11 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 .case-shot { position: relative; min-width: 0; }
 .shot-tag { position: absolute; top: 8px; left: 8px; z-index: 1; font-size: 13px; font-weight: 700; line-height: 1; padding: 6px 9px; background: var(--bg); color: var(--ink); border: 1px solid var(--ink); pointer-events: none; }
 .case-shot.is-figma .shot-tag, .case-shot.is-kbfigma .shot-tag { background: var(--ink); color: var(--bg); }
-@media (max-width: 767px) { .case-row-items .shot-tag { top: 4px; left: 4px; font-size: 10px; padding: 4px 5px; } }
+@media (max-width: 767px) {
+  .case-row-items .shot-tag { top: 4px; left: 4px; font-size: 10px; padding: 4px 5px; }
+  .case-row.n-4 .case-row-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-palette > .case-swatch { flex-basis: calc(50% - var(--gap) / 2); max-width: 220px; }
+}
 .case-shot.is-after .shot-tag { background: var(--ink); color: var(--y); } /* 15:1, same as .case-tag.is-new */
 
 /* Layout C "Gallery with captions" (front matter case_layout: c) */

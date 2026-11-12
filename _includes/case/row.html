@@ -1,20 +1,37 @@
 {%- comment -%}
-  A row of 2 to 4 images of the same shape (e.g. phone screens), from the front matter:
+  A row of 2 to 4 elements of the same shape (e.g. phone screens), from the front matter:
     screens_before:
       - { src: /assets/img/p/s1.webp, alt: "...", w: 1080, h: 2400 }
-  {% include case/row.html items=page.screens_before caption="1 or 2 short sentences." %}
-  Option: tag="before" or tag="after" puts a visible "Avant / Before" or
-  "Après / After" label in the corner of every image (and in the lightbox caption).
+      - { video: /assets/img/p/flow.mp4, webm: /assets/img/p/flow.webm, poster: /assets/img/p/flow-poster.webp, w: 576, h: 1280, label: "What the video shows" }
+  {% include case/row.html items=page.screens_before title="case_before" tag="figma" %}
+  - Every cell has the same width and height (the shape of the first item;
+    object-fit: cover), across the full width; 2 x 2 on phones when there are 4.
+  - A video item (video:) sits in the row like a screen: muted loop, poster,
+    autoplay only without reduced motion (site.js), controls otherwise.
+  - title: an _data/i18n.yml key shown as an h4 above the row (e.g. case_before = Avant / Before).
+  - tag: an _data/i18n.yml key "case_<tag>" shown ONCE for the row (e.g. figma = Prototype Figma).
+  - caption: optional, 1 or 2 short sentences.
 {%- endcomment -%}
 {%- if include.items %}
-{%- if include.tag %}{% assign _k = "case_" | append: include.tag %}{% assign _lfr = site.data.i18n.fr[_k] %}{% assign _len = site.data.i18n.en[_k] %}{% endif %}
-<figure class="case-fig case-row" style="--n: {{ include.items.size }}">
+{%- assign _first = include.items | first -%}
+{%- assign _rw = _first.w | default: 9 -%}{%- assign _rh = _first.h | default: 16 -%}
+{%- if include.title %}<h4 class="case-row-title">{% include label.html key=include.title %}</h4>{% endif %}
+<figure class="case-fig case-row n-{{ include.items.size }}{% if include.tag %} has-tag is-{{ include.tag }}{% endif %}" style="--n: {{ include.items.size }}; --ar: {{ _rw }} / {{ _rh }}">
+  {%- if include.tag %}{% assign _k = "case_" | append: include.tag %}{% include label.html key=_k class="row-tag" %}{% endif %}
   <div class="case-row-items">
     {%- for i in include.items %}
-    {%- if include.tag %}{% assign _cfr = _lfr | append: " : " | append: i.alt %}{% assign _cen = _len | append: ": " | append: i.alt %}{% else %}{% assign _cfr = i.caption %}{% assign _cen = "" %}{% endif %}
-    <div class="case-shot{% if include.tag %} is-{{ include.tag }}{% endif %}">
-    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=_cfr caption_en=_cen sizes="(max-width: 767px) 33vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
-    {%- if include.tag %}{% include label.html key=_k class="shot-tag" %}{% endif %}
+    <div class="case-shot">
+    {%- if i.video %}
+      <video muted loop playsinline controls preload="metadata" data-case-video
+        {%- if i.poster %} poster="{{ i.poster | uri_escape }}"{% endif %} width="{{ i.w }}" height="{{ i.h }}" aria-label="{{ i.label }}">
+        {%- if i.webm %}
+        <source src="{{ i.webm | uri_escape }}" type="video/webm">
+        {%- endif %}
+        <source src="{{ i.video | uri_escape }}" type="video/mp4">
+      </video>
+    {%- else %}
+    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 50vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
+    {%- endif %}
     </div>
     {%- endfor %}
   </div>
