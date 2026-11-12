@@ -21,15 +21,15 @@ project_type: Brand and website
 hero_image: /assets/img/BEDiZEN/bedizen_black.svg
 hero_w: 870
 hero_h: 191
-hero_alt: BEDiZEN logo, geometric wordmark with red accent dot
+hero_alt: The BEDiZEN homepage, with the logo and the WordPress, PrestaShop and Shopify icons appearing one by one
 hero_bg: "#F2F1F0"
-# Hero video, when Ale delivers it (specs in NOTAS: 1920x1080, 10 to 15 s, no audio,
-# mp4 + webm, under 3 MB, webp poster). Empty = the logo above is shown.
-hero_video: ""
-hero_video_webm: ""
-hero_video_poster: ""
-hero_video_w: 1920
-hero_video_h: 1080
+# Hero video: a recording of the live homepage (Bedizen-homepage-video.mp4, Ale),
+# no audio, 1280 px, muted loop; with reduced motion the poster shows.
+hero_video: /assets/img/BEDiZEN/bedizen-homepage.mp4
+hero_video_webm: /assets/img/BEDiZEN/bedizen-homepage.webm
+hero_video_poster: /assets/img/BEDiZEN/bedizen-homepage-poster.webp
+hero_video_w: 1280
+hero_video_h: 594
 load_poppins: true   # Poppins is the brand typeface (type specimen below)
 # Colours, names and hex from the brand guidelines (page 25).
 palette:
