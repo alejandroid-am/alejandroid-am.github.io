@@ -7,7 +7,7 @@ role: Art direction & graphic design
 role_short: Art Direction
 tools: Photoshop, Illustrator
 year: 2024
-home_order: 6
+home_order: 3
 last_modified_at: 2026-11-12
 categories: illustration identity
 cover_image: /assets/img/cineville_view.webp

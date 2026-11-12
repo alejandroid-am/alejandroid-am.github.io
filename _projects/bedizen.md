@@ -7,7 +7,7 @@ role_short: Brand & UX/UI
 result: Live website. Final project for the CCI Campus Alsace certification.
 tools: Figma, Illustrator, HTML/CSS, Tailwind CSS, PHP, MySQL, WordPress
 year: 2026
-home_order: 3
+home_order: 4
 last_modified_at: 2026-11-11
 categories: identity ux-ui frontend motion
 cover_image: /assets/img/bedizen-view.webp

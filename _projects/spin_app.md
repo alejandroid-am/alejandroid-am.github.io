@@ -7,8 +7,8 @@ role_short: UI/UX & Brand
 result: Full redesign; never implemented, for lack of funding.
 tools: Figma, Illustrator, Photoshop
 year: 2025
-home_order: 4
-hide_from_home: true   # recommendation 2026-11-11, see NOTAS
+home_order: 5
+hide_from_home: true   # still hidden from the home rail (Ale, 2026-11-12); order 5 for "next project"
 last_modified_at: 2026-11-11
 categories: ux-ui identity motion
 cover_image: /assets/img/spin_view.webp

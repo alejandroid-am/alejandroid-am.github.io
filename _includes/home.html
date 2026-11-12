@@ -50,14 +50,7 @@
       {%- capture num %}{{ forloop.index | prepend: "0" | slice: -2, 2 }}{% endcapture %}
       {% include project-card.html project=p lang=page.lang num=num %}
       {%- endfor %}
-      {%- comment -%} "Bientôt" projects (_data/proximamente.yml), after the published ones {%- endcomment -%}
-      {%- assign shown = rail_projects.size %}{% if shown > h.rail_limit %}{% assign shown = h.rail_limit %}{% endif %}
-      {%- assign soon = site.data.proximamente.items | sort: "order" %}
-      {%- for it in soon %}
-      {%- assign n = shown | plus: forloop.index %}
-      {%- capture num %}{{ n | prepend: "0" | slice: -2, 2 }}{% endcapture %}
-      {% include soon-card.html item=it lang=page.lang num=num mode="rail" %}
-      {%- endfor %}
+      {%- comment -%} "Bientôt" projects (_data/proximamente.yml) are shown on /projets/ only, not on the home rail (Ale, 2026-11-12). {%- endcomment -%}
       <li class="rail-item rail-item--all">
         <a href="{{ t.projects_url }}" class="rail-all"><span>{{ h.projects_all }}</span><span class="arrow" aria-hidden="true">→</span></a>
       </li>
