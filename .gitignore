@@ -1,0 +1,6 @@
+# Local only (Ale): working notes, unpublished projects and style proposals.
+# They stay on disk; they were versioned before this commit, so they remain in
+# the history of the public repository (see NOTAS-PARA-ALE.md).
+NOTAS-PARA-ALE.md
+_pendientes/
+_propuestas/
