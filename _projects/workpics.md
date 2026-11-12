@@ -26,17 +26,19 @@ preload_image: /assets/img/Workpics/workpics-hero-mockup.webp
 preload_srcset: "/assets/img/Workpics/workpics-hero-mockup-960w.webp 960w, /assets/img/Workpics/workpics-hero-mockup.webp 2400w"
 preload_sizes: "100vw"
 
-# Open, Shoot, Done: three frames of the Figma prototype (Login, Camera, Camera 3).
+# Open, Shoot, Done: three frames of the Figma prototype (Login, Camera, Camera 3),
+# then the prototype video, in one row of four equal cells (2 x 2 on phones).
 screens_flow:
   - { src: /assets/img/Workpics/wp-open.webp, alt: "Open: the WorkPics sign-in screen, with the logo, the user and password fields and a Sign in button", w: 804, h: 1748 }
   - { src: /assets/img/Workpics/wp-shoot.webp, alt: "Shoot: the camera screen, a construction worker framed with a grid, the location, GPS and date stamped in the corners and a large shutter button", w: 804, h: 1748 }
   - { src: /assets/img/Workpics/wp-done.webp, alt: "Done: the camera screen after the shot, the photo thumbnail with a cloud and a green check", w: 804, h: 1748 }
+  - { video: /assets/img/Workpics/workpics-figma-flow.mp4, webm: /assets/img/Workpics/workpics-figma-flow.webm, poster: /assets/img/Workpics/workpics-figma-flow-poster.webp, w: 576, h: 1280, label: "The WorkPics Figma prototype: sign in, camera and location permission, loading, taking photos, settings" }
 
 # The three logo versions (Ale, 2026-11-12): workpics2 is the official company
 # logo, the team's choice is the app logo. No logo mockups on this page.
 logo_versions:
   - { src: /assets/img/Workpics/workpics1.webp, alt: "WorkPics logo proposal, a W and a P whose shapes form a check mark", w: 532, h: 532, caption: "Proposal A" }
-  - { src: /assets/img/Workpics/workpics-logo-official.svg, alt: "WorkPics company logo, a W and a P built into a cube", w: 881, h: 936, label: logo_official }
+  - { src: /assets/img/Workpics/workpics-logo-official.svg, alt: "WorkPics company logo, a W and a P built into a cube", w: 881, h: 936, label: logo_official, scale: 0.72 }
   - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "WorkPics app logo, an orange safety helmet over a black camera shutter", w: 512, h: 512, label: logo_app }
 
 # Colours and their roles come from the case text (Color Palette block).
@@ -53,8 +55,6 @@ palette:
 <p>I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
 
 {% include case/row.html items=page.screens_flow tag="figma" %}
-
-{% include case/video.html src="/assets/img/Workpics/workpics-figma-flow.mp4" webm="/assets/img/Workpics/workpics-figma-flow.webm" poster="/assets/img/Workpics/workpics-figma-flow-poster.webp" w=576 h=1280 tag="figma" label="The WorkPics Figma prototype: sign in, camera and location permission, loading, taking photos, settings" %}
 
 <p class="c-cta"><a class="btn" href="https://workpics.multiservicesfl.com/welcome" target="_blank" rel="noopener noreferrer">{% include label.html key="live_project" %} <span aria-hidden="true">&rarr;</span></a> <a class="btn btn-ghost" href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer">Try Figma Prototype &rarr;</a></p>
 
