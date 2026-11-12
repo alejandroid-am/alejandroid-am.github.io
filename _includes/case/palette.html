@@ -5,6 +5,7 @@
   {% include case/palette.html colors=page.palette %}
   style="stripes": full-width bands with the name and hex on the colour itself
   (add  text: "#FFFFFF"  to a colour when it needs light text).
+  lang="fr": names written in another language than the page.
   Without colours: nothing is rendered (no placeholder box).
 {%- endcomment -%}
 {%- if include.colors and include.style == "stripes" %}
@@ -14,7 +15,7 @@
   {%- endfor %}
 </ul>
 {%- elsif include.colors %}
-<ul class="case-palette">
+<ul class="case-palette"{% if include.lang %} lang="{{ include.lang }}"{% endif %}>
   {%- for c in include.colors %}
   <li class="case-swatch">
     <div class="case-swatch-color" style="background: {{ c.hex }}" aria-hidden="true"></div>

@@ -50,25 +50,12 @@ fr:
   logo_app: "Logo de l'application"
   logo_one_ink: Version une couleur
   live_project: Voir le projet en ligne
-  # Cinéville process steps (same order as the old 19-slide carousel)
   ts_title: Titre
   ts_subtitle: Sous-titre
   ts_text: Texte
   ts_geometric_sans: Sans-serif géométrique
   kb_figma: "Maquette Figma du parcours complet, réalisée pour le jury"
-  cv_flow: Le processus
-  cv_brief: Brief et mission
-  cv_codes: Les codes du surréalisme
-  cv_direction: Direction artistique et moodboard
-  cv_type: Typographie
-  cv_type_title: Titres
-  cv_type_text: Texte
-  cv_palette: Palette
-  cv_sketches: Croquis
-  cv_proposals: "Propositions d'affiche"
-  cv_drafts: Brouillons
-  cv_refs: Références
-  cv_action: "L'affiche en situation"
+  cv_photo_credit: "Photos&nbsp;: Pexels, retouchées par l'auteur"
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -122,18 +109,6 @@ en:
   ts_text: Text
   ts_geometric_sans: Geometric sans-serif
   kb_figma: Figma mockup of the full flow, made for the jury
-  cv_flow: The process
-  cv_brief: Brief and mission
-  cv_codes: The codes of surrealism
-  cv_direction: Art direction and moodboard
-  cv_type: Typography
-  cv_type_title: Titles
-  cv_type_text: Text
-  cv_palette: Palette
-  cv_sketches: Sketches
-  cv_proposals: Poster proposals
-  cv_drafts: Drafts
-  cv_refs: References
-  cv_action: The poster in action
+  cv_photo_credit: "Photos: Pexels, edited by the author"
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"
