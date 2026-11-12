@@ -43,6 +43,7 @@
   <div class="rail-sticky">
     <div class="rail-head">
       <h2 class="h2" id="projects-title">{{ h.projects_title }}</h2>
+      {%- if page.lang != 'en' %}<p class="rail-note">{{ site.data.projects_page.fr.note }}</p>{% endif %}
       <a href="{{ t.projects_url }}" class="link-arrow">{{ h.projects_all }}<span aria-hidden="true"> →</span></a>
     </div>
     <ul class="rail-track">
