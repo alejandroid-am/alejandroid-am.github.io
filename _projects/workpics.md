@@ -28,7 +28,7 @@ preload_sizes: "100vw"
 # logo, the team's choice is the app logo. No logo mockups on this page.
 logo_versions:
   - { src: /assets/img/Workpics/workpics1.webp, alt: "WorkPics logo proposal, a W and a P whose shapes form a check mark", w: 532, h: 532, caption: "Proposal A" }
-  - { src: /assets/img/Workpics/workpics2.webp, alt: "WorkPics company logo, a W and a P built into a cube", w: 532, h: 532, label: logo_official }
+  - { src: /assets/img/Workpics/workpics-logo-official.svg, alt: "WorkPics company logo, a W and a P built into a cube", w: 881, h: 936, label: logo_official }
   - { src: /assets/img/Workpics/logo-worpics-client-choice.svg, alt: "WorkPics app logo, an orange safety helmet over a black camera shutter", w: 512, h: 512, label: logo_app }
 
 # Colours and their roles come from the case text (Color Palette block).
