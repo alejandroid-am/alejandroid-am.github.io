@@ -186,6 +186,20 @@
     vids.forEach((v) => { v.controls = false; io ? io.observe(v) : play(v); });
   }
 
+  /* Vimeo: the player is loaded only after a click on the poster (dnt=1) */
+  document.querySelectorAll("a.vimeo-facade[data-vimeo]").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const f = document.createElement("iframe");
+      f.src = "https://player.vimeo.com/video/" + encodeURIComponent(a.dataset.vimeo) + "?dnt=1&autoplay=1";
+      f.title = a.dataset.title || "Vimeo";
+      f.allow = "autoplay; fullscreen; picture-in-picture";
+      f.referrerPolicy = "strict-origin-when-cross-origin";
+      a.replaceWith(f);
+      f.focus();
+    });
+  });
+
   /* 9. Open the <details> targeted by the hash -------------------- */
   const openHash = () => {
     const el = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));

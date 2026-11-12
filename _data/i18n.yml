@@ -56,6 +56,7 @@ fr:
   ts_geometric_sans: Sans-serif géométrique
   kb_figma: "Maquette Figma du parcours complet, réalisée pour le jury"
   cv_photo_credit: "Photos&nbsp;: Pexels, retouchées par l'auteur"
+  vimeo_play: Lire la vidéo
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -110,5 +111,6 @@ en:
   ts_geometric_sans: Geometric sans-serif
   kb_figma: Figma mockup of the full flow, made for the jury
   cv_photo_credit: "Photos: Pexels, edited by the author"
+  vimeo_play: Play the video
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"

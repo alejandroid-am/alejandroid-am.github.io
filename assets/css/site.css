@@ -505,6 +505,12 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .case-c .video-frame.ratio-16-9 { aspect-ratio: 16 / 9; }
 .case-c .video-frame.ratio-9-16 { aspect-ratio: 9 / 16; max-width: 360px; }
 .case-c .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vimeo-facade { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 24px; background: #151514; color: #F2F1F0; text-decoration: none; }
+.vimeo-logo { width: min(60%, 240px); height: auto; }
+.vimeo-play { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border: 1px solid #F2F1F0; font-weight: 700; font-size: 15px; }
+.vimeo-icon { width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 12px; border-color: transparent transparent transparent currentColor; }
+.vimeo-facade:hover .vimeo-play, .vimeo-facade:focus-visible .vimeo-play { background: #F2F1F0; color: #151514; }
+.vimeo-facade:focus-visible { outline: 3px solid var(--y, #FFD400); outline-offset: -3px; }
 .c-body > .c-hero-cap { font-size: 16px; margin: calc(-1 * clamp(40px, 6vw, 90px)) 0 clamp(56px, 8vw, 100px); }
 .c-body { padding-top: clamp(56px, 8vw, 110px); }
 .c-body > .case-fig, .c-body > .case-compare-wrap, .c-body > .case-pair, .c-body > .case-palette, .c-body > .case-type, .c-body > .case-logos, .c-body > .case-stripes, .c-body > .case-typescale { margin-bottom: clamp(56px, 8vw, 100px); }

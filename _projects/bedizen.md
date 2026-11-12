@@ -66,15 +66,11 @@ logos:
 <div class="video-duo">
   <div class="video-duo-item">
     <h3 lang="fr">La Réalité Augmentée native pour l'e-commerce</h3>
-    <div class="video-frame ratio-16-9">
-      <iframe src="https://player.vimeo.com/video/1194848845?app_id=122963" title="Bedizen - La Réalité Augmentée native Pour l'e-commerce" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
-    </div>
+    {% include vimeo.html id="1194848845" title="Bedizen - La Réalité Augmentée native Pour l'e-commerce" ratio="16-9" logo="/assets/img/BEDiZEN/bedizen_white.svg" %}
   </div>
   <div class="video-duo-item">
     <h3 lang="fr">L'Expérience Try-On en un Clic</h3>
-    <div class="video-frame ratio-9-16">
-      <iframe src="https://player.vimeo.com/video/1190134356?app_id=122963" title="BEDiZEN | L'Expérience Try-On en un Clic" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
-    </div>
+    {% include vimeo.html id="1190134356" title="BEDiZEN | L'Expérience Try-On en un Clic" ratio="9-16" logo="/assets/img/BEDiZEN/bedizen_white.svg" %}
   </div>
 </div>
 

@@ -1,0 +1,14 @@
+{%- comment -%}
+  Vimeo video loaded only on click (privacy: nothing is requested from Vimeo
+  before the click). A poster with a "Lire la vidéo / Play the video" button;
+  site.js swaps it for the player (dnt=1, autoplay). Without JS the button is a
+  link to the video on vimeo.com.
+  {% include vimeo.html id="1194848845" title="..." ratio="16-9" logo="/assets/img/BEDiZEN/bedizen_white.svg" %}
+  ratio: 16-9 (default) or 9-16. logo: optional decorative image on the poster.
+{%- endcomment -%}
+<div class="video-frame ratio-{{ include.ratio | default: '16-9' }}">
+  <a class="vimeo-facade" href="https://vimeo.com/{{ include.id }}" data-vimeo="{{ include.id }}" data-title="{{ include.title | escape }}" target="_blank" rel="noopener noreferrer">
+    {%- if include.logo %}<img class="vimeo-logo" src="{{ include.logo | uri_escape }}" alt="" width="240" height="53" loading="lazy" decoding="async">{% endif %}
+    <span class="vimeo-play"><span class="vimeo-icon" aria-hidden="true"></span>{% include label.html key="vimeo_play" %}<span class="sr-only">: {{ include.title }}</span></span>
+  </a>
+</div>
