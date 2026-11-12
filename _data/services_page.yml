@@ -22,7 +22,7 @@ fr:
     - "Livraison et prise en main, puis suite possible selon vos besoins."
   # Visible FAQ (no FAQPage schema). Answers only reuse what the site already
   # says. The price answer lists the offers from offers.yml automatically.
-  # [[A CONFIRMAR]] No answer about project duration yet: add one when decided.
+  # The duration answer (no figure: Ale has no reference yet) was written by Claude Code (2026-11-12, see NOTAS).
   faq_title: Questions fréquentes
   faq_price_q: "Combien coûte un projet&nbsp;?"
   faq_price_a: "Le prix est annoncé avant de commencer."
@@ -33,6 +33,8 @@ fr:
       a: "Un premier échange gratuit de 20 minutes, en visio ou par écrit. Puis un devis et un cahier des charges clairs, la réalisation avec 2 tours de retours inclus, la livraison et la prise en main. Le détail est dans <a href=\"#process\">Comment ça se passe</a>."
     - q: "Sous quel délai répondez-vous&nbsp;?"
       a: "Sous 48&nbsp;h ouvrées."
+    - q: "Quel est le délai&nbsp;?"
+      a: "Le délai dépend du projet. Il est fixé avec vous dans le devis, avant de commencer."
     - q: "Dans quelles langues travaillez-vous&nbsp;?"
       a: "En français, in English, en español."
 en:
@@ -64,5 +66,7 @@ en:
       a: "A free 20-minute first conversation, by video call or in writing. Then a clear quote and specification, the work itself with 2 rounds of feedback included, delivery and handover. The details are in <a href=\"#process\">How it works</a>."
     - q: How fast do you reply?
       a: "Within 48 working hours."
+    - q: How long does a project take?
+      a: "It depends on the project. It is set with you in the quote, before work starts."
     - q: Which languages do you work in?
       a: "En français, in English, en español."
