@@ -54,6 +54,8 @@ palette:
 
 {% include case/row.html items=page.screens_after tag="after" caption="I replaced the cluttered list view with cards." %}
 
+{% include case/video.html src="/assets/img/Spin_app/spin-figma-flow.mp4" webm="/assets/img/Spin_app/spin-figma-flow.webm" poster="/assets/img/Spin_app/spin-figma-flow-poster.webp" w=576 h=1280 tag="figma" label="The Spin App Figma prototype: home, top-up, provider, amount, payment, then the reward wheel" %}
+
 {% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" caption="Every spin wins something: cashback, points, or double recharge." %}
 
 <figure class="case-fig">
