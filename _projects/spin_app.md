@@ -9,7 +9,7 @@ tools: Figma, Illustrator, Photoshop
 year: 2025
 home_order: 5
 hide_from_home: true   # still hidden from the home rail (Ale, 2026-11-12); order 5 for "next project"
-last_modified_at: 2026-11-11
+last_modified_at: 2026-11-12
 categories: ux-ui identity motion
 cover_image: /assets/img/spin_view.webp
 
@@ -36,18 +36,21 @@ screens_before:
   - { src: /assets/img/Spin_app/old_spin_app1.webp, alt: "Original Spin app, the More menu: about us, prizes, privacy policy, terms of use, rules, contact and delete account", w: 1080, h: 2400 }
   - { src: /assets/img/Spin_app/old_spin_app2.webp, alt: "Original Spin app, the recharge screen: the Virgin Mexico operator, an Add Contact field and a Continue button", w: 1080, h: 2400 }
 # Apres: the new flow from the Figma export (Figma-png-Spin! UI.zip, dark board):
-# home, top-up amount, payment confirmed, and only then the wheel.
+# home, top-up amount, the wheel, and the prototype video, in one row of four equal
+# cells (2 x 2 on phones). The rows carry an h4 (Avant / Apres) instead of a label per image.
 screens_after:
   - { src: /assets/img/Spin_app/spin-new-home.webp, alt: "Redesigned home screen: the crypto balance, a promo banner and four cards, Send Top-Up, Send E-Gift, Send Remittances and Crypto", w: 800, h: 1744 }
   - { src: /assets/img/Spin_app/spin-new-amount.webp, alt: "Redesigned top-up screen: the contact, the operator and the amounts with their prices", w: 800, h: 1744 }
-  - { src: /assets/img/Spin_app/spin-new-done.webp, alt: "Payment confirmed: Done! The transfer was successful, with a Spin to win button", w: 800, h: 1744 }
   - { src: /assets/img/Spin_app/spin-new-wheel.webp, alt: "Spin to win: the reward wheel, shown after the payment", w: 800, h: 1744 }
+  - { video: /assets/img/Spin_app/spin-figma-flow.mp4, webm: /assets/img/Spin_app/spin-figma-flow.webm, poster: /assets/img/Spin_app/spin-figma-flow-poster.webp, w: 576, h: 1280, label: "The Spin App Figma prototype: home, top-up, provider, amount, payment, then the reward wheel" }
 
-# One-colour version of the new logo (spin_wordmark_violet.png, Ale).
+# Brand evolution: the original logo with its corrections (before) next to the
+# new logo in one violet ink (after), in equal white boxes.
 logos:
-  - { src: /assets/img/Spin_app/spin-wordmark-violet.webp, alt: "The new Spin logo in a single violet ink", w: 934, h: 503, bg: light, label: logo_one_ink }
+  - { src: /assets/img/Spin_app/spin-old-logo-corrections.webp, alt: "The original Spin logo with red guide lines and marks showing the alignment and spacing mistakes to fix", w: 1920, h: 1080, label: case_before }
+  - { src: /assets/img/Spin_app/spin-wordmark-violet.webp, alt: "The new Spin logo in a single violet ink", w: 934, h: 503, label: case_after }
 
-# Hex values sampled from new_color_palette.webp and the logo: to confirm with the Figma file.
+# Hex values sampled from the old new_color_palette.webp (deleted in round 6) and the logo: to confirm with the Figma file.
 palette:
   - { name: Yellow, hex: "#FED06A" }
   - { name: Blue, hex: "#4C91E1" }
@@ -57,23 +60,15 @@ palette:
 ---
 <h2 class="case-compare-title">The wheel comes after paying</h2>
 
-{% include case/row.html items=page.screens_before tag="before" %}
+{% include case/row.html items=page.screens_before title="case_before" %}
 
 {% capture before %}<p><strong>Open App → Spin the Wheel → Top Up</strong></p>{% endcapture %}
 {% capture after %}<p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>{% endcapture %}
 {% include case/compare.html before_title="Before" before_tag="Spin, then pay" before=before after_title="After" after_tag="Pay, then spin" after=after %}
 
-{% include case/row.html items=page.screens_after tag="after" %}
-
-{% include case/video.html src="/assets/img/Spin_app/spin-figma-flow.mp4" webm="/assets/img/Spin_app/spin-figma-flow.webm" poster="/assets/img/Spin_app/spin-figma-flow-poster.webp" w=576 h=1280 tag="figma" label="The Spin App Figma prototype: home, top-up, provider, amount, payment, then the reward wheel" %}
+{% include case/row.html items=page.screens_after title="case_after" tag="figma" %}
 
 {% include case/figure.html src="/assets/img/Spin_app/spin2.webp" w=2400 h=1800 alt="SPIN App reward wheel, post-purchase celebration" %}
-
-<figure class="case-fig">
-  <video controls muted playsinline preload="none" poster="/assets/img/spin_view.webp" width="1920" height="1080">
-    <source src="/assets/img/Spin_app/spin_video.mp4" type="video/mp4">
-  </video>
-</figure>
 
 <h2>The brand and the screens</h2>
 
@@ -83,15 +78,7 @@ palette:
 
 <p>The original brand used clashing neon colors. I made a calmer palette that still feels playful, and a logo that suggests movement.</p>
 
-{% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 %}
-
-{% include case/figure.html src="/assets/img/Spin_app/spin-old-logo-corrections.webp" w=1920 h=1080 narrow=true alt="The original Spin logo with red guide lines and marks showing the alignment and spacing mistakes to fix" %}
-
 {% include case/logo.html items=page.logos %}
-
-{% include case/figure.html src="/assets/img/Spin_app/spin-app-mascot.webp" w=1088 h=960 float=true narrow=true alt="The Spin mascot: a smiling reward wheel with arms and legs, waving" %}
-
-{% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 %}
 
 <h3>UI Evolution</h3>
 
@@ -134,7 +121,6 @@ palette:
 <p>The final screens and a promo video made for the redesign.</p>
 {% include case/pair.html a="/assets/img/Spin_app/spin1.webp" a_alt="SPIN App login screen with gradient background" a_w=2400 a_h=1800 b="/assets/img/Spin_app/spin3.webp" b_alt="SPIN App streamlined contacts list" b_w=2400 b_h=1800 %}
 {% include case/pair.html a="/assets/img/Spin_app/spin4.webp" a_alt="SPIN App user profile settings" a_w=2400 a_h=1800 b="/assets/img/Spin_app/spin-phone.webp" b_alt="SPIN App promotional marketing shot" b_w=4000 b_h=3000 %}
-<figure class="case-fig c-narrow"><img src="/assets/img/Spin_app/iphone-mockup.webp" alt="SPIN App home screen on iPhone in context" width="500" height="1000" loading="lazy" decoding="async"></figure>
 {% include case/figure.html src="/assets/img/Spin_app/Spin_App_Mockups_presentation (1).webp" w=1920 h=1080 alt="SPIN App redesigned interface showing home screen and reward wheel" %}
 {% endcapture %}
 {% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}
