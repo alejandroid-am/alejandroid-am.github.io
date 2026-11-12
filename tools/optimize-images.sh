@@ -45,6 +45,7 @@ dims() {
     webpinfo "$1" | awk '/Width:/{w=$2} /Height:/{h=$2} END{print w, h}'
   else python3 -c 'import sys; from PIL import Image; i=Image.open(sys.argv[1]); print(*i.size)' "$1"
   fi
+  echo   # identify prints no newline: without it, "read" fails and set -e stops the script
 }
 
 read -r W H < <(dims "$src")
@@ -52,13 +53,13 @@ target=$(( W > MAX ? MAX : W ))
 
 if command -v cwebp >/dev/null 2>&1; then
   tool="cwebp"
-  cwebp -quiet -q "$Q" -resize "$target" 0 "$src" -o "$out"
-  [ "$W" -gt "$SMALL" ] && cwebp -quiet -q "$Q" -resize "$SMALL" 0 "$src" -o "$out_small"
+  cwebp -quiet -q "$Q" -metadata none -resize "$target" 0 "$src" -o "$out"
+  if [ "$W" -gt "$SMALL" ]; then cwebp -quiet -q "$Q" -metadata none -resize "$SMALL" 0 "$src" -o "$out_small"; fi
 elif command -v magick >/dev/null 2>&1 || command -v convert >/dev/null 2>&1; then
   tool="ImageMagick"
   im=$(command -v magick || command -v convert)
-  "$im" "$src" -resize "${target}x>" -quality "$Q" "$out"
-  [ "$W" -gt "$SMALL" ] && "$im" "$src" -resize "${SMALL}x" -quality "$Q" "$out_small"
+  "$im" "$src" -strip -resize "${target}x>" -quality "$Q" "$out"
+  if [ "$W" -gt "$SMALL" ]; then "$im" "$src" -strip -resize "${SMALL}x" -quality "$Q" "$out_small"; fi
 elif python3 -c 'import PIL' >/dev/null 2>&1; then
   tool="Pillow"
   python3 - "$src" "$out" "$out_small" "$target" "$SMALL" "$Q" <<'PY'
@@ -83,7 +84,7 @@ fi
 read -r OW OH < <(dims "$out")
 echo "Tool: $tool"
 echo "  $out  (${OW} x ${OH})"
-[ -f "$out_small" ] && echo "  $out_small"
+if [ -f "$out_small" ]; then echo "  $out_small"; fi
 # Site path: from "assets/" on (works with relative or absolute destinations)
 case "$out" in
   */assets/*) web="/assets/${out##*/assets/}" ;;
