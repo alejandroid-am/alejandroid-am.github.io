@@ -16,13 +16,22 @@ case_layout: c
 summary: People who aren't very familiar with technology, but who all know how to use a phone and how to read.
 project_type: Logo and app screens
 result: WorkPics is published on Google Play.
-hero_image: /assets/img/Workpics/workpicks_ui_mockups.webp
+# Hero: Mockup 8 from Figma-png-WorkPics.zip. Every WorkPics screen on this page is
+# from Ale's Figma prototype, not a capture of the published app: Prototype Figma label.
+hero_image: /assets/img/Workpics/workpics-hero-mockup.webp
 hero_w: 2400
-hero_h: 1696
-hero_alt: WorkPics app interface showing camera view and photo management screens
-preload_image: /assets/img/Workpics/workpicks_ui_mockups.webp
-preload_srcset: "/assets/img/Workpics/workpicks_ui_mockups-960w.webp 960w, /assets/img/Workpics/workpicks_ui_mockups.webp 2400w"
+hero_h: 1800
+hero_alt: A phone showing the WorkPics sign-in screen, standing on an orange metal cart
+hero_label: case_figma
+preload_image: /assets/img/Workpics/workpics-hero-mockup.webp
+preload_srcset: "/assets/img/Workpics/workpics-hero-mockup-960w.webp 960w, /assets/img/Workpics/workpics-hero-mockup.webp 2400w"
 preload_sizes: "100vw"
+
+# Open, Shoot, Done: three frames of the Figma prototype (Login, Camera, Camera 3).
+screens_flow:
+  - { src: /assets/img/Workpics/wp-open.webp, alt: "Open: the WorkPics sign-in screen, with the logo, the user and password fields and a Sign in button", w: 804, h: 1748 }
+  - { src: /assets/img/Workpics/wp-shoot.webp, alt: "Shoot: the camera screen, a construction worker framed with a grid, the location, GPS and date stamped in the corners and a large shutter button", w: 804, h: 1748 }
+  - { src: /assets/img/Workpics/wp-done.webp, alt: "Done: the camera screen after the shot, the photo thumbnail with a cloud and a green check", w: 804, h: 1748 }
 
 # The three logo versions (Ale, 2026-11-12): workpics2 is the official company
 # logo, the team's choice is the app logo. No logo mockups on this page.
@@ -42,7 +51,11 @@ palette:
 
 {% include case/figure.html src="/assets/img/Workpics/sketch_ui_workpics.webp" w=2400 h=1710 alt="Hand-drawn paper sketch of WorkPics UI zoning" %}
 
-{% include case/figure.html src="/assets/img/Workpics/workpicks_ui_mockups.webp" w=2400 h=1696 alt="WorkPics camera screen with the shutter button, the photo grid and the settings screen" caption="I kept the screens to the minimum: <em>&quot;Open → Shoot → Done&quot;</em>." %}
+<p>I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
+
+{% include case/row.html items=page.screens_flow tag="figma" %}
+
+{% include case/video.html src="/assets/img/Workpics/workpics-figma-flow.mp4" webm="/assets/img/Workpics/workpics-figma-flow.webm" poster="/assets/img/Workpics/workpics-figma-flow-poster.webp" w=576 h=1280 tag="figma" label="The WorkPics Figma prototype: sign in, camera and location permission, loading, taking photos, settings" %}
 
 <p class="c-cta"><a class="btn" href="https://workpics.multiservicesfl.com/welcome" target="_blank" rel="noopener noreferrer">{% include label.html key="live_project" %} <span aria-hidden="true">&rarr;</span></a> <a class="btn btn-ghost" href="https://www.figma.com/proto/yOtKX0dQk7dqkICI0IK8Fu/WorkPics?page-id=28%3A120&node-id=28-121&p=f&viewport=-33%2C-1068%2C0.49&t=6H42hRzE8CVupbFh-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=28%3A121" target="_blank" rel="noopener noreferrer">Try Figma Prototype &rarr;</a></p>
 
