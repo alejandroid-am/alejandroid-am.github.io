@@ -22,8 +22,8 @@ preload_image: /assets/img/Cineville/cineville-title-arch.webp
 case_layout: c
 summary: After getting the brief, I went to the Médiathèque André Malraux in Strasbourg, my city.
 project_type: Festival poster
-# Hero: the arched title from Cineville-texte.png (Ale, 3350 px), recoloured black,
-# with the tagline as written on the poster ("de cinéma").
+# Hero: the tagline as written on the poster ("de cinéma"), above the arched title
+# from Cineville-texte.png (Ale, 3350 px), recoloured black.
 hero_image: /assets/img/Cineville/cineville-title-arch.webp
 hero_w: 1600
 hero_h: 967
@@ -31,15 +31,19 @@ hero_alt: Cinéville, the festival name in arched lettering
 hero_bg: "#F2F1F0"
 hero_tagline: Festival de cinéma du monde
 hero_tagline_lang: fr
+# Step 2 (La mission): the three theatre photos in one carousel (Pexels, edited by Ale).
+theatre:
+  - { src: /assets/img/Cineville/theatre-sunset.webp, alt: "A theater entrance at dusk, its lit marquee reading Cineville Film Festival", w: 1200, h: 1811 }
+  - { src: /assets/img/Cineville/theatre-night.webp, alt: "A theater marquee at night with a crowd at the entrance, the sign reading Cineville Film Festival", w: 1200, h: 1800 }
+  - { src: /assets/img/Cineville/theatre-facade.webp, alt: "A historic theater facade with a vertical sign and a marquee reading Cineville Film Festival", w: 784, h: 944 }
 # Step 4: colours and meanings from the deck (slide 8).
 palette:
   - { name: "Élégance et modernité", hex: "#343A40" }
   - { name: "Mysticisme et sagesse", hex: "#7952B3" }
   - { name: "Énergie, vitalité et jeunesse", hex: "#FFC107" }
   - { name: "Clarté et équilibre visuel", hex: "#E0E0E0" }
-# Step 6: the chosen composition and the two Photoshop drafts.
+# Step 6: the two Photoshop drafts.
 drafts:
-  - { src: /assets/img/Cineville/final-sketch.webp, alt: "A more finished pencil sketch of the poster: the melting reel, clouds, and rows of theater seats", w: 420, h: 648 }
   - { src: /assets/img/Cineville/brouillon-1.webp, alt: "An abandoned draft poster built around a wishbone-and-cloth motif", w: 500, h: 707 }
   - { src: /assets/img/Cineville/brouillon-2.webp, alt: "The draft poster with the reel floating over theater seats under a starry sky, the direction that was kept", w: 500, h: 707 }
 ---
@@ -51,15 +55,13 @@ drafts:
     <div class="cv-step-body" lang="fr">
       <p>CinéVille organise un festival annuel de cinéma, qui célèbre les œuvres cinématographiques indépendantes et internationales. Le festival se veut <strong>éclectique</strong> et <strong>accessible à tous</strong>, avec une atmosphère qui combine le <strong>chic et le décontracté</strong>, et il cherche à attirer des spectateurs de <strong>tous horizons</strong>. L'affiche doit <strong>refléter l'énergie</strong> de la <strong>diversité culturelle</strong> et <strong>l'audace créative</strong> du cinéma indépendant.</p>
     </div>
-    {% capture credit %}{% include label.html key="cv_photo_credit" %}{% endcapture %}
-    {% include case/figure.html src="/assets/img/Cineville/theatre-sunset.webp" w=1200 h=1811 narrow=true alt="A theater entrance at dusk, its lit marquee reading Cineville Film Festival" caption=credit %}
   </li>
   <li class="cv-step">
     <h3>The mission</h3>
     <div class="cv-step-body" lang="fr">
       <p class="cv-mission"><strong>Mission&nbsp;:</strong> créer une affiche qui capte l'esprit unique de ce festival de cinéma, en utilisant des références culturelles et visuelles du <strong>surréalisme</strong> des années 1920-1930.</p>
     </div>
-    {% include case/figure.html src="/assets/img/Cineville/theatre-night.webp" w=1200 h=1800 narrow=true alt="A theater marquee at night with a crowd at the entrance, the sign reading Cineville Film Festival" caption=credit %}
+    {% include case/carousel.html items=page.theatre label="cv_carousel" ratio="2 / 3" credit="cv_photo_credit" %}
   </li>
   <li class="cv-step">
     <h3>The codes of surrealism</h3>
@@ -94,13 +96,11 @@ drafts:
     <div class="cv-step-body"><p>I did several sketches until I settled on the composition that convinced me most.</p></div>
     <div class="cv-full">
       {% include case/figure.html src="/assets/img/Cineville/croquis-cineville.webp" w=1600 h=1254 alt="Eight pencil thumbnails of the poster: title and baseline zoning, a figure in a bowler hat with a film reel for a head, a clapperboard, melting reels, clouds and theater seats" %}
-      {% include case/figure.html src="/assets/img/Cineville/croquis-detaille-cineville.webp" w=1186 h=1087 alt="The same eight pencil thumbnails with stronger lines, the festival name written above each layout" %}
     </div>
   </li>
   <li class="cv-step">
     <h3>Proposals and drafts</h3>
     <div class="cv-step-body"><p>Then I went to Photoshop and started there.</p></div>
-    {% include case/figure.html src="/assets/img/Cineville/zoning.webp" w=1000 h=464 alt="Ten thumbnail layout sketches exploring where the title, baseline, date and central artwork could sit on the poster" %}
     {% include case/row.html items=page.drafts %}
   </li>
   <li class="cv-step">
@@ -142,10 +142,6 @@ drafts:
       </ul>
     </div>
     <figure class="case-fig c-poster cv-full"><a class="zoom-trigger" href="/assets/img/Cineville/cineville_poster-fina-aprouved.webp"><img src="/assets/img/Cineville/cineville_poster-fina-aprouved.webp" alt="The final Cinéville festival poster: the arched yellow title, the dates, a melting film reel on a cloud over rows of violet theater seats, under a starry sky" class="cv-final-poster" width="1272" height="1800" srcset="/assets/img/Cineville/cineville_poster-fina-aprouved-840w.webp 840w, /assets/img/Cineville/cineville_poster-fina-aprouved.webp 1272w" sizes="(max-width: 767px) 92vw, 640px" loading="lazy" decoding="async"></a></figure>
-  </li>
-  <li class="cv-step">
-    <h3>Photomontage</h3>
-    {% include case/figure.html src="/assets/img/Cineville/theatre-facade.webp" w=784 h=944 narrow=true alt="A historic theater facade with a vertical sign and a marquee reading Cineville Film Festival" caption=credit %}
   </li>
   <li class="cv-step">
     <h3>The poster in situ</h3>

@@ -58,6 +58,9 @@ fr:
   cv_photo_credit: "Photos&nbsp;: Pexels, retouchées par l'auteur"
   vimeo_play: Lire la vidéo
   crumb_home: Accueil
+  carousel_prev: Photo précédente
+  carousel_next: Photo suivante
+  cv_carousel: Photos du théâtre Cinéville
   crumb_projects: Projets
   next_project: Projet suivant
   back_all: Tous les projets
@@ -117,6 +120,9 @@ en:
   cv_photo_credit: "Photos: Pexels, edited by the author"
   vimeo_play: Play the video
   crumb_home: Home
+  carousel_prev: Previous photo
+  carousel_next: Next photo
+  cv_carousel: Photos of the Cinéville theater
   crumb_projects: Projects
   next_project: Next project
   back_all: Back to all projects

@@ -1,0 +1,36 @@
+{%- comment -%}
+  Image carousel: one image visible at a time, all in the same frame.
+    carousel:
+      - { src: /assets/img/p/a.webp, alt: "...", w: 1200, h: 1800 }
+  {% include case/carousel.html items=page.carousel label="cv_carousel" ratio="2 / 3" credit="cv_photo_credit" %}
+  - Without JS: a native horizontal scroll with snap (keyboard: focus the strip, arrow keys).
+  - With JS (site.js): previous / next buttons and one dot per image; no autoplay;
+    smooth scroll only without prefers-reduced-motion.
+  - label: _data/i18n.yml key naming the carousel; credit: optional _data/i18n.yml key shown below.
+  - ratio: the shared frame (images are contained, never cropped).
+{%- endcomment -%}
+{%- if include.items and include.items.size > 0 %}
+{%- assign _n = include.items.size %}
+<div class="case-carousel" data-carousel role="region" aria-roledescription="carousel" aria-labelledby="{{ include.label }}-name" style="--ratio: {{ include.ratio | default: '2 / 3' }}">
+  <p class="sr-only" id="{{ include.label }}-name">{% include label.html key=include.label %}</p>
+  <ul class="cc-track" tabindex="0">
+    {%- for i in include.items %}
+    <li class="cc-slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} / {{ _n }}">
+      {% include case/img.html src=i.src alt=i.alt w=i.w h=i.h sizes="(max-width: 767px) 92vw, 480px" %}
+    </li>
+    {%- endfor %}
+  </ul>
+  <div class="cc-ctrl" hidden>
+    <button type="button" class="cc-btn" data-dir="-1"><span aria-hidden="true">&larr;</span>{% include label.html key="carousel_prev" class="sr-only" %}</button>
+    <div class="cc-dots">
+      {%- for i in include.items %}
+      <button type="button" class="cc-dot" data-go="{{ forloop.index0 }}"{% if forloop.first %} aria-current="true"{% endif %}><span class="sr-only">{{ forloop.index }} / {{ _n }}</span></button>
+      {%- endfor %}
+    </div>
+    <button type="button" class="cc-btn" data-dir="1"><span aria-hidden="true">&rarr;</span>{% include label.html key="carousel_next" class="sr-only" %}</button>
+  </div>
+  {%- if include.credit %}
+  <p class="case-credit">{% include label.html key=include.credit %}</p>
+  {%- endif %}
+</div>
+{%- endif %}

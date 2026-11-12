@@ -10,6 +10,7 @@
    6. Projects rail (pinned, short vertical distance per card)
    7. Timeline (About)
    9. Open the <details> targeted by the URL hash (/services/#revue-ux)
+  10. Image carousel (case studies)
 =================================================================
 */
 (() => {
@@ -236,4 +237,38 @@
   };
   openHash();
   addEventListener("hashchange", openHash);
+
+  /* 10. Image carousel (_includes/case/carousel.html) ------------
+     Without JS it is a native scroll strip. Here: previous / next and dots,
+     no autoplay; smooth scroll only without reduced motion. */
+  document.querySelectorAll("[data-carousel]").forEach((c) => {
+    const track = c.querySelector(".cc-track");
+    const slides = [...track.children];
+    const dots = [...c.querySelectorAll(".cc-dot")];
+    const ctrl = c.querySelector(".cc-ctrl");
+    if (!track || slides.length < 2 || !ctrl) return;
+    ctrl.hidden = false;
+    let cur = 0;
+    const mark = (i) => {
+      cur = i;
+      dots.forEach((d, k) => d.toggleAttribute("aria-current", k === i));
+      slides.forEach((s, k) => s.setAttribute("aria-hidden", String(k !== i)));
+    };
+    const go = (i) => {
+      i = (i + slides.length) % slides.length;
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: reduce ? "auto" : "smooth" });
+      mark(i);
+    };
+    c.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => go(cur + Number(b.dataset.dir))));
+    dots.forEach((d) => d.addEventListener("click", () => go(Number(d.dataset.go))));
+    track.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); go(cur + (e.key === "ArrowRight" ? 1 : -1)); }
+    });
+    let t = 0;
+    track.addEventListener("scroll", () => {
+      clearTimeout(t);
+      t = setTimeout(() => mark(Math.round(track.scrollLeft / track.clientWidth)), 80);
+    }, { passive: true });
+    mark(0);
+  });
 })();

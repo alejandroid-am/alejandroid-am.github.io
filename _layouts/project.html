@@ -19,7 +19,7 @@ layout: default
   context, team, award (optional), tools, result, hero_image / hero_w / hero_h / hero_alt,
   hero_bg (optional: artwork shown whole and centered on that colour, e.g. a title lettering;
     at most 720 px wide, or hero_art_max px, e.g. 1200 for a mockup),
-  hero_tagline / hero_tagline_lang (optional: one line under the hero artwork),
+  hero_tagline / hero_tagline_lang (optional: one line above the hero artwork),
   hero_video / hero_video_webm / hero_video_poster / hero_video_w / hero_video_h (optional:
   a muted looping video instead of the hero image; plays only without reduced motion,
   see site.js; empty = the hero image is shown),
@@ -56,6 +56,9 @@ layout: default
   </div>
   {%- if page.hero_image %}
   <div class="c-hero{% if page.hero_bg %} is-art{% endif %}"{% if page.hero_bg %} style="background: {{ page.hero_bg }}; --art-w: {{ page.hero_w }}px{% if page.hero_art_max %}; --art-max: {{ page.hero_art_max }}px{% endif %}"{% endif %}>
+    {%- if page.hero_tagline %}
+    <p class="c-hero-tagline"{% if page.hero_tagline_lang %} lang="{{ page.hero_tagline_lang }}"{% endif %}>{{ page.hero_tagline }}</p>
+    {%- endif %}
     {%- if page.hero_video and page.hero_video != "" %}
     <video class="c-hero-video" muted loop playsinline controls preload="metadata" data-hero-video
       poster="{{ page.hero_video_poster | default: page.hero_image | uri_escape }}"
@@ -71,9 +74,6 @@ layout: default
     {%- endif %}
     {%- if page.hero_label %}
     <p class="c-hero-note">{% include label.html key=page.hero_label %}</p>
-    {%- endif %}
-    {%- if page.hero_tagline %}
-    <p class="c-hero-tagline"{% if page.hero_tagline_lang %} lang="{{ page.hero_tagline_lang }}"{% endif %}>{{ page.hero_tagline }}</p>
     {%- endif %}
   </div>
   {%- endif %}
