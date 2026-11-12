@@ -464,6 +464,7 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 .case-shot { position: relative; min-width: 0; }
 .shot-tag { position: absolute; top: 8px; left: 8px; z-index: 1; font-size: 13px; font-weight: 700; line-height: 1; padding: 6px 9px; background: var(--bg); color: var(--ink); border: 1px solid var(--ink); pointer-events: none; }
 .case-shot.is-figma .shot-tag, .case-shot.is-kbfigma .shot-tag { background: var(--ink); color: var(--bg); }
+@media (max-width: 767px) { .case-row-items .shot-tag { top: 4px; left: 4px; font-size: 10px; padding: 4px 5px; } }
 .case-shot.is-after .shot-tag { background: var(--ink); color: var(--y); } /* 15:1, same as .case-tag.is-new */
 
 /* Layout C "Gallery with captions" (front matter case_layout: c) */
