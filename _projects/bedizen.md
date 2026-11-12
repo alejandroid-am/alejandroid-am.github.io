@@ -84,7 +84,7 @@ logos:
 
 {% include case/type-scale.html family="Poppins" class_key="ts_geometric_sans" rows=page.type_scale %}
 
-<p class="c-cta"><a class="btn" href="{{ page.brand_pdf }}" download>Download the brand guidelines (PDF, 34 pages, 3.8 MB)</a></p>
+<p class="c-cta"><a class="btn" href="{{ page.brand_pdf }}" download>Download the brand guidelines (PDF, 34 pages, 6.6 MB)</a></p>
 
 <h2>Project Gallery</h2>
 
