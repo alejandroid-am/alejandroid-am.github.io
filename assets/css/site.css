@@ -312,7 +312,7 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 
 /* 10. Projects page and locked projects ------------------------ */
 .plist { list-style: none; margin: 0; padding: 0 var(--pad) 96px; }
-.prow { position: relative; display: grid; grid-template-columns: 240px minmax(0, 1fr) minmax(0, 1.4fr) 80px; gap: 28px; align-items: center; padding: 24px 0; border-top: 1px solid var(--line-strong); }
+.prow { position: relative; display: grid; grid-template-columns: clamp(240px, 22vw, 340px) minmax(0, 1fr) minmax(0, 1.4fr) 64px; gap: 28px; align-items: center; padding: 24px 0; border-top: 1px solid var(--line-strong); }
 .plist .prow:last-child { border-bottom: 1px solid var(--line-strong); }
 .prow-media { aspect-ratio: 16 / 10; background: var(--bg-2); overflow: hidden; }
 .prow-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
@@ -336,6 +336,19 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .rail-card.is-soon .rail-title, .prow.is-soon .prow-title { color: var(--mute); text-decoration: none; }
 .soon-tag { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
 .prow.is-soon:hover .prow-title { text-decoration: none; }
+/* /projets/ below 1024 px: cards with the image on top, full width
+   (two columns on tablets, one on phones) */
+@media (max-width: 1023px) {
+  .plist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
+  .prow { grid-template-columns: minmax(0, 1fr); gap: 10px; align-items: start; align-content: start; padding: 0; border-top: 0; }
+  .plist .prow:last-child { border-bottom: 0; }
+  .prow-media { margin-bottom: 6px; }
+  .prow-desc { font-size: 15px; }
+  .prow-year { text-align: left; font-size: 14px; }
+}
+@media (max-width: 600px) {
+  .plist { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
 .lock-label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; }
 .lock-label svg { width: 16px; height: 16px; flex: none; }
 
@@ -648,10 +661,6 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
   .rail-item--all { flex-basis: 64vw; }
   .rail-cap { grid-template-columns: 32px minmax(0, 1fr); }
   .rail-go { display: none; }
-  .prow { grid-template-columns: 112px minmax(0, 1fr); gap: 8px 16px; align-items: start; }
-  .prow-media { grid-row: 1 / span 3; }
-  .prow-desc { grid-column: 2; font-size: 15px; }
-  .prow-year { grid-column: 2; text-align: left; font-size: 14px; }
   .about-top { grid-template-columns: 1fr; gap: 32px; }
   .about-photo { max-width: 300px; }
   .tl { padding-left: 40px; }
