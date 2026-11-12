@@ -27,3 +27,10 @@ hero_bg: "#FFFFFF"
 {% include case/pair.html a="/assets/img/others/my_herzeleid_cover (2).webp" a_alt="Parody recreation of Rammstein's Herzeleid album cover" a_w=1254 a_h=1254 a_caption="Parody: Rammstein's Herzeleid" b="/assets/img/others/dios_singa_la_reina.webp" b_alt="Pop art illustration in Warhol style, political satire" b_w=948 b_h=1029 b_caption="Pop Art Satire: 'God Save The Queen'" %}
 
 {% include case/figure.html src="/assets/img/others/diazka_warhol.webp" w=1172 h=1630 alt="Pop art political portrait in Andy Warhol style" caption="Pop Art Satire: Political Series" narrow=true %}
+
+{% include case/pair.html a="/assets/img/others/charadesign-me.webp" a_alt="Character design sheet: a man drawn in ink from the front, the side and the back" a_w=1600 a_h=1131 b="/assets/img/others/charadesign-cat.webp" b_alt="Character design sheet: a winged cat drawn in ink from the front, the side and the back" b_w=1600 b_h=1131 %}
+
+<div class="case-pair">
+{% include case/figure.html src="/assets/img/others/caractere-poster.webp" w=605 h=816 alt="Caractère poster: the word in black geometric letters over yellow diagonal bands" sizes="(max-width: 767px) 100vw, 600px" %}
+{% include case/video.html src="/assets/img/others/other-musicians.mp4" webm="/assets/img/others/other-musicians.webm" poster="/assets/img/others/other-musicians-poster.webp" w=720 h=720 label="Short animation: ink-drawn musicians playing a double bass, a violin and a cello" %}
+</div>
