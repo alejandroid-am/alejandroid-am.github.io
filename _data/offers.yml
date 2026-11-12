@@ -104,14 +104,14 @@ list:
       short: Une page-outil qui résout un problème précis.
       price: "dès 1&nbsp;500&nbsp;€"
       for: Une tâche répétitive ou un problème précis que vos outils actuels gèrent mal.
-      includes: [Une page-outil qui résout un problème précis, "Par exemple : générateur de posts, de contrats, calculateur…"]
+      includes: [Une page-outil qui résout un problème précis, "Par exemple : calculateur de devis, tableau de suivi, formulaire sur mesure"]
       excludes: [Une application complète avec comptes utilisateurs]
     en:
       title: Custom web tool
       short: A single-page tool that solves one specific problem.
       price: "from €1,500"
       for: A repetitive task or a specific problem your current tools handle badly.
-      includes: [A single-page tool that solves one specific problem, "For example: a post generator, a contract generator, a calculator…"]
+      includes: [A single-page tool that solves one specific problem, "For example: a quote calculator, a tracking dashboard, a custom form"]
       excludes: [A full application with user accounts]
 
   - id: visuels
