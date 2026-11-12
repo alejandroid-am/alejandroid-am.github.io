@@ -27,14 +27,20 @@ preload_image: /assets/img/Spin_app/spin-app-hero-mockup.webp
 preload_srcset: "/assets/img/Spin_app/spin-app-hero-mockup-960w.webp 960w, /assets/img/Spin_app/spin-app-hero-mockup.webp 2400w"
 preload_sizes: "100vw"
 
+# Avant: old_spin_app3 comes FIRST although its name says 3: it is the wheel, and in
+# the old app the spin happened before the user chose anything (Ale, 2026-11-12).
+# Files are not renamed, only reordered.
 screens_before:
-  - { src: /assets/img/Spin_app/old_spin_app1.webp, alt: "Original Spin app, menu screen", w: 1080, h: 2400 }
-  - { src: /assets/img/Spin_app/old_spin_app2.webp, alt: "Original Spin app, add contact screen", w: 1080, h: 2400 }
-  - { src: /assets/img/Spin_app/old_spin_app3.webp, alt: "Original Spin app, reward wheel shown before payment", w: 1080, h: 2400 }
+  - { src: /assets/img/Spin_app/old_spin_app3.webp, alt: "Original Spin app, the reward wheel, shown before the user has chosen anything", w: 1080, h: 2400 }
+  - { src: /assets/img/Spin_app/old_spin_app1.webp, alt: "Original Spin app, the More menu: about us, prizes, privacy policy, terms of use, rules, contact and delete account", w: 1080, h: 2400 }
+  - { src: /assets/img/Spin_app/old_spin_app2.webp, alt: "Original Spin app, the recharge screen: the Virgin Mexico operator, an Add Contact field and a Continue button", w: 1080, h: 2400 }
+# Apres: the new flow from the Figma export (Figma-png-Spin! UI.zip, dark board):
+# home, top-up amount, payment confirmed, and only then the wheel.
 screens_after:
-  - { src: /assets/img/Spin_app/new_spin-ui1.webp, alt: "Redesigned home screen with cards and points balance", w: 1117, h: 2428 }
-  - { src: /assets/img/Spin_app/new_spin-ui2.webp, alt: "Redesigned subscription screen", w: 1117, h: 2428 }
-  - { src: /assets/img/Spin_app/new_spin-ui3.webp, alt: "Redesigned account screen with wallet, level and rewards", w: 1117, h: 2428 }
+  - { src: /assets/img/Spin_app/spin-new-home.webp, alt: "Redesigned home screen: the crypto balance, a promo banner and four cards, Send Top-Up, Send E-Gift, Send Remittances and Crypto", w: 800, h: 1744 }
+  - { src: /assets/img/Spin_app/spin-new-amount.webp, alt: "Redesigned top-up screen: the contact, the operator and the amounts with their prices", w: 800, h: 1744 }
+  - { src: /assets/img/Spin_app/spin-new-done.webp, alt: "Payment confirmed: Done! The transfer was successful, with a Spin to win button", w: 800, h: 1744 }
+  - { src: /assets/img/Spin_app/spin-new-wheel.webp, alt: "Spin to win: the reward wheel, shown after the payment", w: 800, h: 1744 }
 
 # Hex values sampled from new_color_palette.webp and the logo: to confirm with the Figma file.
 palette:
