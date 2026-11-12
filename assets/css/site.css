@@ -408,8 +408,9 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-fig.float, .case-fig.float .zoom-trigger { background: none; border: 0; }
 .case-fig.float img { width: auto; max-width: min(100%, 900px); margin: 0 auto; filter: drop-shadow(0 22px 28px rgba(21, 21, 20, .18)) drop-shadow(0 4px 8px rgba(21, 21, 20, .10)); }
 .case-fig.float > figcaption { text-align: center; margin-inline: auto; }
-.case-video { position: relative; background: var(--bg-2); }
-.case-video video { width: 100%; height: auto; display: block; }
+.case-video { position: relative; }
+.case-video-box { position: relative; margin: 0 auto; max-height: 80vh; }
+.case-video video { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--bg-2); }
 .case-palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(140px, 40%), 180px)); gap: clamp(16px, 2.5vw, 32px); margin: 0 0 48px; list-style: none; padding: 0; }
 /* Separate squares, name and hex underneath */
 .case-swatch { min-width: 0; }
@@ -461,6 +462,7 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 /* Before / after label in a corner of a screenshot (row.html, figure.html tag=) */
 .case-shot { position: relative; min-width: 0; }
 .shot-tag { position: absolute; top: 8px; left: 8px; z-index: 1; font-size: 13px; font-weight: 700; line-height: 1; padding: 6px 9px; background: var(--bg); color: var(--ink); border: 1px solid var(--ink); pointer-events: none; }
+.case-shot.is-figma .shot-tag, .case-shot.is-kbfigma .shot-tag { background: var(--ink); color: var(--bg); }
 .case-shot.is-after .shot-tag { background: var(--ink); color: var(--y); } /* 15:1, same as .case-tag.is-new */
 
 /* Layout C "Gallery with captions" (front matter case_layout: c) */
@@ -481,7 +483,7 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
 .c-hero img { display: block; width: auto; max-width: min(100%, 1920px); height: auto; max-height: 86vh; margin: 0 auto; }
 .c-hero.is-art { padding: clamp(48px, 9vw, 120px) var(--pad); }
 .c-hero.is-art img { width: min(100%, var(--art-w), 720px); max-height: none; margin: 0 auto; object-fit: contain; }
-.c-hero-video { display: block; width: 100%; max-width: 1920px; height: auto; max-height: 86vh; margin: 0 auto; object-fit: cover; }
+.c-hero-video { display: block; width: 100%; max-width: 1920px; height: auto; max-height: 80vh; margin: 0 auto; object-fit: contain; }
 .c-hero-note, .c-body > .c-note { font-size: 14px; color: var(--mute); }
 .c-hero-note { margin: 0; padding: 10px var(--pad); text-align: center; background: var(--bg); }
 .c-body > .c-note { margin: calc(-1 * clamp(40px, 6vw, 84px)) 0 clamp(56px, 8vw, 100px); }

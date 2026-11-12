@@ -44,6 +44,8 @@ fr:
   # to EN by site.js when the visitor browses in English (data-en).
   case_before: Avant
   case_after: Après
+  case_figma: Prototype Figma
+  case_kbfigma: Maquette Figma
   logo_official: "Logo officiel de l'entreprise"
   logo_app: "Logo de l'application"
   live_project: Voir le projet en ligne
@@ -108,6 +110,8 @@ en:
   soon_label: Coming soon
   case_before: Before
   case_after: After
+  case_figma: Figma prototype
+  case_kbfigma: Figma mockup
   logo_official: Official company logo
   logo_app: App logo
   live_project: See the live project

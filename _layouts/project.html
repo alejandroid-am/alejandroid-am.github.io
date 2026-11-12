@@ -55,7 +55,7 @@ layout: default
   {%- if page.hero_image %}
   <div class="c-hero{% if page.hero_bg %} is-art{% endif %}"{% if page.hero_bg %} style="background: {{ page.hero_bg }}; --art-w: {{ page.hero_w }}px"{% endif %}>
     {%- if page.hero_video and page.hero_video != "" %}
-    <video class="c-hero-video" muted loop playsinline preload="metadata" data-hero-video
+    <video class="c-hero-video" muted loop playsinline controls preload="metadata" data-hero-video
       poster="{{ page.hero_video_poster | default: page.hero_image | uri_escape }}"
       {%- if page.hero_video_w %} width="{{ page.hero_video_w }}" height="{{ page.hero_video_h }}"{% endif %}
       aria-label="{{ page.hero_alt }}">

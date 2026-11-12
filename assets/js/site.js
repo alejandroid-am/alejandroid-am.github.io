@@ -173,14 +173,18 @@
     onScroll();
   }
 
-  /* Case videos: no autoplay with reduced motion (controls instead) */
-  /* Hero video (case layout): no autoplay attribute, so it never starts before
-     this check; with reduced motion it stays on its poster, with controls. */
-  document.querySelectorAll("video[data-hero-video]").forEach((v) => {
-    if (reduce) { v.controls = true; return; }
-    v.play().catch(() => { v.controls = true; });
-  });
-  if (reduce) document.querySelectorAll("video[data-case-video]").forEach((v) => { v.pause(); v.removeAttribute("autoplay"); v.controls = true; });
+  /* Videos (hero and case): no autoplay attribute and controls in the HTML, so
+     without JS, or with reduced motion, the poster shows with the controls.
+     Without reduced motion: no controls, muted loop, played while on screen. */
+  const vids = document.querySelectorAll("video[data-hero-video], video[data-case-video]");
+  if (reduce) vids.forEach((v) => { v.controls = true; });
+  else {
+    const play = (v) => v.play().catch(() => { v.controls = true; });
+    const io = "IntersectionObserver" in window && new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) play(e.target); else e.target.pause();
+    }), { rootMargin: "200px" });
+    vids.forEach((v) => { v.controls = false; io ? io.observe(v) : play(v); });
+  }
 
   /* 9. Open the <details> targeted by the hash -------------------- */
   const openHash = () => {

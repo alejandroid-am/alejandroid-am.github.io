@@ -1,19 +1,29 @@
 {%- comment -%}
-  Short looping video (a few seconds): muted, inline, with a poster image.
-  {% include case/video.html src="/assets/img/p/flow.mp4" poster="/assets/img/p/flow-poster.webp"
-     w=1920 h=1080 label="Short description of what the video shows" caption="" %}
-  With reduced motion the video does not autoplay (site.js); controls stay available.
+  Short looping video (a few seconds): muted, inline, no audio, with a poster image.
+  {% include case/video.html src="/assets/img/p/flow.mp4" webm="/assets/img/p/flow.webm"
+     poster="/assets/img/p/flow-poster.webp" w=576 h=1280 label="What the video shows" tag="figma" %}
+  - Real proportions, never cropped: a centred box, at most 80vh tall.
+  - Autoplay and loop only without prefers-reduced-motion (site.js). With reduced
+    motion, or without JS, the poster shows with the controls.
+  - tag: "figma", "kbfigma", "before", "after": the i18n key "case_<tag>" shown in the corner,
+    same labels as figure.html / row.html (e.g. "Prototype Figma").
   Without src: nothing is rendered (no placeholder box; the missing file goes in
   NOTAS-PARA-ALE.md, "TODO visuales").
 {%- endcomment -%}
 {%- if include.src and include.src != "" %}
-<figure class="case-fig case-video{% if include.bleed %} is-bleed{% endif %}">
-  <video autoplay muted loop playsinline preload="metadata" data-case-video
-    {%- if include.poster %} poster="{{ include.poster | uri_escape }}"{% endif %}
-    {%- if include.w %} width="{{ include.w }}" height="{{ include.h }}"{% endif %}
-    aria-label="{{ include.label }}">
-    <source src="{{ include.src | uri_escape }}" type="video/mp4">
-  </video>
+{%- assign _w = include.w | default: 16 -%}{%- assign _h = include.h | default: 9 -%}
+<figure class="case-fig case-video">
+  <div class="case-video-box{% if include.tag %} case-shot is-{{ include.tag }}{% endif %}" style="width: min(100%, calc(80vh * {{ _w }} / {{ _h }}), {{ _w }}px); aspect-ratio: {{ _w }} / {{ _h }}">
+    <video muted loop playsinline controls preload="metadata" data-case-video
+      {%- if include.poster %} poster="{{ include.poster | uri_escape }}"{% endif %}
+      width="{{ _w }}" height="{{ _h }}" aria-label="{{ include.label }}">
+      {%- if include.webm %}
+      <source src="{{ include.webm | uri_escape }}" type="video/webm">
+      {%- endif %}
+      <source src="{{ include.src | uri_escape }}" type="video/mp4">
+    </video>
+    {%- if include.tag %}{% assign _vk = "case_" | append: include.tag %}{% include label.html key=_vk class="shot-tag" %}{% endif %}
+  </div>
   {%- if include.caption and include.caption != "" %}
   <figcaption>{{ include.caption }}</figcaption>
   {%- endif %}
