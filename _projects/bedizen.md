@@ -127,6 +127,7 @@ logos:
 
 <h3>The setup</h3>
 <p>I created the database and the hosting, and installed WordPress, the credentials, etc. The hosting is on O2switch: I edited the server files over FTP with FileZilla, and added WordPress plugins for security, SEO, WooCommerce, contact forms and caching.</p>
+{% include case/figure.html src="/assets/img/BEDiZEN/bedizen-wordpress-back-office.webp" w=1902 h=884 alt="The BEDiZEN WordPress dashboard, with the WooCommerce setup, Wordfence, Limit Login Attempts and Cookie Compliance blocks" caption="WordPress back office" %}
 
 <h3>Two videos, two formats</h3>
 <p>I produced two short videos that show the BEDiZEN experience. One is landscape, for YouTube. One is vertical, for Instagram and TikTok feeds.</p>
