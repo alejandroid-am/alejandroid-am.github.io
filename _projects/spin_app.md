@@ -42,6 +42,10 @@ screens_after:
   - { src: /assets/img/Spin_app/spin-new-done.webp, alt: "Payment confirmed: Done! The transfer was successful, with a Spin to win button", w: 800, h: 1744 }
   - { src: /assets/img/Spin_app/spin-new-wheel.webp, alt: "Spin to win: the reward wheel, shown after the payment", w: 800, h: 1744 }
 
+# One-colour version of the new logo (spin_wordmark_violet.png, Ale).
+logos:
+  - { src: /assets/img/Spin_app/spin-wordmark-violet.webp, alt: "The new Spin logo in a single violet ink", w: 934, h: 503, bg: light, label: logo_one_ink }
+
 # Hex values sampled from new_color_palette.webp and the logo: to confirm with the Figma file.
 palette:
   - { name: Yellow, hex: "#FED06A" }
@@ -82,6 +86,10 @@ palette:
 {% include case/pair.html a="/assets/img/Spin_app/old-spin_logo.webp" a_alt="Original Spin logo" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> the original logo." b="/assets/img/Spin_app/new_spin_logo.webp" b_alt="Redesigned Spin logo" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a logo that suggests movement." %}
 
 {% include case/figure.html src="/assets/img/Spin_app/spin-old-logo-corrections.webp" w=1920 h=1080 alt="The original Spin logo with red guide lines and marks showing the alignment and spacing mistakes to fix" %}
+
+{% include case/logo.html items=page.logos %}
+
+{% include case/figure.html src="/assets/img/Spin_app/spin-app-mascot.webp" w=1088 h=960 float=true narrow=true alt="The Spin mascot: a smiling reward wheel with arms and legs, waving" %}
 
 {% include case/pair.html a="/assets/img/Spin_app/old_colore_palette.webp" a_alt="Original neon color palette" a_w=1920 a_h=1080 a_tag="before" b_tag="after" a_caption="<strong>Before:</strong> clashing neon colors." b="/assets/img/Spin_app/new_color_palette.webp" b_alt="New, calmer color palette" b_w=1920 b_h=1080 b_caption="<strong>After:</strong> a calmer palette that still feels playful." %}
 

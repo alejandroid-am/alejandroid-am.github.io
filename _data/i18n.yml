@@ -48,6 +48,7 @@ fr:
   case_kbfigma: Maquette Figma
   logo_official: "Logo officiel de l'entreprise"
   logo_app: "Logo de l'application"
+  logo_one_ink: Version une couleur
   live_project: Voir le projet en ligne
   # Cinéville process steps (same order as the old 19-slide carousel)
   ts_title: Titre
@@ -114,6 +115,7 @@ en:
   case_kbfigma: Figma mockup
   logo_official: Official company logo
   logo_app: App logo
+  logo_one_ink: One-colour version
   live_project: See the live project
   ts_title: Title
   ts_subtitle: Subtitle
