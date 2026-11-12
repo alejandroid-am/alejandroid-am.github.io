@@ -37,12 +37,40 @@
       document.getElementById("main-content")?.focus({ preventScroll: true });
     });
   }
-  if ((store.get("lang") || store.get("lang_ctx", sessionStorage)) === "en") {
-    document.querySelectorAll("a[data-href-en]").forEach((a) => { a.href = a.dataset.hrefEn; });
-    /* Bilingual labels on one-language pages (_includes/label.html) */
-    document.querySelectorAll("[data-en]").forEach((el) => { el.textContent = el.dataset.en; el.lang = "en"; });
-    document.querySelectorAll("img[data-caption-en]").forEach((img) => { img.dataset.caption = img.dataset.captionEn; });
-  }
+  /* English-only pages (case studies, 404): FR / EN toggle in the header. It swaps
+     the bilingual labels (label.html, data-en) and the menu / back links
+     (data-href-en), both ways, and remembers the choice ("lang" + "lang_ctx"). */
+  const applyLang = (lang) => {
+    const en = lang === "en";
+    root.classList.toggle("ctx-en", en);
+    document.querySelectorAll("a[data-href-en]").forEach((a) => {
+      if (!a.dataset.hrefFr) a.dataset.hrefFr = a.getAttribute("href");
+      a.href = en ? a.dataset.hrefEn : a.dataset.hrefFr;
+    });
+    document.querySelectorAll("[data-en]").forEach((el) => {
+      if (el.dataset.fr === undefined) { el.dataset.fr = el.textContent; el.dataset.frLang = el.lang || ""; }
+      el.textContent = en ? el.dataset.en : el.dataset.fr;
+      el.lang = en ? "en" : (el.dataset.frLang || "fr");
+    });
+    document.querySelectorAll("img[data-caption-en]").forEach((img) => {
+      if (img.dataset.captionFr === undefined) img.dataset.captionFr = img.dataset.caption || "";
+      img.dataset.caption = en ? img.dataset.captionEn : img.dataset.captionFr;
+    });
+    document.querySelectorAll("[data-set-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
+  };
+  const ctxLang = (store.get("lang") || store.get("lang_ctx", sessionStorage)) === "en" ? "en" : "fr";
+  if (ctxLang === "en") applyLang("en");
+  document.querySelectorAll("[data-lang-toggle]").forEach((g) => {
+    g.hidden = false;
+    g.querySelectorAll("[data-set-lang]").forEach((b) => {
+      b.setAttribute("aria-pressed", String(b.dataset.setLang === ctxLang));
+      b.addEventListener("click", () => {
+        store.set("lang", b.dataset.setLang);
+        store.set("lang_ctx", b.dataset.setLang, sessionStorage);
+        applyLang(b.dataset.setLang);
+      });
+    });
+  });
 
   /* 3. Copy the email ------------------------------------------ */
   if (navigator.clipboard && window.isSecureContext) {

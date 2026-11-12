@@ -33,11 +33,12 @@ layout: default
   <div class="case-c-wrap">
     <nav class="case-crumbs" aria-label="Breadcrumb">
       <ol>
-        <li><a href="/" data-href-en="/en/">Home</a></li>
-        <li><a href="/projets/" data-href-en="/en/projects/">Projects</a></li>
+        <li><a href="/" data-href-en="/en/">{% include label.html key="crumb_home" %}</a></li>
+        <li><a href="/projets/" data-href-en="/en/projects/">{% include label.html key="crumb_projects" %}</a></li>
         <li aria-current="page">{{ page.title }}</li>
       </ol>
     </nav>
+    <p class="c-lang-note only-fr" lang="fr">{{ site.data.projects_page.fr.note }}</p>
     <header class="c-title">
       <h1 class="display">{{ page.title }}</h1>
       <p class="c-summary">{{ page.summary | default: page.description }}</p>
@@ -81,19 +82,19 @@ layout: default
   </div>
   {%- if next_p %}
   <a class="c-next" href="{{ next_p.url }}">
-    <span class="c-next-label">Next project</span>
+    <span class="c-next-label">{% include label.html key="next_project" %}</span>
     <span class="c-next-title">{{ next_p.title }} <span aria-hidden="true">&rarr;</span></span>
   </a>
   {%- endif %}
-  <div class="case-c-wrap c-back"><a href="/projets/" data-href-en="/en/projects/">&larr; Back to all projects</a></div>
+  <div class="case-c-wrap c-back"><a href="/projets/" data-href-en="/en/projects/">&larr; {% include label.html key="back_all" %}</a></div>
 </article>
 {%- else -%}
 <div class="case-study-container{% if page.theme %} theme-{{ page.theme }}{% endif %}">
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <ol>
-      <li><a href="/" data-href-en="/en/">Home</a></li>
-      <li><a href="/projets/" data-href-en="/en/projects/">Projects</a></li>
+      <li><a href="/" data-href-en="/en/">{% include label.html key="crumb_home" %}</a></li>
+      <li><a href="/projets/" data-href-en="/en/projects/">{% include label.html key="crumb_projects" %}</a></li>
       <li aria-current="page">{{ page.title }}</li>
     </ol>
   </nav>
@@ -118,7 +119,7 @@ layout: default
   </article>
 
   <nav class="project-nav" aria-label="Project navigation">
-    <a href="/projets/" data-href-en="/en/projects/" class="back-link">&larr; Back to all projects</a>
+    <a href="/projets/" data-href-en="/en/projects/" class="back-link">&larr; {% include label.html key="back_all" %}</a>
   </nav>
 
 </div>

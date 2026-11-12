@@ -106,10 +106,19 @@
           {%- assign current = false %}
           {%- if page.url == url %}{% assign current = true %}{% endif %}
           {%- if forloop.index0 == 1 and page.collection == 'projects' %}{% assign current = true %}{% endif %}
-          <li><a href="{{ url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if current %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          <li><a href="{{ url }}"{% if swap_nav %} data-href-en="{{ nav_en.nav[forloop.index0].url }}"{% endif %}{% if current %} aria-current="page"{% endif %}>{% if swap_nav %}<span lang="fr" data-en="{{ nav_en.nav[forloop.index0].label | escape }}">{{ nav_t.nav[forloop.index0].label }}</span>{% else %}{{ item.label }}{% endif %}</a></li>
           {%- endfor %}
         </ul>
       </nav>
+      {%- if swap_nav %}
+      <!-- English-only page (case study, 404): FR / EN buttons, shown by site.js.
+           They switch the labels and links of this page, not its English text. -->
+      <div class="lang-pick" role="group" aria-label="{{ nav_t.lang_label }} / {{ nav_en.lang_label }}" data-lang-toggle hidden>
+        <button type="button" class="lang-opt" data-set-lang="fr" lang="fr" aria-pressed="true" title="{{ nav_t.lang_fr }}">FR</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="lang-opt" data-set-lang="en" lang="en" aria-pressed="false" title="{{ nav_en.lang_en }}">EN</button>
+      </div>
+      {%- endif %}
       {%- if page.alt_url %}
       <!-- FR / EN: plain links; the active language is underlined -->
       <div class="lang-pick" role="group" aria-label="{{ t.lang_label }}">

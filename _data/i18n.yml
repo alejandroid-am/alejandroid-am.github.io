@@ -57,6 +57,10 @@ fr:
   kb_figma: "Maquette Figma du parcours complet, réalisée pour le jury"
   cv_photo_credit: "Photos&nbsp;: Pexels, retouchées par l'auteur"
   vimeo_play: Lire la vidéo
+  crumb_home: Accueil
+  crumb_projects: Projets
+  next_project: Projet suivant
+  back_all: Tous les projets
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -112,5 +116,9 @@ en:
   kb_figma: Figma mockup of the full flow, made for the jury
   cv_photo_credit: "Photos: Pexels, edited by the author"
   vimeo_play: Play the video
+  crumb_home: Home
+  crumb_projects: Projects
+  next_project: Next project
+  back_all: Back to all projects
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"
