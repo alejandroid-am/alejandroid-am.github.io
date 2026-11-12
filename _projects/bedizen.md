@@ -16,11 +16,11 @@ cover_image: /assets/img/bedizen-view.webp
 case_layout: c
 summary: The AI started out with its rounded borders and cards, but the brand is more brutalist and solid.
 project_type: Brand and website
-# Black logo: bedizen_black.svg is bedizen_white.svg with the white (#F2F1F0)
-# swapped for Horizon Noir (#1A1B1C); the red dot is unchanged.
+# Black logo: Ale's definitive black version (Logo_BEDiZEN_black_definitive.svg,
+# 2026-11-12), saved as bedizen_black.svg.
 hero_image: /assets/img/BEDiZEN/bedizen_black.svg
-hero_w: 720
-hero_h: 158
+hero_w: 870
+hero_h: 191
 hero_alt: BEDiZEN logo, geometric wordmark with red accent dot
 hero_bg: "#F2F1F0"
 # Hero video, when Ale delivers it (specs in NOTAS: 1920x1080, 10 to 15 s, no audio,
