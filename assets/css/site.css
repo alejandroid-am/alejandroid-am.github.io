@@ -410,6 +410,15 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .case-fig.is-bleed figcaption { padding-inline: var(--pad); }
 .case-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 48px; }
 .case-pair .case-fig { margin: 0; }
+.case-pair.is-contain .case-fig img { aspect-ratio: 3 / 2; height: auto; object-fit: contain; object-position: center; }
+/* Two equal blocks side by side (e.g. palette + type), each centred in its half; stacked on phones */
+.case-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.case-duo > div { min-width: 0; display: grid; justify-items: center; }
+.case-duo > div > * { width: 100%; margin: 0; }
+.case-duo .case-palette { grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); }
+.case-duo .case-typescale-row { grid-template-columns: 1fr; }
+.case-duo .case-typescale-row.is-title .case-typescale-sample { font-size: clamp(36px, 4.4vw, 64px); }
+@media (max-width: 767px) { .case-duo { grid-template-columns: 1fr; } }
 /* figure.float: cut-outs on a transparent background. No frame or background;
    drop-shadow follows the shape of the object, so it seems to float. */
 .case-fig.float, .case-fig.float .zoom-trigger { background: none; border: 0; }
@@ -529,7 +538,7 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .vimeo-facade:focus-visible { outline: 3px solid var(--y, #FFD400); outline-offset: -3px; }
 .c-body > .c-hero-cap { font-size: 16px; margin: calc(-1 * clamp(40px, 6vw, 90px)) 0 clamp(56px, 8vw, 100px); }
 .c-body { padding-top: clamp(56px, 8vw, 110px); }
-.c-body > .case-fig, .c-body > .case-compare-wrap, .c-body > .case-pair, .c-body > .case-palette, .c-body > .case-type, .c-body > .case-logos, .c-body > .case-stripes, .c-body > .case-typescale { margin-bottom: clamp(56px, 8vw, 100px); }
+.c-body > .case-fig, .c-body > .case-compare-wrap, .c-body > .case-pair, .c-body > .case-palette, .c-body > .case-type, .c-body > .case-logos, .c-body > .case-stripes, .c-body > .case-typescale, .c-body > .case-duo { margin-bottom: clamp(56px, 8vw, 100px); }
 .c-body .case-fig > figcaption { font-size: 16px; color: var(--ink); max-width: 52ch; }
 .c-body > h2 { font-size: clamp(26px, 3vw, 38px); line-height: 1.1; font-weight: 750; letter-spacing: -.02em; margin: 0 0 24px; }
 .c-body > h2:not(:first-child) { margin-top: clamp(40px, 6vw, 80px); }
