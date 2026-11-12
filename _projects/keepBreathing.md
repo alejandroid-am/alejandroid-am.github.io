@@ -36,6 +36,8 @@ hero_label: kb_figma
 
 <p class="c-note">{% include label.html key="kb_figma" %}</p>
 
+{% include case/video.html src="/assets/img/KeepBreathing/keep-breathing-figma-flow.mp4" webm="/assets/img/KeepBreathing/keep-breathing-figma-flow.webm" poster="/assets/img/KeepBreathing/keep-breathing-figma-flow-poster.webp" w=1280 h=724 tag="kbfigma" label="The Keep Breathing Figma prototype: main menu, the message The air is toxic, find a mask to survive, the gameplay with the gas mask, the pause menu and back to the menu" %}
+
 <p class="c-cta"><a class="btn" href="https://www.figma.com/proto/QSs8reDgssWakM8UEdcsEc/UI-Game-Keep-Breathing?page-id=0%3A1&node-id=1-2&p=f&viewport=419%2C342%2C0.08&t=fi78lM3WjjGiSLXA-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A2" target="_blank" rel="noopener noreferrer">Try the Figma prototype &rarr;</a></p>
 
 <h2>Best Technical Achievement</h2>
