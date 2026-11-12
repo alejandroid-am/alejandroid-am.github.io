@@ -482,7 +482,7 @@ body:not(.is-legacy) .lightbox-caption { margin-top: 14px; color: #c3bfb3; font-
    the whole image shows, centred, at most 86vh tall. */
 .c-hero img { display: block; width: auto; max-width: min(100%, 1920px); height: auto; max-height: 86vh; margin: 0 auto; }
 .c-hero.is-art { padding: clamp(48px, 9vw, 120px) var(--pad); }
-.c-hero.is-art img { width: min(100%, var(--art-w), 720px); max-height: none; margin: 0 auto; object-fit: contain; }
+.c-hero.is-art img { width: min(100%, var(--art-w), var(--art-max, 720px)); max-height: none; margin: 0 auto; object-fit: contain; }
 .c-hero-video { display: block; width: 100%; max-width: 1920px; height: auto; max-height: 80vh; margin: 0 auto; object-fit: contain; }
 .c-hero-note, .c-body > .c-note { font-size: 14px; color: var(--mute); }
 .c-hero-note { margin: 0; padding: 10px var(--pad); text-align: center; background: var(--bg); }
