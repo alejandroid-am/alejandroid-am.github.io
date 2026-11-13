@@ -21,12 +21,15 @@ fr:
     - year: "2019"
       title: Sites e-commerce
       text: "WordPress, puis PrestaShop."
-    - year: "2024–2026"
-      title: "Titre professionnel RNCP Concepteur designer UI, niveau 6"
-      text: "CCI Campus Alsace, Strasbourg."
     - year: "2026"
       title: "Global Game Jam&nbsp;: <span lang=\"en\">Best Technical Achievement</span>"
       text: "Le Shadok, Strasbourg."
+    - year: "2026"
+      title: "Titre professionnel RNCP Concepteur designer UI"
+      text: "CCI Campus Alsace, Strasbourg."
+    - year: "Suite"
+      title: "Et après ?"
+      text: "Ce n'est pas encore écrit. On l'écrit ensemble ?"
   languages_title: Langues
   languages: "Espagnol (langue maternelle), français (C1), anglais (C1)."
   skills_title: Compétences
@@ -56,12 +59,15 @@ en:
     - year: "2019"
       title: E-commerce websites
       text: "WordPress, then PrestaShop."
-    - year: "2024–2026"
-      title: "French professional title (RNCP) <span lang=\"fr\">Concepteur designer UI</span>, level 6"
-      text: "CCI Campus Alsace, Strasbourg."
     - year: "2026"
       title: "Global Game Jam: Best Technical Achievement"
       text: "Le Shadok, Strasbourg."
+    - year: "2026"
+      title: "French professional title (RNCP) <span lang=\"fr\">Concepteur designer UI</span>"
+      text: "CCI Campus Alsace, Strasbourg."
+    - year: "Next"
+      title: "And then?"
+      text: "It isn't written yet. Want to write it with me?"
   languages_title: Languages
   languages: "Spanish (native), French (C1), English (C1)."
   skills_title: Skills

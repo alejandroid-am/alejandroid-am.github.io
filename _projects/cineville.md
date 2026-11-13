@@ -55,13 +55,13 @@ drafts:
     <div class="cv-step-body" lang="fr">
       <p>CinéVille organise un festival annuel de cinéma, qui célèbre les œuvres cinématographiques indépendantes et internationales. Le festival se veut <strong>éclectique</strong> et <strong>accessible à tous</strong>, avec une atmosphère qui combine le <strong>chic et le décontracté</strong>, et il cherche à attirer des spectateurs de <strong>tous horizons</strong>. L'affiche doit <strong>refléter l'énergie</strong> de la <strong>diversité culturelle</strong> et <strong>l'audace créative</strong> du cinéma indépendant.</p>
     </div>
+    {% include case/carousel.html items=page.theatre label="cv_carousel" ratio="2 / 3" credit="cv_photo_credit" %}
   </li>
   <li class="cv-step">
     <h3>The mission</h3>
     <div class="cv-step-body" lang="fr">
       <p class="cv-mission"><strong>Mission&nbsp;:</strong> créer une affiche qui capte l'esprit unique de ce festival de cinéma, en utilisant des références culturelles et visuelles du <strong>surréalisme</strong> des années 1920-1930.</p>
     </div>
-    {% include case/carousel.html items=page.theatre label="cv_carousel" ratio="2 / 3" credit="cv_photo_credit" %}
   </li>
   <li class="cv-step">
     <h3>The codes of surrealism</h3>
