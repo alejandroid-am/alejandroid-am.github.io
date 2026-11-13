@@ -129,6 +129,7 @@
   }
 
   /* 5. Lit words, 6. rail, 7. timeline: one rAF scroll loop ------- */
+  const narrow = matchMedia("(max-width: 860px)"); // phones / tablets: no word reveal (CSS shows the sentence lit)
   const lits = [...document.querySelectorAll(".lit")].map((el) => ({ el, w: [...el.querySelectorAll(".w")], scene: el.closest(".scene"), pin: el.closest(".scene-pin") }));
   // In a scene the words light up from the moment the sentence enters the screen
   // until 85% of its sticky stretch, so the scroll never "stalls" on a sentence
@@ -196,7 +197,7 @@
     requestAnimationFrame(() => {
       ticking = false;
       const vh = innerHeight;
-      if (!reduce) { light(vh); timeline(vh); }
+      if (!reduce) { if (!narrow.matches) light(vh); timeline(vh); }
       moveRail();
     });
   };

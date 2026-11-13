@@ -649,7 +649,10 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
   body.is-legacy .site-header-inner { padding-block: 10px 0; }
 
   .home-hero { min-height: 0; padding-top: 48px; }
-  .scene { min-height: 125vh; }
+  /* Phones and tablets: no word reveal, no sticky (the sentence is simply shown) */
+  .scene { min-height: 0; padding-block: 64px; }
+  .scene-pin { position: static; }
+  .js-motion .lit .w { color: var(--ink); transition: none; }
   .orow-head { grid-template-columns: 32px minmax(0, 1fr) auto; gap: 6px 14px; padding-inline: 8px; }
   .o-short { grid-column: 2 / -1; grid-row: 2; }
   .o-arrow { grid-column: 3; grid-row: 1; display: none; }
