@@ -143,10 +143,10 @@
   <footer class="site-footer">
     <div class="footer-main">
       <p class="footer-title">{{ t.footer_title }}</p>
-      <!-- LOTTIE: Ale's animated name goes here (right of "Un projet, une question ?",
-           a few px above it). Keep it empty until the Lottie file exists: an empty
-           .footer-lottie is not displayed. -->
-      <div class="footer-lottie" aria-hidden="true"></div>
+      {%- assign sig = site.static_files | where: "path", "/assets/img/signature.svg" | first %}
+      {%- if sig %}
+      <div class="footer-lottie footer-sig" aria-hidden="true"><img src="/assets/img/signature.svg" alt="" width="595" height="281" loading="lazy" decoding="async"></div>
+      {%- endif %}
       {% include copy-email.html t=t class="footer-mail" %}
       <p><a href="{{ nav_t.contact_url }}"{% if swap_nav %} data-href-en="{{ nav_en.contact_url }}"{% endif %} class="link-arrow">{% if site.form_enabled %}{{ t.footer_contact }}{% else %}{{ t.footer_contact_mail }}{% endif %}<span aria-hidden="true"> →</span></a></p>
     </div>
