@@ -7,7 +7,7 @@ fr:
   projet: Projet
   projet_sub: "Un besoin précis, un prix annoncé avant de commencer."
   agences: Agences
-  # [[A CONFIRMAR]] show_dev_note stays false until the trusted developers are confirmed.
+  # show_dev_note stays false (nothing shown) until the trusted developers are confirmed.
   show_dev_note: false
   dev_note: "Besoin de développement sur mesure&nbsp;? Je travaille avec des développeurs de confiance et je reste votre seul interlocuteur."
   end_title: "Vous hésitez entre deux offres&nbsp;?"

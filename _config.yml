@@ -7,8 +7,8 @@ lang: fr
 # Data still to provide. While a value is empty, the element that needs it
 # is not rendered at all (no marker on screen). The header button reads
 # "Me contacter" until cal_url is set, then "Échanger 20 min".
-cal_url: ""        # [[A COMPLETAR: enlace Cal.com]]
-instagram_url: ""  # [[A COMPLETAR: URL Instagram]]
+cal_url: ""        # Not used for now (decision of Ale, 13/11/2026): no booking link.
+instagram_url: "https://www.instagram.com/alejandroid_a.m/"
 siret: "108 337 783 00014"  # SIREN 108 337 783
 address: "67 rue de Saint-Dié, 67100 Strasbourg"  # TEMPORARY: current home address, shown ONLY on the legal notice (mentions-legales.html). Replace when the business address changes (domiciliation). Never use it elsewhere (no footer, no JSON-LD, no meta).
 # CV downloads on À propos / About. Empty = no button. Put the PDFs in

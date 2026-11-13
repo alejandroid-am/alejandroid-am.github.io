@@ -1,8 +1,7 @@
 # Offers shown on /services/, on the home cards and in the contact form.
 # Prices exclude VAT (TVA non applicable, art. 293 B du CGI).
 # Maintenance offers (Sérénité 150 €/mois, + amélioration continue 320 €/mois)
-# are intentionally absent until CGV and RC Pro are settled:
-# [[A COMPLETAR: CGV / RC Pro]]
+# are intentionally absent until CGV and RC Pro are settled (future decision, nothing shown meanwhile).
 #
 # Price: an amount starting with "dès" / "from" gets the note "précisé dans le devis".
 # The Revue UX price is closed (no "dès").
