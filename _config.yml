@@ -18,8 +18,8 @@ address: "67 rue de Saint-Dié, 67100 Strasbourg"  # TEMPORARY: current home add
 # hidden. true = the form works as before. Before switching to true, check that
 # the Formspree endpoint in _includes/contact.html is really yours (see NOTAS).
 form_enabled: false
-cv_pdf_fr: ""
-cv_pdf_en: ""
+cv_pdf_fr: "/assets/docs/CV-Alejandro-FR.pdf"
+cv_pdf_en: "/assets/docs/CV-Alejandro-EN.pdf"
 
 author:
   name: Alejandro Amaro Mendoza
