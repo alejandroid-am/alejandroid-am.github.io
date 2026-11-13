@@ -11,16 +11,20 @@
    7. Timeline (About)
    9. Open the <details> targeted by the URL hash (/services/#revue-ux)
   10. Image carousel (case studies)
+  11. Footer signature (drawn once per visit)
 =================================================================
 */
 (() => {
   const root = document.documentElement;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduce) root.classList.add("js-motion");
+  // s = "session" for sessionStorage. The storage object is read inside try: a browser
+  // that blocks storage throws on the mere access to window.localStorage / sessionStorage.
+  const area = (s) => (s === "session" ? window.sessionStorage : window.localStorage);
   const store = {
-    get(k, s) { try { return (s || localStorage).getItem(k); } catch (e) { return null; } },
-    set(k, v, s) { try { (s || localStorage).setItem(k, v); } catch (e) { /* storage blocked */ } },
-    del(k, s) { try { (s || localStorage).removeItem(k); } catch (e) { /* storage blocked */ } }
+    get(k, s) { try { return area(s).getItem(k); } catch (e) { return null; } },
+    set(k, v, s) { try { area(s).setItem(k, v); } catch (e) { /* storage blocked */ } },
+    del(k, s) { try { area(s).removeItem(k); } catch (e) { /* storage blocked */ } }
   };
   const clamp = (v) => Math.min(1, Math.max(0, v));
 
@@ -30,7 +34,7 @@
   document.querySelectorAll("a[data-lang]").forEach((a) =>
     a.addEventListener("click", () => store.set("lang", a.dataset.lang)));
   if (hint) {
-    store.set("lang_ctx", pageLang, sessionStorage);
+    store.set("lang_ctx", pageLang, "session");
     const stay = hint.querySelector(".lang-hint-stay");
     stay.addEventListener("click", () => {
       store.set("lang", stay.dataset.lang);
@@ -59,7 +63,7 @@
     });
     document.querySelectorAll("[data-set-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
   };
-  const ctxLang = (store.get("lang") || store.get("lang_ctx", sessionStorage)) === "en" ? "en" : "fr";
+  const ctxLang = (store.get("lang") || store.get("lang_ctx", "session")) === "en" ? "en" : "fr";
   if (ctxLang === "en") applyLang("en");
   document.querySelectorAll("[data-lang-toggle]").forEach((g) => {
     g.hidden = false;
@@ -67,7 +71,7 @@
       b.setAttribute("aria-pressed", String(b.dataset.setLang === ctxLang));
       b.addEventListener("click", () => {
         store.set("lang", b.dataset.setLang);
-        store.set("lang_ctx", b.dataset.setLang, sessionStorage);
+        store.set("lang_ctx", b.dataset.setLang, "session");
         applyLang(b.dataset.setLang);
       });
     });
@@ -237,6 +241,54 @@
       f.focus();
     });
   });
+
+  /* 11. Footer signature: drawn once per visit when the footer comes into view.
+     The <img> (whole signature) stays for no JS, reduced motion, a failed fetch, and
+     the next pages of the same visit (flag in sessionStorage, set when the drawing ends). */
+  const sigBox = document.querySelector(".footer-sig");
+  const sigImg = sigBox?.querySelector("img");
+  const sigDone = () => store.get("sig_done", "session") === "1";
+  if (sigImg && !reduce && !sigDone() && "IntersectionObserver" in window && window.fetch && window.DOMParser) {
+    sigBox.classList.add("is-pending");
+    const reveal = () => sigBox.classList.remove("is-pending");
+    let svgP = null;
+    const load = () => svgP || (svgP = fetch(sigImg.currentSrc || sigImg.src)
+      .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+      .then((t) => {
+        const svg = new DOMParser().parseFromString(t, "image/svg+xml").documentElement;
+        if (!svg || svg.nodeName.toLowerCase() !== "svg") throw new Error("not svg");
+        return document.importNode(svg, true);
+      }));
+    const draw = (svg) => {
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("focusable", "false");
+      const paths = [...svg.querySelectorAll("path")];
+      sigImg.replaceWith(svg);
+      reveal();
+      let delay = 0;
+      paths.forEach((p) => {
+        const len = Math.ceil(p.getTotalLength()) + 2; // + 2: no gap at the round caps
+        p.style.strokeDasharray = len + " " + len;
+        p.style.strokeDashoffset = len;
+        p.dataset.delay = delay;
+        delay += +p.dataset.d || 400;
+      });
+      svg.getBoundingClientRect(); // commit the hidden state before the transition
+      paths.forEach((p) => {
+        p.style.transition = "stroke-dashoffset " + (+p.dataset.d || 400) + "ms cubic-bezier(.45, .05, .35, 1) " + p.dataset.delay + "ms";
+        p.style.strokeDashoffset = "0";
+      });
+      setTimeout(() => store.set("sig_done", "1", "session"), delay + 50);
+    };
+    const near = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { near.disconnect(); load().catch(() => {}); } }, { rootMargin: "600px 0px" });
+    const io = new IntersectionObserver((es) => {
+      if (!es.some((e) => e.isIntersecting)) return;
+      io.disconnect(); // once per page
+      load().then(draw).catch(reveal);
+    }, { threshold: 0.4 });
+    near.observe(sigBox);
+    io.observe(sigBox);
+  }
 
   /* 9. Open the <details> targeted by the hash -------------------- */
   const openHash = () => {
