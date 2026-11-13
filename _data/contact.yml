@@ -5,6 +5,7 @@ fr:
   cal_text: "Vous préférez réserver directement un créneau&nbsp;?"
   cal_link: Échanger 20 min
   email_label: "Envoyer un email"
+  malt_label: "Me confier une mission sur Malt"
   required_note: "Tous les champs sont obligatoires, sauf l'offre."
   name: Nom
   name_err: Indiquez votre nom.
@@ -39,6 +40,7 @@ en:
   cal_text: Prefer to book a slot directly?
   cal_link: Book a 20-min call
   email_label: Send an email
+  malt_label: "Hire me on Malt"
   required_note: All fields are required, except the offer.
   name: Name
   name_err: Please enter your name.

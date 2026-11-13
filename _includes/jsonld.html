@@ -32,7 +32,7 @@
       "jobTitle": {{ job | jsonify }},
       "url": "{{ base }}/",
       "email": "mailto:{{ site.author.email }}",
-      "sameAs": [{{ site.author.linkedin | jsonify }}{% if site.instagram_url != "" %}, {{ site.instagram_url | jsonify }}{% endif %}],
+      "sameAs": [{{ site.author.linkedin | jsonify }}{% if site.malt_url and site.malt_url != "" %}, {{ site.malt_url | jsonify }}{% endif %}{% if site.instagram_url != "" %}, {{ site.instagram_url | jsonify }}{% endif %}],
       "knowsAbout": ["UX design", "UI design", "E-commerce", "PrestaShop", "WordPress", "Visual identity"]
     }
     {%- if is_home or is_services %},
