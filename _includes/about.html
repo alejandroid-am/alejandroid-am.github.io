@@ -10,7 +10,7 @@
 <section class="about-top" aria-label="{{ a.title }}">
   <img class="about-photo" src="/assets/img/profile.webp" alt="{{ a.photo_alt }}" width="1674" height="1672" loading="eager" decoding="async">
   <div>
-    <p class="big lit"{% if a.phrase_lang != page.lang %} lang="{{ a.phrase_lang }}"{% endif %}>{% include lit.html text=a.phrase %}</p>
+    <p class="big"{% if a.phrase_lang != page.lang %} lang="{{ a.phrase_lang }}"{% endif %}>{{ a.phrase }}</p>
     <div class="about-story"{% if a.story_lang != page.lang %} lang="{{ a.story_lang }}"{% endif %}>
       {%- for para in site.data.about.story %}
       <p>{{ para }}</p>

@@ -129,12 +129,20 @@
   }
 
   /* 5. Lit words, 6. rail, 7. timeline: one rAF scroll loop ------- */
-  const lits = [...document.querySelectorAll(".lit")].map((el) => ({ el, w: [...el.querySelectorAll(".w")], scene: el.closest(".scene") }));
-  const light = (vh) => lits.forEach(({ el, w, scene }) => {
+  const lits = [...document.querySelectorAll(".lit")].map((el) => ({ el, w: [...el.querySelectorAll(".w")], scene: el.closest(".scene"), pin: el.closest(".scene-pin") }));
+  // In a scene the words light up from the moment the sentence enters the screen
+  // until 85% of its sticky stretch, so the scroll never "stalls" on a sentence
+  // that is already fully lit (same timing on phones and desktops).
+  const light = (vh) => lits.forEach(({ el, w, scene, pin }) => {
     const r = (scene || el).getBoundingClientRect();
-    const p = scene
-      ? clamp((vh * 0.6 - r.top) / (r.height * 0.55))
-      : clamp((vh * 0.9 - r.top) / (vh * 0.45 + r.height * 0.5));
+    let p;
+    if (scene && pin) {
+      const cs = getComputedStyle(scene);
+      const padT = parseFloat(cs.paddingTop) || 0, padB = parseFloat(cs.paddingBottom) || 0;
+      const start = padT - vh * 0.8;
+      const end = r.height - (parseFloat(getComputedStyle(pin).top) || 0) - pin.offsetHeight - padB;
+      p = clamp((-r.top - start) / Math.max(1, (end - start) * 0.85));
+    } else p = clamp((vh * 0.9 - r.top) / (vh * 0.45 + r.height * 0.5));
     const n = Math.round(p * w.length);
     w.forEach((x, k) => x.classList.toggle("on", k < n));
   });
