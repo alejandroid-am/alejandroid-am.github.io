@@ -177,14 +177,62 @@ html.lang-hint-on .lang-hint { display: block; }
 .big { font-size: clamp(32px, 5vw, 76px); line-height: 1.05; letter-spacing: -.035em; font-weight: 600; max-width: 21ch; }
 .section { padding: 112px var(--pad); border-top: 1px solid var(--line); }
 
+/* Buttons: hand-drawn marker strokes (assets/img/strokes/, original SVGs).
+   ::before = the black stroke (primary: thick marker; .btn-ghost: double underline)
+   ::after  = the yellow highlighter, drawn left to right on hover / focus.
+   Three stroke variants (--mk, --hl) picked by position, so one button always keeps the same one.
+   Text stays real text; contrast: --bg on --ink and --on-y on --y, both > 4.5:1. */
 .btn {
-  display: inline-block; padding: 14px 22px; border-radius: 999px; border: 0;
-  background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 17px; cursor: pointer;
-  transition: background .2s, color .2s;
+  --mk: url("/assets/img/strokes/marker-1.svg");
+  --hl: url("/assets/img/strokes/highlight-1.svg");
+  --stroke: var(--ink); --glow: var(--y); --fg: var(--bg); --fg-on: var(--on-y);
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
+  padding: 14px 28px; border: 0; border-radius: 0; background: transparent;
+  color: var(--fg); text-decoration: none; font-weight: 600; font-size: 17px; line-height: 1.25; cursor: pointer;
+  transition: color .18s .12s;
 }
-.btn.btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
-.btn:hover { background: var(--y); color: var(--on-y); box-shadow: none; }
-.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn::before, .btn::after {
+  content: ""; position: absolute; inset: -3px -6px; z-index: -1; pointer-events: none;
+  -webkit-mask: var(--mk) center / 100% 100% no-repeat; mask: var(--mk) center / 100% 100% no-repeat;
+  background: var(--stroke);
+}
+.btn::after {
+  -webkit-mask-image: var(--hl); mask-image: var(--hl);
+  background: var(--glow);
+  clip-path: inset(0 100% 0 0); opacity: 0;
+  /* leaving: fade out, then reset the sweep */
+  transition: opacity .16s ease, clip-path 0s linear .16s;
+}
+.btn.btn-ghost {
+  --mk: url("/assets/img/strokes/underline-1.svg");
+  --hl: url("/assets/img/strokes/swipe-1.svg");
+  --fg: var(--ink); color: var(--fg);
+}
+.btn:is(:focus-visible, :active)::after { clip-path: inset(0 0 0 0); opacity: 1; transition: clip-path .4s cubic-bezier(.45, .05, .35, 1), opacity 0s; }
+.btn:is(:focus-visible, :active) { color: var(--fg-on); }
+@media (hover: hover) {
+  .btn:hover::after { clip-path: inset(0 0 0 0); opacity: 1; transition: clip-path .4s cubic-bezier(.45, .05, .35, 1), opacity 0s; }
+  .btn:hover { color: var(--fg-on); }
+}
+/* Keyboard focus: a 2 px outline on top of the yellow stroke (distinct from hover) */
+:where(body:not(.is-legacy)) .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; box-shadow: none; border-radius: 2px; }
+/* Variants by position (deterministic: the same button always gets the same stroke) */
+.btn-row > .btn:nth-child(2), .c-cta > .btn:nth-child(2), .contact-form .btn,
+.olist > li:nth-child(3n+2) .btn { --mk: url("/assets/img/strokes/marker-2.svg"); --hl: url("/assets/img/strokes/highlight-2.svg"); }
+.btn-row > .btn:nth-child(3), .c-cta > .btn:nth-child(3), .page-about .btn,
+.olist > li:nth-child(3n) .btn { --mk: url("/assets/img/strokes/marker-3.svg"); --hl: url("/assets/img/strokes/highlight-3.svg"); }
+:is(.btn-row, .c-cta) > .btn.btn-ghost:nth-child(2) { --mk: url("/assets/img/strokes/underline-2.svg"); --hl: url("/assets/img/strokes/swipe-2.svg"); }
+:is(.btn-row, .c-cta) > .btn.btn-ghost:nth-child(3) { --mk: url("/assets/img/strokes/underline-3.svg"); --hl: url("/assets/img/strokes/swipe-3.svg"); }
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn::after, .btn:hover::after, .btn:is(:focus-visible, :active)::after { transition: none !important; }
+}
+@media (forced-colors: active) {
+  .btn::before, .btn::after { display: none; }
+  .btn { border: 2px solid ButtonText; color: ButtonText; background: ButtonFace; forced-color-adjust: none; }
+  .btn:is(:hover, :focus-visible) { border-color: Highlight; color: Highlight; }
+}
+.btn-row { display: flex; flex-wrap: wrap; gap: 14px 22px; }
 
 /* Words that light up with the scroll. Fully readable without JS / reduced motion. */
 .lit .w { transition: color .25s; }
@@ -293,8 +341,8 @@ details.orow[open] .o-arrow::before { transform: rotate(45deg); }
 .orow-body li::before { content: "· "; color: var(--mute); }
 .orow.is-featured .orow-body li::before { color: #3d3a00; }
 .orow-cta { grid-column: 3; align-self: end; }
-.orow.is-featured .btn { background: var(--on-y); color: var(--y); }
-.orow.is-featured .btn:hover { background: var(--bg); color: var(--ink); }
+/* On the yellow card a yellow highlight would be invisible: the stroke is dark and the highlight cream */
+.orow.is-featured .btn { --stroke: var(--on-y); --fg: var(--y); --glow: var(--bg); --fg-on: var(--ink); }
 
 /* 9. Services -------------------------------------------------- */
 .svc-block { padding: 72px var(--pad) 24px; }
@@ -568,7 +616,7 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 .c-poster { max-width: 640px; margin-inline: auto; }
 .c-poster img { width: 100%; height: auto; }
 .c-body > .c-cta { margin: 0 0 clamp(56px, 8vw, 100px); }
-.c-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.c-cta { display: flex; flex-wrap: wrap; gap: 14px 22px; }
 /* Bento gallery (case/bento.html) */
 .case-bento { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(80px, 13vw, 200px); grid-auto-flow: dense; gap: 8px; }
 .c-body > .case-bento { margin: 0 0 clamp(56px, 8vw, 100px); }
