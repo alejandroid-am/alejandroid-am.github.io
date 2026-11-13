@@ -145,7 +145,7 @@ html.lang-hint-on .lang-hint { display: block; }
    Its box is fixed (width + aspect-ratio): no layout shift. Without JS or with reduced
    motion the <img> shows the whole signature; site.js swaps it for the inline SVG and
    draws it once per visit (.is-pending hides the <img> until then). */
-.footer-sig { grid-column: 2; grid-row: 1 / span 3; align-self: start; margin-top: -10px; width: clamp(120px, 10vw + 60px, 220px); aspect-ratio: 595.041 / 280.562; color: var(--ink); pointer-events: none; }
+.footer-sig { grid-column: 2; grid-row: 1 / span 3; align-self: start; margin-top: -10px; width: clamp(150px, 15vw + 60px, 320px); aspect-ratio: 595.041 / 280.562; color: var(--ink); pointer-events: none; }
 .footer-sig img, .footer-sig svg { display: block; width: 100%; height: 100%; }
 .footer-sig.is-pending img { visibility: hidden; }
 /* Phones: the signature only sits next to the title; the email and the links get the full width */
