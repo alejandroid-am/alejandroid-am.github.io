@@ -13,9 +13,6 @@
     {%- unless site.form_enabled %}
     <p><a class="btn" id="contact-mailto" href="mailto:ale.amaro.m@proton.me" data-locked-subject="{{ t.locked_subject | replace: '&nbsp;', ' ' }}">{{ ct.email_label }}</a></p>
     {%- endunless %}
-    {%- if site.malt_url and site.malt_url != "" %}
-    <p><a class="link-arrow" href="{{ site.malt_url }}" target="_blank" rel="noopener noreferrer">{{ ct.malt_label }}<span aria-hidden="true">&nbsp;→</span></a></p>
-    {%- endif %}
     <p><a class="link-arrow" href="https://www.linkedin.com/in/alejandro-a-mendoza/" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true"> →</span></a></p>
     {%- if site.instagram_url != "" %}
     <p><a class="link-arrow" href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram<span aria-hidden="true"> →</span></a></p>
