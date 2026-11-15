@@ -98,17 +98,36 @@
   }
 
   /* 4. Home H1: interchangeable last word ------------------------
-     Mouse hover (after 120 ms) or a click on the word shows the next word. The H1 height is reserved for the longest word. */
+     Mouse hover (after 120 ms) or a click on the word shows the next word. The H1 height is reserved for the longest word.
+     Change: 500 ms crossfade (the old word, aria-hidden, fades out over the new one) while the width glides
+     from the old word to the new one; each word stays at least 1.5 s (a faster click waits its turn).
+     Reduced motion: direct change. */
   const swap = document.querySelector(".h1-swap");
   if (swap) {
     const h1 = swap.closest("h1");
     const word = swap.querySelector(".h1-word");
     const words = JSON.parse(swap.dataset.words || "[]");
-    let i = 0, timer = 0;
+    let i = 0, timer = 0, last = -1e9, wait = 0, done = 0;
+    const FADE = 500, DWELL = 1500;
     const show = (n) => {
+      if (reduce) { i = (n + words.length) % words.length; word.textContent = words[i]; return; }
+      const now = performance.now();
+      if (now - last < DWELL) { clearTimeout(wait); wait = setTimeout(() => show(i + 1), DWELL - (now - last)); return; }
+      last = now;
       i = (n + words.length) % words.length;
+      clearTimeout(done);
+      swap.querySelectorAll(".is-out").forEach((o) => o.remove());
+      const w0 = swap.getBoundingClientRect().width;
+      const old = word.cloneNode(true);
+      old.classList.remove("is-in"); old.classList.add("is-out"); old.setAttribute("aria-hidden", "true");
+      swap.insertBefore(old, word.nextSibling);
       word.textContent = words[i];
-      if (!reduce) { word.classList.remove("is-in"); void word.offsetWidth; word.classList.add("is-in"); }
+      swap.style.width = "";
+      const w1 = swap.getBoundingClientRect().width;
+      swap.style.width = w0 + "px"; void swap.offsetWidth; swap.style.width = w1 + "px";
+      swap.classList.add("is-changing");
+      word.classList.remove("is-in"); void word.offsetWidth; word.classList.add("is-in");
+      done = setTimeout(() => { old.remove(); swap.style.width = ""; swap.classList.remove("is-changing"); }, FADE + 60);
     };
     const reserve = () => {
       h1.style.minHeight = "";
