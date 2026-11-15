@@ -87,14 +87,14 @@ palette:
 
 {% capture long %}
 <h3>There were few purchases</h3>
-<p>Spin App let users spin a wheel for a reward <em>before</em> paying for a top-up. I knew there were few purchases.</p>
+<p>Spin App let users spin a wheel for a reward <em>before</em> paying for a top-up. I knew there were <mark>few purchases</mark>.</p>
 
 <h3>I didn't have the data</h3>
-<p>I didn't know it from data: it was just intuition. (I know, in UX there's no intuition, there's user feedback.) The back-end developer was the one with access to those numbers.</p>
+<p>I didn't know it from data: <mark>it was just intuition</mark>. (I know, in UX there's no intuition, there's user feedback.) The back-end developer was the one with access to those numbers.</p>
 
 <h3>The wheel comes after paying</h3>
-<p>Flipping the flow was my idea: the wheel, after paying.</p>
-<p>I based it on conventions already established in similar apps, which were part of my research, to see if we could attract customers from the competition and keep the learning curve gentle.</p>
+<p>Flipping the flow was my idea: <mark>the wheel, after paying</mark>.</p>
+<p>I based it on <mark>conventions already established</mark> in similar apps, which were part of my research, to see if we could attract customers from the competition and keep the learning curve gentle.</p>
 <h4>Before: Spin, then pay</h4>
 <p><strong>Open App → Spin the Wheel → Top Up</strong></p>
 <ul>
@@ -105,14 +105,14 @@ palette:
 <p><strong>Open App → Top Up → Payment confirmed → Spin the Wheel</strong></p>
 <ul>
   <li>The user spins <em>after</em> a confirmed purchase.</li>
-  <li>Every spin wins something: cashback, points, or double recharge.</li>
+  <li><mark>Every spin wins something</mark>: cashback, points, or double recharge.</li>
 </ul>
 
 <h3>The test: 3 people</h3>
-<p>I tested it with 3 people. One is a developer with deep knowledge of ergonomics, accessibility and UX, who gave me the green light. The other two, also developers, went through the flow in the Figma prototype.</p>
+<p>I <mark>tested it with 3 people</mark>. One is a developer with deep knowledge of ergonomics, accessibility and UX, who gave me the green light. The other two, also developers, went through the flow in the Figma prototype.</p>
 
 <h3>What I would have measured</h3>
-<p>The purchases made, how many users came back and how often, and how long they spent on each screen (if possible).</p>
+<p>The purchases made, <mark>how many users came back</mark> and how often, and how long they spent on each screen (if possible).</p>
 
 <p class="c-closing">In UX there's no intuition: there's user feedback.</p>
 

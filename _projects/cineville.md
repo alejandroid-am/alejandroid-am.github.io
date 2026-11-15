@@ -157,11 +157,11 @@ drafts:
 {% capture long %}
 <h3>At the library: surrealism and typography</h3>
 <p>After getting the brief, I went to the Médiathèque André Malraux in Strasbourg, my city.</p>
-<p>There I took out books on surrealism to understand the concept and the art movement academically: where it comes from and who its main figures were. That's where Dalí and Magritte came from. I also took out books on typography, to find out which one would suit the poster best.</p>
+<p>There I took out <mark>books on surrealism</mark> to understand the concept and the art movement academically: where it comes from and who its main figures were. That's where Dalí and Magritte came from. I also took out books on typography, to find out which one would suit the poster best.</p>
 
 <h3>The delivery</h3>
-<p>Everything ready for print in CMYK, with the right image quality and size, and the layers organized in case of changes later.</p>
+<p>Everything <mark>ready for print in CMYK</mark>, with the right image quality and size, and the layers organized in case of changes later.</p>
 
-<p class="c-closing">And a presentation at the end that explains how I worked and justifies each of my decisions.</p>
+<p class="c-closing">And a presentation at the end that explains how I worked and <mark>justifies each of my decisions</mark>.</p>
 {% endcapture %}
 {% include case/detail.html summary="Le détail" summary_lang="fr" content=long %}

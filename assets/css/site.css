@@ -180,14 +180,23 @@ html.lang-hint-on .lang-hint { display: block; }
    keyboard focus, one stroke per line when a title wraps. */
 :root { --mk-ink: url("/assets/img/strokes/marker-line-ink.svg"); --mk-mute: url("/assets/img/strokes/marker-line-mute.svg"); --mk-y: url("/assets/img/strokes/marker-line-y.svg"); }
 body.is-legacy { --mk-ink: url("/assets/img/strokes/marker-line-ink-legacy.svg"); --mk-mute: url("/assets/img/strokes/marker-line-mute-legacy.svg"); }
-.site-nav a, .lang-opt, .link-arrow, .rail-title, .prow-title a {
+.site-nav a, .lang-opt, .rail-title, .prow-title a {
   --mk-u: var(--mk-mute); --mk-h: .26em;
   background: var(--mk-u) no-repeat 0 100% / 0 var(--mk-h);
   padding-bottom: .22em;                       /* inline padding: lowers the stroke, line height unchanged */
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
   transition: background-size .35s var(--ease);
 }
-.link-arrow:is(:hover, :focus-visible) { --mk-u: var(--mk-y); background-size: 100% var(--mk-h); }
+/* Text links with an arrow ("Voir tous les projets →"): on hover / focus the whole
+   label gets marked with the yellow highlighter swipe of the ghost buttons, drawn
+   left to right, behind the letters and behind the link's black underline. */
+.link-arrow {
+  background: url("/assets/img/strokes/swipe-y-1.svg") no-repeat 0 50% / 0 100%;
+  padding: .1em .15em; margin: 0 -.15em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  transition: background-size .4s cubic-bezier(.45, .05, .35, 1);
+}
+.link-arrow:is(:hover, :focus-visible) { background-size: 100% 100%; color: var(--on-y); }
 
 
 /* 6. Shared pieces --------------------------------------------- */
@@ -273,22 +282,16 @@ body.is-legacy { --mk-ink: url("/assets/img/strokes/marker-line-ink-legacy.svg")
 }
 .home-hero .eyebrow { font-size: 15px; font-weight: 600; color: var(--mute); }
 .hero-h1 { max-width: 13.5ch; }
-/* ONE underline under the swap word: a black, fixed, irregular marker line
-   (.h1-marker, decorative, aria-hidden), where the yellow bar used to be.
-   Word change: 500 ms crossfade (old word fades out on top of the new one) and
-   the width glides over the same 500 ms, so nothing jumps (site.js). */
-.h1-swap { white-space: nowrap; position: relative; display: inline-block; transition: width .5s ease-in-out; }
-.h1-word { padding-bottom: .02em; }
+.h1-swap { white-space: nowrap; }
+/* The yellow bar under the swap word: an irregular marker line (same place and
+   thickness as the straight bar it replaces) */
+.h1-word { background: url("/assets/img/strokes/marker-line-y.svg") 0 90% / 100% .14em no-repeat; padding-bottom: .02em; }
 .js .h1-swap { cursor: pointer; }
-.h1-word.is-in { animation: h1-fade-in .5s ease-in-out both; }
-.h1-swap.is-changing { clip-path: inset(-.4em 0 -.4em -.2em); }   /* while the width glides: no letter over the final "." */
-.h1-word.is-out { position: absolute; left: 0; top: 0; pointer-events: none; animation: h1-fade-out .5s ease-in-out both; }
-.h1-marker {
-  position: absolute; left: -.02em; bottom: .02em; width: calc(100% + .04em); height: .16em;
-  color: var(--ink); pointer-events: none; overflow: visible;
-}
-@keyframes h1-fade-in { from { opacity: 0; } }
-@keyframes h1-fade-out { to { opacity: 0; } }
+.h1-word.is-in { animation: h1-in .45s var(--ease) both; }
+/* When the longest word has to start a new line, every word starts it (site.js):
+   a short word never jumps up to the line above */
+.h1-break .h1-swap::before { content: "\A"; white-space: pre; }
+@keyframes h1-in { from { opacity: .01; transform: translateY(.18em); } }
 .h1-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: 15px; color: var(--mute); }
 .home-hero .value { max-width: 48ch; color: var(--mute); font-size: 19px; }
 .hero-in { animation: hero-in .8s var(--ease) both; }
@@ -322,6 +325,16 @@ body.is-legacy { --mk-ink: url("/assets/img/strokes/marker-line-ink-legacy.svg")
 .rail-title { font-size: 26px; font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
 .rail-meta { grid-column: 2; color: var(--mute); font-size: 15px; }
 .rail-go { grid-column: 3; grid-row: 1; font-weight: 600; font-size: 15px; white-space: nowrap; }
+/* Key words in the case studies' "Le détail": marked with the yellow
+   highlighter (decorative emphasis, the text is unchanged). Ink on yellow 15:1. */
+.case-detail-body mark {
+  color: var(--on-y); background: url("/assets/img/strokes/swipe-y-2.svg") no-repeat 0 50% / 100% 100%;
+  padding: 0 .12em; margin: 0 -.04em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.case-detail-body mark:nth-of-type(3n+2) { background-image: url("/assets/img/strokes/swipe-y-3.svg"); }
+.case-detail-body mark:nth-of-type(3n) { background-image: url("/assets/img/strokes/swipe-y-1.svg"); }
+@media (forced-colors: active) { .case-detail-body mark { background: Mark; color: MarkText; forced-color-adjust: none; } }
 .rail-title { justify-self: start; }   /* the stroke spans the title, not the whole cell */
 .rail-card:is(:hover, :focus-visible) .rail-title { --mk-u: var(--mk-y); --mk-h: .3em; background-size: 100% var(--mk-h); }
 .rail-item--all { flex-basis: min(60vw, 520px); }
@@ -776,9 +789,8 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
 /* 16. Reduced motion ------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
-  .hero-in, .h1-word.is-in, .h1-word.is-out { animation: none; }
-  .h1-swap { transition: none; }
-  .site-nav a, .lang-opt, .link-arrow, .rail-title, .prow-title a { transition: none; }
+  .hero-in, .h1-word.is-in { animation: none; }
+  .site-nav a, .lang-opt, .rail-title, .prow-title a, .link-arrow { transition: none; }
   .rail-media img, .prow-media img, .orow-head, .o-arrow, .tl-item { transition: none; }
 }
 

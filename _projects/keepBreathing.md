@@ -48,31 +48,31 @@ hero_label: kb_figma
 
 {% capture long %}
 <h3>Global Game Jam 2026: "Masks", 48 hours, all first-timers</h3>
-<p>Global Game Jam 2026, theme "Masks", 48 hours. We were all first-timers at the GGJ, up against studios that were there and had been making games for years. We had no chance of winning, but I always had this little thing inside me: "I'd love to win one of the categories." No, I'm lying: "I'd love to win best game."</p>
+<p>Global Game Jam 2026, theme "Masks", 48 hours. We were all first-timers at the GGJ, up against studios that were there and had been making games for years. We had no chance of winning, but I always had this little thing inside me: "I'd love to win one of the categories." No, I'm lying: "<mark>I'd love to win best game.</mark>"</p>
 
 <h3>A leader who didn't announce it</h3>
-<p>I was given the project lead role, but I didn't tell anyone. We were all beginners and, even though I was the oldest, I wanted the team to feel flat, without a top-down hierarchy. But yes, there was a leader, and it was me. Without me having to say it, they accepted my direction.</p>
+<p>I was given the project lead role, but I didn't tell anyone. We were all beginners and, even though I was the oldest, I wanted the team to feel flat, <mark>without a top-down hierarchy</mark>. But yes, there was a leader, and it was me. Without me having to say it, they accepted my direction.</p>
 
 <h3>Big ideas, and everyone had the same ones</h3>
 <p>The others got carried away with very good ideas, but in my opinion they were too complicated for just 48 hours.</p>
-<p>I also went around the other tables to see what the other teams were doing, and I noticed a very repetitive pattern, one that was happening in my team too: everyone was thinking of the same ideas, RPGs, Venetian masks, Japanese masks, etc. Very cliché.</p>
+<p>I also went around the other tables to see what the other teams were doing, and I noticed a very repetitive pattern, one that was happening in my team too: <mark>everyone was thinking of the same ideas</mark>, RPGs, Venetian masks, Japanese masks, etc. Very cliché.</p>
 
 <h3>One carriage and a gas mask</h3>
-<p>I said no to a lot of things and proposed something simple, inspired by casual games like Subway Surfers: a short, simple game tree, a clean game loop, easy to replay and almost addictive.</p>
-<p>Since it was first person, I thought of <em>Platform 8</em>, where every carriage is the same one and very strange things happen. That let us reuse the same level again and again, just by changing the mechanic: in this case, finding a gas mask that lets you survive longer.</p>
+<p>I said no to a lot of things and proposed something simple, inspired by casual games like Subway Surfers: a short, simple game tree, <mark>a clean game loop</mark>, easy to replay and almost addictive.</p>
+<p>Since it was first person, I thought of <em>Platform 8</em>, where every carriage is the same one and very strange things happen. That let us reuse the same level again and again, just by changing the mechanic: in this case, <mark>finding a gas mask</mark> that lets you survive longer.</p>
 <p>The cliché pattern is what led me to the gas mask, which seemed more original, and easy to make with the survival idea.</p>
 <p>I pitched the idea and everyone agreed.</p>
 
 <h3>How we organized</h3>
 <ul>
-  <li>I taught them the <strong>MoSCoW</strong> method, so we'd have at least a working MVP and a complete game loop by the end of the 48 hours. The timer, the per-second score, the leaderboard and other ideas were left out precisely because of that method, and thanks to it we could present something decent, even if unfinished.</li>
+  <li>I taught them the <mark><strong>MoSCoW</strong> method</mark>, so we'd have at least a working MVP and a complete game loop by the end of the 48 hours. The timer, the per-second score, the leaderboard and other ideas were left out precisely because of that method, and thanks to it we could present something decent, even if unfinished.</li>
   <li>Trello to assign tasks, though we used it less as the hours went by: everyone already knew what they had to do.</li>
   <li>Every so often I went around to each team member to see what they were doing and how it was going.</li>
 </ul>
 
 <h3>What I made</h3>
 <ul>
-  <li>A 3D model based on the room we were all in (Le Shadok). I took photos to recreate the textures and used a texture atlas to optimize the game.</li>
+  <li>A 3D model based on the room we were all in (Le Shadok). I took photos to recreate the textures and used a <mark>texture atlas</mark> to optimize the game.</li>
   <li>The mask I downloaded from Envato, with a license. Everything else I made myself.</li>
   <li>The audio also came from Envato, with a license. I edited some of it to get an imperceptible loop for the music and the effects, changing volume, pitch and speed so they wouldn't sound monotonous.</li>
 </ul>
@@ -80,10 +80,10 @@ hero_label: kb_figma
 {% include case/figure.html src="/assets/img/KeepBreathing/ggj-3d-level-blender.webp" w=1600 h=826 alt="Blender screenshot of the 3D living room level I modelled for the game" %}
 
 <h3>The build wouldn't compile</h3>
-<p>In the last hours, when we put everything together, it wouldn't compile properly. That left us with the game split across 3 PCs.</p>
+<p>In the last hours, when we put everything together, it wouldn't compile properly. That left us with the game <mark>split across 3 PCs</mark>.</p>
 
 <h3>A Figma prototype in 10 minutes</h3>
-<p>To make up for the game being split across 3 PCs, I made an interactive prototype in Figma, in 10 minutes, because the jury was coming to our table. That way we could show "how it would be" if the game worked: the flow from the start screen to the end, including the pause menu and a message before starting. Just by reading the line "The air is toxic, find a mask to survive", we tell the player what to do, through storytelling.</p>
+<p>To make up for the game being split across 3 PCs, I made an <mark>interactive prototype in Figma, in 10 minutes</mark>, because the jury was coming to our table. That way we could show "how it would be" if the game worked: the flow from the start screen to the end, including the pause menu and a message before starting. Just by reading the line "The air is toxic, find a mask to survive", we tell the player what to do, <mark>through storytelling</mark>.</p>
 
 <h3>Best Technical Achievement</h3>
 <p>Best Technical Achievement. Honestly, it didn't feel stressful, except for the last hours.</p>
