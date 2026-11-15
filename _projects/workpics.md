@@ -72,32 +72,32 @@ palette:
 
 {% capture long %}
 <h3>The Result</h3>
-<p>WorkPics is published on Google Play. It is a field photo reporting app for construction teams, built by a developer friend.</p>
+<p>WorkPics is <mark>published on Google Play</mark>. It is a field photo reporting app for construction teams, built by a developer friend.</p>
 <p>My friend asked me for help with the design. I designed the logo and the interface screens. This was an informal collaboration, not a client commission.</p>
-<p>My link to the Google Play release is as a tester. Google requires twelve testers before an app can leave closed testing. I was one of them.</p>
+<p>My link to the Google Play release is as a tester. Google requires <mark>twelve testers</mark> before an app can leave closed testing. I was one of them.</p>
 
 <h3>The users: construction workers with gloves, in the sun</h3>
-<p>Throughout the process, I kept in mind the user profiles described in the brief: their working conditions and an ideal user. The users are construction workers. They wear gloves and work in bright sunlight. I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
+<p>Throughout the process, I kept in mind the user profiles described in the brief: their working conditions and an ideal user. The users are construction workers. <mark>They wear gloves and work in bright sunlight</mark>. I kept the screens to the minimum: <em>"Open → Shoot → Done"</em>.</p>
 
 <h4>1 - A pencil sketch first</h4>
-<p>I started with a pencil sketch of the mobile interface and removed every non-essential element. Location, time, and user ID are captured in the background. The user only frames the shot.</p>
+<p>I started with a pencil sketch of the mobile interface and <mark>removed every non-essential element</mark>. Location, time, and user ID are captured in the background. The user only frames the shot.</p>
 <p>Defining the minimal viable flow.</p>
 <h5>Interface Choices</h5>
 <ul>
   <li><strong>Login & Forget:</strong> Workers log in once. The app remembers their session and assigned site.</li>
   <li><strong>Camera First:</strong> The interface stays close to a standard phone camera, so there's little to learn.</li>
-  <li><strong>Oversized Controls:</strong> Buttons are large and spaced out to prevent miss-clicks with gloves.</li>
+  <li><strong>Oversized Controls:</strong> Buttons are <mark>large and spaced out</mark> to prevent miss-clicks with gloves.</li>
 </ul>
 
 <h4>2 - The clickable prototype</h4>
-<p>I built a clickable prototype in Figma.</p>
+<p>I built a <mark>clickable prototype in Figma</mark>.</p>
 
 <h4>3 - The colors</h4>
 <p>White background, black text and three more colors: a fairly strong blue, #4300FF, for trust and contrast; a green only for the success icon (a check, no text); and an orange for alerts. There wasn't much else to do, since there were only a few screens.</p>
-<p>The text is black on white so it reads well in the sun, and the success check is recognizable by its shape, not only by its color.</p>
+<p>The text is black on white so it reads well in the sun, and the success check is <mark>recognizable by its shape, not only by its color</mark>.</p>
 
 <h4>4 - Logo: The Placeholder Won</h4>
-<p>I made several logo proposals, each based on research into a different visual idea for the app. The team chose none of them. They picked a placeholder I had made in five minutes.</p>
+<p>I made several logo proposals, each based on research into a different visual idea for the app. The team chose none of them. They <mark>picked a placeholder</mark> I had made in five minutes.</p>
 <p>The lesson: <strong>a simple mark that already works can beat a polished exploration.</strong></p>
 {% include case/pair.html a="/assets/img/Workpics/5.webp" a_alt="Logo construction breakdown showing W + P + checkmark geometry" a_w=1920 a_h=1080 a_caption="Composition" b="/assets/img/Workpics/19.webp" b_alt="Logo construction showing negative space usage" b_w=1920 b_h=1080 b_caption="Composition" %}
 

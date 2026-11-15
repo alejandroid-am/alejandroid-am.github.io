@@ -112,9 +112,17 @@
     };
     const reserve = () => {
       h1.style.minHeight = "";
+      h1.classList.remove("h1-break");
       const keep = word.textContent;
-      let max = 0;
-      words.forEach((w) => { word.textContent = w; max = Math.max(max, h1.offsetHeight); });
+      let max = 0, wraps = false;
+      const left = h1.getBoundingClientRect().left;
+      words.forEach((w) => {
+        word.textContent = w;
+        max = Math.max(max, h1.offsetHeight);
+        if (swap.getBoundingClientRect().left - left < 2) wraps = true;   // this word starts a new line
+      });
+      // if one word needs its own line, all words take it: a short word never jumps up a line
+      if (wraps) { h1.classList.add("h1-break"); max = 0; words.forEach((w) => { word.textContent = w; max = Math.max(max, h1.offsetHeight); }); }
       word.textContent = keep;
       h1.style.minHeight = max + "px";
     };

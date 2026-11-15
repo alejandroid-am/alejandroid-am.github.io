@@ -93,18 +93,18 @@ logos:
 
 {% capture long %}
 <h3>Version 1: coded by hand</h3>
-<p>BEDiZEN is a WebAR studio concept that gives small e-commerce businesses virtual try-ons, a feature usually reserved for large retailers. It was my final project for the CCI Campus Alsace Web UX/UI Designer certification, and the site is live.</p>
-<p>I made the first version myself, with HTML and CSS. Very little JS, or none, if I remember correctly.</p>
+<p>BEDiZEN is a WebAR studio concept that gives small e-commerce businesses <mark>virtual try-ons</mark>, a feature usually reserved for large retailers. It was my final project for the CCI Campus Alsace Web UX/UI Designer certification, and the site is live.</p>
+<p>I made the first version myself, with <mark>HTML and CSS</mark>. Very little JS, or none, if I remember correctly.</p>
 
 <h3>Users couldn't tell what was clickable</h3>
-<p>Then came the user tests: <strong>7 people with different profiles</strong> took the test. Users couldn't tell which buttons were clickable, and they didn't know where they were on the site.</p>
+<p>Then came the user tests: <strong>7 people with different profiles</strong> took the test. Users <mark>couldn't tell which buttons were clickable</mark>, and they didn't know where they were on the site.</p>
 
 <h3>A grid that holds the whole site</h3>
-<p>I did a thorough review of the brand identity and of how I wanted BEDiZEN to be different. I used AI to develop a website based on a consistent grid that would convey structure (both of work and of sustainability), seriousness and modernity, but that would be easy to use.</p>
+<p>I did a thorough review of the brand identity and of how I wanted BEDiZEN to be different. I used AI to develop a website based on <mark>a consistent grid</mark> that would convey structure (both of work and of sustainability), seriousness and modernity, but that would be easy to use.</p>
 
 <h3>I had to correct the AI</h3>
-<p>At first, the AI started out with its rounded borders and cards. The brand is more brutalist and solid, so: square corners, no rounding, none of that.</p>
-<p>I looked at groundbreaking sites, because I want to revolutionize the XR market on the web, so I went to sites like Awwwards. I asked it to create a 4-column grid that repeats across the whole site. I also had to correct the order of some things and how each column was used.</p>
+<p>At first, the AI started out with its rounded borders and cards. The brand is more brutalist and solid, so: <mark>square corners, no rounding</mark>, none of that.</p>
+<p>I looked at groundbreaking sites, because I want to revolutionize the XR market on the web, so I went to sites like Awwwards. I asked it to create a <mark>4-column grid that repeats</mark> across the whole site. I also had to correct the order of some things and how each column was used.</p>
 <p>The AI also helped me fix repeated code, where I could have used variables to reuse things and end up with fewer lines of code.</p>
 <h4>Version 1: coded by hand (HTML & CSS)</h4>
 <p><strong>What the user tests found</strong></p>
@@ -117,15 +117,15 @@ logos:
 <ul>
   <li>A 4-column grid that repeats across the whole site, with square corners.</li>
   <li>Mobile-first layout in Tailwind CSS.</li>
-  <li>Active states and breadcrumbs, so users know where they are.</li>
+  <li><mark>Active states and breadcrumbs</mark>, so users know where they are.</li>
 </ul>
 
 <h3>The setup</h3>
-<p>I created the database and the hosting, and installed WordPress, the credentials, etc. The hosting is on O2switch: I edited the server files over FTP with FileZilla, and added WordPress plugins for security, SEO, WooCommerce, contact forms and caching.</p>
+<p>I created the database and the hosting, and installed WordPress, the credentials, etc. The hosting is on O2switch: I edited the server files over FTP with FileZilla, and added <mark>WordPress plugins</mark> for security, SEO, WooCommerce, contact forms and caching.</p>
 {% include case/figure.html src="/assets/img/BEDiZEN/bedizen-wordpress-back-office.webp" w=1902 h=884 alt="The BEDiZEN WordPress dashboard, with the WooCommerce setup, Wordfence, Limit Login Attempts and Cookie Compliance blocks" caption="WordPress back office" %}
 
 <h3>Two videos, two formats</h3>
-<p>I produced two short videos that show the BEDiZEN experience. One is landscape, for YouTube. One is vertical, for Instagram and TikTok feeds.</p>
+<p>I produced <mark>two short videos</mark> that show the BEDiZEN experience. One is landscape, for YouTube. One is vertical, for Instagram and TikTok feeds.</p>
 <p><em lang="fr">La Réalité Augmentée native pour l'e-commerce</em>: Landscape format, for YouTube and other horizontal placements.</p>
 <p><em lang="fr">L'Expérience Try-On en un Clic</em>: <span lang="fr">De la simple navigation à l'immersion totale : un aperçu vertical pensé pour les réseaux sociaux.</span></p>
 
