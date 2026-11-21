@@ -58,7 +58,7 @@ logos:
 <p class="c-cta"><a class="btn" href="http://alejandro.am.servd16161.odns.fr/" target="_blank" rel="noopener noreferrer">Visit the Live Site &rarr;</a></p>
 
 {% capture before %}{% include case/figure.html src="/assets/img/BEDiZEN/bedizen_web_v1.webp" w=1884 h=874 alt="BEDiZEN website version 1, minimal layout with large whitespace" %}{% endcapture %}
-{% capture after %}{% include case/figure.html src="/assets/img/BEDiZEN/bedizen_web_v2.webp" w=1896 h=872 alt="BEDiZEN website version 2, improved navigation and responsive layout" %}{% endcapture %}
+{% capture after %}{% include case/figure.html src="/assets/img/BEDiZEN/bedizen_web_v2.webp" w=1896 h=872 alt="BEDiZEN website version 2, with a reworked navigation and a responsive layout" %}{% endcapture %}
 {% include case/compare.html title="A grid that holds the whole site" before_title="Version 1: coded by hand" before_tag="HTML & CSS" before=before after_title="Version 2: built with AI on my grid" after_tag="Current Version" after=after %}
 
 <h2>Two videos, two formats</h2>
