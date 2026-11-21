@@ -302,7 +302,9 @@ body.is-legacy { --mk-ink: url("/assets/img/strokes/marker-line-ink-legacy.svg")
 .h1-word { grid-area: 1 / 1; justify-self: start; visibility: hidden; }
 .h1-word.is-on { visibility: visible; }
 /* The yellow bar under the swap line: an irregular marker line */
-.h1-word { background: url("/assets/img/strokes/marker-line-y.svg") 0 90% / 100% .14em no-repeat; padding-bottom: .02em; }
+/* Yellow marker line drawn OVER the letters (pseudo-element above the text, not a background) */
+.h1-word { position: relative; padding-bottom: .02em; }
+.h1-word::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: url("/assets/img/strokes/marker-line-y.svg") 0 90% / 100% .14em no-repeat; }
 .js .h1-swap { cursor: pointer; }
 .h1-word.is-in { animation: h1-in .45s var(--ease) both; }
 @keyframes h1-in { from { opacity: .01; transform: translateY(.18em); } }
