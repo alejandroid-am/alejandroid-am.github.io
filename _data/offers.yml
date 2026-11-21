@@ -81,14 +81,14 @@ list:
     block: projet
     home: true
     fr:
-      title: Site vitrine
+      title: Site vitrine ou éditorial
       short: "5 pages sous WordPress, construites avec soin pour l'accessibilité."
       price: "dès 3&nbsp;000&nbsp;€"
       for: Les indépendants et petites entreprises qui ont besoin d'un site clair et professionnel.
       includes: [5 pages, WordPress, Construit avec soin pour l'accessibilité, 2 tours de retours inclus]
       excludes: [Boutique en ligne, Rédaction des textes, Hébergement et nom de domaine]
     en:
-      title: Showcase website
+      title: Showcase or editorial site
       short: 5 pages on WordPress, built with care for accessibility.
       price: "from €3,000"
       for: Freelancers and small businesses that need a clear, professional website.
