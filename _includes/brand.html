@@ -1,6 +1,5 @@
 {%- comment -%}
-  Header logo: two weights and a yellow highlighter stroke under the surname (CSS ::after,
-  decorative). Text from _config.yml (brand_first, brand_last). The link around it carries
+  Header logo: first name + surname; the surname never breaks (CSS nowrap). Text from _config.yml (brand_first, brand_last). The link around it carries
   aria-label (logo_label), so the name is read once, never spelled out.
 {%- endcomment -%}
 <span class="brand-first">{{ site.brand_first }}</span> <span class="brand-last">{{ site.brand_last }}</span>

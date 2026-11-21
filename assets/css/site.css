@@ -105,29 +105,14 @@ html:has(body.is-legacy) { scroll-behavior: auto; }
 }
 .site-header a, .site-header a:hover { color: var(--ink); }
 /* Logo "Alejandro AMARO MENDOZA" (_includes/brand.html): the previous logo type (800, 17 px,
-   -.02em) for both words, the yellow highlighter of the buttons under the surname (same SVG
-   mask + clip-path reveal). Drawn at rest; redrawn left to right on hover / keyboard focus.
-   Responsive: the first name and the surname may go on two lines when space runs out, but
+   -.02em) for both words, no decoration. Responsive: the first name and the surname may go on two lines when space runs out, but
    "AMARO MENDOZA" never breaks. Hit area 44 px without making the header taller. */
 .site-logo {
-  position: relative; isolation: isolate;
   display: inline-flex; flex-wrap: wrap; align-items: baseline; column-gap: .28em; row-gap: 2px; justify-self: start;
   padding-block: 13px; margin-block: -13px;
   font-weight: 800; font-size: 17px; line-height: 1.2; letter-spacing: -.02em; text-decoration: none;
 }
-.brand-last { position: relative; white-space: nowrap; }
-.brand-last::after {
-  --hl: url("/assets/img/strokes/highlight-1.svg");
-  content: ""; position: absolute; left: -.12em; right: -.08em; bottom: -.2em; height: .42em; z-index: -1; pointer-events: none;
-  -webkit-mask: var(--hl) center / 100% 100% no-repeat; mask: var(--hl) center / 100% 100% no-repeat;
-  background: var(--y);
-  clip-path: inset(0 0 0 0);
-}
-@keyframes brand-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
-.site-logo:focus-visible .brand-last::after { animation: brand-draw .4s cubic-bezier(.45, .05, .35, 1) both; }
-@media (hover: hover) { .site-logo:hover .brand-last::after { animation: brand-draw .4s cubic-bezier(.45, .05, .35, 1) both; } }
-@media (prefers-reduced-motion: reduce) { .site-logo .brand-last::after { animation: none !important; } }
-@media (forced-colors: active) { .brand-last::after { display: none; } }
+.brand-last { white-space: nowrap; }
 .site-nav { margin-left: auto; }
 .site-nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .site-nav a { font-size: 16px; font-weight: 500; text-decoration: none; padding: 6px 0; text-underline-offset: 6px; text-decoration-thickness: 2px; }
