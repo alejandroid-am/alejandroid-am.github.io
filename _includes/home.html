@@ -43,6 +43,9 @@
     {%- endfor %}
   </ul>
   <p class="after"><a href="{{ ui.services }}" class="link-arrow">{{ h.what_all }}<span aria-hidden="true"> →</span></a><span>{{ h.vat }}</span></p>
+  {%- if h.more_q %}
+  <p class="after after-more">{{ h.more_q }} <a href="{{ t.contact_url }}" class="link-arrow">{{ h.more_link }}<span aria-hidden="true">&nbsp;→</span></a></p>
+  {%- endif %}
 </section>
 
 <!-- Projects rail: projects with home_order (not hide_from_home), first rail_limit,

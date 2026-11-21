@@ -135,11 +135,11 @@ list:
     block: agences
     fr:
       title: Agences
-      short: "Je renforce votre équipe en régie ou en sous-traitance&nbsp;: webdesign, graphisme, intégration WordPress/PrestaShop."
+      short: "Je renforce votre équipe en régie ou en sous-traitance&nbsp;: web design, UX/UI, design graphique, intégration WordPress/PrestaShop."
       price: "350&nbsp;€/jour"
       request: Proposer une mission
     en:
       title: Agencies
-      short: "I reinforce your team, on-site or as a subcontractor: web design, graphic design, WordPress/PrestaShop integration."
+      short: "I reinforce your team, on-site or as a subcontractor: web design, UX/UI, graphic design, WordPress/PrestaShop integration."
       price: "€350/day"
       request: Propose an assignment

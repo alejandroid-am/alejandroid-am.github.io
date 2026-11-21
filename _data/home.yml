@@ -26,6 +26,9 @@ fr:
   scene: "Une boutique peut être belle et perdre ses ventes entre la fiche produit, le panier et la commande."
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
+  # Discreet line under the home offers (no price), links to the contact page like the main CTA
+  more_q: "Une application, un outil ou des visuels&nbsp;?"
+  more_link: Parlons-en.
   vat: "TVA non applicable, art. 293 B du CGI."
   projects_title: Projets
   projects_all: Voir tous les projets
@@ -52,6 +55,8 @@ en:
   scene: "A shop can look beautiful and still lose sales between the product page, the cart and the checkout."
   what_title: What I do for you
   what_all: See all offers
+  more_q: An app, a tool or visuals?
+  more_link: "Let's talk."
   vat: "VAT not applicable, art. 293 B of the French tax code (CGI)."
   projects_title: Selected Work
   projects_all: View all projects

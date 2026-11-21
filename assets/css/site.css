@@ -315,6 +315,7 @@ html:not(.js) .h1-hint { visibility: hidden; }
 
 .home-offers { padding: 104px var(--pad) 88px; border-top: 1px solid var(--line); }
 .home-offers .after { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 28px; font-size: 15px; color: var(--mute); }
+.home-offers .after-more { margin-top: 14px; gap: 6px 10px; }
 
 /* Projects rail. Default: native horizontal scroller with scroll-snap.
    Wide screens with motion allowed: pinned + translateX (site.js), with a short
