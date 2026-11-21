@@ -322,6 +322,17 @@ html:not(.js) .h1-hint { visibility: hidden; }
 
 .scene { min-height: 150vh; padding: 14vh var(--pad); border-top: 1px solid var(--line); }
 .scene-pin { position: sticky; top: calc(30vh - 44px); }
+/* Two steps: one under the other by default; stacked in one cell on desktop with motion,
+   step 2 fading in when step 1 is fully lit (site.js sets .at-2) */
+.lit-step { margin: 0; }
+.lit-step + .lit-step { margin-top: .6em; }
+@media (min-width: 861px) {
+  .scene:has(.lit-step + .lit-step) { min-height: 220vh; }
+  .js-motion .lit-steps { display: grid; }
+  .js-motion .lit-step { grid-area: 1 / 1; margin: 0; transition: opacity .35s; }
+  .js-motion .lit-steps:not(.at-2) .lit-step + .lit-step,
+  .js-motion .lit-steps.at-2 .lit-step:first-child { opacity: 0; }
+}
 
 .home-offers { padding: 104px var(--pad) 88px; border-top: 1px solid var(--line); }
 .home-offers .after { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 28px; font-size: 15px; color: var(--mute); }

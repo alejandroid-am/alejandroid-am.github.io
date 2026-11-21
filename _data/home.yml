@@ -20,10 +20,14 @@ fr:
   value: "Alejandro Amaro Mendoza, à Strasbourg. Boutiques en ligne (PrestaShop, WordPress), sites vitrines, applications mobiles, outils sur mesure. En français, in English, en español."
   offers_btn: Voir les offres
   about_btn: Parcours et compétences
-  # One scene: a sentence that lights up word by word while scrolling.
-  # [[BORRADOR]] Draft written from the offers: rewrite it.
+  # One scene, two steps: the words of step 1 light up while scrolling, then step 2
+  # takes its place and lights up (desktop). Both are in the HTML; without JS, with
+  # reduced motion and on phones / tablets they are shown one under the other, fully lit.
+  # Each step must make sense on its own. Plain text only (no HTML).
   scene_label: Le point de départ
-  scene: "Une boutique peut être belle et perdre ses ventes entre la fiche produit, le panier et la commande."
+  scene:
+    - "Une boutique peut être très belle et perdre des visiteurs entre la fiche produit, le panier et le paiement."
+    - "Pareil pour une appli ou un site. J'examine chaque étape du visiteur et je la rends plus claire."
   what_title: Ce que je fais pour vous
   what_all: Voir toutes les offres
   # Discreet line under the home offers (no price), links to the contact page like the main CTA
@@ -50,9 +54,10 @@ en:
   value: "Alejandro Amaro Mendoza, based in Strasbourg. Online shops (PrestaShop, WordPress), showcase sites, mobile apps, custom tools. En français, in English, en español."
   offers_btn: See the offers
   about_btn: Background and skills
-  # [[BORRADOR]] Translation of the FR draft.
   scene_label: The starting point
-  scene: "A shop can look beautiful and still lose sales between the product page, the cart and the checkout."
+  scene:
+    - "A shop can look great and still lose people between the product page, the cart and the checkout."
+    - "The same goes for an app or a website. I look at each step a visitor takes, and I make it clearer."
   what_title: What I do for you
   what_all: See all offers
   more_q: An app, a tool or visuals?

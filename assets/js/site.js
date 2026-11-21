@@ -141,11 +141,14 @@
 
   /* 5. Lit words, 6. rail, 7. timeline: one rAF scroll loop ------- */
   const narrow = matchMedia("(max-width: 860px)"); // phones / tablets: no word reveal (CSS shows the sentence lit)
-  const lits = [...document.querySelectorAll(".lit")].map((el) => ({ el, w: [...el.querySelectorAll(".w")], scene: el.closest(".scene"), pin: el.closest(".scene-pin") }));
+  const lits = [...document.querySelectorAll(".lit")].map((el) => {
+    const steps = el.querySelectorAll(".lit-step");
+    return { el, w: [...el.querySelectorAll(".w")], scene: el.closest(".scene"), pin: el.closest(".scene-pin"), first: steps.length > 1 ? steps[0].querySelectorAll(".w").length : 0 };
+  });
   // In a scene the words light up from the moment the sentence enters the screen
   // until 85% of its sticky stretch, so the scroll never "stalls" on a sentence
   // that is already fully lit (same timing on phones and desktops).
-  const light = (vh) => lits.forEach(({ el, w, scene, pin }) => {
+  const light = (vh) => lits.forEach(({ el, w, scene, pin, first }) => {
     const r = (scene || el).getBoundingClientRect();
     let p;
     if (scene && pin) {
@@ -155,8 +158,13 @@
       const end = r.height - (parseFloat(getComputedStyle(pin).top) || 0) - pin.offsetHeight - padB;
       p = clamp((-r.top - start) / Math.max(1, (end - start) * 0.85));
     } else p = clamp((vh * 0.9 - r.top) / (vh * 0.45 + r.height * 0.5));
-    const n = Math.round(p * w.length);
+    // Two-step scene: step 1 stays fully lit for HOLD "words" of scroll, then step 2 takes its
+    // place (CSS stacks them on desktop) and lights up in turn
+    const HOLD = first ? 6 : 0;
+    const m = Math.round(p * (w.length + HOLD));
+    const n = m <= first ? m : Math.max(first, m - HOLD);
     w.forEach((x, k) => x.classList.toggle("on", k < n));
+    if (first) el.classList.toggle("at-2", m > first + HOLD / 2);
   });
 
   const rail = document.querySelector("[data-rail]");

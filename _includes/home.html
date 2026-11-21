@@ -23,12 +23,18 @@
   </p>
 </section>
 
-<!-- One scene: the sentence stays in place while its words light up (max ~1.5 screens) -->
+<!-- One scene in two steps (h.scene): the sentences stay in place while their words light up;
+     on desktop with motion, step 2 replaces step 1 in the same spot (both stacked in one grid
+     cell, so nothing moves). Without JS / reduced motion / phones: one under the other, lit. -->
 <section class="scene" aria-labelledby="scene-label">
   <!-- Label and sentence share ONE sticky box, so they stick and leave together (no overlap) -->
   <div class="scene-pin">
     <p class="chap" id="scene-label">{{ h.scene_label }}</p>
-    <p class="big lit">{% include lit.html text=h.scene %}</p>
+    <div class="lit lit-steps">
+      {%- for step in h.scene %}
+      <p class="big lit-step">{% include lit.html text=step %}</p>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
