@@ -104,22 +104,21 @@ html:has(body.is-legacy) { scroll-behavior: auto; }
   min-height: var(--header-h); padding-inline: var(--pad);
 }
 .site-header a, .site-header a:hover { color: var(--ink); }
-/* Logo "Alejandro AMARO MENDOZA" (_includes/brand.html): first name in the normal weight,
-   surname smaller, semibold, spaced, with the yellow highlighter of the buttons under it
-   (same SVG mask + clip-path reveal). Drawn at rest; redrawn left to right on hover /
-   keyboard focus. Hit area 44 px tall without making the header taller (padding cancelled
-   by a negative margin). */
+/* Logo "Alejandro AMARO MENDOZA" (_includes/brand.html): the previous logo type (800, 17 px,
+   -.02em) for both words, the yellow highlighter of the buttons under the surname (same SVG
+   mask + clip-path reveal). Drawn at rest; redrawn left to right on hover / keyboard focus.
+   Responsive: the first name and the surname may go on two lines when space runs out, but
+   "AMARO MENDOZA" never breaks. Hit area 44 px without making the header taller. */
 .site-logo {
   position: relative; isolation: isolate;
-  display: inline-flex; align-items: baseline; gap: .42em; justify-self: start;
-  padding-block: 14px; margin-block: -14px;
-  font-weight: 400; font-size: 17px; line-height: 1; letter-spacing: -.01em; text-decoration: none; white-space: nowrap;
+  display: inline-flex; flex-wrap: wrap; align-items: baseline; column-gap: .28em; row-gap: 2px; justify-self: start;
+  padding-block: 13px; margin-block: -13px;
+  font-weight: 800; font-size: 17px; line-height: 1.2; letter-spacing: -.02em; text-decoration: none;
 }
-.brand-first { font-weight: 400; }
-.brand-last { position: relative; font-size: .65em; font-weight: 600; letter-spacing: .12em; }
+.brand-last { position: relative; white-space: nowrap; }
 .brand-last::after {
   --hl: url("/assets/img/strokes/highlight-1.svg");
-  content: ""; position: absolute; left: -.2em; right: -.05em; bottom: -.3em; height: .62em; z-index: -1; pointer-events: none;
+  content: ""; position: absolute; left: -.12em; right: -.08em; bottom: -.2em; height: .42em; z-index: -1; pointer-events: none;
   -webkit-mask: var(--hl) center / 100% 100% no-repeat; mask: var(--hl) center / 100% 100% no-repeat;
   background: var(--y);
   clip-path: inset(0 0 0 0);
@@ -781,9 +780,6 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
   .site-nav a { font-size: 15px; }
   .lang-pick { grid-column: 2; grid-row: 1; }
   body.is-legacy .site-header-inner { padding-block: 10px 0; }
-  /* Logo stacked: first name above, surname below; same height as the one-line logo it replaces */
-  .site-logo { flex-direction: column; align-items: flex-start; gap: 3px; padding-block: 9px; margin-block: -9px; }
-  .brand-last { line-height: .9; }
 
   .home-hero { min-height: 0; padding-top: 48px; }
   /* Phones and tablets: no word reveal, no sticky (the sentence is simply shown) */
