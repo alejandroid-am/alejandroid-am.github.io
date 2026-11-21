@@ -17,7 +17,7 @@ fr:
     hint: Survolez ou cliquez la dernière ligne.
     next_label: Afficher une autre fin de phrase
   # Factual sentence (who, what, where, for whom), visible for visitors and search engines.
-  value: "Alejandro Amaro Mendoza, designer web &amp; e&#8209;commerce à Strasbourg. Je travaille pour les petites boutiques en ligne et les PME, sur PrestaShop et WordPress. En français, in English, en español."
+  value: "Alejandro Amaro Mendoza, à Strasbourg. Boutiques en ligne (PrestaShop, WordPress), sites vitrines, applications mobiles, outils sur mesure. En français, in English, en español."
   offers_btn: Voir les offres
   about_btn: Parcours et compétences
   # One scene: a sentence that lights up word by word while scrolling.
@@ -44,7 +44,7 @@ en:
     fit: 9.95   # widest line = line1, 9.76 em
     hint: Hover over or click the last line.
     next_label: Show another ending
-  value: "Alejandro Amaro Mendoza, web &amp; e&#8209;commerce designer in Strasbourg. I work for small online shops and SMEs, with PrestaShop and WordPress. En français, in English, en español."
+  value: "Alejandro Amaro Mendoza, based in Strasbourg. Online shops (PrestaShop, WordPress), showcase sites, mobile apps, custom tools. En français, in English, en español."
   offers_btn: See the offers
   about_btn: Background and skills
   # [[BORRADOR]] Translation of the FR draft.
