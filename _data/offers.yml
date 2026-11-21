@@ -118,17 +118,30 @@ list:
     block: recurrent
     fr:
       title: Visuels mensuels pour votre boutique
-      short: Bannières, fiches produit, retouche et campagnes, chaque mois.
+      short: "Bannières, visuels de fiches produit, retouche et campagnes, chaque mois. 3 visuels inclus."
       price: "dès 300&nbsp;€/mois"
       for: Les boutiques en ligne qui ont besoin de visuels réguliers, sans recruter.
-      includes: [Bannières, Visuels pour fiches produit, Retouche photo, Visuels de campagne]
+      # No field for a note: the extra-visual price is the last line of the list.
+      includes:
+        - "3 visuels par mois (bannière, visuel de fiche produit ou de campagne)"
+        - "Ou la retouche de 10 photos, comptée comme 1 visuel"
+        - "2 séries de retours par visuel"
+        - "Livraison sous 5 jours ouvrés après réception de vos éléments"
+        - "Vous fournissez photos produits, logo et textes&nbsp;; pour l'ambiance, j'utilise des banques d'images à licence libre"
+        - "Visuel supplémentaire&nbsp;: 90&nbsp;€, précisé dans le devis"
       excludes: [Prise de vue photo, Impression]
     en:
       title: Monthly visuals for your shop
-      short: Banners, product pages, retouching and campaigns, every month.
+      short: "Banners, product page visuals, retouching and campaigns, every month. 3 visuals included."
       price: "from €300/month"
       for: Online shops that need visuals every month, without hiring.
-      includes: [Banners, Product page visuals, Photo retouching, Campaign visuals]
+      includes:
+        - "3 visuals per month (banner, product page visual or campaign visual)"
+        - "Or the retouching of 10 photos, counted as 1 visual"
+        - "2 rounds of feedback per visual"
+        - "Delivery within 5 working days after receiving your material"
+        - "You provide the product photos, logo and texts; for ambience images I use free-licence image libraries"
+        - "Extra visual: €90 each, set out in the quote"
       excludes: [Photo shoots, Printing]
 
   - id: agences
