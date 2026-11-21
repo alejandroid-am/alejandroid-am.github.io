@@ -8,6 +8,11 @@ lang: fr
 # is not rendered at all (no marker on screen). The header button reads
 # "Me contacter" until cal_url is set, then "Échanger 20 min".
 cal_url: ""        # Not used for now (decision of Ale, 13/11/2026): no booking link.
+# Header logo (_includes/brand.html): first name + surname, written as shown (the
+# surname already in capitals, no text-transform). The accessible name of the link
+# is logo_label in _data/i18n.yml.
+brand_first: Alejandro
+brand_last: AMARO MENDOZA
 instagram_url: "https://www.instagram.com/alejandroid_a.m/"
 siret: "108 337 783 00014"  # SIREN 108 337 783
 address: "67 rue de Saint-Dié, 67100 Strasbourg"  # TEMPORARY: current home address, shown ONLY on the legal notice (mentions-legales.html). Replace when the business address changes (domiciliation). Never use it elsewhere (no footer, no JSON-LD, no meta).

@@ -104,7 +104,31 @@ html:has(body.is-legacy) { scroll-behavior: auto; }
   min-height: var(--header-h); padding-inline: var(--pad);
 }
 .site-header a, .site-header a:hover { color: var(--ink); }
-.site-logo { font-weight: 800; font-size: 17px; letter-spacing: -.02em; text-decoration: none; white-space: nowrap; }
+/* Logo "Alejandro AMARO MENDOZA" (_includes/brand.html): first name in the normal weight,
+   surname smaller, semibold, spaced, with the yellow highlighter of the buttons under it
+   (same SVG mask + clip-path reveal). Drawn at rest; redrawn left to right on hover /
+   keyboard focus. Hit area 44 px tall without making the header taller (padding cancelled
+   by a negative margin). */
+.site-logo {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: baseline; gap: .42em; justify-self: start;
+  padding-block: 14px; margin-block: -14px;
+  font-weight: 400; font-size: 17px; line-height: 1; letter-spacing: -.01em; text-decoration: none; white-space: nowrap;
+}
+.brand-first { font-weight: 400; }
+.brand-last { position: relative; font-size: .65em; font-weight: 600; letter-spacing: .12em; }
+.brand-last::after {
+  --hl: url("/assets/img/strokes/highlight-1.svg");
+  content: ""; position: absolute; left: -.2em; right: -.05em; bottom: -.3em; height: .62em; z-index: -1; pointer-events: none;
+  -webkit-mask: var(--hl) center / 100% 100% no-repeat; mask: var(--hl) center / 100% 100% no-repeat;
+  background: var(--y);
+  clip-path: inset(0 0 0 0);
+}
+@keyframes brand-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.site-logo:focus-visible .brand-last::after { animation: brand-draw .4s cubic-bezier(.45, .05, .35, 1) both; }
+@media (hover: hover) { .site-logo:hover .brand-last::after { animation: brand-draw .4s cubic-bezier(.45, .05, .35, 1) both; } }
+@media (prefers-reduced-motion: reduce) { .site-logo .brand-last::after { animation: none !important; } }
+@media (forced-colors: active) { .brand-last::after { display: none; } }
 .site-nav { margin-left: auto; }
 .site-nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .site-nav a { font-size: 16px; font-weight: 500; text-decoration: none; padding: 6px 0; text-underline-offset: 6px; text-decoration-thickness: 2px; }
@@ -757,6 +781,9 @@ html.no-js .case-c .carousel-btn, html.no-js .case-c .carousel-counter { display
   .site-nav a { font-size: 15px; }
   .lang-pick { grid-column: 2; grid-row: 1; }
   body.is-legacy .site-header-inner { padding-block: 10px 0; }
+  /* Logo stacked: first name above, surname below; same height as the one-line logo it replaces */
+  .site-logo { flex-direction: column; align-items: flex-start; gap: 3px; padding-block: 9px; margin-block: -9px; }
+  .brand-last { line-height: .9; }
 
   .home-hero { min-height: 0; padding-top: 48px; }
   /* Phones and tablets: no word reveal, no sticky (the sentence is simply shown) */

@@ -98,7 +98,7 @@
 
   <header class="site-header">
     <div class="site-header-inner">
-      <a href="{{ nav_t.home }}"{% if swap_nav %} data-href-en="{{ nav_en.home }}"{% endif %} class="site-logo" aria-label="{{ t.logo_label }}">Alejandro A.M.</a>
+      <a href="{{ nav_t.home }}"{% if swap_nav %} data-href-en="{{ nav_en.home }}"{% endif %} class="site-logo" aria-label="{{ t.logo_label }}">{% include brand.html %}</a>
       <nav class="site-nav" aria-label="{{ t.nav_label }}">
         <ul>
           {%- for item in t.nav %}

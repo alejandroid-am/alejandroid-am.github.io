@@ -8,7 +8,7 @@ fr:
   site_title: Alejandro Amaro | Designer web et e-commerce
   home: /
   skip: Aller au contenu principal
-  logo_label: Alejandro A.M., accueil
+  logo_label: Alejandro Amaro Mendoza, accueil
   nav_label: Navigation principale
   nav:
     - label: Services
@@ -72,7 +72,7 @@ en:
   site_title: Alejandro Amaro | Web and e-commerce designer
   home: /en/
   skip: Skip to main content
-  logo_label: Alejandro A.M., Home
+  logo_label: Alejandro Amaro Mendoza, home
   nav_label: Main navigation
   nav:
     - label: Services
