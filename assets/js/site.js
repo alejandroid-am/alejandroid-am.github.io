@@ -5,7 +5,7 @@
    1. Language: remember the choice, EN paths on English-only pages
    2. (FR / EN are plain links: the active one is underlined in CSS)
    3. Copy the email
-   4. Home H1: interchangeable last word
+   4. Home H1: interchangeable third line
    5. Words that light up with the scroll
    6. Projects rail (pinned, short vertical distance per card)
    7. Timeline (About)
@@ -97,39 +97,37 @@
     });
   }
 
-  /* 4. Home H1: interchangeable last word ------------------------
-     Mouse hover (after 120 ms) or a click on the word shows the next word. The H1 height is reserved for the longest word. */
+  /* 4. Home H1: the third line is interchangeable ----------------
+     The variants are stacked in the HTML (width reserved, no shift); only .is-on shows.
+     Mouse hover (after 120 ms), a click / tap on the line, or the hint button (keyboard)
+     shows the next one. The accessible name never changes (sr-only first variant). */
   const swap = document.querySelector(".h1-swap");
   if (swap) {
     const h1 = swap.closest("h1");
-    const word = swap.querySelector(".h1-word");
-    const words = JSON.parse(swap.dataset.words || "[]");
-    let i = 0, timer = 0;
+    const items = [...swap.querySelectorAll(".h1-word")];
+    const nextBtn = document.querySelector("[data-h1-next]");
+    let i = Math.max(0, items.findIndex((w) => w.classList.contains("is-on"))), timer = 0;
     const show = (n) => {
-      i = (n + words.length) % words.length;
-      word.textContent = words[i];
-      if (!reduce) { word.classList.remove("is-in"); void word.offsetWidth; word.classList.add("is-in"); }
+      items[i].classList.remove("is-on", "is-in");
+      i = (n + items.length) % items.length;
+      items[i].classList.add("is-on");
+      if (!reduce) { void items[i].offsetWidth; items[i].classList.add("is-in"); }
     };
-    const reserve = () => {
-      h1.style.minHeight = "";
-      h1.classList.remove("h1-break");
-      const keep = word.textContent;
-      let max = 0, wraps = false;
-      const left = h1.getBoundingClientRect().left;
-      words.forEach((w) => {
-        word.textContent = w;
-        max = Math.max(max, h1.offsetHeight);
-        if (swap.getBoundingClientRect().left - left < 2) wraps = true;   // this word starts a new line
-      });
-      // if one word needs its own line, all words take it: a short word never jumps up a line
-      if (wraps) { h1.classList.add("h1-break"); max = 0; words.forEach((w) => { word.textContent = w; max = Math.max(max, h1.offsetHeight); }); }
-      word.textContent = keep;
-      h1.style.minHeight = max + "px";
+    // Safety net: if a line is wider than the H1 (other font, edited text), shrink the H1
+    // until every line fits, so line 1 never breaks and the swap line stays third.
+    const fit = () => {
+      h1.style.fontSize = "";
+      const lines = [...h1.querySelectorAll(".h1-line")];
+      for (let k = 0; k < 4; k++) {
+        const widest = Math.max(...lines.map((l) => l.scrollWidth));
+        if (widest <= h1.clientWidth + 1) break;
+        h1.style.fontSize = (parseFloat(getComputedStyle(h1).fontSize) * h1.clientWidth / widest * 0.99) + "px";
+      }
     };
-    if (words.length > 1) {
-      reserve();
-      addEventListener("resize", reserve, { passive: true });
-      document.fonts && document.fonts.ready.then(reserve);
+    fit();
+    addEventListener("resize", fit, { passive: true });
+    document.fonts && document.fonts.ready.then(fit);
+    if (items.length > 1) {
       swap.addEventListener("pointerenter", (e) => {
         if (e.pointerType !== "mouse") return;
         clearTimeout(timer);
@@ -137,7 +135,8 @@
       });
       swap.addEventListener("pointerleave", () => clearTimeout(timer));
       swap.addEventListener("click", () => { clearTimeout(timer); show(i + 1); });
-    }
+      nextBtn?.addEventListener("click", () => { clearTimeout(timer); show(i + 1); });
+    } else if (nextBtn) nextBtn.hidden = true;
   }
 
   /* 5. Lit words, 6. rail, 7. timeline: one rAF scroll loop ------- */

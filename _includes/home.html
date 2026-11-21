@@ -3,10 +3,19 @@
 {%- assign ui = site.data.offers.ui[page.lang] | default: site.data.offers.ui.fr -%}
 {%- assign ct = site.data.contact[page.lang] | default: site.data.contact.fr -%}
 
-<!-- Hero: the last word of the H1 is interchangeable (site.js). Without JS the first word stays. -->
+<!-- Hero: three lines, the third one interchangeable (site.js). Every variant is in the
+     HTML, stacked in one grid cell (the widest one reserves the width: no layout shift).
+     The stack is aria-hidden; the accessible name always ends with the first variant
+     (sr-only copy). Without JS the first variant stays and the hint is invisible. -->
 <section class="home-hero" aria-labelledby="home-h1">
-  <h1 class="display hero-h1 hero-in" id="home-h1">{{ h.h1.before }} <span class="h1-swap" data-words='{{ h.h1.words | jsonify | replace: "'", "&#39;" }}'><span class="h1-word">{{ h.h1.words | first }}</span></span>{{ h.h1.after }}</h1>
-  <p class="h1-tools hero-in"><span class="h1-hint" aria-hidden="true">{{ h.h1.hint }}</span></p>
+  <h1 class="display hero-h1 hero-in" id="home-h1" style="--h1-fit: {{ h.h1.fit | default: 9.5 }}">
+    <span class="h1-line">{{ h.h1.line1 }}</span>
+    <span class="h1-line">{{ h.h1.line2 }}</span>
+    <span class="h1-line h1-swap"><span class="sr-only">{{ h.h1.words | first }}</span><span class="h1-stack" aria-hidden="true">
+      {%- for w in h.h1.words %}<span class="h1-word{% if forloop.first %} is-on{% endif %}">{{ w }}</span>{% endfor -%}
+    </span></span>
+  </h1>
+  <p class="h1-tools hero-in"><button type="button" class="h1-hint" data-h1-next aria-label="{{ h.h1.next_label }}">{{ h.h1.hint }}</button></p>
   <p class="value hero-in">{{ h.value }}</p>
   <p class="btn-row hero-in">
     <a href="{{ ui.services }}" class="btn">{{ h.offers_btn }}</a>

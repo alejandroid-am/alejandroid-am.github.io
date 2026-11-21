@@ -2,14 +2,20 @@
 # The process ("Comment ça se passe") now lives on /services/ (services_page.yml).
 
 fr:
-  # H1: fixed start + one interchangeable last word + end. The first word is the
-  # one in the HTML (no JS, search engines). Hover (mouse) or a click on the word
-  # shows the next one.
+  # H1: three lines, the third one interchangeable (no final full stop). The first
+  # variant is the one in the HTML (no JS, search engines) and the accessible name.
+  # Hover (mouse), a click / tap on the line, or the hint button shows the next one.
+  # fit: width in em of the widest line (line1 here = 9.06 em with Bricolage 800),
+  # plus a small margin. The H1 size is the container width / fit, so line 1 never
+  # breaks and the third line stays the third line. Re-measure if you change a text
+  # (site.js shrinks the H1 anyway if a line would not fit).
   h1:
-    before: Je conçois des boutiques en ligne
-    words: [claires, rassurantes, simples à utiliser]
-    after: "."
-    hint: Survolez ou cliquez le dernier mot.
+    line1: "Designer web et UX/UI,"
+    line2: je conçois
+    words: [des interfaces claires, des boutiques en ligne, des sites vitrines, des applications, des outils sur mesure, des visuels]
+    fit: 9.25
+    hint: Survolez ou cliquez la dernière ligne.
+    next_label: Afficher une autre fin de phrase
   # Factual sentence (who, what, where, for whom), visible for visitors and search engines.
   value: "Alejandro Amaro Mendoza, designer web &amp; e&#8209;commerce à Strasbourg. Je travaille pour les petites boutiques en ligne et les PME, sur PrestaShop et WordPress. En français, in English, en español."
   offers_btn: Voir les offres
@@ -32,10 +38,12 @@ fr:
 
 en:
   h1:
-    before: I design online shops that are
-    words: [clear, reassuring, easy to use]
-    after: "."
-    hint: Hover over or click the last word.
+    line1: "Web and UX/UI designer,"
+    line2: I create
+    words: [clear interfaces, online shops, showcase sites, mobile apps, custom tools, visuals]
+    fit: 9.95   # widest line = line1, 9.76 em
+    hint: Hover over or click the last line.
+    next_label: Show another ending
   value: "Alejandro Amaro Mendoza, web &amp; e&#8209;commerce designer in Strasbourg. I work for small online shops and SMEs, with PrestaShop and WordPress. En français, in English, en español."
   offers_btn: See the offers
   about_btn: Background and skills
