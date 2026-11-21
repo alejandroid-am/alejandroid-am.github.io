@@ -1,6 +1,6 @@
 # alejandro-is.me
 
-> Personal portfolio of Alejandro Amaro Mendoza — Product & Visual Designer based in Strasbourg, France.
+> Personal portfolio of Alejandro Amaro Mendoza, web and UX/UI designer based in Strasbourg, France: online shops (PrestaShop, WordPress), showcase sites, mobile apps and custom tools. FR, EN, ES.
 
 ## Site Structure
 

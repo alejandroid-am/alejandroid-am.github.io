@@ -10,7 +10,7 @@
 {%- endcomment -%}
 {%- assign page_lang = page.lang | default: site.lang | default: 'fr' -%}
 {%- assign base = site.url -%}
-{%- if page_lang == 'en' -%}{%- assign job = "Web and e-commerce designer" -%}{%- assign home_name = "Home" -%}{%- assign home_url = "/en/" -%}{%- else -%}{%- assign job = "Designer web et e-commerce" -%}{%- assign home_name = "Accueil" -%}{%- assign home_url = "/" -%}{%- endif -%}
+{%- if page_lang == 'en' -%}{%- assign job = "Web and UX/UI designer" -%}{%- assign home_name = "Home" -%}{%- assign home_url = "/en/" -%}{%- else -%}{%- assign job = "Designer web et UX/UI" -%}{%- assign home_name = "Accueil" -%}{%- assign home_url = "/" -%}{%- endif -%}
 {%- assign is_home = false -%}{%- if page.url == "/" or page.url == "/en/" -%}{%- assign is_home = true -%}{%- endif -%}
 {%- assign is_services = false -%}{%- if page.url == "/services/" or page.url == "/en/services/" -%}{%- assign is_services = true -%}{%- endif -%}
 <script type="application/ld+json">
