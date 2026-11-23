@@ -5,7 +5,8 @@
   Params: src, alt, w, h (original size, from tools/optimize-images.sh),
           priority (true for the first image of the page), sizes, class,
           caption (plain text for the lightbox), caption_en (English lightbox text,
-          swapped in by site.js when the visitor browses in English)
+          swapped in by site.js when the visitor browses in English),
+          alt_fr (bilingual case: French alt by default, the English alt swapped in by site.js)
 {%- endcomment -%}
 {%- assign _ext = include.src | split: "." | last -%}
 {%- assign _dot = "." | append: _ext -%}
@@ -13,7 +14,8 @@
 {%- capture _v %}{{ _stem }}-960w.webp{% endcapture -%}
 {%- assign _found = site.static_files | where: "path", _v | first -%}
 {%- assign _sizes = include.sizes | default: "(max-width: 767px) 100vw, 1200px" -%}
-<img src="{{ include.src | uri_escape }}" alt="{{ include.alt }}"
+<img src="{{ include.src | uri_escape }}" alt="{{ include.alt_fr | default: include.alt }}"
+  {%- if include.alt_fr and include.alt_fr != "" %} data-alt-en="{{ include.alt | escape }}"{% endif %}
   {%- if include.w %} width="{{ include.w }}" height="{{ include.h }}"{% endif %}
   {%- if _found and include.w %} srcset="{{ _v | uri_escape }} 960w, {{ include.src | uri_escape }} {{ include.w }}w" sizes="{{ _sizes }}"{% endif %}
   {%- if include.caption and include.caption != "" %} data-caption="{{ include.caption | strip_html | escape }}"{% endif %}

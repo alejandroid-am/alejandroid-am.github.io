@@ -6,14 +6,19 @@
   sizes="..." (override), zoom=false (no lightbox), float=true (cut-out on a transparent
   background, PNG/WebP with alpha: no frame, no background, soft drop-shadow, so it floats).
   Caption: 1 or 2 short sentences.
+  Bilingual case: alt_fr, caption_fr (French versions; alt / caption stay the English ones).
   On layout C pages the image opens in the lightbox (a link to the file without JS).
 {%- endcomment -%}
 {%- assign _zoom = false -%}{%- if page.case_layout and include.zoom != false and include.priority != true -%}{%- assign _zoom = true -%}{%- endif %}
-{%- assign _cap = include.caption -%}{%- assign _cap_en = "" -%}
-{%- if include.tag -%}{%- assign _k = "case_" | append: include.tag -%}{%- assign _plain = include.caption | default: include.alt | strip_html -%}{%- assign _cap = site.data.i18n.fr[_k] | append: " : " | append: _plain -%}{%- assign _cap_en = site.data.i18n.en[_k] | append: ": " | append: _plain -%}{%- endif %}
+{%- assign _cap = include.caption_fr | default: include.caption -%}{%- assign _cap_en = "" -%}
+{%- if include.caption_fr and include.caption_fr != "" -%}{%- assign _cap_en = include.caption -%}{%- endif -%}
+{%- if include.tag -%}{%- assign _k = "case_" | append: include.tag -%}
+{%- assign _plain_en = include.caption | default: include.alt | strip_html -%}
+{%- assign _plain_fr = include.caption_fr | default: include.caption | default: include.alt_fr | default: include.alt | strip_html -%}
+{%- assign _cap = site.data.i18n.fr[_k] | append: " : " | append: _plain_fr -%}{%- assign _cap_en = site.data.i18n.en[_k] | append: ": " | append: _plain_en -%}{%- endif %}
 <figure class="case-fig{% if include.bleed %} is-bleed{% endif %}{% if include.narrow %} is-narrow{% endif %}{% if include.float %} float{% endif %}">
-  {% if include.tag %}<div class="case-shot is-{{ include.tag }}">{% endif %}{% if _zoom %}<a class="zoom-trigger" href="{{ include.src | uri_escape }}">{% endif %}{% include case/img.html src=include.src alt=include.alt w=include.w h=include.h priority=include.priority sizes=include.sizes caption=_cap caption_en=_cap_en %}{% if _zoom %}</a>{% endif %}{% if include.tag %}{% include label.html key=_k class="shot-tag" %}</div>{% endif %}
+  {% if include.tag %}<div class="case-shot is-{{ include.tag }}">{% endif %}{% if _zoom %}<a class="zoom-trigger" href="{{ include.src | uri_escape }}">{% endif %}{% include case/img.html src=include.src alt=include.alt alt_fr=include.alt_fr w=include.w h=include.h priority=include.priority sizes=include.sizes caption=_cap caption_en=_cap_en %}{% if _zoom %}</a>{% endif %}{% if include.tag %}{% include label.html key=_k class="shot-tag" %}</div>{% endif %}
   {%- if include.caption and include.caption != "" %}
-  <figcaption>{{ include.caption }}</figcaption>
+  <figcaption>{% include bi.html fr=include.caption_fr en=include.caption %}</figcaption>
   {%- endif %}
 </figure>

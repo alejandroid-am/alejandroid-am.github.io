@@ -64,6 +64,16 @@ fr:
   crumb_projects: Projets
   next_project: Projet suivant
   back_all: Tous les projets
+  # Case studies: metadata labels and the folded long text
+  meta_role: Rôle
+  meta_year: Année
+  meta_type: Type
+  meta_context: Contexte
+  meta_team: Équipe
+  meta_award: Prix
+  meta_tools: Outils
+  meta_result: Résultat
+  case_detail: Le détail
   locked_subject: "Étude de cas sur demande&nbsp;: %s"
   redirect_text: "Cette page a déménagé&nbsp;:"
 
@@ -126,5 +136,14 @@ en:
   crumb_projects: Projects
   next_project: Next project
   back_all: Back to all projects
+  meta_role: Role
+  meta_year: Year
+  meta_type: Type
+  meta_context: Context
+  meta_team: Team
+  meta_award: Award
+  meta_tools: Tools
+  meta_result: Result
+  case_detail: The details
   locked_subject: "Case study on request: %s"
   redirect_text: "This page has moved:"

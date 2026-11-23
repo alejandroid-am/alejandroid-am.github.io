@@ -131,12 +131,16 @@ document.addEventListener('DOMContentLoaded', () => {
             link.setAttribute('aria-label', `${L.open}: ${bentoImages[index].alt || index + 1}`);
         }
         link.setAttribute('role', 'button');
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            openLightbox(index, bentoImages, link);
-        });
+        // Bilingual case studies hold some figures twice (FR / EN): only the visible ones
+        // make up the gallery, so the arrows never land on a hidden copy.
+        const open = () => {
+            const shown = bentoLinks.filter(l => l.getClientRects().length);
+            const imgs = shown.map(l => l.querySelector('img'));
+            openLightbox(Math.max(0, shown.indexOf(link)), imgs, link);
+        };
+        link.addEventListener('click', (e) => { e.preventDefault(); open(); });
         link.addEventListener('keydown', (e) => {
-            if (e.key === ' ') { e.preventDefault(); openLightbox(index, bentoImages, link); }
+            if (e.key === ' ') { e.preventDefault(); open(); }
         });
     });
 

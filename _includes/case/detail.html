@@ -1,10 +1,17 @@
 {%- comment -%}
-  Long text folded by default ("Le détail").
+  Long text folded by default ("Le détail" / "The details", i18n key case_detail).
   {% capture long %}<p>...</p><p>...</p>{% endcapture %}
-  {% include case/detail.html summary="The detail" content=long %}
-  Option: summary_lang="fr" when the label is in another language than the page.
+  {% include case/detail.html content=long %}
+  Bilingual case: content = the English text, content_fr = the French one
+  (two blocks, only-en / only-fr, shown by the header toggle).
+  Option: summary="..." (summary_lang) replaces the bilingual label.
 {%- endcomment -%}
 <details class="case-detail">
-  <summary{% if include.summary_lang %} lang="{{ include.summary_lang }}"{% endif %}>{{ include.summary | default: "The detail" }}</summary>
+  <summary{% if include.summary_lang %} lang="{{ include.summary_lang }}"{% endif %}>{% if include.summary %}{{ include.summary }}{% else %}{% include label.html key="case_detail" %}{% endif %}</summary>
+  {%- if include.content_fr %}
+  <div class="case-detail-body only-fr" lang="fr">{{ include.content_fr }}</div>
+  <div class="case-detail-body only-en" lang="en">{{ include.content }}</div>
+  {%- else %}
   <div class="case-detail-body">{{ include.content }}</div>
+  {%- endif %}
 </details>

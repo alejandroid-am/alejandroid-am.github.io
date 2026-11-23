@@ -6,6 +6,11 @@
 {%- assign p = include.project -%}
 {%- assign h = site.data.home[include.lang] | default: site.data.home.fr -%}
 {%- assign t = site.data.i18n[include.lang] | default: site.data.i18n.fr -%}
+{%- comment -%} Bilingual case (fr: in its front matter): its French texts on the French pages. {%- endcomment -%}
+{%- assign p_title = p.title -%}{%- assign p_role = p.role_short | default: p.role -%}{%- assign p_desc = p.description -%}{%- assign p_en = false -%}
+{%- if include.lang != 'en' -%}
+{%- if p.fr -%}{%- assign p_title = p.fr.title | default: p.title -%}{%- assign p_role = p.fr.role_short | default: p.fr.role | default: p_role -%}{%- assign p_desc = p.fr.description | default: p.description -%}{%- else -%}{%- assign p_en = true -%}{%- endif -%}
+{%- endif -%}
 <li class="prow{% if p.locked %} is-locked{% endif %}">
   {%- if p.locked %}
   <span class="prow-media lock-media">{% include lock-icon.html %}</span>
@@ -15,12 +20,12 @@
   </div>
   <p class="prow-desc lock-label">{% include lock-icon.html %}{{ t.locked_label }}</p>
   {%- else %}
-  <span class="prow-media"><img src="{{ p.thumb_image | default: p.cover_image }}" alt="{{ h.cover_alt | replace: '%s', p.title }}" width="800" height="500" loading="lazy" decoding="async"></span>
+  <span class="prow-media"><img src="{{ p.thumb_image | default: p.cover_image }}" alt="{{ h.cover_alt | replace: '%s', p_title }}" width="800" height="500" loading="lazy" decoding="async"></span>
   <div>
-    <h2 class="prow-title"><a href="{{ p.url }}"{% if include.lang != 'en' %} hreflang="en"{% endif %}>{{ p.title }}</a></h2>
-    <span class="prow-meta"{% if include.lang != 'en' %} lang="en"{% endif %}>{{ p.role_short | default: p.role }}</span>
+    <h2 class="prow-title"><a href="{{ p.url }}"{% if p_en %} hreflang="en"{% endif %}>{{ p_title }}</a></h2>
+    <span class="prow-meta"{% if p_en %} lang="en"{% endif %}>{{ p_role }}</span>
   </div>
-  <p class="prow-desc"{% if include.lang != 'en' %} lang="en"{% endif %}>{{ p.description }}</p>
+  <p class="prow-desc"{% if p_en %} lang="en"{% endif %}>{{ p_desc }}</p>
   {%- endif %}
   <p class="prow-year">{{ p.year }}</p>
 </li>

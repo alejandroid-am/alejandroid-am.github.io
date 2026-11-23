@@ -129,8 +129,9 @@ button.lang-opt { font: inherit; background: none; border: 0; cursor: pointer; c
 button.lang-opt:is(:hover, :focus-visible) { --mk-u: var(--mk-mute); background-size: 100% var(--mk-h); }
 button.lang-opt[aria-pressed="true"] { --mk-u: var(--mk-ink); background-size: 100% var(--mk-h); }
 .lang-pick[hidden] { display: none; }
-.ctx-en .only-fr { display: none; }
-.c-lang-note { margin: 0 0 12px; font-size: 15px; color: var(--mute); }
+.ctx-en .only-fr { display: none !important; }
+/* Case studies hold both texts: FR by default (also without JS), EN with html.ctx-en */
+html:not(.ctx-en) .only-en { display: none !important; }
 
 /* Language hint (only when no choice is saved and the browser language differs) */
 .lang-hint { display: none; background: var(--ink); color: var(--bg); font: 500 15px/1.4 var(--font); }

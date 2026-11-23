@@ -15,8 +15,8 @@
 <ul class="case-logos" style="--n: {{ _logos.size }}">
   {%- for l in _logos %}
   <li>
-    <div class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% elsif l.bg == 'full' %} is-full{% endif %}"{% if l.scale %} style="--s: {{ l.scale }}"{% endif %}><img src="{{ l.src | uri_escape }}" alt="{{ l.alt }}"{% if l.w %} width="{{ l.w }}" height="{{ l.h }}"{% endif %} loading="lazy" decoding="async"></div>
-    {%- if l.label %}<p class="case-logo-cap">{% include label.html key=l.label %}</p>{% elsif l.caption %}<p class="case-logo-cap">{{ l.caption }}</p>{% endif %}
+    <div class="case-logo{% if l.bg == 'dark' %} on-dark{% elsif l.bg == 'accent' %} on-accent{% elsif l.bg == 'full' %} is-full{% endif %}"{% if l.scale %} style="--s: {{ l.scale }}"{% endif %}><img src="{{ l.src | uri_escape }}" alt="{{ l.alt_fr | default: l.alt }}"{% if l.alt_fr %} data-alt-en="{{ l.alt | escape }}"{% endif %}{% if l.w %} width="{{ l.w }}" height="{{ l.h }}"{% endif %} loading="lazy" decoding="async"></div>
+    {%- if l.label %}<p class="case-logo-cap">{% include label.html key=l.label %}</p>{% elsif l.caption %}<p class="case-logo-cap">{% include bi.html fr=l.caption_fr en=l.caption %}</p>{% endif %}
   </li>
   {%- endfor %}
 </ul>

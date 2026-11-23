@@ -2,7 +2,7 @@
 =================================================================
   site.js: shared behaviour (every page). Progressive enhancement:
   without JS every text and link is already in the HTML.
-   1. Language: remember the choice, EN paths on English-only pages
+   1. Language: remember the choice, FR / EN toggle on pages without a twin URL
    2. (FR / EN are plain links: the active one is underlined in CSS)
    3. Copy the email
    4. Home H1: interchangeable third line
@@ -42,9 +42,9 @@
       document.getElementById("main-content")?.focus({ preventScroll: true });
     });
   }
-  /* English-only pages (case studies, 404): FR / EN toggle in the header. It swaps
-     the bilingual labels (label.html, data-en) and the menu / back links
-     (data-href-en), both ways, and remembers the choice ("lang" + "lang_ctx"). */
+  /* Pages without a twin URL (case studies, 404): FR / EN toggle in the header. It swaps
+     the bilingual labels (label.html, data-en), the menu / back links (data-href-en)
+     and, on the case studies, the FR / EN texts (.only-fr / .only-en), both ways, and remembers the choice ("lang" + "lang_ctx"). */
   const applyLang = (lang) => {
     const en = lang === "en";
     root.classList.toggle("ctx-en", en);
@@ -61,6 +61,16 @@
       if (img.dataset.captionFr === undefined) img.dataset.captionFr = img.dataset.caption || "";
       img.dataset.caption = en ? img.dataset.captionEn : img.dataset.captionFr;
     });
+    // Bilingual case studies: image alts and video labels (data-alt-en / data-label-en)
+    document.querySelectorAll("img[data-alt-en]").forEach((img) => {
+      if (img.dataset.altFr === undefined) img.dataset.altFr = img.alt;
+      img.alt = en ? img.dataset.altEn : img.dataset.altFr;
+    });
+    document.querySelectorAll("[data-label-en]").forEach((el) => {
+      if (el.dataset.labelFr === undefined) el.dataset.labelFr = el.getAttribute("aria-label") || "";
+      el.setAttribute("aria-label", en ? el.dataset.labelEn : el.dataset.labelFr);
+    });
+    if (root.dataset.bilingual !== undefined) root.lang = lang;
     document.querySelectorAll("[data-set-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
   };
   const ctxLang = (store.get("lang") || store.get("lang_ctx", "session")) === "en" ? "en" : "fr";

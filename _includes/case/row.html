@@ -10,7 +10,8 @@
     autoplay only without reduced motion (site.js), controls otherwise.
   - title: an _data/i18n.yml key shown as an h4 above the row (e.g. case_before = Avant / Before).
   - tag: an _data/i18n.yml key "case_<tag>" shown ONCE for the row (e.g. figma = Prototype Figma).
-  - caption: optional, 1 or 2 short sentences.
+  - caption: optional, 1 or 2 short sentences (caption_fr: its French version).
+  - Bilingual case: alt_fr / label_fr on the items.
 {%- endcomment -%}
 {%- if include.items %}
 {%- assign _first = include.items | first -%}
@@ -23,20 +24,20 @@
     <div class="case-shot">
     {%- if i.video %}
       <video muted loop playsinline controls preload="metadata" data-case-video
-        {%- if i.poster %} poster="{{ i.poster | uri_escape }}"{% endif %} width="{{ i.w }}" height="{{ i.h }}" aria-label="{{ i.label }}">
+        {%- if i.poster %} poster="{{ i.poster | uri_escape }}"{% endif %} width="{{ i.w }}" height="{{ i.h }}" aria-label="{{ i.label_fr | default: i.label }}"{% if i.label_fr %} data-label-en="{{ i.label | escape }}"{% endif %}>
         {%- if i.webm %}
         <source src="{{ i.webm | uri_escape }}" type="video/webm">
         {%- endif %}
         <source src="{{ i.video | uri_escape }}" type="video/mp4">
       </video>
     {%- else %}
-    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 50vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
+    {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt alt_fr=i.alt_fr w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 50vw, 400px" %}{% if page.case_layout %}</a>{% endif %}
     {%- endif %}
     </div>
     {%- endfor %}
   </div>
   {%- if include.caption and include.caption != "" %}
-  <figcaption>{{ include.caption }}</figcaption>
+  <figcaption>{% include bi.html fr=include.caption_fr en=include.caption %}</figcaption>
   {%- endif %}
 </figure>
 {%- endif %}

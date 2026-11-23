@@ -6,13 +6,16 @@
   Options: title="..." adds a section heading (h2) above, so the Before / After
   headings (h3) never skip a level; before_tag / after_tag add a short label
   (after_tag is highlighted).
+  Bilingual case: title_fr, before_title_fr, after_title_fr, before_tag_fr, after_tag_fr
+  (the sides themselves can hold .only-fr / .only-en blocks).
 {%- endcomment -%}
+{%- assign _bt = include.before_title | default: "Before" -%}{%- assign _at = include.after_title | default: "After" -%}
 <div class="case-compare-wrap">
   {%- if include.title %}
-  <h2 class="case-compare-title">{{ include.title }}</h2>
+  <h2 class="case-compare-title">{% include bi.html fr=include.title_fr en=include.title %}</h2>
   {%- endif %}
   <div class="case-compare">
-    <div><h3>{{ include.before_title | default: "Before" }}{% if include.before_tag %} <span class="case-tag">{{ include.before_tag }}</span>{% endif %}</h3>{{ include.before }}</div>
-    <div><h3>{{ include.after_title | default: "After" }}{% if include.after_tag %} <span class="case-tag is-new">{{ include.after_tag }}</span>{% endif %}</h3>{{ include.after }}</div>
+    <div><h3>{% include bi.html fr=include.before_title_fr en=_bt %}{% if include.before_tag %} <span class="case-tag">{% include bi.html fr=include.before_tag_fr en=include.before_tag %}</span>{% endif %}</h3>{{ include.before }}</div>
+    <div><h3>{% include bi.html fr=include.after_title_fr en=_at %}{% if include.after_tag %} <span class="case-tag is-new">{% include bi.html fr=include.after_tag_fr en=include.after_tag %}</span>{% endif %}</h3>{{ include.after }}</div>
   </div>
 </div>

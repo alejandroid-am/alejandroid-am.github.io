@@ -24,34 +24,39 @@ layout: default
   a muted looping video instead of the hero image; plays only without reduced motion,
   see site.js; empty = the hero image is shown),
   hero_label (optional: an _data/i18n.yml key, short bilingual note under the hero).
+  Bilingual (FR / EN toggle, one URL): every text above is the English one; its French
+  version goes in the map fr: (title, description, summary, role, role_short, project_type,
+  context, team, award, result, hero_alt). A missing French value shows the English one.
+  In the body: .only-fr / .only-en blocks, bi.html for short texts, *_fr parameters
+  of the case/ includes (alt_fr, caption_fr, label_fr, name_fr...).
 {%- endcomment -%}
+{%- assign f = page.fr -%}
 {%- assign ordered = site.projects | where_exp: "p", "p.home_order" | where_exp: "p", "p.locked != true" | sort: "home_order" -%}
 {%- assign next_p = nil -%}{%- assign ni = nil -%}
 {%- for p in ordered -%}{%- if p.url == page.url -%}{%- assign ni = forloop.index -%}{%- endif -%}{%- endfor -%}
 {%- if ni == nil -%}{%- assign next_p = ordered.first -%}{%- elsif ni >= ordered.size -%}{%- assign next_p = ordered.first -%}{%- else -%}{%- assign next_p = ordered[ni] -%}{%- endif -%}
-<article class="case-c" lang="en">
+<article class="case-c">
   <div class="case-c-wrap">
     <nav class="case-crumbs" aria-label="Breadcrumb">
       <ol>
         <li><a href="/" data-href-en="/en/">{% include label.html key="crumb_home" %}</a></li>
         <li><a href="/projets/" data-href-en="/en/projects/">{% include label.html key="crumb_projects" %}</a></li>
-        <li aria-current="page">{{ page.title }}</li>
+        <li aria-current="page">{% include bi.html fr=f.title en=page.title %}</li>
       </ol>
     </nav>
-    <p class="c-lang-note only-fr" lang="fr">{{ site.data.projects_page.fr.note }}</p>
     <header class="c-title">
-      <h1 class="display">{{ page.title }}</h1>
-      <p class="c-summary">{{ page.summary | default: page.description }}</p>
+      <h1 class="display">{% include bi.html fr=f.title en=page.title %}</h1>
+      <p class="c-summary">{% include bi.html fr=f.summary en=page.summary %}{% unless page.summary %}{% include bi.html fr=f.description en=page.description %}{% endunless %}</p>
     </header>
     <dl class="c-meta">
-      {%- if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
-      {%- if page.year %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
-      {%- if page.project_type %}<div><dt>Type</dt><dd>{{ page.project_type }}</dd></div>{% endif %}
-      {%- if page.context %}<div><dt>Context</dt><dd>{{ page.context }}</dd></div>{% endif %}
-      {%- if page.team %}<div><dt>Team</dt><dd>{{ page.team }}</dd></div>{% endif %}
-      {%- if page.award %}<div><dt>Award</dt><dd>{{ page.award }}</dd></div>{% endif %}
-      {%- if page.tools %}<div><dt>Tools</dt><dd>{{ page.tools }}</dd></div>{% endif %}
-      {%- if page.result %}<div><dt>Result</dt><dd>{{ page.result }}</dd></div>{% endif %}
+      {%- if page.role %}<div><dt>{% include label.html key="meta_role" %}</dt><dd>{% include bi.html fr=f.role en=page.role %}</dd></div>{% endif %}
+      {%- if page.year %}<div><dt>{% include label.html key="meta_year" %}</dt><dd>{% include bi.html fr=f.year en=page.year %}</dd></div>{% endif %}
+      {%- if page.project_type %}<div><dt>{% include label.html key="meta_type" %}</dt><dd>{% include bi.html fr=f.project_type en=page.project_type %}</dd></div>{% endif %}
+      {%- if page.context %}<div><dt>{% include label.html key="meta_context" %}</dt><dd>{% include bi.html fr=f.context en=page.context %}</dd></div>{% endif %}
+      {%- if page.team %}<div><dt>{% include label.html key="meta_team" %}</dt><dd>{% include bi.html fr=f.team en=page.team %}</dd></div>{% endif %}
+      {%- if page.award %}<div><dt>{% include label.html key="meta_award" %}</dt><dd>{% include bi.html fr=f.award en=page.award %}</dd></div>{% endif %}
+      {%- if page.tools %}<div><dt>{% include label.html key="meta_tools" %}</dt><dd>{% include bi.html fr=f.tools en=page.tools %}</dd></div>{% endif %}
+      {%- if page.result %}<div><dt>{% include label.html key="meta_result" %}</dt><dd>{% include bi.html fr=f.result en=page.result %}</dd></div>{% endif %}
     </dl>
   </div>
   {%- if page.hero_image %}
@@ -63,14 +68,14 @@ layout: default
     <video class="c-hero-video" muted loop playsinline controls preload="metadata" data-hero-video
       poster="{{ page.hero_video_poster | default: page.hero_image | uri_escape }}"
       {%- if page.hero_video_w %} width="{{ page.hero_video_w }}" height="{{ page.hero_video_h }}"{% endif %}
-      aria-label="{{ page.hero_alt }}">
+      aria-label="{{ f.hero_alt | default: page.hero_alt }}"{% if f.hero_alt %} data-label-en="{{ page.hero_alt | escape }}"{% endif %}>
       {%- if page.hero_video_webm and page.hero_video_webm != "" %}
       <source src="{{ page.hero_video_webm | uri_escape }}" type="video/webm">
       {%- endif %}
       <source src="{{ page.hero_video | uri_escape }}" type="video/mp4">
     </video>
     {%- else %}
-    {% include case/img.html src=page.hero_image alt=page.hero_alt w=page.hero_w h=page.hero_h priority=true sizes="100vw" %}
+    {% include case/img.html src=page.hero_image alt=page.hero_alt alt_fr=f.hero_alt w=page.hero_w h=page.hero_h priority=true sizes="100vw" %}
     {%- endif %}
     {%- if page.hero_label %}
     <p class="c-hero-note">{% include label.html key=page.hero_label %}</p>
@@ -83,7 +88,7 @@ layout: default
   {%- if next_p %}
   <a class="c-next" href="{{ next_p.url }}">
     <span class="c-next-label">{% include label.html key="next_project" %}</span>
-    <span class="c-next-title">{{ next_p.title }} <span aria-hidden="true">&rarr;</span></span>
+    <span class="c-next-title">{% include bi.html fr=next_p.fr.title en=next_p.title %} <span aria-hidden="true">&rarr;</span></span>
   </a>
   {%- endif %}
   <div class="case-c-wrap c-back"><a href="/projets/" data-href-en="/en/projects/">&larr; {% include label.html key="back_all" %}</a></div>

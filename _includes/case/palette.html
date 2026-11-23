@@ -6,13 +6,14 @@
   style="stripes": full-width bands with the name and hex on the colour itself
   (add  text: "#FFFFFF"  to a colour when it needs light text).
   lang="fr": names written in another language than the page.
+  Bilingual case: name_fr / use_fr (French versions of name / use).
   Squares of the same size in one centred row (2 columns on phones).
   Without colours: nothing is rendered (no placeholder box).
 {%- endcomment -%}
 {%- if include.colors and include.style == "stripes" %}
 <ul class="case-stripes">
   {%- for c in include.colors %}
-  <li style="background: {{ c.hex }}; color: {{ c.text | default: '#111' }}"><strong>{{ c.name }}</strong><code>{{ c.hex }}</code>{% if c.use %}<span>{{ c.use }}</span>{% endif %}</li>
+  <li style="background: {{ c.hex }}; color: {{ c.text | default: '#111' }}"><strong>{% include bi.html fr=c.name_fr en=c.name %}</strong><code>{{ c.hex }}</code>{% if c.use %}<span>{% include bi.html fr=c.use_fr en=c.use %}</span>{% endif %}</li>
   {%- endfor %}
 </ul>
 {%- elsif include.colors %}
@@ -20,7 +21,7 @@
   {%- for c in include.colors %}
   <li class="case-swatch">
     <div class="case-swatch-color" style="background: {{ c.hex }}" aria-hidden="true"></div>
-    <p><strong>{{ c.name }}</strong><code>{{ c.hex }}</code>{% if c.use %}<span>{{ c.use }}</span>{% endif %}</p>
+    <p><strong>{% include bi.html fr=c.name_fr en=c.name %}</strong><code>{{ c.hex }}</code>{% if c.use %}<span>{% include bi.html fr=c.use_fr en=c.use %}</span>{% endif %}</p>
   </li>
   {%- endfor %}
 </ul>

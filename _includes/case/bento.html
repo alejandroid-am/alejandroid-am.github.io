@@ -12,8 +12,8 @@
   {%- for i in include.items %}
   <li style="--c: {{ i.cols | default: 2 }}; --r: {{ i.rows | default: 3 }}">
     <figure>
-      {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 100vw, 900px" %}{% if page.case_layout %}</a>{% endif %}
-      {%- if i.caption %}<figcaption>{{ i.caption }}</figcaption>{% endif %}
+      {% if page.case_layout %}<a class="zoom-trigger" href="{{ i.src | uri_escape }}">{% endif %}{% include case/img.html src=i.src alt=i.alt alt_fr=i.alt_fr w=i.w h=i.h caption=i.caption sizes="(max-width: 767px) 100vw, 900px" %}{% if page.case_layout %}</a>{% endif %}
+      {%- if i.caption %}<figcaption>{% include bi.html fr=i.caption_fr en=i.caption %}</figcaption>{% endif %}
     </figure>
   </li>
   {%- endfor %}

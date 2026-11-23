@@ -1,0 +1,10 @@
+{%- comment -%}
+  Bilingual inline text for the case studies (one page, FR / EN toggle).
+  {% include bi.html fr=page.fr.summary en=page.summary %}
+  With a French text different from the English one: two spans, only-fr / only-en,
+  shown by the header toggle (site.css + site.js, html.ctx-en). Otherwise the
+  English text alone (proper names, tools, years).
+{%- endcomment -%}
+{%- if include.fr and include.fr != "" and include.fr != include.en -%}
+<span class="only-fr" lang="fr">{{ include.fr }}</span><span class="only-en" lang="en">{{ include.en }}</span>
+{%- else -%}{{ include.en }}{%- endif -%}

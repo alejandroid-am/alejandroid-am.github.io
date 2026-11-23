@@ -2,12 +2,13 @@
   Two images side by side (stacked on phones).
   {% include case/pair.html a="/assets/img/p/a.webp" a_alt="..." a_w=1200 a_h=900
      b="/assets/img/p/b.webp" b_alt="..." b_w=1200 b_h=900 a_caption="" b_caption="" %}
+  Bilingual case: a_alt_fr / b_alt_fr, a_caption_fr / b_caption_fr.
   Options: a_tag / b_tag = "before" or "after" (corner label, see figure.html).
   class="is-contain": two equal cells of the same height, each image contained and centred.
   ratio="1600 / 681": the shape of those cells (default 3 / 2). Use the shape of the widest image
   so both images end up at the same height.
 {%- endcomment -%}
 <div class="case-pair{% if include.class %} {{ include.class }}{% endif %}"{% if include.ratio %} style="--pair-ratio: {{ include.ratio }}"{% endif %}>
-  {% include case/figure.html src=include.a alt=include.a_alt w=include.a_w h=include.a_h caption=include.a_caption tag=include.a_tag sizes="(max-width: 767px) 100vw, 600px" %}
-  {% include case/figure.html src=include.b alt=include.b_alt w=include.b_w h=include.b_h caption=include.b_caption tag=include.b_tag sizes="(max-width: 767px) 100vw, 600px" %}
+  {% include case/figure.html src=include.a alt=include.a_alt alt_fr=include.a_alt_fr w=include.a_w h=include.a_h caption=include.a_caption caption_fr=include.a_caption_fr tag=include.a_tag sizes="(max-width: 767px) 100vw, 600px" %}
+  {% include case/figure.html src=include.b alt=include.b_alt alt_fr=include.b_alt_fr w=include.b_w h=include.b_h caption=include.b_caption caption_fr=include.b_caption_fr tag=include.b_tag sizes="(max-width: 767px) 100vw, 600px" %}
 </div>
