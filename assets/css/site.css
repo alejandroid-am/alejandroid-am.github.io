@@ -125,7 +125,7 @@ a.lang-opt { color: var(--ink); }
 a.lang-opt:is(:hover, :focus-visible) { color: var(--ink); --mk-u: var(--mk-mute); background-size: 100% var(--mk-h); }
 .lang-opt.is-active { color: var(--ink); --mk-u: var(--mk-ink); background-size: 100% var(--mk-h); }
 .lang-sep { color: var(--mute); font-weight: 400; }
-button.lang-opt { font: inherit; background: none; border: 0; cursor: pointer; color: var(--ink); }
+button.lang-opt { font: inherit; background-color: transparent; border: 0; cursor: pointer; color: var(--ink); }  /* not "background: none": it would erase the marker stroke */
 button.lang-opt:is(:hover, :focus-visible) { --mk-u: var(--mk-mute); background-size: 100% var(--mk-h); }
 button.lang-opt[aria-pressed="true"] { --mk-u: var(--mk-ink); background-size: 100% var(--mk-h); }
 .lang-pick[hidden] { display: none; }
